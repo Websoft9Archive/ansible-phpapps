@@ -1,0 +1,25 @@
+---
+# Moodle-LMS
+
+- name: Download Moodle-LMS
+  unarchive:
+    src: https://download.moodle.org/stable35/moodle-3.5.2.zip
+    dest: /data/wwwroot
+    remote_src: yes
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+
+- name: Copy MySQL Config
+  template: src=my.cnf dest=/etc/my.cnf
+  notify: restart MySQL
+
+
+- name: Copy Apache Config
+  template: src=vhost.conf dest=/etc/httpd/vhost
+  notify: restart Apache
+
+
+  

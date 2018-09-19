@@ -1,0 +1,22 @@
+---
+# 禅道
+
+- name: Download ZenTaoPMS
+  unarchive:
+    src: http://dl.cnezsoft.com/zentao/10.3/ZenTaoPMS.10.3.stable.zip
+    dest: /data/wwwroot
+    remote_src: yes
+
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+
+    
+- name: Copy Apache Config
+  template: src=vhost.conf dest=/etc/httpd/vhost
+  notify: restart Apache
+
+
+  

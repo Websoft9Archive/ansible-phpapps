@@ -1,0 +1,19 @@
+---
+- name: app
+  hosts: server
+  remote_user: root
+
+  roles:
+    - { role: wordpress , tags: "wordpress"} 
+    - { role: zentao-pms , tags: "zentao-pms"} 
+    - { role: ranzhi-oa , tags: "ranzhi-oa"} 
+    - { role: chanzhi-esp , tags: "chanzhi-esp"} 
+    - { role: moodle-lms, tags: "moodle-lms"}
+
+    
+
+
+
+    
+
+

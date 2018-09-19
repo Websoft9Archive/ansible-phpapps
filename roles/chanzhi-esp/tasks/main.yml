@@ -1,0 +1,20 @@
+---
+# 禅知
+
+- name: Download ChanZhiEPS
+  unarchive:
+    src: http://dl.cnezsoft.com/chanzhi/7.2/chanzhiEPS.7.2.zip
+    dest: /data/wwwroot
+    remote_src: yes
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+
+- name: Copy Apache Config
+  template: src=vhost.conf dest=/etc/httpd/vhost
+  notify: restart Apache
+
+
+  

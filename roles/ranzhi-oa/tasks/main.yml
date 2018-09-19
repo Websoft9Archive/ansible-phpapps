@@ -1,0 +1,21 @@
+---
+# 然之OA
+
+- name: Download RanZhiOA
+  unarchive:
+    src: http://dl.cnezsoft.com/ranzhi/4.8/ranzhi.4.8.stable.zip
+    dest: /data/wwwroot
+    remote_src: yes
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+
+    
+- name: Copy Apache Config
+  template: src=vhost.conf dest=/etc/httpd/vhost
+  notify: restart Apache
+
+
+  
