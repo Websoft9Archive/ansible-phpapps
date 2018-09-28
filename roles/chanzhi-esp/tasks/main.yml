@@ -3,7 +3,7 @@
 
 - name: Download ChanZhiEPS
   unarchive:
-    src: http://dl.cnezsoft.com/chanzhi/7.2/chanzhiEPS.7.2.zip
+    src: "{{ chanzhiEPS }}"
     dest: /data/wwwroot
     remote_src: yes
 

@@ -1,7 +1,7 @@
 ---
 - name: Download wordpress
   unarchive:
-    src: https://wordpress.org/latest.tar.gz
+    src: "{{ wordpress }}"
     dest: /data/wwwroot
     remote_src: yes
     owner: apache

@@ -3,7 +3,7 @@
 
 - name: Download Moodle-LMS
   unarchive:
-    src: https://download.moodle.org/stable35/moodle-3.5.2.zip
+    src: "{{ moodle-lms }}"
     dest: /data/wwwroot
     remote_src: yes
 

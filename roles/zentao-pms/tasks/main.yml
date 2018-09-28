@@ -3,7 +3,7 @@
 
 - name: Download ZenTaoPMS
   unarchive:
-    src: http://dl.cnezsoft.com/zentao/10.3/ZenTaoPMS.10.3.stable.zip
+    src: "{{ zentao-pms }}"
     dest: /data/wwwroot
     remote_src: yes
 
