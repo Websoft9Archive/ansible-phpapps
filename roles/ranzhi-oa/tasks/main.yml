@@ -19,3 +19,10 @@
 
 
   
+- name: Permission
+  file:
+    path: /data/wwwroot
+    owner: apache
+    group: apache
+    recurse: yes
+    mode: 0750
