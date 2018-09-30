@@ -3,7 +3,7 @@
 
 - name: Download ZenTaoPMS
   unarchive:
-    src: "{{ zentao-pms }}"
+    src: "{{ zentao }}"
     dest: /data/wwwroot
     remote_src: yes
 

@@ -3,7 +3,7 @@
 
 - name: Download RanZhiOA
   unarchive:
-    src: "{{ ranzhi-oa }}"
+    src: "{{ ranzhi }}"
     dest: /data/wwwroot
     remote_src: yes
 

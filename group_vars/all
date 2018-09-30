@@ -1,5 +1,37 @@
-chanzhiEPS: http://dl.cnezsoft.com/chanzhi/7.2/chanzhiEPS.7.2.zip
-moodle-lms: https://download.moodle.org/stable35/moodle-3.5.2.zip
-ranzhi-oa: http://dl.cnezsoft.com/ranzhi/4.8/ranzhi.4.8.stable.zip
+chanzhieps: http://dl.cnezsoft.com/chanzhi/7.2/chanzhieps.7.2.zip
+
+moodle: https://download.moodle.org/stable35/moodle-3.5.2.zip
+
+ranzhi: http://dl.cnezsoft.com/ranzhi/4.8/ranzhi.4.8.stable.zip
+
 wordpress: https://wordpress.org/latest.tar.gz
-zentao-pms: http://dl.cnezsoft.com/zentao/10.3/ZenTaoPMS.10.3.stable.zip
+
+zentao: http://dl.cnezsoft.com/zentao/10.3/zentaopms.10.3.stable.zip
+
+empirecms: http://ecms.phome.net/downcenter/empirecms/ecms75/download/EmpireCMS_7.5_SC_UTF8.zip
+
+hdwiki: http://kaiyuan.hudong.com/download.php?n=HDWiki-v6.0UTF8-20170209.zip
+
+opencart: https://github.com/opencart/opencart/releases/download/3.0.2.0/3.0.2.0-OpenCart.zip
+
+joomla: https://downloads.joomla.org/cms/joomla3/3-8-12/Joomla_3-8-12-Stable-Full_Package.zip?format=zip
+
+discuz: https://gitee.com/ComsenzDiscuz/DiscuzX.git  # git 下载
+
+mediawiki: 
+
+kodcloud:
+
+owncloud:
+
+nextcloud:
+
+zurmo: 
+
+espocrm:
+
+wecenter:
+
+cmseasy:
+
+magento:
