@@ -3,7 +3,7 @@
 
 - name: Download Moodle-LMS
   unarchive:
-    src: "{{ moodle }}"
+    src: "{{ Moodle }}"
     dest: /data/wwwroot
     remote_src: yes
 

@@ -22,7 +22,7 @@ define('DB_NAME', 'wordpress');
 define('DB_USER', 'wordpress');
 
 /** MySQL database password */
-define('DB_PASSWORD', '{{ random_pass.stdout }}');
+define('DB_PASSWORD', 'wordpress_password');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

@@ -1,7 +1,7 @@
 ---
 - name: Download wordpress
   unarchive:
-    src: "{{ wordpress }}"
+    src: "{{ WordPress }}"
     dest: /data/wwwroot
     remote_src: yes
     owner: apache
@@ -23,19 +23,21 @@
     name: wordpress
     state: present
 
-- name: generate WordPress database random password
-  shell: < /dev/urandom tr -dc 0-9-A-Z-a-z-/|head -c ${1:-10};echo
-  register: random_pass
-
-
-- name: Create WordPress database user
-  mysql_user: login_user=root login_password=123456 name=wordpress password={{ random_pass.stdout }} priv='wordpress.*:ALL' host=localhost state=present
-
-- name: Save WordPress random pass
-  shell: printf "username:wordpress\npassword:{{ random_pass.stdout }}\n" > /root/password.txt
-
 - name: Copy WordPress config file
   template: src=wp-config.php dest=/data/wwwroot/wordpress/ owner=apache group=apache
+
+- name: Copy databases initialization
+  copy:
+    src: init.sh
+    dest: /root
+    mode: 0770
+
+- name: initialization Script Start
+  lineinfile:
+    path: /etc/rc.d/rc.local
+    regexp: '/root/init.sh'
+    line: '/root/init.sh'
+    mode: 0770
 
 
 - name: Change 9panel for Wordpress
