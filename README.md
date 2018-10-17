@@ -39,8 +39,6 @@
 
 ### MantisBT
 
-### HDWiki
-
 ### Mediawiki
 
 ### Moodle
