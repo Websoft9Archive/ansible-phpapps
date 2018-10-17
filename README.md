@@ -67,4 +67,3 @@
 
 ### Joomla
 ### Drupal
-### CmsEasy
