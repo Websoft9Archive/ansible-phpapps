@@ -34,8 +34,10 @@
 ### ZurmoCRM
 
 ### Ranzhi（然之协同）
-### MantisBT
 ### Zentao（禅道）
+### chanzhiESP（蝉知）
+
+### MantisBT
 
 ### HDWiki
 
@@ -56,4 +58,13 @@
 
 ### ECSHOP
 
+### Discuz
+1.DZ3.4版本以上需PHP7.0支持
+2.修改默认数据库配置文件，确保无障碍安装
 
+### Empirecms（帝国）
+1. 安装路径非根目录
+
+### Joomla
+### Drupal
+### CmsEasy
