@@ -21,6 +21,12 @@
   template: src=vhost.conf dest=/etc/httpd/vhost
   notify: restart Apache
 
+- name: Change 9panel
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: '{"appname":"Moodle","switch":0,'
+    line: '{"appname":"Moodle","switch":1,'
+
 - name: Permission
   file:
     path: /data/wwwroot

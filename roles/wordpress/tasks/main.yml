@@ -40,7 +40,7 @@
     mode: 0770
 
 
-- name: Change 9panel for Wordpress
+- name: Change 9panel 
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: '{"appname":"WordPress","switch":0,'

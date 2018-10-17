@@ -16,6 +16,11 @@
   template: src=vhost.conf dest=/etc/httpd/vhost
   notify: restart Apache
 
+- name: Change 9panel
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: '{"appname":"chanzhiESP","switch":0,'
+    line: '{"appname":"chanzhiESP","switch":1,'
 
 - name: Permission
   file:
