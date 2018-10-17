@@ -18,10 +18,6 @@ Zurmo:          http://build.zurmo.com/downloads/zurmo-bleeding-3.2.5.20171616a1
 
 Pydio:          https://download.pydio.com/pub/core/archives/pydio-core-8.2.2.zip
 
-NextCloud:      https://download.nextcloud.com/server/releases/nextcloud-14.0.3.zip
-
-OwnCloud:       https://download.owncloud.org/community/owncloud-10.0.10.zip
-
 Dolibarr:       https://nchc.dl.sourceforge.net/project/dolibarr/Dolibarr%20ERP-CRM/8.0.2/dolibarr-8.0.2.zip
 
 VtigerCRM:      https://nchc.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.1.0/Core%20Product/vtigercrm7.1.0.tar.gz
@@ -47,3 +43,7 @@ ranzhi:         http://dl.cnezsoft.com/ranzhi/4.8/ranzhi.4.8.stable.zip
 ZenTaoPMS:      http://dl.cnezsoft.com/zentao/10.4/ZenTaoPMS.10.4.stable.zip
 
 chanzhiEPS:     http://dl.cnezsoft.com/chanzhi/7.4/chanzhiEPS.7.4.zip
+
+NextCloud:      https://download.nextcloud.com/server/releases/nextcloud-14.0.3.zip
+
+OwnCloud:       https://download.owncloud.org/community/owncloud-10.0.10.zip
