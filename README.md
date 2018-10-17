@@ -37,6 +37,13 @@
 ### MantisBT
 ### Zentao（禅道）
 
+### HDWiki
+
+### Mediawiki
+
+### Moodle
+1. 数据库配置：innodb_file_format = Barracuda...
+
 ### Opencart
 1. 汉化问题：内置三个汉化包（Install,Admin,Catalog）；默认增设一个中文配置项；默认前后台为英文
 2. 默认安装vQmod
