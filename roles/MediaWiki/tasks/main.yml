@@ -1,0 +1,31 @@
+---
+# 然之OA
+
+- name: Download RanZhiOA
+  unarchive:
+    src: "{{ ranzhi }}"
+    dest: /data/wwwroot
+    remote_src: yes
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+
+    
+- name: Copy Apache Config
+  template: src=vhost.conf dest=/etc/httpd/vhost
+  notify: restart Apache
+
+- name: Change 9panel
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: '{"appname":"Ranzhi\(然之协同\)","switch":0,'
+    line: '{"appname":"Ranzhi(然之协同)","switch":1,'
+
+  
+- name: Permission directory
+  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
+  
+- name: Permission file
+  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
