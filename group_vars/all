@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 # 暂无文档
 Tiki:           https://nchc.dl.sourceforge.net/project/tikiwiki/Tiki_18.x_Alcyone/18.2/tiki-18.2.zip
 # 完成
+=======
+>>>>>>> 6617dd7c66dc6f8983e6c0276694fa136de5ed50
 EmpireCMS:      http://ecms.phome.net/downcenter/empirecms/ecms75/download/EmpireCMS_7.5_SC_UTF8.zip
 
 KODExplorer:    http://static.kodcloud.com/update/download/kodexplorer4.36.zip
@@ -23,22 +26,39 @@ Dolibarr:       https://nchc.dl.sourceforge.net/project/dolibarr/Dolibarr%20ERP-
 
 VtigerCRM:      https://nchc.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.1.0/Core%20Product/vtigercrm7.1.0.tar.gz
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6617dd7c66dc6f8983e6c0276694fa136de5ed50
 PrestaShop:     https://download.prestashop.com/download/releases/prestashop_1.7.4.3.zip
 
 MediaWiki:      https://releases.wikimedia.org/mediawiki/1.31/mediawiki-1.31.1.tar.gz
 
+<<<<<<< HEAD
 Discuz!X3.3:    http://download.comsenz.com/DiscuzX/3.3/Discuz_X3.3_SC_UTF8.zip
 
+=======
+Discuz:    https://gitee.com/ComsenzDiscuz/DiscuzX.git     
+
+# OK
+>>>>>>> 6617dd7c66dc6f8983e6c0276694fa136de5ed50
 WordPress:      https://wordpress.org/latest.zip
-
+# OK
 Moodle:         https://download.moodle.org/stable35/moodle-3.5.2.zip
-
+# OK
 ranzhi:         http://dl.cnezsoft.com/ranzhi/4.8/ranzhi.4.8.stable.zip
-
-ZenTaoPMS:      http://dl.cnezsoft.com/zentao/10.4/ZenTaoPMS.10.4.stable.zip
-
+# OK
+ZenTaoPMS:      http://dl.cnezsoft.com/zentao/10.4/ZenTaoPMS.10.4.stable.zip 
+# OK
 chanzhiEPS:     http://dl.cnezsoft.com/chanzhi/7.4/chanzhiEPS.7.4.zip
+<<<<<<< HEAD
 
 NextCloud:      https://download.nextcloud.com/server/releases/nextcloud-14.0.3.zip
 
 OwnCloud:       https://download.owncloud.org/community/owncloud-10.0.10.zip
+=======
+# OK
+NextCloud:      http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/nextcloud.zip
+# OK
+OwnCloud:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/owncloud.zip
+>>>>>>> 6617dd7c66dc6f8983e6c0276694fa136de5ed50

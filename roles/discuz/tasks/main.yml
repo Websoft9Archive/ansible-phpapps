@@ -1,11 +1,10 @@
 ---
-# 然之OA
+# Discuz!X3.4
 
-- name: Download RanZhiOA
-  unarchive:
-    src: "{{ ranzhi }}"
-    dest: /data/wwwroot
-    remote_src: yes
+- name: Download Discuz!X3.4
+  git:
+    repo: "{{ Discuz }}"
+    dest: /data/wwwroot/discuz
 
 - name: Remove example dir
   file:
@@ -20,8 +19,11 @@
 - name: Change 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"Ranzhi\(然之协同\)","switch":0,'
-    line: '{"appname":"Ranzhi(然之协同)","switch":1,'
+    regexp: '{"appname":"Discuz","switch":0,'
+    line: '{"appname":"Discuz","switch":1,'
+
+- name: copy discuz config
+  copy: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config
 
   
 - name: Permission directory

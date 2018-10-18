@@ -9,6 +9,7 @@
     - { role: ranzhi , tags: "ranzhi"} 
     - { role: chanzhiESP , tags: "chanzhiESP"} 
     - { role: moodle, tags: "moodle"}
+<<<<<<< HEAD
     - { role: EmpireCMS, tags: "empirecms"}
     - { role: kodexplorer, tags: "kodexplorer"}
 
@@ -19,3 +20,21 @@
     
 
 
+=======
+    - { role: owncloud, tags: "owncloud"}
+    - { role: nextcloud, tags: "nextcloud"}
+    - { role: discuz, tags: "discuz"}
+    - { role: EmpireCMS, tags: "EmpireCMS"}
+    - { role: KODExplorer, tags: "KODExplorer"}
+    - { role: MantisBT, tags: "MantisBT"}
+    - { role: EspoCRM, tags: "EspoCRM"}
+    - { role: Drupal, tags: "Drupal"}
+    - { role: OpenCart, tags: "OpenCart"}
+    - { role: Joomla, tags: "Joomla"}
+    - { role: Zurmo, tags: "Zurmo"}
+    - { role: Pydio, tags: "Pydio"}
+    - { role: Dolibarr, tags: "Dolibarr"}
+    - { role: VtigerCRM, tags: "VtigerCRM"}
+    - { role: PrestaShop, tags: "PrestaShop"}
+    - { role: MediaWiki, tags: "MediaWiki"}
+>>>>>>> 6617dd7c66dc6f8983e6c0276694fa136de5ed50
