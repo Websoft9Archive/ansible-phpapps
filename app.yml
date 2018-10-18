@@ -24,4 +24,4 @@
     # - { role: Dolibarr, tags: "Dolibarr"}
     # - { role: VtigerCRM, tags: "VtigerCRM"}
     # - { role: PrestaShop, tags: "PrestaShop"}
-    # - { role: MediaWiki, tags: "MediaWiki"}
+    - { role: MediaWiki, tags: "MediaWiki"}
