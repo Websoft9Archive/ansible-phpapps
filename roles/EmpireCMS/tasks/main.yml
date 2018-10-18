@@ -40,8 +40,8 @@
     line: '{"appname":"Empirecms\(帝国\)","switch":1,'
 
 - name: Permission directory
-  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
+  shell: find /data/wwwroot -type d -exec chmod 770 {} \;
   
 - name: Permission file
-  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
+  shell: find /data/wwwroot -not -type d -exec chmod 660 {} \;
   

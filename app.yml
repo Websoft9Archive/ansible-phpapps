@@ -13,7 +13,7 @@
     - { role: nextcloud, tags: "nextcloud"}
     - { role: discuz, tags: "discuz"}
     - { role: EmpireCMS, tags: "empirecms"}
-    # - { role: KODExplorer, tags: "KODExplorer"}
+    - { role: KODExplorer, tags: "KODExplorer"}
     # - { role: MantisBT, tags: "MantisBT"}
     # - { role: EspoCRM, tags: "EspoCRM"}
     # - { role: Drupal, tags: "Drupal"}
