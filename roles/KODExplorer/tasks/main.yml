@@ -1,5 +1,5 @@
 ---
-# EmpireCMS
+# KODExplorer
 - name: create folder
   file:
     path: /data/wwwroot/kodexplorer
