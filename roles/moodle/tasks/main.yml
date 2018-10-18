@@ -27,11 +27,9 @@
     regexp: '{"appname":"Moodle","switch":0,'
     line: '{"appname":"Moodle","switch":1,'
 
-- name: Permission
-  file:
-    path: /data/wwwroot
-    owner: apache
-    group: apache
-    recurse: yes
-    mode: 0750
+- name: Permission directory
+  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
+  
+- name: Permission file
+  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
   

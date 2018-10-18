@@ -9,6 +9,8 @@
     - { role: ranzhi , tags: "ranzhi"} 
     - { role: chanzhiESP , tags: "chanzhiESP"} 
     - { role: moodle, tags: "moodle"}
+    - { role: owncloud, tags: "owncloud"}
+    - { role: nextcloud, tags: "nextcloud"}
 
     
 
