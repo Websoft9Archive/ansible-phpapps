@@ -1,17 +1,25 @@
 ---
-# 然之OA
+# MediaWiki
 
-- name: Download RanZhiOA
+- name: Download MediaWiki
   unarchive:
-    src: "{{ ranzhi }}"
+    src: "{{ MediaWiki }}"
     dest: /data/wwwroot
     remote_src: yes
+
+- name: rename MediaWiki dir
+  shell: mv /data/wwwroot/mediawiki-* /data/wwwroot/mediawiki
 
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com
     state: absent
 
+
+- name: Install PHP-Apcu
+  yum:
+    name:  php-pecl-apcu
+    state: latest
     
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
@@ -20,8 +28,8 @@
 - name: Change 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"Ranzhi\(然之协同\)","switch":0,'
-    line: '{"appname":"Ranzhi(然之协同)","switch":1,'
+    regexp: '{"appname":"Mediawiki","switch":0,'
+    line: '{"appname":"Mediawiki","switch":1,'
 
   
 - name: Permission directory
