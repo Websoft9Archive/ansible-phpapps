@@ -23,7 +23,7 @@
     line: '{"appname":"Discuz","switch":1,'
 
 - name: copy discuz config
-  copy: src=config_global.php dest=/data/wwwroot/DiscuzX/upload/config
+  copy: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config
 
   
 - name: Permission directory
