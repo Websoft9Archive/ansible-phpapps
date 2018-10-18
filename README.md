@@ -6,11 +6,23 @@
 下面描述镜像制作过程中的注意事项和特殊要求（区别于官方默认安装）
 
 ### OwnCloud
-1.上传/下载文件大小
-
+1. 上传/下载文件大小
+2. 默认内置配置文件 配置好 redis
 ### NextCloud
-1.上传/下载文件大小
+1. 上传/下载文件大小(后台可设置)
 
+2. opcache 设置
+opcache.enable=1
+opcache.enable_cli=1
+opcache.interned_strings_buffer=8
+opcache.max_accelerated_files=10000
+opcache.memory_consumption=128
+opcache.save_comments=1
+opcache.revalidate_freq=1
+
+3. apache vhost 需要设置 头部  Header set Referrer-Policy "no-referrer"
+
+4. 默认内置配置文件 配置好 redis 和 默认开启SMTP的SSL/TLS
 ### DzzOffice
 1.上传/下载文件大小
 

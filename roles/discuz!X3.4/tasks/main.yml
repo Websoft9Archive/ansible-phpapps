@@ -1,0 +1,30 @@
+---
+# Discuz!X3.4
+
+- name: Download Discuz!X3.4
+  git:
+    repo: "{{ Discuz!X3.4 }}"
+    dest: /data/wwwroot/
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+
+    
+- name: Copy Apache Config
+  template: src=vhost.conf dest=/etc/httpd/vhost
+  notify: restart Apache
+
+- name: Change 9panel
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: '{"appname":"Discuz","switch":0,'
+    line: '{"appname":"Discuz","switch":1,'
+
+  
+- name: Permission directory
+  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
+  
+- name: Permission file
+  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
