@@ -40,6 +40,9 @@
     dest: /data/wwwroot/nextcloud/config
   notify: restart redis
 
+- name: Set NextCloud Job
+  command: php -f /data/wwwroot/nextcloud/cron.php
+
 - name: NextCloud cron
   cron:
     name: "NextCloud cron"
