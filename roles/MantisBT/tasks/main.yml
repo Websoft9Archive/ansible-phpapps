@@ -1,32 +1,32 @@
 ---
 # MantisBT
-- name: Download EmpireCMS
+- name: Download MantisBT
   unarchive:
     src: "{{ MantisBT }}"
-    dest: /data/wwwroot/empirecms
+    dest: /data/wwwroot
     remote_src: yes
 
 - name: Rename folder
-  shell: mv mantisbt-* mantisbt
+  shell: mv /data/wwwroot/mantisbt-* /data/wwwroot/mantisbt
 
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com
     state: absent
 
-# - name: Create MantisBT databases
-#   mysql_db:
-#     login_user: root
-#     login_password: 123456
-#     name: mantisbt
-#     state: present
+- name: Create MantisBT databases
+  mysql_db:
+    login_user: root
+    login_password: 123456
+    name: mantisbt
+    state: present
 
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
   notify: restart Apache
 
-- name: Change 9panel for EmpireCMS
+- name: Change 9panel for MantisBT
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: '{"appname":"MantisBT","switch":0,'
