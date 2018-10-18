@@ -11,6 +11,7 @@
     - { role: moodle, tags: "moodle"}
     - { role: owncloud, tags: "owncloud"}
     - { role: nextcloud, tags: "nextcloud"}
+    - { role: discuz, tags: "discuz"}
 
     
 

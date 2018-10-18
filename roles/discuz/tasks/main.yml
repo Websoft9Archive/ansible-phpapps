@@ -3,8 +3,8 @@
 
 - name: Download Discuz!X3.4
   git:
-    repo: "{{ Discuz!X3.4 }}"
-    dest: /data/wwwroot/
+    repo: "{{ Discuz }}"
+    dest: /data/wwwroot/discuz
 
 - name: Remove example dir
   file:
@@ -21,6 +21,9 @@
     path: /data/apps/9panel/js/websoft9.js
     regexp: '{"appname":"Discuz","switch":0,'
     line: '{"appname":"Discuz","switch":1,'
+
+- name: copy discuz config
+  copy: src=config_global.php dest=/data/wwwroot/DiscuzX/upload/config
 
   
 - name: Permission directory
