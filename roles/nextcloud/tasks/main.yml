@@ -53,3 +53,7 @@
     weekday: "*"
     user: apache
     job: "php -f /data/wwwroot/nextcloud/cron.php"
+
+-  name: Set OPcache for NextCloud
+   copy: src=10-opcache.ini dest=/etc/php.d/
+   notify: restart Apache
