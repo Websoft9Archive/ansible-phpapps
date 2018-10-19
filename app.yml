@@ -22,6 +22,6 @@
     # - { role: Zurmo, tags: "Zurmo"}
     # - { role: Pydio, tags: "Pydio"}
     # - { role: Dolibarr, tags: "Dolibarr"}
-    # - { role: VtigerCRM, tags: "VtigerCRM"}
+    - { role: VtigerCRM, tags: "VtigerCRM"}
     - { role: prestashop, tags: "prestashop"}
     - { role: MediaWiki, tags: "MediaWiki"}
