@@ -23,5 +23,5 @@
     # - { role: Pydio, tags: "Pydio"}
     # - { role: Dolibarr, tags: "Dolibarr"}
     # - { role: VtigerCRM, tags: "VtigerCRM"}
-    # - { role: PrestaShop, tags: "PrestaShop"}
+    - { role: prestashop, tags: "prestashop"}
     - { role: MediaWiki, tags: "MediaWiki"}
