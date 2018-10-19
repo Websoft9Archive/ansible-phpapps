@@ -12,9 +12,9 @@
     - { role: owncloud, tags: "owncloud"}
     - { role: nextcloud, tags: "nextcloud"}
     - { role: discuz, tags: "discuz"}
-    - { role: EmpireCMS, tags: "empirecms"}
-    # - { role: KODExplorer, tags: "KODExplorer"}
-    # - { role: MantisBT, tags: "MantisBT"}
+    - { role: EmpireCMS, tags: "EmpireCRM"}
+    - { role: KODExplorer, tags: "KODExplorer"}
+    - { role: MantisBT, tags: "MantisBT"}
     # - { role: EspoCRM, tags: "EspoCRM"}
     # - { role: Drupal, tags: "Drupal"}
     # - { role: OpenCart, tags: "OpenCart"}
