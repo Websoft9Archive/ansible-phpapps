@@ -54,6 +54,8 @@ opcache.revalidate_freq=1
 ### MantisBT
 
 ### Mediawiki
+需要安装APCU
+需要解决apache上传漏洞问题
 
 ### Moodle
 1. 数据库配置：innodb_file_format = Barracuda...
