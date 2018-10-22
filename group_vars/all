@@ -27,8 +27,7 @@ PrestaShop:     https://download.prestashop.com/download/releases/prestashop_1.7
 # OK
 MediaWiki:      https://releases.wikimedia.org/mediawiki/1.31/mediawiki-1.31.1.tar.gz
 # OK
-Discuz:    https://gitee.com/ComsenzDiscuz/DiscuzX.git     
-
+Discuz:         https://gitee.com/ComsenzDiscuz/DiscuzX.git     
 # OK
 WordPress:      https://wordpress.org/latest.zip
 # OK
