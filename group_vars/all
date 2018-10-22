@@ -2,9 +2,9 @@
 Tiki:           https://nchc.dl.sourceforge.net/project/tikiwiki/Tiki_18.x_Alcyone/18.2/tiki-18.2.zip
 # 完成
 EmpireCMS:      http://ecms.phome.net/downcenter/empirecms/ecms75/download/EmpireCMS_7.5_SC_UTF8.zip
-
+# 完成
 KODExplorer:    http://static.kodcloud.com/update/download/kodexplorer4.36.zip
-
+# 完成
 MantisBT:       https://nchc.dl.sourceforge.net/project/mantisbt/mantis-stable/2.17.1/mantisbt-2.17.1.zip
 
 EspoCRM:        https://www.espocrm.com/downloads/EspoCRM-5.4.4.zip
@@ -20,7 +20,7 @@ Zurmo:          http://build.zurmo.com/downloads/zurmo-bleeding-3.2.5.20171616a1
 Pydio:          https://download.pydio.com/pub/core/archives/pydio-core-8.2.2.zip
 
 Dolibarr:       https://nchc.dl.sourceforge.net/project/dolibarr/Dolibarr%20ERP-CRM/8.0.2/dolibarr-8.0.2.zip
-
+#OK
 VtigerCRM:      https://nchc.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.1.0/Core%20Product/vtigercrm7.1.0.tar.gz
 #OK
 PrestaShop:     https://download.prestashop.com/download/releases/prestashop_1.7.4.3.zip
