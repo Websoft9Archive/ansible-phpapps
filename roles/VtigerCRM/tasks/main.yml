@@ -21,13 +21,12 @@
     path: /data/wwwroot/www.example.com
     state: absent
 
-# - name: Create  databases
-#   mysql_db:
-#     login_user: root
-#     login_password: 123456
-#     name: prestashop
-#     state: present
-    
+
+- name: Copy PHP.ini
+  copy:
+    src: php.ini
+    dest: /etc/
+
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
   notify: restart Apache
