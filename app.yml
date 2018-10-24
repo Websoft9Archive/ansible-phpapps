@@ -15,8 +15,8 @@
     - { role: EmpireCMS, tags: "EmpireCRM"}
     - { role: KODExplorer, tags: "KODExplorer"}
     - { role: MantisBT, tags: "MantisBT"}
-    # - { role: EspoCRM, tags: "EspoCRM"}
-    # - { role: Drupal, tags: "Drupal"}
+    - { role: EspoCRM, tags: "EspoCRM"}
+    - { role: Drupal, tags: "Drupal"}
     # - { role: OpenCart, tags: "OpenCart"}
     # - { role: Joomla, tags: "Joomla"}
     # - { role: Zurmo, tags: "Zurmo"}
