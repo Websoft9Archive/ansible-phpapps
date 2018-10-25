@@ -17,9 +17,9 @@
     - { role: MantisBT, tags: "MantisBT"}
     - { role: EspoCRM, tags: "EspoCRM"}
     - { role: Drupal, tags: "Drupal"}
-    # - { role: OpenCart, tags: "OpenCart"}
-    # - { role: Joomla, tags: "Joomla"}
-    # - { role: Zurmo, tags: "Zurmo"}
+    - { role: OpenCart, tags: "OpenCart"}
+    - { role: Joomla, tags: "Joomla"}
+    - { role: Zurmo, tags: "Zurmo"}
     # - { role: Pydio, tags: "Pydio"}
     # - { role: Dolibarr, tags: "Dolibarr"}
     - { role: VtigerCRM, tags: "VtigerCRM"}

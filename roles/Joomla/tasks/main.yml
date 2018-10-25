@@ -1,10 +1,17 @@
 ---
 # Joomla
+# 请使用 LAMP71 以上版本 
+
+- name: Create Joomla folder
+  file:
+    path: /data/wwwroot/joomla
+    state: directory
+    mode: 0750
 
 - name: Download Joomla
   unarchive:
     src: "{{ Joomla }}"
-    dest: /data/wwwroot
+    dest: /data/wwwroot/joomla
     remote_src: yes
 
 - name: Remove example dir
@@ -12,15 +19,16 @@
     path: /data/wwwroot/www.example.com
     state: absent
 
-- name: Create Drupal databases
+- name: Create Joomla databases
   mysql_db:
     login_user: root
     login_password: 123456
     name: joomla
     state: present
 
-- name: Rename folder
-  shell: mv /data/wwwroot/Joomla-* /data/wwwroot/joomla
+- name: Copy PHP Config file
+  template: src=php.ini dest=/etc/php.ini
+  notify: restart Apache
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost

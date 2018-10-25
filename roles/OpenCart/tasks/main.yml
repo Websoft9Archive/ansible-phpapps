@@ -1,26 +1,36 @@
 ---
-# Drupal
+# Opencart
 
-- name: Download Drupal
+- name: Create folder
+  file:
+    path: /data/wwwroot/opencart
+    state: directory
+    mode: 0750
+
+- name: Download Opnecart
   unarchive:
-    src: "{{ Drupal }}"
-    dest: /data/wwwroot
+    src: "{{ OpenCart }}"
+    dest: /data/wwwroot/opencart
     remote_src: yes
 
+- name: Rename config-dist.php to config-dist.php
+  shell: cp /data/wwwroot/opencart/upload/config-dist.php /data/wwwroot/opencart/upload/config.php
+  
+- name: Rename admin/config-dist.php to config-dist.php
+  shell: cp /data/wwwroot/opencart/upload/admin/config-dist.php /data/wwwroot/opencart/upload/admin/config.php
+ 
+  
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com
     state: absent
 
-- name: Create Drupal databases
+- name: Create OpenCart databases
   mysql_db:
     login_user: root
     login_password: 123456
-    name: drupal
+    name: opencart
     state: present
-
-- name: Rename folder
-  shell: mv /data/wwwroot/Drupal-* /data/wwwroot/drupal
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
@@ -29,8 +39,8 @@
 - name: Change 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"Drupal","switch":0,'
-    line: '{"appname":"Drupal","switch":1,'
+    regexp: '{"appname":"Opnecart","switch":0,'
+    line: '{"appname":"Opnecart","switch":1,'
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
