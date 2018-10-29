@@ -20,8 +20,8 @@
     - { role: OpenCart, tags: "OpenCart"}
     - { role: Joomla, tags: "Joomla"}
     - { role: Zurmo, tags: "Zurmo"}
-    # - { role: Pydio, tags: "Pydio"}
-    # - { role: Dolibarr, tags: "Dolibarr"}
+    - { role: Pydio, tags: "Pydio"}
+    - { role: Dolibarr, tags: "Dolibarr"}
     - { role: VtigerCRM, tags: "VtigerCRM"}
     - { role: prestashop, tags: "prestashop"}
     - { role: MediaWiki, tags: "MediaWiki"}

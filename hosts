@@ -1,2 +1,2 @@
 [server]
-39.105.148.248 ansible_ssh_user=root ansible_ssh_pass=xinshi1993.
+39.105.15.23 ansible_ssh_user=root ansible_ssh_pass=xinshi1993.
