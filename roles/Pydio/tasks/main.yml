@@ -29,11 +29,6 @@
   template: src=vhost.conf dest=/etc/httpd/vhost
   notify: restart Apache 
 
-- name: Change Locale
-  shell: 
-    echo "LANG=en_us.UTF-8" >> /etc/locale.conf
-    echo "LC_ALL=en_us.UTF-8" >> /etc/locale.conf
-
 - name: Change 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
