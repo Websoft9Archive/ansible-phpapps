@@ -1,6 +1,6 @@
 ---
 - name: app
-  hosts: server
+  hosts: all
   remote_user: root
 
   roles:
