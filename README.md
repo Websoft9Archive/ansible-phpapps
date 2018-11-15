@@ -38,8 +38,16 @@ opcache.revalidate_freq=1
 1.上传/下载文件大小
 
 ### Dolibarr
+1. 需修改数据库编码为 uft-8
+
+### Drupal
+1. 需将安装包下载到 oss
 
 ### EspoCRM
+
+### Empirecms（帝国）
+1. 安装路径非根目录
+2. 需修改php.ini
 
 ### SuiteCRM
 
@@ -76,8 +84,7 @@ opcache.revalidate_freq=1
 1.DZ3.4版本以上需PHP7.0支持
 2.修改默认数据库配置文件，确保无障碍安装
 
-### Empirecms（帝国）
-1. 安装路径非根目录
+
 
 ### Joomla
-### Drupal
+

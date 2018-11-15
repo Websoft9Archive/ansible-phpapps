@@ -25,3 +25,6 @@
     - { role: VtigerCRM, tags: "VtigerCRM"}
     - { role: prestashop, tags: "prestashop"}
     - { role: MediaWiki, tags: "MediaWiki"}
+    - { role: ThinkPHP, tags: "ThinkPHP" }
+    - { role: Laravel, tags: "Laravel" }
+    - { role: Portainer, tags: "Portainer" }

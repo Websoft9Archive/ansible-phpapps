@@ -1,0 +1,27 @@
+---
+# ThinkPHP
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+
+- name: Install ThinkPHP
+  composer:
+      command: create-project
+      arguments: topthink/think
+      working_dir: /data/wwwroot/
+
+- name: Rename folder's name
+  shell:
+    mv /data/wwwroot/think /data/wwwroot/thinkphp
+
+- name: Copy Apache Config
+  template: src=vhost.conf dest=/etc/httpd/vhost
+  notify: restart Apache
+  
+- name: Permission directory
+  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
+  
+- name: Permission file
+  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
