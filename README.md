@@ -76,7 +76,8 @@ opcache.revalidate_freq=1
 
 ### Magento
 1.汉化问题：内置中文包
-2.PHP组件要求：
+2.部分组件需要PHP7.2,因此建议在PHP7.2的基础环境下安装
+3.最低内存为756M限制，否则在线安装插件不可以使用
 
 ### ECSHOP
 
