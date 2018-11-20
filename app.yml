@@ -27,5 +27,5 @@
     - { role: MediaWiki, tags: "MediaWiki"}
     - { role: ThinkPHP, tags: "ThinkPHP" }
     - { role: Laravel, tags: "Laravel" }
-    - { role: Portainer, tags: "Portainer" }
     - { role: wpanddz, tags: "wpanddz" }
+    - { role: Magento, tags: "Magento" }
