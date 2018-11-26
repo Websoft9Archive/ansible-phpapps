@@ -28,19 +28,19 @@
   cron:
     name: magento
     user: apache
-    job: "php /data/wwwroot/magento/bin/magento cron:run | grep -v 'Ran jobs by schedule' >> /data/wwwroot/magento/var/log/magento.cron.log" 
+    job: "/usr/bin/php /data/wwwroot/magento/bin/magento cron:run | grep -v 'Ran jobs by schedule' >> /data/wwwroot/magento/var/log/magento.cron.log" 
         
 - name: Add cron job for magento
   cron:
     name: magento1
     user: apache
-    job: "php /data/wwwroot/magento/update/cron.php >> /data/wwwroot/magento/var/log/update.cron.log"
+    job: "/usr/bin/php /data/wwwroot/magento/update/cron.php >> /data/wwwroot/magento/var/log/update.cron.log"
 
 - name: Add cron job for magento
   cron:
     name: magento2
     user: apache
-    job: "php /data/wwwroot/magento/bin/magento setup:cron:run >> /data/wwwroot/magento/var/log/setup.cron.log"
+    job: "/usr/bin/php /data/wwwroot/magento/bin/magento setup:cron:run >> /data/wwwroot/magento/var/log/setup.cron.log"
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
