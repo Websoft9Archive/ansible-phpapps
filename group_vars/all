@@ -43,4 +43,5 @@ NextCloud:      http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/ne
 # OK
 OwnCloud:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/owncloud.zip
 # 
-Magento:        http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/magento.tar.gz
+Magento:        http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/Magento/magento.tar.gz
+language_package:    http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/Magento/language-zh_hans_cn.tar.gz

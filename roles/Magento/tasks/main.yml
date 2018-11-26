@@ -1,5 +1,5 @@
 ---
-# MantisBT
+# Magento 
 - name: mkdir folder name
   file: 
     path: /data/wwwroot/magento
@@ -24,9 +24,23 @@
     name: magento
     state: present
 
-- name: Create crontab task
-  shell: echo "* * * * * /usr/bin/php /data/wwwroot/magento/bin/magento cron:run | grep -v "Ran jobs by schedule" >> /data/wwwroot/magento/var/log/magento.cron.log * * * * * /usr/bin/php /data/wwwroot/magento/update/cron.php >> /data/wwwroot/magento/var/log/update.cron.log * * * * * /usr/bin/php /data/wwwroot/magento/bin/magento setup:cron:run >> /data/wwwroot/magento/var/log/setup.cron.log" >> /etc/crontab
+- name: Add cron job for magento
+  cron:
+    name: magento
+    user: apache
+    job: "php /data/wwwroot/magento/bin/magento cron:run | grep -v 'Ran jobs by schedule' >> /data/wwwroot/magento/var/log/magento.cron.log" 
+        
+- name: Add cron job for magento
+  cron:
+    name: magento1
+    user: apache
+    job: "php /data/wwwroot/magento/update/cron.php >> /data/wwwroot/magento/var/log/update.cron.log"
 
+- name: Add cron job for magento
+  cron:
+    name: magento2
+    user: apache
+    job: "php /data/wwwroot/magento/bin/magento setup:cron:run >> /data/wwwroot/magento/var/log/setup.cron.log"
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
@@ -38,9 +52,21 @@
     regexp: '{"appname":"Magento","switch":0,'
     line: '{"appname":"Magento","switch":1,'
 
+- name: Remove default language dir
+  file:
+    path: /data/wwwroot/magento/vendor/magento/language-zh_hans_cn/
+    state: absent
+
+- name: Download language package
+  unarchive:
+    src: "{{ language_package }}"
+    dest: /data/wwwroot/magento/vendor/magento/
+    remote_src: yes
+
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 755 {} \;
   
 - name: Permission file
   shell: find /data/wwwroot -not -type d -exec chmod 644 {} \;
+
   
