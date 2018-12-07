@@ -3,8 +3,7 @@
   hosts: all
   remote_user: root
 
-  roles:
-    - { role: wordpress , tags: "wordpress"} 
+  roles: 
     - { role: zentaoPMS , tags: "zentaoPMS"} 
     - { role: ranzhi , tags: "ranzhi"} 
     - { role: chanzhiESP , tags: "chanzhiESP"} 
