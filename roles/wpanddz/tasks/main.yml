@@ -37,7 +37,7 @@
 - name: copy discuz config
   copy: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config
 
-## common
+# common
 - name: Change 9panel 
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
@@ -53,11 +53,11 @@
 - name: Change installdr of discuz's appurl
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '"apphelpurl":"http://support\.websoft9\.com/docs/discuz-image-guide/","installdr":"/"}'
-    line: '"apphelpurl":"http://support\.websoft9\.com/docs/discuz-image-guide/","installdr":"/discuz"'
+    regexp: '"apphelpurl":"http://support.websoft9.com/docs/discuz-image-guide/","installdr":"/"},'
+    line: '"apphelpurl":"http://support.websoft9.com/docs/discuz-image-guide/","installdr":"/discuz"},'
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
   
 - name: Permission file
-  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
+  shell: find /data/wwwroot -type f -exec chmod 640 {} \;
