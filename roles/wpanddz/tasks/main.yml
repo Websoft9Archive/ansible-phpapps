@@ -30,10 +30,6 @@
     repo: "{{ Discuz }}"
     dest: /data/wwwroot/discuz
 
-- name: Copy discuz Apache Config
-  template: src=alias.conf dest=/etc/httpd/vhost
-  notify: restart Apache
-
 - name: copy discuz config
   copy: src=config_global_default.php dest=/data/wwwroot/discuz/upload/config
 
