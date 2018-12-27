@@ -21,8 +21,8 @@
 - name: Change 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"Zentao\(禅道\)","switch":0,'
-    line: '{"appname":"Zentao（禅道）","switch":1,'
+    regexp: '{"appname":"Zentao\（禅道\）","switch":0,'
+    line: '{"appname":"Zentao\（禅道\）","switch":1,'
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
