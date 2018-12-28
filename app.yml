@@ -4,26 +4,26 @@
   remote_user: root
 
   roles: 
-    - { role: zentaoPMS , tags: "zentaoPMS"} 
+    - { role: zentaoPMS , tags: "zentaopms"} 
     - { role: ranzhi , tags: "ranzhi"} 
-    - { role: chanzhiESP , tags: "chanzhiESP"} 
+    - { role: chanzhiESP , tags: "chanzhiesp"} 
     - { role: moodle, tags: "moodle"}
     - { role: owncloud, tags: "owncloud"}
     - { role: nextcloud, tags: "nextcloud"}
     - { role: discuz, tags: "discuz"}
-    - { role: EmpireCMS, tags: "EmpireCRM"}
-    - { role: KODExplorer, tags: "KODExplorer"}
-    - { role: MantisBT, tags: "MantisBT"}
-    - { role: EspoCRM, tags: "EspoCRM"}
-    - { role: Drupal, tags: "Drupal"}
-    - { role: OpenCart, tags: "OpenCart"}
-    - { role: Joomla, tags: "Joomla"}
-    - { role: Zurmo, tags: "Zurmo"}
-    - { role: Pydio, tags: "Pydio"}
-    - { role: Dolibarr, tags: "Dolibarr"}
-    - { role: VtigerCRM, tags: "VtigerCRM"}
+    - { role: EmpireCMS, tags: "empirecms"}
+    - { role: KODExplorer, tags: "kodcloud"}
+    - { role: MantisBT, tags: "mantisbt"}
+    - { role: EspoCRM, tags: "espocrm"}
+    - { role: Drupal, tags: "drupal"}
+    - { role: OpenCart, tags: "opencart"}
+    - { role: Joomla, tags: "joomla"}
+    - { role: Zurmo, tags: "zurmo"}
+    - { role: Pydio, tags: "pydio"}
+    - { role: Dolibarr, tags: "dolibarr"}
+    - { role: VtigerCRM, tags: "vtigercrm"}
     - { role: prestashop, tags: "prestashop"}
-    - { role: MediaWiki, tags: "MediaWiki"}
-    - { role: ThinkPHP, tags: "ThinkPHP" }
-    - { role: Laravel, tags: "Laravel" }
-    - { role: Magento, tags: "Magento" }
+    - { role: MediaWiki, tags: "mediawiki"}
+    - { role: ThinkPHP, tags: "thinkphp" }
+    - { role: Laravel, tags: "laravel" }
+    - { role: Magento, tags: "magento" }
