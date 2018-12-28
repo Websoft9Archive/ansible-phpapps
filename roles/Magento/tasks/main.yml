@@ -11,6 +11,9 @@
     src: "{{ Magento }}"
     dest: /data/wwwroot/magento
     remote_src: yes
+    owner: apache
+    group: apache
+    
 
 - name: Remove example dir
   file:

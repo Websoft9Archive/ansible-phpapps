@@ -5,6 +5,8 @@
     src: "{{ EspoCRM }}"
     dest: /data/wwwroot
     remote_src: yes
+    owner: apache
+    group: apache
 
 - name: Rename folder
   shell: mv /data/wwwroot/EspoCRM-* /data/wwwroot/espocrm
