@@ -16,9 +16,9 @@ OpenCartcnpack: http://libs.websoft9.com/apps/opencart/opencart3-cnpack.zip
 OpenCartcn:     http://libs.websoft9.com/apps/opencart/opencart-v30-free-20180919.zip
 # Joomla最低要求php7.1
 Joomla:         https://downloads.joomla.org/cms/joomla3/3-9-1/joomla_3-9-1-stable-full_package-zip
-# 完成
+# Zurmo需要预下载
 Zurmo:          http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/zurmo.zip
-# 
+# Pydio需预下载
 Pydio:          http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/pydio.zip
 # 完成
 Dolibarr:       https://jaist.dl.sourceforge.net/project/dolibarr/Dolibarr%20ERP-CRM/8.0.4/dolibarr-8.0.4.zip
@@ -39,7 +39,7 @@ ranzhi:         http://dl.cnezsoft.com/ranzhi/5.0/ranzhi.5.0.stable.zip
 # OK
 ZenTaoPMS:      http://dl.cnezsoft.com/zentao/11.0/ZenTaoPMS.11.0.stable.zip
 # OK
-chanzhiEPS:     http://dl.cnezsoft.com/chanzhi/7.4/chanzhiEPS.7.4.zip
+chanzhiEPS:     http://dl.cnezsoft.com/chanzhi/7.4.1/chanzhiEPS.7.4.1.zip
 # OK
 NextCloud:      http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/nextcloud.zip
 # OK
