@@ -1,5 +1,5 @@
 ## 默认安装中文语言包方案
-1. 下载中文语言包（admin,catalog,install三个包）
+1. 下载oss中的中文语言包（包含admin,catalog,install三个包）
 2. 修改intall中的opencart.sql文件，插入语言表的第二行
 ~~~
 INSERT INTO `oc_language` (`language_id`, `name`, `code`, `locale`, `image`, `directory`, `sort_order`, `status`) VALUES
