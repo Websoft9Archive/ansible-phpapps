@@ -13,8 +13,16 @@
     owner: apache
     group: apache
     remote_src: yes
+  when: magento == "default"
+
+- name: Download Magento which include demo data
+  unarchive:
+    src: "{{ Magentoanddemo }}"
+    dest: /data/wwwroot/magento
     owner: apache
     group: apache
+    remote_src: yes
+  when: magento == "Magentoanddemo"
     
 
 - name: Remove example dir

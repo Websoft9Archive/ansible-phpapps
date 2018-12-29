@@ -20,6 +20,13 @@
   template: src=vhost.conf dest=/etc/httpd/vhost
   notify: restart Apache
   
+- name: Change 9panel
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: '{"appname":"ThinkPHP","switch":0,'
+    line: '{"appname":"ThinkPHP","switch":1,'
+
+
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
   

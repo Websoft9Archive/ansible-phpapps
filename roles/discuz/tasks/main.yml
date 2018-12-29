@@ -5,8 +5,6 @@
   git:
     repo: "{{ Discuz }}"
     dest: /data/wwwroot/discuz
-    owner: apache
-    group: apache
 
 
 - name: Remove example dir

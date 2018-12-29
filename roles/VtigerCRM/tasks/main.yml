@@ -10,8 +10,6 @@
     owner: apache
     group: apache
     remote_src: yes
-    owner: apache
-    group: apache
 
 - name: fix Directory Permissions
   file:

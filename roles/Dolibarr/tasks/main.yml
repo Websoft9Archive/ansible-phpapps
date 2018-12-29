@@ -5,8 +5,6 @@
   unarchive:
     src: "{{ Dolibarr }}"
     dest: /data/wwwroot
-    owner: apache
-    group: apache
     remote_src: yes
     owner: apache
     group: apache
