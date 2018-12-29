@@ -12,6 +12,8 @@
   unarchive:
     src: "{{ Joomla }}"
     dest: /data/wwwroot/joomla
+    owner: apache
+    group: apache
     remote_src: yes
 
 - name: Remove example dir

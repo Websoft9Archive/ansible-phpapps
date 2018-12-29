@@ -10,6 +10,8 @@
   unarchive:
     src: "{{ KODExplorer }}"
     dest: /data/wwwroot/kodexplorer
+    owner: apache
+    group: apache
     remote_src: yes
 
 - name: Remove example dir

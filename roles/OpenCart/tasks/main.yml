@@ -11,6 +11,8 @@
   unarchive:
     src: "{{ OpenCart }}"
     dest: /data/wwwroot/opencart
+    owner: apache
+    group: apache
     remote_src: yes
 
 - name: Rename config-dist.php to config-dist.php

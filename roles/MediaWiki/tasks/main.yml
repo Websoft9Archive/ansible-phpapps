@@ -5,6 +5,8 @@
   unarchive:
     src: "{{ MediaWiki }}"
     dest: /data/wwwroot
+    owner: apache
+    group: apache
     remote_src: yes
 
 - name: rename MediaWiki dir

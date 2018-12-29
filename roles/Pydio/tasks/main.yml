@@ -5,6 +5,8 @@
   unarchive:
     src: "{{ Pydio }}"
     dest: /data/wwwroot
+    owner: apache
+    group: apache
     remote_src: yes
 
 - name: Rename folder 

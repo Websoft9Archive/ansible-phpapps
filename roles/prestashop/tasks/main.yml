@@ -11,6 +11,8 @@
   unarchive:
     src: "{{ PrestaShop }}"
     dest: /data/wwwroot/prestashop
+    owner: apache
+    group: apache
     remote_src: yes
 
 - name: Remove example dir
