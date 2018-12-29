@@ -8,6 +8,7 @@
     owner: apache
     group: apache
 
+
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com

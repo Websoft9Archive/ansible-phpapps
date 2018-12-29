@@ -8,6 +8,8 @@
     owner: apache
     group: apache
     remote_src: yes
+    owner: apache
+    group: apache
 
 - name: rename MediaWiki dir
   shell: mv /data/wwwroot/mediawiki-* /data/wwwroot/mediawiki

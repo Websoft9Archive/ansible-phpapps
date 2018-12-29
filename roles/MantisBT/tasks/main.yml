@@ -7,6 +7,8 @@
     owner: apache
     group: apache
     remote_src: yes
+    owner: apache
+    group: apache
 
 - name: Rename folder
   shell: mv /data/wwwroot/mantisbt-* /data/wwwroot/mantisbt

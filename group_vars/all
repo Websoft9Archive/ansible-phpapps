@@ -3,7 +3,7 @@ Tiki:           https://nchc.dl.sourceforge.net/project/tikiwiki/Tiki_18.x_Alcyo
 # 完成
 EmpireCMS:      http://ecms.phome.net/downcenter/empirecms/ecms75/download/EmpireCMS_7.5_SC_UTF8.zip
 # 完成
-KODExplorer:    http://static.kodcloud.com/update/download/kodexplorer4.36.zip
+KODExplorer:    http://static.kodcloud.com/update/download/kodexplorer4.37.zip
 # 完成
 MantisBT:       https://nchc.dl.sourceforge.net/project/mantisbt/mantis-stable/2.18.0/mantisbt-2.18.0.zip
 # 完成
@@ -42,6 +42,7 @@ chanzhiEPS:     http://dl.cnezsoft.com/chanzhi/7.4/chanzhiEPS.7.4.zip
 NextCloud:      http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/nextcloud.zip
 # OK
 OwnCloud:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/owncloud.zip
-# 
-Magento:        http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/Magento/magento.tar.gz
+# Mangento需要预下载，语言包也需要预下载
+Magento:        http://libs.websoft9.com/apps/Magento/Magento-CE-2.3.0-2018-11-27-10-20-34.tar.gz
+Magentoanddemo: http://libs.websoft9.com/apps/Magento/Magento-CE-2.3.0_sample_data-2018-11-27-10-29-50.tar.gz
 language_package:    http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/Magento/language-zh_hans_cn.tar.gz

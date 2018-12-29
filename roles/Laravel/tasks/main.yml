@@ -6,7 +6,7 @@
     path: /data/wwwroot/www.example.com
     state: absent
 
-- name: Install ThinkPHP
+- name: Install Laravel
   composer:
       command: create-project
       arguments: laravel/laravel

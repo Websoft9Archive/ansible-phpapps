@@ -14,6 +14,8 @@
     owner: apache
     group: apache
     remote_src: yes
+    owner: apache
+    group: apache
 
 - name: Rename config-dist.php to config-dist.php
   shell: cp /data/wwwroot/opencart/upload/config-dist.php /data/wwwroot/opencart/upload/config.php
