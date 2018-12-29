@@ -7,7 +7,7 @@
     state: directory
     mode: 0750
 
-- name: Download Opnecart
+- name: Download Opencart
   unarchive:
     src: "{{ OpenCart }}"
     dest: /data/wwwroot/opencart
@@ -41,8 +41,8 @@
 - name: Change 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"Opnecart","switch":0,'
-    line: '{"appname":"Opnecart","switch":1,'
+    regexp: '{"appname":"Opencart","switch":0,'
+    line: '{"appname":"Opencart","switch":1,'
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
