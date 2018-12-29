@@ -12,6 +12,7 @@ EspoCRM:        https://www.espocrm.com/downloads/EspoCRM-5.5.3.zip
 Drupal:         http://libs.websoft9.com/apps/drupal-8.6.4.zip
 # Opencart存放在github上的release固定地址下载会出现停滞，故先预下载
 OpenCart:       http://libs.websoft9.com/apps/OpenCart3.0.2.0.zip
+OpenCartcn:     https://bbs.opencart.cn/forum.php?mod=attachment&aid=MTY3NHw1YTRhNTNkMnwxNTQ2MDc1NzAxfDB8MTA3OTM%3D
 # Joomla最低要求php7.1
 Joomla:         https://downloads.joomla.org/cms/joomla3/3-9-1/joomla_3-9-1-stable-full_package-zip
 # 完成
