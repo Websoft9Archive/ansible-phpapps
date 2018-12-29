@@ -79,6 +79,7 @@ opcache.revalidate_freq=1
 2.部分组件需要PHP7.2,因此建议在PHP7.2的基础环境下安装
 3.最低内存为756M限制，否则在线安装插件不可以使用
 4.测试在线主题和插件的安装
+5.V2.3技术要求：https://devdocs.magento.com/guides/v2.3/install-gde/system-requirements-tech.html
 
 ### ECSHOP
 
