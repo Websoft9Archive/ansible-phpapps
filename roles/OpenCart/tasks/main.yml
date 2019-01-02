@@ -14,14 +14,25 @@
     owner: apache
     group: apache
     remote_src: yes
+  when: language == "English"
 
 - name: Download OpenCart language package
   unarchive:
       src: "{{ OpenCartcnpack }}"
       dest: /data/wwwroot
-      ower: apache
+      owner: apache
       group: apache
       remote_src: yes
+  when: language == "English"
+
+- name: Download Opencart:光大网络的中文本地版
+  unarchive:
+    src: "{{ OpenCart }}"
+    dest: /data/wwwroot/opencart
+    owner: apache
+    group: apache
+    remote_src: yes
+  when: language == "Chinese"  
 
 - name: Rename config-dist.php to config-dist.php
   shell: cp /data/wwwroot/opencart/upload/config-dist.php /data/wwwroot/opencart/upload/config.php

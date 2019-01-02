@@ -1,0 +1,2 @@
+# language变量取值范围：[Chinese,English],前者是光大版源码，后者是官方默认源码,默认是官方版，语言包已导入
+language: English
