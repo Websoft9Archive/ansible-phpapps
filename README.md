@@ -98,4 +98,6 @@ opcache.revalidate_freq=1
 * 视频文件在线播放
 * 网盘存储挂载OSS
 
+## NextCloud 目前在国内无法安装插件
+
 
