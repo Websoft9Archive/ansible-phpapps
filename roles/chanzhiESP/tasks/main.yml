@@ -29,3 +29,6 @@
   
 - name: Permission file
   shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
+
+- name: System Upgrade
+  yum: name=* state=latest

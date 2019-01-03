@@ -47,3 +47,5 @@
 - name: create crontab task
   shell: echo "* * * * * cd /data/wwwroot/espocrm; /usr/bin/php -f cron.php > /dev/null 2>&1" >> /etc/crontab
   
+- name: System Upgrade
+  yum: name=* state=latest
