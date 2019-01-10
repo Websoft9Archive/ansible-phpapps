@@ -48,3 +48,5 @@ OwnCloud:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/ow
 Magento:        http://libs.websoft9.com/apps/Magento/Magento-CE-2.3.0-2018-11-27-10-20-34.tar.gz
 Magentoanddemo: http://libs.websoft9.com/apps/Magento/Magento-CE-2.3.0_sample_data-2018-11-27-10-29-50.tar.gz
 language_package:    http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/Magento/language-zh_hans_cn.tar.gz
+# 
+dzzoffice:      http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/DzzOffice/dzzoffice-2.02.tar.gz
