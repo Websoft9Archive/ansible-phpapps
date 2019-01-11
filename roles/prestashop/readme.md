@@ -6,6 +6,7 @@
 ## 适用于Websoft9提供的基础环境
 * LAMP
 * LNMP（暂时不支持）
+在php7.0,mysql5.6下测试运行正常
 
 ## 适用于的操作系统
 * CentOS
