@@ -27,7 +27,12 @@
 2. Mediawiki的安装步骤是可以分步骤的，并可以点击“重新开始安装”
 3. Mediawiki可以改进预先配置好数据库，让用户无需配置数据库，降低安装难度
 
-安装过程的个性化设置，都可以通过修改文件：/mediawiki/includes/DefaultSettings.php 得以实现
+
+/mediawiki/includes/installer/MysqlInstaller.php文件中，'_InstallUser' => 'root', 用于修改安装的时候默认的数据库账户名称
+/mediawiki/includes/DefaultSettings.php 包含数据库设置
+
+以上两个文件修改仅用于安装，一旦安装完成，建议复原
+
 
 ```
 /************************************************************************//**
