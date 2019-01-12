@@ -20,3 +20,48 @@
 ## Mediawiki安装需求
 
 * 建议最低配置1核1G
+
+## 用户体验改进
+
+1. Mediawiki从1.32开始，已经无法通过安装步骤创建数据库，故需要提前新建数据库
+2. Mediawiki的安装步骤是可以分步骤的，并可以点击“重新开始安装”
+3. Mediawiki可以改进预先配置好数据库，让用户无需配置数据库，降低安装难度
+
+安装过程的个性化设置，都可以通过修改文件：/mediawiki/includes/DefaultSettings.php 得以实现
+
+```
+/************************************************************************//**
+ * @name   Database settings
+ * @{
+ */
+
+/**
+ * Database host name or IP address
+ */
+$wgDBserver = 'localhost';
+
+/**
+ * Database port number (for PostgreSQL and Microsoft SQL Server).
+ */
+$wgDBport = 5432;
+
+/**
+ * Name of the database
+ */
+$wgDBname = 'my_wiki';
+
+/**
+ * Database username
+ */
+$wgDBuser = 'wikiuser';
+
+/**
+ * Database user's password
+ */
+$wgDBpassword = '';
+
+/**
+ * Database type
+ */
+$wgDBtype = 'mysql';
+```
