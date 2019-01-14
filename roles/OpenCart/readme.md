@@ -1,7 +1,12 @@
-# Mediawiki
+# Opencart
 
 ## 说明
-此项目是用Ansible编写的Mediawiki自动安装程序.MediaWiki requires PHP 7.0.0+ and either MySQL 5.5.8+, MariaDB, or one of the other three possible stores. For more information, please read the pages on system requirements and compatibility.
+此项目是用Ansible编写的Opencart自动安装程序.
+These are minimum requirements needed so that OpenCart can be installed and work properly.
+Web Server (Apache suggested)
+PHP (at least 5.4)
+Curl enabled
+Database (MySQLi suggested)
 
 ## 适用于基础环境
 
@@ -25,9 +30,9 @@
 
 ### 免数据库配置
 
-1. Mediawiki从1.32开始，已经无法通过安装步骤创建数据库，故需要提前新建数据库
-2. Mediawiki的安装步骤是可以分步骤的，并可以点击“重新开始安装”
-3. Mediawiki可以改进预先配置好数据库，让用户无需配置数据库，降低安装难度
+1. Opencart从1.32开始，已经无法通过安装步骤创建数据库，故需要提前新建数据库
+2. Opencart的安装步骤是可以分步骤的，并可以点击“重新开始安装”
+3. Opencart可以改进预先配置好数据库，让用户无需配置数据库，降低安装难度
 
 ### 数据库随机root密码
 
