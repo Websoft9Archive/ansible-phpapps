@@ -40,7 +40,7 @@ Database (MySQLi suggested)
 ### 数据库随机root密码
 
 
-### 默认安装中文语言包方案
+### 默认安装中文语言包方案（通过修改文件完成，非ansible实现）
 1. 下载oss中的中文语言包（包含admin,catalog,install三个包）
 2. 修改intall中的opencart.sql文件，插入语言表的第二行
 ~~~
