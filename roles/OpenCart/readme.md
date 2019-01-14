@@ -2,12 +2,14 @@
 
 ## 说明
 此项目是用Ansible编写的Opencart自动安装程序.
+
 These are minimum requirements needed so that OpenCart can be installed and work properly.
-> 
+''' 
 Web Server (Apache suggested)
 PHP (at least 5.4)
 Curl enabled
 Database (MySQLi suggested)
+'''
 
 ## 适用于基础环境
 
