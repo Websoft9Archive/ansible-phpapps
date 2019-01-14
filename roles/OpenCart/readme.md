@@ -25,7 +25,7 @@ Database (MySQLi suggested)
 * CentOS
 * Ubuntu（暂时不支持）
 
-## Mediawiki安装需求
+## 服务器需求
 
 * 建议最低配置1核1G
 
