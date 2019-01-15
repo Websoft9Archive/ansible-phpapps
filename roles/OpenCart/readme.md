@@ -3,6 +3,8 @@
 ## 说明
 此项目是用Ansible编写的Opencart自动安装程序.
 
+## 适用于基础环境
+
 These are minimum requirements needed so that OpenCart can be installed and work properly.
 ~~~
 Web Server (Apache suggested)
@@ -10,8 +12,6 @@ PHP (at least 5.4)
 Curl enabled
 Database (MySQLi suggested)
 ~~~
-
-## 适用于基础环境
 
 本程序仅适用于Websoft9的基础环境，包括：
 
@@ -29,25 +29,30 @@ Database (MySQLi suggested)
 
 * 建议最低配置1核1G
 
+## 源码包说明
+1. opencart官方安装包的源码存放路径是：opencart/upload，因此Ansible下载到服务器之后还需要将源码移动到opencart目录下面
+2. 目前提供Opencart官方原版（含中文语言包）、成都光大网络版两个版本，通过修改下载链接进行区分
+
 ## 用户体验改进
+
+### 数据库随机root密码
+1. 数据库root账号的随机密码存放在txt文件中（暂未实现）
+2. 
 
 ### 免数据库配置
 
-1. Opencart从1.32开始，已经无法通过安装步骤创建数据库，故需要提前新建数据库
-2. Opencart的安装步骤是可以分步骤的，并可以点击“重新开始安装”
-3. Opencart可以改进预先配置好数据库，让用户无需配置数据库，降低安装难度
-
-### 数据库随机root密码
+暂未实现
 
 
-### 默认安装中文语言包方案（通过修改文件完成，非ansible实现）
-1. 下载oss中的中文语言包（包含admin,catalog,install三个包）
-2. 修改intall中的opencart.sql文件，插入语言表的第二行
+### 默认安装中文语言包方案
+1. 手工打包中文语言包，名称为opencart,其中包含admin,catalog,install三个包，上传到OSS
+2. Ansible中设置语言变量。例如设置：language: cn 
+2. Ansible程序修改intall目录下的opencart.sql文件，插入语言表的第二行简体中文项（见下）
 ~~~
 INSERT INTO `oc_language` (`language_id`, `name`, `code`, `locale`, `image`, `directory`, `sort_order`, `status`) VALUES
 (1, 'English', 'en-gb', 'en-US,en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 1, 1),
 (2, ' 简体中文', 'zh-cn', 'zh_CN.UTF-8,zh_CN,zh-cn,china', 'cn.png', 'zh-CN', 1, 1);
 ~~~
 
-### 多个版本
-目前提供Opencart官方原版（含中文语言包）、成都光大网络版两个版本，通过修改下载链接进行区分
+
+## Changelog
