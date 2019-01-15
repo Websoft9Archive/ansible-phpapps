@@ -36,7 +36,7 @@
   shell: cp /data/wwwroot/opencart/upload/config-dist.php /data/wwwroot/opencart/config.php
   
 - name: Rename admin/config-dist.php to config-dist.php
-  shell: cp /data/wwwroot/opencart/upload/admin/config-dist.php /data/wwwroot/opencart/admin/config.php
+  shell: cp /data/wwwroot/opencart/admin/config-dist.php /data/wwwroot/opencart/admin/config.php
  
   
 - name: Remove example dir
