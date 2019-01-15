@@ -3,36 +3,34 @@
 ##　sql文件在打包时修改
 - name: Create folder
   file:
-    path: /data/wwwroot/opencart
+    path: /data/wwwroot/opencart1
     state: directory
     mode: 0750
 
 - name: Download Opencart
   unarchive:
     src: "{{ OpenCart }}"
-    dest: /data/wwwroot/opencart
+    dest: /data/wwwroot/opencart1
     owner: apache
     group: apache
     remote_src: yes
-  when: language == "English"
 
-- name: Download OpenCart language package
-  unarchive:
-      src: "{{ OpenCartcnpack }}"
-      dest: /data/wwwroot
-      owner: apache
-      group: apache
-      remote_src: yes
-  when: language == "English"
-
-- name: Download Opencart:光大网络的中文本地版
-  unarchive:
-    src: "{{ OpenCart }}"
-    dest: /data/wwwroot/opencart
+- name: move upload folder to opencart -1
+  file:
+    path: /data/wwwroot/opencart
+    state: directory
     owner: apache
     group: apache
+    mode: 0750
     remote_src: yes
-  when: language == "Chinese"  
+    
+- name: move upload folder to opencart -2
+  shell: mv /data/wwwroot/opencart1/upload /data/wwwroot/opencart
+
+- name: move upload folder to opencart -3
+  file:
+    path: /data/wwwroot/opencart1
+    state: absent
 
 - name: Rename config-dist.php to config-dist.php
   shell: cp /data/wwwroot/opencart/upload/config-dist.php /data/wwwroot/opencart/upload/config.php
