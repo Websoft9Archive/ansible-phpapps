@@ -3,37 +3,21 @@
 ##　sql文件在打包时修改
 - name: Create folder
   file:
-    path: /data/wwwroot/opencart1
+    path: /data/wwwroot/opencart
     state: directory
     mode: 0750
 
 - name: Download Opencart
   unarchive:
     src: "{{ OpenCart }}"
-    dest: /data/wwwroot/opencart1
+    dest: /data/wwwroot/opencart
     owner: apache
     group: apache
     remote_src: yes
 
-- name: move upload folder to opencart -1
-  file:
-    path: /data/wwwroot/opencart
-    state: directory
-    owner: apache
-    group: apache
-    mode: 0750
-    remote_src: yes
-    
-- name: move upload folder to opencart -2
-  shell: mv /data/wwwroot/opencart1/upload/* /data/wwwroot/opencart
-
-- name: move upload folder to opencart -3
-  file:
-    path: /data/wwwroot/opencart1
-    state: absent
 
 - name: Rename config-dist.php to config-dist.php
-  shell: cp /data/wwwroot/opencart/upload/config-dist.php /data/wwwroot/opencart/config.php
+  shell: cp /data/wwwroot/opencart/config-dist.php /data/wwwroot/opencart/config.php
   
 - name: Rename admin/config-dist.php to config-dist.php
   shell: cp /data/wwwroot/opencart/admin/config-dist.php /data/wwwroot/opencart/admin/config.php
