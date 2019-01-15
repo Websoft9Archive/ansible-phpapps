@@ -25,7 +25,7 @@
     remote_src: yes
     
 - name: move upload folder to opencart -2
-  shell: mv /data/wwwroot/opencart1/upload /data/wwwroot/opencart
+  shell: mv /data/wwwroot/opencart1/upload/* /data/wwwroot/opencart
 
 - name: move upload folder to opencart -3
   file:
@@ -33,10 +33,10 @@
     state: absent
 
 - name: Rename config-dist.php to config-dist.php
-  shell: cp /data/wwwroot/opencart/upload/config-dist.php /data/wwwroot/opencart/upload/config.php
+  shell: cp /data/wwwroot/opencart/upload/config-dist.php /data/wwwroot/opencart/config.php
   
 - name: Rename admin/config-dist.php to config-dist.php
-  shell: cp /data/wwwroot/opencart/upload/admin/config-dist.php /data/wwwroot/opencart/upload/admin/config.php
+  shell: cp /data/wwwroot/opencart/upload/admin/config-dist.php /data/wwwroot/opencart/admin/config.php
  
   
 - name: Remove example dir
