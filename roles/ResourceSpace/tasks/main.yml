@@ -1,8 +1,6 @@
 # System Upgrade
 - name: System Upgrade
-  yum:
-    name: *
-    state: latest
+  yum: name=* state=latest
 
 - name: Create Folder
   file:
@@ -17,6 +15,7 @@
     owner: apache
     group: apache
     mode: 0750
+    remote_src: yes
 
 - name: Remove Example Folder
   file:
@@ -25,14 +24,19 @@
 
 - name: Install other nesscessary software
   yum:
-    name: [subversion, ghostscript, ImageMagick, poppler]
+    name: [subversion, ghostscript, ImageMagick, poppler, ]
     state: latest
+   
 
 - name: Install CERT-Forensics-Tool -1 
-  shell: wget -O https://forensics.cert.org/cert-forensics-tools-release-el7.rpm ~/cert-forensics-tools.rpm
+#  shell: wget -O https://forensics.cert.org/cert-forensics-tools-release-el7.rpm ~/cert-forensics-tools.rpm
+  get_url:
+      url: https://forensics.cert.org/cert-forensics-tools-release-el7.rpm
+      dest: /root/cert-forensics-tools.rpm
+      mode: 0644
 
 - name: Install CERT-Forensics-Tool -2
-  shell: rpm -i ~/cert-forensics-tools.rpm
+  shell: rpm -i /root/cert-forensics-tools.rpm
 
 - name: Remove cert-forensics-tools.rpm
   file:
@@ -43,6 +47,7 @@
   yum:
     name: CERT-Forensics-Tools
     state: latest
+    skip_broken: yes
 
 - name: change php.ini
   template:
@@ -51,6 +56,17 @@
     owner: root
     group: root
     mode: 0640
+  notify: restart Apache
+
+- name: Copy Apache Config
+  template: src=vhost.conf dest=/etc/httpd/vhost
+  notify: restart Apache
+
+- name: Change 9panel
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: '{"appname":"ResourceSpace","switch":0,'
+    line: '{"appname":"ResourceSpace","switch":0,'
 
 - name: Create database 
   mysql_db:
@@ -64,6 +80,10 @@
       path: /data/wwwroot/resourcespace/filestore
       state: directory
       mode: 0750
+
+- name: Remove other unnecessesary package
+  yum:
+    autoremove: yes
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 755 {} \;

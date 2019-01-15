@@ -28,3 +28,4 @@
     - { role: Laravel, tags: "laravel" }
     - { role: Magento, tags: "magento" }
     - { role: dzzoffice, tags: "dzzoffice" }
+    - { role: ResourceSpace, tags: "resourcespace" }

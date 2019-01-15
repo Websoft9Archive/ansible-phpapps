@@ -15,6 +15,18 @@
       arguments: laravel/laravel
       working_dir: /data/wwwroot/
 
+# - name: Download Laravel
+#   unarchive:
+#       src: "{{ laravel }}"
+#       dest: /data/wwwroot/
+#       owner: apache
+#       group: apache
+#       mode: 0750
+#       remote_src: yes
+
+# - name: Rename directory name
+#   shell: mv /data/wwwroot/laravel-* /data/wwwroot/laravel
+
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
   notify: restart Apache

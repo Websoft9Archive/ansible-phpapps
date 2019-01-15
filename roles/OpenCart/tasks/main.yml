@@ -1,6 +1,6 @@
 ---
 # Opencart
-
+##　sql文件在打包时修改
 - name: Create folder
   file:
     path: /data/wwwroot/opencart
