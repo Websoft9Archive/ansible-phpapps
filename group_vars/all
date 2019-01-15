@@ -16,12 +16,11 @@ EspoCRM:        https://www.espocrm.com/downloads/EspoCRM-5.5.3.zip
 # Drupal下载速度慢，需要预下载
 Drupal:         http://libs.websoft9.com/apps/drupal-8.6.4.zip
 
-# Opencart存放在github上的release固定地址下载会出现停滞，故先预下载。Opecartcnpack:中文语言包，Opencatcn:光大网络的中文本地版
+# Opencart存放在github上的release固定地址下载会出现停滞，故先预下载。Opecart中文版即光大网络的中文本地版
 ## 英文版
-OpenCart:       http://libs.websoft9.com/apps/opencart/OpenCart3.0.2.0.zip
+OpenCart:       http://libs.websoft9.com/apps/opencart/opencart-3.0.3.1.zip
 ## 中文版
-#OpenCart:      http://libs.websoft9.com/apps/opencart/opencart3-cnpack.zip
-OpenCartcn:     http://libs.websoft9.com/apps/opencart/opencart-v30-free-20180919.zip
+#OpenCart:      http://libs.websoft9.com/apps/opencart/opencart-v30-free-20180919.zip
 
 # Joomla最低要求php7.1
 Joomla:         https://downloads.joomla.org/cms/joomla3/3-9-1/joomla_3-9-1-stable-full_package-zip
