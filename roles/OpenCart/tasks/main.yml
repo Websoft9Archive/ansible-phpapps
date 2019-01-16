@@ -37,7 +37,27 @@
   
 - name: Rename admin/config-dist.php to config-dist.php
   shell: cp /data/wwwroot/opencart/admin/config-dist.php /data/wwwroot/opencart/admin/config.php
- 
+
+
+- name: Download Opencart language package
+  unarchive:
+    src: "{{ OpenCart-language-cn }}"
+    dest: /root/
+    owner: apache
+    group: apache
+    remote_src: yes
+
+- name: move language package to opencart source code
+  copy:
+    src: /root/opencart
+    dest: /data/wwwroot/opencart
+    owner: apache
+    group: apache
+
+- name: delete language package
+  file: 
+    path: /root/opencart
+    state: absent
   
 - name: Remove example dir
   file:
