@@ -83,7 +83,7 @@ laravel:        http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/la
 thinkphp:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/thinkphp.zip
 
 # thinkcmf - 预下载
-thinkcmf:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/thinkcmf.zip
+thinkcmf:       http://libs.websoft9.com/apps/thinkcmf.zip
 
 # ResourceSpace - 预下载
 ResourceSpace:  http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/ResourceSpace.zip

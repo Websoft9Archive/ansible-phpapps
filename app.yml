@@ -25,6 +25,7 @@
     - { role: prestashop, tags: "prestashop"}
     - { role: MediaWiki, tags: "mediawiki"}
     - { role: ThinkPHP, tags: "thinkphp" }
+    - { role: ThinkCMF, tags: "thinkcmf" }
     - { role: Laravel, tags: "laravel" }
     - { role: Magento, tags: "magento" }
     - { role: dzzoffice, tags: "dzzoffice" }
