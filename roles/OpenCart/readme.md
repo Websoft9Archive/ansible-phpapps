@@ -48,3 +48,6 @@ INSERT INTO `oc_language` (`language_id`, `name`, `code`, `locale`, `image`, `di
 (1, 'English', 'en-gb', 'en-US,en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 1, 1),
 (2, ' 简体中文', 'zh-cn', 'zh_CN.UTF-8,zh_CN,zh-cn,china', 'cn.png', 'zh-CN', 1, 1);
 ~~~
+
+### 多个版本
+目前提供Opencart官方原版（含中文语言包）、成都光大网络版两个版本，通过修改下载链接进行区分
