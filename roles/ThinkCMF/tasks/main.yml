@@ -10,19 +10,17 @@
   shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
 
-- name: Create ThinkCMF directory
-  file:
-    path: /data/wwwroot/thinkcmf
-    state: directory
-
 - name: Download ThinkCMF
   unarchive:
       src: "{{ thinkcmf }}"
-      dest: /data/wwwroot/thinkcmf
+      dest: /data/wwwroot
       owner: apache
       group: apache
       mode: 0750
       remote_src: yes
+
+- name: Rename ThinkCMF to thinkcmf
+  shell: mv /data/wwwroot/ThinkCMF  /data/wwwroot/thinkcmf
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
