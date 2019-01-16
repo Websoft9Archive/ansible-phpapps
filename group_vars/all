@@ -17,20 +17,10 @@ EspoCRM:        https://www.espocrm.com/downloads/EspoCRM-5.5.3.zip
 Drupal:         http://libs.websoft9.com/apps/drupal-8.6.4.zip
 
 # Opencart存放在github上的release固定地址下载会出现停滞，故先预下载。Opecart中文版即光大网络的中文本地版
-## 英文版
-<<<<<<< HEAD
-OpenCart:       http://libs.websoft9.com/apps/opencart/opencart-3.0.3.1.zip
-## 中文版
-=======
-<<<<<<< HEAD
-OpenCart:       http://libs.websoft9.com/apps/opencart/OpenCart3.0.2.0.zip
-OpenCart-language-cn:     http://libs.websoft9.com/apps/opencart/opencart3-cnpack.zip   #中文语言包
-## 光大网络版
-=======
-OpenCart:       http://libs.websoft9.com/apps/opencart/opencart-3.0.3.1.zip
-## 中文版
->>>>>>> 09fa176ba37aac6e921420bf2c80a78f72aa336f
->>>>>>> 84220dc9de2e57aefbc26c55ae2490db566b5144
+# 英文版
+OpenCart:                 http://libs.websoft9.com/apps/opencart/opencart-3.0.3.1.zip
+OpenCart-language-cn:     http://libs.websoft9.com/apps/opencart/opencart3-cnpack.zip 
+# 光大网络版
 #OpenCart:      http://libs.websoft9.com/apps/opencart/opencart-v30-free-20180919.zip
 
 # Joomla最低要求php7.1
@@ -91,6 +81,9 @@ laravel:        http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/la
 
 # thinkphp - 预下载
 thinkphp:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/thinkphp.zip
+
+# thinkcmf - 预下载
+thinkcmf:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/thinkcmf.zip
 
 # ResourceSpace - 预下载
 ResourceSpace:  http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/ResourceSpace.zip
