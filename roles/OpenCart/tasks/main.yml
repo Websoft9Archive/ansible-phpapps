@@ -30,7 +30,7 @@
     owner: apache
     group: apache
     remote_src: yes
-  when: language==cn
+  when: language == "cn"
 
 - name: move language package to opencart source code
   copy:
@@ -38,13 +38,13 @@
     dest: /data/wwwroot/opencart
     owner: apache
     group: apache
-  when: language==cn
+  when: language == "cn"
 
 - name: delete language package
   file: 
     path: /root/opencart
     state: absent
-  when: language==cn
+  when: language == "cn"
   
 - name: Remove example dir
   file:
