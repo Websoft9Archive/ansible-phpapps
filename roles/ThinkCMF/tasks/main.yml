@@ -20,7 +20,7 @@
       remote_src: yes
 
 - name: Rename ThinkCMF to thinkcmf
-  shell: mv /data/wwwroot/ThinkCMF  /data/wwwroot/thinkcmf
+  shell: mv /data/wwwroot/ThinkCMF/  /data/wwwroot/thinkcmf/
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
