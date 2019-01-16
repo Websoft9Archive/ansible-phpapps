@@ -1,19 +1,65 @@
 ---
 # Opencart
 ##　sql文件在打包时修改
-- name: Create folder
+- name: Create opencart1 folder
   file:
-    path: /data/wwwroot/opencart
+    path: /data/wwwroot/opencart1
     state: directory
     mode: 0750
 
 - name: Download Opencart
   unarchive:
     src: "{{ OpenCart }}"
-    dest: /data/wwwroot/opencart
+    dest: /data/wwwroot/opencart1
     owner: apache
     group: apache
     remote_src: yes
+
+- name: Download Opencart language package
+  unarchive:
+    src: "{{ Chinese }}"
+    dest: /opt
+    owner: apache
+    group: apache
+    remote_src: yes
+  when: language == "cn"
+
+- name: move language sql to opencart source directory
+  shell: mv -f /opt/opencart/upload/install/opencart.sql /data/wwwroot/opencart1/upload/install/
+  when: language == "cn"
+
+- name: delete sql file
+  file:
+    path: /opt/opencart/upload/install/opencart.sql
+    state: absent
+  when: language == "cn"
+
+- name: move language package to opencart source code
+  shell: cp -rf /opt/opencart/upload/* /data/wwwroot/opencart1/upload/
+  when: language == "cn"
+
+- name: delete language package
+  file: 
+    path: /opt/opencart
+    state: absent
+  when: language == "cn"
+
+- name: Create opencart directory
+  file:
+    path: /data/wwwroot/opencart
+    state: directory
+    owner: apache
+    group: apache
+    mode: 0750
+
+- name: move upload directory to opencart 
+  shell: mv /data/wwwroot/opencart1/upload/* /data/wwwroot/opencart
+
+
+- name: delete opencart1 directory
+  file: 
+    path: /data/wwwroot/opencart1
+    state: absent
 
 
 - name: Rename config-dist.php to config-dist.php
@@ -21,34 +67,8 @@
   
 - name: Rename admin/config-dist.php to config-dist.php
   shell: cp /data/wwwroot/opencart/admin/config-dist.php /data/wwwroot/opencart/admin/config.php
-<<<<<<< HEAD
  
-=======
 
-
->>>>>>> master
-- name: Download Opencart language package
-  unarchive:
-    src: "{{ OpenCart-language-cn }}"
-    dest: /root/
-    owner: apache
-    group: apache
-    remote_src: yes
-  when: language == "cn"
-
-- name: move language package to opencart source code
-  copy:
-    src: /root/opencart
-    dest: /data/wwwroot/opencart
-    owner: apache
-    group: apache
-  when: language == "cn"
-
-- name: delete language package
-  file: 
-    path: /root/opencart
-    state: absent
-  when: language == "cn"
   
 - name: Remove example dir
   file:
