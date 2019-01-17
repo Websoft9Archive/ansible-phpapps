@@ -23,7 +23,7 @@
       mode: 0750
       remote_src: yes
 
-#==============================================================#
+#====================apache and nginx==========================================#
 - name: Copy Nginx Config
   template: src=default.conf dest=/etc/nginx/conf.d/
   notify: restart nginx
@@ -49,7 +49,7 @@
 - name: restart nginx
   service: name=nginx state=restarted enabled=yes
   when: nginx_ver.stderr.find('nginx') != -1
-#==============================================================#
+#==========================+=================================================#
 
 - name: Change 9panel
   lineinfile:
