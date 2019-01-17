@@ -13,17 +13,7 @@
     owner: apache
     group: apache
     remote_src: yes
-  when: magento == "default"
-
-- name: Download Magento which include demo data
-  unarchive:
-    src: "{{ Magentoanddemo }}"
-    dest: /data/wwwroot/magento
-    owner: apache
-    group: apache
-    remote_src: yes
-  when: magento == "Magentoanddemo"
-    
+  when: magento == "default"    
 
 - name: Remove example dir
   file:
@@ -72,7 +62,7 @@
 
 - name: Download language package
   unarchive:
-    src: "{{ language_package }}"
+    src: "{{ mogento_package_CN }}"
     dest: /data/wwwroot/magento/vendor/magento/
     remote_src: yes
 
