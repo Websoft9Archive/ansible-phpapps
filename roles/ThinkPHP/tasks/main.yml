@@ -6,28 +6,10 @@
   register: nginx_ver
   ignore_errors: yes
 
-
-
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com
     state: absent
-
-#===============================
-# - name: Replace Composer repo.packagist to internal repo.packagist
-#   shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com
-
-# - name: Install ThinkPHP
-#   composer:
-#       command: create-project
-#       arguments: topthink/think
-#       working_dir: /data/wwwroot/
-
-# - name: Rename folder's name
-#   shell:
-#     mv /data/wwwroot/think /data/wwwroot/thinkphp
-#===============================
-
 
 - name: Create directory
   file:
@@ -38,15 +20,14 @@
   unarchive:
       src: "{{ thinkphp }}"
       dest: /data/wwwroot/thinkphp
-      owner: apache
-      group: apache
       mode: 0750
       remote_src: yes
 
+#==============================================================#
 - name: Copy Nginx Config
   template: src=default.conf dest=/etc/nginx/conf.d/
   notify: restart nginx
-  when: nginx_ver.stdout.find('nginx') != -1
+  when: nginx_ver.stderr.find('nginx') != -1
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost/
@@ -55,14 +36,23 @@
 
 
 - name: change nginx owner
-  shell: chowm nginx. -R /data/wwwroot
-  when: nginx_ver.stdout.find('nginx') != -1
+  shell: chown nginx. -R /data/wwwroot
+  when: nginx_ver.stderr.find('nginx') != -1
 
 - name: change apache owner
   shell: chown apache. -R /data/wwwroot
   when: nginx_ver.stderr.find('command not found') != -1
 
 
+- name: restart apache
+  service: name=httpd state=restarted enabled=yes
+  when: nginx_ver.stderr.find('command not found') != -1
+
+- name: restart nginx
+  service: name=nginx state=restarted enabled=yes
+  when: nginx_ver.stderr.find('nginx') != -1
+
+#==============================================================#
 
 - name: Change 9panel
   lineinfile:
@@ -76,6 +66,7 @@
   
 - name: Permission file
   shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
+
 
 - name: System Upgrade
   yum: name=* state=latest
