@@ -34,7 +34,6 @@
   notify: restart Apache
   when: nginx_ver.stderr.find('command not found') != -1
 
-
 - name: change nginx owner
   shell: chown nginx. -R /data/wwwroot
   when: nginx_ver.stderr.find('nginx') != -1
@@ -43,7 +42,6 @@
   shell: chown apache. -R /data/wwwroot
   when: nginx_ver.stderr.find('command not found') != -1
 
-
 - name: restart apache
   service: name=httpd state=restarted enabled=yes
   when: nginx_ver.stderr.find('command not found') != -1
@@ -51,7 +49,6 @@
 - name: restart nginx
   service: name=nginx state=restarted enabled=yes
   when: nginx_ver.stderr.find('nginx') != -1
-
 #==============================================================#
 
 - name: Change 9panel
