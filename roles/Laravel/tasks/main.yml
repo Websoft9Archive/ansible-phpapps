@@ -33,9 +33,33 @@
 # - name: Rename directory name
 #   shell: mv /data/wwwroot/laravel-* /data/wwwroot/laravel
 
+#====================apache and nginx==========================================#
+- name: Copy Nginx Config
+  template: src=default.conf dest=/etc/nginx/conf.d/
+  notify: restart nginx
+  when: nginx_ver.stderr.find('nginx') != -1
+
 - name: Copy Apache Config
-  template: src=vhost.conf dest=/etc/httpd/vhost
+  template: src=vhost.conf dest=/etc/httpd/vhost/
   notify: restart Apache
+  when: nginx_ver.stderr.find('command not found') != -1
+
+- name: change nginx owner
+  shell: chown nginx. -R /data/wwwroot
+  when: nginx_ver.stderr.find('nginx') != -1
+
+- name: change apache owner
+  shell: chown apache. -R /data/wwwroot
+  when: nginx_ver.stderr.find('command not found') != -1
+
+- name: restart apache
+  service: name=httpd state=restarted enabled=yes
+  when: nginx_ver.stderr.find('command not found') != -1
+
+- name: restart nginx
+  service: name=nginx state=restarted enabled=yes
+  when: nginx_ver.stderr.find('nginx') != -1
+#==========================+=================================================#
 
 - name: Change 9panel
   lineinfile:
