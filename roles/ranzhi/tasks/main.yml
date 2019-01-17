@@ -1,6 +1,11 @@
 ---
 # 然之OA
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
 
+  
 - name: Download RanZhiOA
   unarchive:
     src: "{{ ranzhi }}"

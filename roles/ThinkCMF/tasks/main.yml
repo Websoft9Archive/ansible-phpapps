@@ -1,6 +1,10 @@
 ---
 # ThinkCMF
-
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+  
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com

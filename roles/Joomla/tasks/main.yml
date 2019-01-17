@@ -1,7 +1,12 @@
 ---
 # Joomla
 # 请使用 LAMP71 以上版本 
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
 
+  
 - name: Create Joomla folder
   file:
     path: /data/wwwroot/joomla

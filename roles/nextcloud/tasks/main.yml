@@ -1,6 +1,14 @@
 ---
 # NextCloud
+
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+
+
 # System upgrade
+
 - name: System upgrade
   yum:
     name: '*'

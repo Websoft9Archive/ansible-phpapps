@@ -1,6 +1,11 @@
 ---
 # Moodle-LMS
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
 
+  
 - name: Download Moodle-LMS
   unarchive:
     src: "{{ Moodle }}"
