@@ -18,10 +18,10 @@ Drupal:         http://libs.websoft9.com/apps/drupal-8.6.4.zip
 
 # Opencart存放在github上的release固定地址下载会出现停滞，故先预下载。Opecart中文版即光大网络的中文本地版
 ## 英文版
-OpenCart:       http://libs.websoft9.com/apps/opencart/opencart-3.0.3.1.zip
-Chinese:     http://libs.websoft9.com/apps/opencart/opencart3-cnpack.zip   #中文语言包
+OpenCart:                http://libs.websoft9.com/apps/opencart/opencart-3.0.3.1.zip
+opencart_package_CN:     http://libs.websoft9.com/apps/opencart/opencart3-cnpack.zip   #中文语言包
 ## 中文版
-#OpenCart:      http://libs.websoft9.com/apps/opencart/opencart-v30-free-20180919.zip
+#OpenCart:               http://libs.websoft9.com/apps/opencart/opencart-v30-free-20180919.zip
 
 # Joomla最低要求php7.1
 Joomla:         https://downloads.joomla.org/cms/joomla3/3-9-1/joomla_3-9-1-stable-full_package-zip
@@ -69,9 +69,12 @@ NextCloud:      http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/ne
 OwnCloud:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/owncloud.zip
 
 # Mangento需要预下载，语言包也需要预下载
+## 源码
 Magento:        http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/Magento/magento.tar.gz
-Magentoanddemo: http://libs.websoft9.com/apps/Magento/Magento-CE-2.3.0_sample_data-2018-11-27-10-29-50.tar.gz
-language_package:    http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/Magento/language-zh_hans_cn.tar.gz
+## 包含演示数据的完整包
+Magento:        ttp://libs.websoft9.com/apps/Magento/Magento-CE-2.3.0_sample_data-2018-11-27-10-29-50.tar.gz
+## 中文语言包
+mogento_package_CN:    http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/Magento/language-zh_hans_cn.tar.gz
 
 # dzzoffice - 预下载
 dzzoffice:      http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/DzzOffice/dzzoffice.tar.gz

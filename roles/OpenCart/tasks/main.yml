@@ -17,7 +17,7 @@
 
 - name: Download Opencart language package
   unarchive:
-    src: "{{ Chinese }}"
+    src: "{{ opencart_package_CN }}"
     dest: /opt
     owner: apache
     group: apache
