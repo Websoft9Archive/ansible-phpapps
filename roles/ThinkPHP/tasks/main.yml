@@ -2,8 +2,9 @@
 # ThinkPHP
 
 - name: Get WebServer
-  command: nginx -v
+  shell: nginx -v
   register: nginx_ver
+  ignore_errors: yes
 
 
 
@@ -50,7 +51,7 @@
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost/
   notify: restart Apache
-  when: nginx_ver.stdout.find('command not found') != -1
+  when: nginx_ver.stderr.find('command not found') != -1
 
 
 - name: change nginx owner
@@ -58,8 +59,8 @@
   when: nginx_ver.stdout.find('nginx') != -1
 
 - name: change apache owner
-  shell: chowm apache. -R /data/wwwroot
-  when: nginx_ver.stdout.find('command not found') != -1
+  shell: chown apache. -R /data/wwwroot
+  when: nginx_ver.stderr.find('command not found') != -1
 
 
 
