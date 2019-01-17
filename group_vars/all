@@ -19,6 +19,7 @@ Drupal:         http://libs.websoft9.com/apps/drupal-8.6.4.zip
 # Opencart存放在github上的release固定地址下载会出现停滞，故先预下载。Opecart中文版即光大网络的中文本地版
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 英文版
 OpenCart:       http://libs.websoft9.com/apps/opencart/opencart-3.0.3.1.zip
 Chinese:     http://libs.websoft9.com/apps/opencart/opencart3-cnpack.zip   #中文语言包
@@ -29,6 +30,13 @@ opencart_package_CN:     http://libs.websoft9.com/apps/opencart/opencart3-cnpack
 >>>>>>> hl
 ## 中文版
 #OpenCart:               http://libs.websoft9.com/apps/opencart/opencart-v30-free-20180919.zip
+=======
+# 英文版
+OpenCart:       http://libs.websoft9.com/apps/opencart/opencart-3.0.3.1.zip
+Chinese:     http://libs.websoft9.com/apps/opencart/opencart3-cnpack.zip   #中文语言包
+# 中文版
+#OpenCart:      http://libs.websoft9.com/apps/opencart/opencart-v30-free-20180919.zip
+>>>>>>> d0b5d675ddd20f1a949bfa2dc1d47c7b24d11536
 
 # Joomla最低要求php7.1
 Joomla:         https://downloads.joomla.org/cms/joomla3/3-9-1/joomla_3-9-1-stable-full_package-zip
