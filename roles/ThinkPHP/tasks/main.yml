@@ -61,8 +61,6 @@
   shell: chowm apache. -R /data/wwwroot
   when: nginx_ver.stdout.find('command not found') != -1
 
-
-
 - name: Change 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
