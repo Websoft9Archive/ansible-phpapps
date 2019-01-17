@@ -1,3 +1,8 @@
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+
 # System Upgrade
 - name: System Upgrade
   yum: name=* state=latest

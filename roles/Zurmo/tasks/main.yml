@@ -1,6 +1,11 @@
 ---
 # Zurmo
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
 
+  
 - name: Download Zurmo
   unarchive:
     src: "{{ Zurmo }}"

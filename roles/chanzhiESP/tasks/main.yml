@@ -1,6 +1,10 @@
 ---
 # 禅知
-
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+  
 - name: Download ChanZhiEPS
   unarchive:
     src: "{{ chanzhiEPS }}"

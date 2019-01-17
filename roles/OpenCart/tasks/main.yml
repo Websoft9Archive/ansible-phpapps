@@ -1,6 +1,12 @@
 ---
 # Opencart
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+
 ##　sql文件在打包时修改
+
 - name: Create opencart1 folder
   file:
     path: /data/wwwroot/opencart1

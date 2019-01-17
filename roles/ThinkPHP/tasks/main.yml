@@ -2,31 +2,14 @@
 # ThinkPHP
 
 - name: Get WebServer
-  command: nginx -v
+  shell: nginx -v
   register: nginx_ver
-
-
+  ignore_errors: yes
 
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com
     state: absent
-
-#===============================
-# - name: Replace Composer repo.packagist to internal repo.packagist
-#   shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com
-
-# - name: Install ThinkPHP
-#   composer:
-#       command: create-project
-#       arguments: topthink/think
-#       working_dir: /data/wwwroot/
-
-# - name: Rename folder's name
-#   shell:
-#     mv /data/wwwroot/think /data/wwwroot/thinkphp
-#===============================
-
 
 - name: Create directory
   file:
@@ -37,30 +20,40 @@
   unarchive:
       src: "{{ thinkphp }}"
       dest: /data/wwwroot/thinkphp
-      owner: apache
-      group: apache
       mode: 0750
       remote_src: yes
 
+#====================apache and nginx==========================================#
 - name: Copy Nginx Config
   template: src=default.conf dest=/etc/nginx/conf.d/
   notify: restart nginx
-  when: nginx_ver.stdout.find('nginx') != -1
+  when: nginx_ver.stderr.find('nginx') != -1
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost/
   notify: restart Apache
-  when: nginx_ver.stdout.find('command not found') != -1
-
+  when: nginx_ver.stderr.find('command not found') != -1
 
 - name: change nginx owner
-  shell: chowm nginx. -R /data/wwwroot
-  when: nginx_ver.stdout.find('nginx') != -1
+  shell: chown nginx. -R /data/wwwroot
+  when: nginx_ver.stderr.find('nginx') != -1
 
 - name: change apache owner
-  shell: chowm apache. -R /data/wwwroot
-  when: nginx_ver.stdout.find('command not found') != -1
+  shell: chown apache. -R /data/wwwroot
+  when: nginx_ver.stderr.find('command not found') != -1
 
+<<<<<<< HEAD
+=======
+- name: restart apache
+  service: name=httpd state=restarted enabled=yes
+  when: nginx_ver.stderr.find('command not found') != -1
+
+- name: restart nginx
+  service: name=nginx state=restarted enabled=yes
+  when: nginx_ver.stderr.find('nginx') != -1
+#==========================+=================================================#
+
+>>>>>>> 4145746f1fee8e5783c8774cac69625f1324872a
 - name: Change 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
@@ -73,6 +66,7 @@
   
 - name: Permission file
   shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
+
 
 - name: System Upgrade
   yum: name=* state=latest

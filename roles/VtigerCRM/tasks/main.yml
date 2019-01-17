@@ -2,7 +2,12 @@
 # VtigerCRM
 # - import_tasks: install.yml
 #   when: 
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
 
+  
 - name: Download VtigerCRM
   unarchive:
     src: "{{ VtigerCRM }}"

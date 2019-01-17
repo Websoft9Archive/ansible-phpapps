@@ -1,5 +1,11 @@
 ---
 # KODExplorer
+
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+
 - name: create folder
   file:
     path: /data/wwwroot/kodexplorer

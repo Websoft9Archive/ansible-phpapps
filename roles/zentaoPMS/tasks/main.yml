@@ -1,6 +1,10 @@
 ---
 # 禅道
-
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+  
 - name: Download ZenTaoPMS
   unarchive:
     src: "{{ ZenTaoPMS }}"

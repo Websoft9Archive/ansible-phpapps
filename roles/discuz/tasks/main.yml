@@ -1,5 +1,10 @@
 ---
 # Discuz!X3.4
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+
 
 - name: Download Discuz!X3.4
   git:

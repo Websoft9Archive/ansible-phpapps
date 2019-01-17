@@ -1,5 +1,11 @@
 ---
 # Magento 
+
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+
 - name: mkdir folder name
   file: 
     path: /data/wwwroot/magento

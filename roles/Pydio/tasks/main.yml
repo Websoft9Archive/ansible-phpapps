@@ -1,6 +1,10 @@
 ---
 # Pydio
-
+- name: Get WebServer
+  shell: nginx -v
+  register: nginx_ver
+  ignore_errors: yes
+  
 - name: Download Pydio
   unarchive:
     src: "{{ Pydio }}"
