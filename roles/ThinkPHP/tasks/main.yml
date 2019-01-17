@@ -1,6 +1,12 @@
 ---
 # ThinkPHP
 
+- name: Get WebServer
+  command: nginx -v
+  register: nginx_ver
+
+
+
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com
@@ -9,6 +15,7 @@
 - name: Replace Composer repo.packagist to internal repo.packagist
   shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
+#===============================
 # - name: Install ThinkPHP
 #   composer:
 #       command: create-project
@@ -18,6 +25,8 @@
 # - name: Rename folder's name
 #   shell:
 #     mv /data/wwwroot/think /data/wwwroot/thinkphp
+#===============================
+
 
 - name: Create directory
   file:
@@ -33,10 +42,27 @@
       mode: 0750
       remote_src: yes
 
+- name: Copy Nginx Config
+  template: src=default.conf dest=/etc/nginx/conf.d/
+  notify: restart nginx
+  when: nginx_ver.stdout.find('nginx') != -1
+
 - name: Copy Apache Config
-  template: src=vhost.conf dest=/etc/httpd/vhost
+  template: src=vhost.conf dest=/etc/httpd/vhost/
   notify: restart Apache
-  
+  when: nginx_ver.stdout.find('command not found') != -1
+
+
+- name: change nginx owner
+  shell: chowm nginx. -R /data/wwwroot
+  when: nginx_ver.stdout.find('nginx') != -1
+
+- name: change apache owner
+  shell: chowm apache. -R /data/wwwroot
+  when: nginx_ver.stdout.find('command not found') != -1
+
+
+
 - name: Change 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
