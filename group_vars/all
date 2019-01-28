@@ -88,5 +88,8 @@ thinkphp:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/th
 # thinkcmf - 预下载
 thinkcmf:       http://libs.websoft9.com/apps/thinkcmf.zip
 
+# onethink - 预下载
+onethink:       http://libs.websoft9.com/apps/onethink.zip
+
 # ResourceSpace - 预下载
 ResourceSpace:  http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/ResourceSpace.zip
