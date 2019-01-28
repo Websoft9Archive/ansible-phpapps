@@ -36,8 +36,9 @@
 
 ### 版本
 本程序基于Composer安装，官方的Composer会根据基础环境的php版本而选择对应的laravel版本。例如：
-php7.0下，安装的是lavarel5.5.x版本
-php7.2下，安装的是lavarel5.7.22版本  
+
+* php7.0下，安装的是lavarel5.5.x版本
+* php7.2下，安装的是lavarel5.7.22版本  
 
 ### 其他说明
 Laravel官方安装包下的laravel/public为网站目录
