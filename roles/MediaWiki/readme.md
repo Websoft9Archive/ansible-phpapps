@@ -3,6 +3,9 @@
 ## 说明
 此项目是用Ansible编写的Mediawiki自动安装程序.MediaWiki requires PHP 7.0.0+ and either MySQL 5.5.8+, MariaDB, or one of the other three possible stores. For more information, please read the pages on system requirements and compatibility.
 
+官网对安装的配置要求：https://www.mediawiki.org/wiki/Manual:Installation_requirements/zh
+
+
 ## 适用于基础环境
 
 本程序仅适用于Websoft9的基础环境，包括：
