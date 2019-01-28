@@ -26,7 +26,7 @@
     state: present
 
 - name: Rename folder
-  shell: mv /data/wwwroot/cmseasy-* /data/wwwroot/cmseasy
+  shell: mv /data/wwwroot/cmseasy_* /data/wwwroot/cmseasy
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
