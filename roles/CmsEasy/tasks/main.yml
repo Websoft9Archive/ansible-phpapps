@@ -17,6 +17,7 @@
     owner: apache
     group: apache
     remote_src: yes
+    ignore_errors: yes
 
 - name: Remove example dir
   file:
