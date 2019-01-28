@@ -8,7 +8,7 @@
 - name: Download CmsEasy
   unarchive:
     src: "{{ CmsEasy }}"
-    dest: /data/wwwroot
+    dest: /data/wwwroot/cmseasy
     owner: apache
     group: apache
     remote_src: yes
@@ -25,8 +25,8 @@
     name: cmseasy
     state: present
 
-- name: Rename folder
-  shell: mv /data/wwwroot/cmseasy_* /data/wwwroot/cmseasy
+# - name: Rename folder
+#  shell: mv /data/wwwroot/cmseasy_* /data/wwwroot/cmseasy
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
