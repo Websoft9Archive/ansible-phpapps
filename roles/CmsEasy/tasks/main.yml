@@ -5,7 +5,7 @@
   register: nginx_ver
   ignore_errors: yes
 
-- name Create CmsEasy Directory
+- name: Create CmsEasy Directory
   file:
     path: /data/wwwroot/cmseasy
     state: directory
