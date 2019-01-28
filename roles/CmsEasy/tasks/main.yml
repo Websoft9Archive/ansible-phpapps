@@ -4,6 +4,9 @@
   shell: nginx -v
   register: nginx_ver
   ignore_errors: yes
+
+- name Create CmsEasy Directory
+shell mkdir -m 750 /data/wwwroot/cmseasy
   
 - name: Download CmsEasy
   unarchive:
