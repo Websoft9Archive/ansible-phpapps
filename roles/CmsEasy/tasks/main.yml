@@ -6,7 +6,9 @@
   ignore_errors: yes
 
 - name Create CmsEasy Directory
-  shell: mkdir -m 750 /data/wwwroot/cmseasy
+  file:
+    path: /data/wwwroot/cmseasy
+    state: directory
   
 - name: Download CmsEasy
   unarchive:
