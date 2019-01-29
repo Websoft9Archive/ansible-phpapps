@@ -23,6 +23,11 @@
       mode: 0750
       remote_src: yes
 
+- name: Install composer
+  yum:
+    name: composer
+    state: latest
+
 #====================apache and nginx==========================================#
 - name: Copy Nginx Config
   template: src=default.conf dest=/etc/nginx/conf.d/
@@ -42,8 +47,6 @@
   shell: chown apache. -R /data/wwwroot
   when: nginx_ver.stderr.find('command not found') != -1
 
-<<<<<<< HEAD
-=======
 - name: restart apache
   service: name=httpd state=restarted enabled=yes
   when: nginx_ver.stderr.find('command not found') != -1
@@ -53,7 +56,6 @@
   when: nginx_ver.stderr.find('nginx') != -1
 #==========================+=================================================#
 
->>>>>>> 4145746f1fee8e5783c8774cac69625f1324872a
 - name: Change 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js

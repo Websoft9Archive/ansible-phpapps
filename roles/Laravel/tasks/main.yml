@@ -12,6 +12,11 @@
     path: /data/wwwroot/www.example.com
     state: absent
 
+- name: Install composer
+  yum: 
+    name: composer
+    state: latest
+
 - name: Replace Composer repo.packagist to internal repo.packagist
   shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
@@ -21,17 +26,6 @@
       arguments: laravel/laravel
       working_dir: /data/wwwroot/
 
-# - name: Download Laravel
-#   unarchive:
-#       src: "{{ laravel }}"
-#       dest: /data/wwwroot/
-#       owner: apache
-#       group: apache
-#       mode: 0750
-#       remote_src: yes
-
-# - name: Rename directory name
-#   shell: mv /data/wwwroot/laravel-* /data/wwwroot/laravel
 
 #====================apache and nginx==========================================#
 - name: Copy Nginx Config
