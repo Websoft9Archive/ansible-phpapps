@@ -10,14 +10,13 @@
     path: /data/wwwroot/cmseasy
     state: directory
   
-- name: Download CmsEasy
+- name: Download and Unarchive CmsEasy
   unarchive:
     src: "{{ CmsEasy }}"
     dest: /data/wwwroot/cmseasy
     owner: apache
     group: apache
     remote_src: yes
-    ignore_errors: yes
 
 - name: Remove example dir
   file:
@@ -30,9 +29,6 @@
     login_password: 123456
     name: cmseasy
     state: present
-
-# - name: Rename folder
-#  shell: mv /data/wwwroot/cmseasy_* /data/wwwroot/cmseasy
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
