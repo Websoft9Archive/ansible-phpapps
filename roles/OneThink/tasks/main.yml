@@ -1,31 +1,27 @@
 ---
-# Laravel
-## PHP >= 7.1.3
+# OneThink
+
 - name: Get WebServer
   shell: nginx -v
   register: nginx_ver
   ignore_errors: yes
-
 
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com
     state: absent
 
-- name: Install composer
-  yum: 
-    name: composer
-    state: latest
+- name: Create directory
+  file:
+    path: /data/wwwroot/onethink
+    state: directory
 
-- name: Replace Composer repo.packagist to internal repo.packagist
-  shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com
-
-- name: Install Laravel
-  composer:
-      command: create-project
-      arguments: laravel/laravel
-      working_dir: /data/wwwroot/
-
+- name: Download OneThink
+  unarchive:
+      src: "{{ onethink }}"
+      dest: /data/wwwroot/onethink
+      mode: 0750
+      remote_src: yes
 
 #====================apache and nginx==========================================#
 - name: Copy Nginx Config
@@ -58,14 +54,16 @@
 - name: Change 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"Laravel","switch":0,'
-    line: '{"appname":"Laravel","switch":1,'   
-  
+    regexp: '{"appname":"OneThink","switch":0,'
+    line: '{"appname":"OneThink","switch":1,'
+
+
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
   
 - name: Permission file
   shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
+
 
 - name: System Upgrade
   yum: name=* state=latest

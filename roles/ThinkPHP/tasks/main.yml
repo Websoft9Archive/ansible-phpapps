@@ -32,7 +32,7 @@
 - name: Copy Nginx Config
   template: src=default.conf dest=/etc/nginx/conf.d/
   notify: restart nginx
-  when: nginx_ver.stderr.find('nginx') != -1
+  when: nginx_ver.stderr.find('nginx version') != -1
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost/
@@ -41,7 +41,7 @@
 
 - name: change nginx owner
   shell: chown nginx. -R /data/wwwroot
-  when: nginx_ver.stderr.find('nginx') != -1
+  when: nginx_ver.stderr.find('nginx version') != -1
 
 - name: change apache owner
   shell: chown apache. -R /data/wwwroot
@@ -53,7 +53,7 @@
 
 - name: restart nginx
   service: name=nginx state=restarted enabled=yes
-  when: nginx_ver.stderr.find('nginx') != -1
+  when: nginx_ver.stderr.find('nginx version') != -1
 #==========================+=================================================#
 
 - name: Change 9panel

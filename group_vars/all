@@ -72,7 +72,7 @@ OwnCloud:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/ow
 ## 源码
 Magento:        http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/Magento/magento.tar.gz
 ## 包含演示数据的完整包
-Magento:        http://libs.websoft9.com/apps/Magento/Magento-CE-2.3.0_sample_data-2018-11-27-10-29-50.tar.gz
+# Magento:        http://libs.websoft9.com/apps/Magento/Magento-CE-2.3.0_sample_data-2018-11-27-10-29-50.tar.gz
 ## 中文语言包
 mogento_package_CN:    http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/Magento/language-zh_hans_cn.tar.gz
 
@@ -88,5 +88,15 @@ thinkphp:       http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/th
 # thinkcmf - 预下载
 thinkcmf:       http://libs.websoft9.com/apps/thinkcmf.zip
 
+# onethink - 预下载
+onethink:       http://libs.websoft9.com/apps/onethink.zip
+
 # ResourceSpace - 预下载
+<<<<<<< HEAD
 ResourceSpace:  http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/ResourceSpace.zip
+=======
+ResourceSpace:  http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/ResourceSpace.zip
+
+# CmsEasy - 官方下载
+CmsEasy:  http://ftp.cmseasy.cn/CmsEasy7.x/CmsEasy_7.0_UTF-8_20181212.zip
+>>>>>>> 802b556dffc3e277349354b841328ab13da68b7a

@@ -27,7 +27,9 @@
     - { role: MediaWiki, tags: "mediawiki"}
     - { role: ThinkPHP, tags: "thinkphp" }
     - { role: ThinkCMF, tags: "thinkcmf" }
+    - { role: OneThink, tags: "onethink" }
     - { role: Laravel, tags: "laravel" }
     - { role: Magento, tags: "magento" }
     - { role: dzzoffice, tags: "dzzoffice" }
     - { role: ResourceSpace, tags: "resourcespace" }
+    - { role: CmsEasy, tags: "cmseasy" }
