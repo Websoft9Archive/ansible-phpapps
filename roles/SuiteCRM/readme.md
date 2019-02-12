@@ -49,6 +49,19 @@ SuiteCRM解压之后需要重新命名
 ### 数据库随机root密码
 1. 数据库root账号的随机密码存放在txt文件中（暂未实现）
 
+### 计划任务配置
+安装程序要求配置计划认为
+
+~~~
+To Setup Crontab
+In order to run SuiteCRM Schedulers, edit your web server user's crontab file with this command: 
+sudo crontab -e -u apache
+... and add the following line to the crontab file: 
+*    *    *    *    *     cd /data/wwwroot/suitecrm; php -f cron.php > /dev/null 2>&1 
+You should do this only after the installation is concluded. 
+
+~~~
+
 
 ### 免数据库配置
 
