@@ -14,7 +14,7 @@ MantisBT:       https://nchc.dl.sourceforge.net/project/mantisbt/mantis-stable/2
 EspoCRM:        https://www.espocrm.com/downloads/EspoCRM-5.5.3.zip
 
 # Drupal下载速度慢，需要预下载
-Drupal:         http://libs.websoft9.com/apps/drupal-8.6.4.zip
+Drupal:         http://libs.websoft9.com/apps/drupal-8.6.9.zip
 
 # Opencart存放在github上的release固定地址下载会出现停滞，故先预下载。Opecart中文版即光大网络的中文本地版
 ## 英文版
