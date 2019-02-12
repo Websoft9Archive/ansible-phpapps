@@ -24,7 +24,7 @@ opencart_package_CN:     http://libs.websoft9.com/apps/opencart/opencart3-cnpack
 #OpenCart:               http://libs.websoft9.com/apps/opencart/opencart-v30-free-20180919.zip
 
 # Joomla最低要求php7.1
-Joomla:         https://downloads.joomla.org/cms/joomla3/3-9-1/joomla_3-9-1-stable-full_package-zip
+Joomla:         https://downloads.joomla.org/cms/joomla3/3-9-2/Joomla_3-9-2-Stable-Full_Package.zip
 
 # Zurmo需要预下载
 Zurmo:          http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/zurmo.zip
