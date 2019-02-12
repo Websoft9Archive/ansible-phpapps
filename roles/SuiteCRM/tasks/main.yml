@@ -16,6 +16,9 @@
     group: apache
     remote_src: yes
 
+- name: Rename SuiteCRM Directory
+  shell: mv /data/wwwroot/SuiteCRM-* /data/wwwroot/suitecrm
+
 - name: fix Directory Permissions
   file:
     path: /data/wwwroot/suitecrm
