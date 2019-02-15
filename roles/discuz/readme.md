@@ -1,7 +1,7 @@
 # Discuz
 
 ## 说明
-此项目是用Ansible编写的Discuz3.4自动安装程序.DZ官方目前仅提供3.4
+此项目是用Ansible编写的Discuz3.4自动安装程序.DZ官方目前仅提供3.4中文简体的程序维护，已经没有其他版本
 
 
 ## 安装基础环境
@@ -10,14 +10,13 @@
 
 官方对基础环境的最低要求建议如下：
 ~~~
-he recommended PHP version to install SuiteCRM is 7.1.0 
-Although the minimum PHP version required is 5.6.0
+php7.0
 ~~~
 
 基于官方的要求，本程序仅适用于Websoft9的基础环境，包括：
 
 * LAMP
-* LNMP（暂时不支持）
+* LNMP
 
 本程序在php7.0,mysql5.6下测试运行正常
 
@@ -33,14 +32,14 @@ Although the minimum PHP version required is 5.6.0
 
 ## 源码包
 
-目前提供SuiteCRM官方原版（中文包没有预制)
+安装脚本直接从git上下拉源码：https://gitee.com/ComsenzDiscuz/DiscuzX.git 
 
 
 ### 版本
-SuiteCRM官方版当前源码包版本为：V7.11.1，下载地址：https://suitecrm.com/files/162/SuiteCRM-7.11/369/SuiteCRM-7.11.1.zip
+当前版本为3.4
 
 ### 其他说明
-SuiteCRM解压之后需要重新命名
+Discuz需要预先修改安装配置文件 /data/wwwroot/discuz/upload/config/config_global_default.php
 
 
 ## 用户体验改进
@@ -48,29 +47,15 @@ SuiteCRM解压之后需要重新命名
 ### 数据库随机root密码
 1. 数据库root账号的随机密码存放在txt文件中（暂未实现）
 
-### 计划任务配置
-安装程序要求配置计划认为
-
-~~~
-To Setup Crontab
-In order to run SuiteCRM Schedulers, edit your web server user's crontab file with this command: 
-sudo crontab -e -u apache
-... and add the following line to the crontab file: 
-*    *    *    *    *     cd /data/wwwroot/suitecrm; php -f cron.php > /dev/null 2>&1 
-You should do this only after the installation is concluded. 
-
-~~~
-
 
 ### 免数据库配置
 
 暂未实现
 
 
-### 默认安装中文语言包方案
+### 英文方案
 
 暂未实现
 
 
 ## 日志
-### 2019-01-16
