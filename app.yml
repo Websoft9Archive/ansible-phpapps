@@ -34,3 +34,4 @@
     - { role: dzzoffice, tags: "dzzoffice" }
     - { role: ResourceSpace, tags: "resourcespace" }
     - { role: CmsEasy, tags: "cmseasy" }
+    - { role: symfony, tags: "symfony" }
