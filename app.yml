@@ -23,6 +23,7 @@
     - { role: Pydio, tags: "pydio"}
     - { role: Dolibarr, tags: "dolibarr"}
     - { role: VtigerCRM, tags: "vtigercrm"}
+    - { role: SuiteCRM, tags: "suitecrm"}
     - { role: prestashop, tags: "prestashop"}
     - { role: MediaWiki, tags: "mediawiki"}
     - { role: ThinkPHP, tags: "thinkphp" }
