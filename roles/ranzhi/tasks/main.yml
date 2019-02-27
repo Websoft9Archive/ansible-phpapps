@@ -52,3 +52,6 @@
     regexp: '/root/init.sh'
     line: '/root/init.sh'
     mode: 0750
+
+- name: change permission of password.txt
+  shell: chmod 640 /root/password.txt

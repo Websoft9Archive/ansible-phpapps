@@ -74,7 +74,7 @@
    copy: src=10-opcache.ini dest=/etc/php.d/
    notify: restart Apache
 
-   - name: Databases Random Password
+- name: Databases Random Password
   copy: 
     src: init.sh
     dest: /root/
