@@ -5,7 +5,10 @@
   register: nginx_ver
   ignore_errors: yes
 
-  
+- name: Get MySQL Password
+  shell: cat /root/password.txt | awk -F ":" '{print $2}'
+  register: mysql_password
+
 - name: Download MediaWiki
   unarchive:
     src: "{{ MediaWiki }}"
@@ -13,6 +16,14 @@
     owner: apache
     group: apache
     remote_src: yes
+
+- name: Create  databases
+  mysql_db:
+    login_user: root
+    login_password: '{{mysql_password.stdout}}'
+    name: mediawiki
+    state: present
+
 
 - name: rename MediaWiki dir
   shell: mv /data/wwwroot/mediawiki-* /data/wwwroot/mediawiki

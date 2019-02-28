@@ -6,6 +6,9 @@
   register: nginx_ver
   ignore_errors: yes
 
+- name: Get MySQL Password
+  shell: cat /root/password.txt | awk -F ":" '{print $2}'
+  register: mysql_password
   
 - name: Create Joomla folder
   file:
@@ -29,7 +32,7 @@
 - name: Create Joomla databases
   mysql_db:
     login_user: root
-    login_password: 123456
+    login_password: "{{mysql_password.stdout}}"
     name: joomla
     state: present
 

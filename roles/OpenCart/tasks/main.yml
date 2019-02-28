@@ -6,7 +6,10 @@
   ignore_errors: yes
 
 ##　sql文件在打包时修改
-
+- name: Get MySQL Password
+  shell: cat /root/password.txt | awk -F ":" '{print $2}'
+  register: mysql_password
+  
 - name: Create opencart1 folder
   file:
     path: /data/wwwroot/opencart1
@@ -84,7 +87,7 @@
 - name: Create OpenCart databases
   mysql_db:
     login_user: root
-    login_password: 123456
+    login_password: "{{mysql_password.stdout}}"
     name: opencart
     state: present
 

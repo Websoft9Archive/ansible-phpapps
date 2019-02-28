@@ -5,6 +5,10 @@
   register: nginx_ver
   ignore_errors: yes
   
+- name: Get MySQL Password
+  shell: cat /root/password.txt | awk -F ":" '{print $2}'
+  register: mysql_password
+
 - name: Download Drupal
   unarchive:
     src: "{{ Drupal }}"
@@ -21,7 +25,7 @@
 - name: Create Drupal databases
   mysql_db:
     login_user: root
-    login_password: 123456
+    login_password: "{{mysql_password.stdout}}"
     name: drupal
     state: present
 
