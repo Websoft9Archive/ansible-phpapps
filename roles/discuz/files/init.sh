@@ -6,8 +6,9 @@ new_password=$(</dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB' |
 systemctl restart mysqld
 mysqladmin -uroot -p${old_password} -h 127.0.0.1 password $new_password
 mysqladmin -uroot -p${old_password} -h localhost password $new_password
-echo 'Dtabases root Password:'$new_password  > /root/password.txt
+echo 'Databases root Password:'$new_password  > /root/password.txt
 
+sed -i "s/discuz_password/${new_password}/" /data/wwwroot/duscuz/upload/config
 
 sed -i "s/\/root\/init.sh//" /etc/rc.local
 rm -rf /root/init.sh
