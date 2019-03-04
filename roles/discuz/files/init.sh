@@ -8,7 +8,8 @@ mysqladmin -uroot -p${old_password} -h 127.0.0.1 password $new_password
 mysqladmin -uroot -p${old_password} -h localhost password $new_password
 echo 'Databases root Password:'$new_password  > /root/password.txt
 
-sed -i "s/discuz_password/${new_password}/" /data/wwwroot/duscuz/upload/config
+sed -i "s/discuz_password/${new_password}/" /data/wwwroot/discuz/upload/config/config_global_default.php
+sed -i "s/ultrax/discuz/" /data/wwwroot/discuz/upload/config/config_global_default.php
 
 sed -i "s/\/root\/init.sh//" /etc/rc.local
 rm -rf /root/init.sh

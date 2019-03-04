@@ -18,15 +18,23 @@
     state: absent
 
 #====================apache and nginx==========================================#
-- name: Copy Nginx Config
+- name: Copy Nginx Vhost Configuration
   template: src=default.conf dest=/etc/nginx/conf.d/
   notify: restart nginx
   when: nginx_ver.stderr.find('nginx version') != -1
 
-- name: Copy Apache Config
+- name: Copy Apache Vhost Configuration
   template: src=vhost.conf dest=/etc/httpd/vhost/
   notify: restart Apache
-  when: nginx_ver.stderr.find('command not found') != -1
+  when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
+
+- name: change Nginx owner
+  shell: chown nginx. -R /data/wwwroot
+  when: nginx_ver.stderr.find('nginx version') != -1
+
+- name: change Apache owner
+  shell: chown apache. -R /data/wwwroot
+  when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
 
 - name: change nginx owner
   shell: chown nginx. -R /data/wwwroot
@@ -36,13 +44,13 @@
   shell: chown apache. -R /data/wwwroot
   when: nginx_ver.stderr.find('command not found') != -1
 
-- name: restart nginx
-  service: name=nginx state=restarted enabled=yes
-  when: nginx_ver.stderr.find('nginx version') != -1
-
-- name: restart apache
+- name: restart Apache
   service: name=httpd state=restarted enabled=yes
-  when: nginx_ver.stderr.find('command not found') != -1
+  when: nginx_ver.stderr.find('command not found') != -1 or nginx_ver.stderr.find('未找到命令') != -1
+
+- name: restart Nginx
+  service: name=nginx state=restarted enabled=yes
+  when: nginx_ver.stderr.find('nginx version') != -1 
 
 #==========================+=================================================#
 
@@ -62,6 +70,16 @@
 - name: Permission file
   shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
 
+- name: Obtain mysql root's password
+  shell: cat /root/password.txt | awk -F ":" '{print $2}'
+  register: mysql_root_password
+
+- name: Create wordpress databases
+  mysql_db:
+    login_user: root
+    login_password: "{{ mysql_root_password.stdout }}"
+    name: discuz
+    state: present
 
 - name: System Upgrade
   yum: name=* state=latest
