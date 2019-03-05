@@ -16,7 +16,7 @@ Platform. It combines leading open source projects, such as PHP,MYSQL,phpMyAdmin
 
 2. COMPONENTS and Version
 
-Websoft9 IIS stack ships with the following software versions:
+Websoft9 Mediawiki stack ships with the following software versions:
 
 ********
 - Mediawiki 1.32
