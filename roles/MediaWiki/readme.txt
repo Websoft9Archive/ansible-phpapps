@@ -25,7 +25,7 @@ Websoft9 Mediawiki stack ships with the following software versions:
 - Apache 2.4.6 or Nginx1.14.2
 - phpMyAdmin
 - Zend OPcache
-- 
+- Redis 5.0.3
 
 --- PHP Modules ---
 
