@@ -20,7 +20,7 @@ Websoft9 Joomla stack ships with the following software versions:
 
 ********
 - Wordpress 5.1
-— php 7.1.15
+— php 7.1.26
 - MySQL 5.6.43
 - Apache 2.4.6
 - phpMyAdmin
