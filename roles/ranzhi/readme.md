@@ -18,7 +18,7 @@ Platform. It combines leading open source projects, such as PHP,MYSQL,phpMyAdmin
 
 Websoft9 Zdoo stack ships with the following software versions:
 
--********
+** ** ** **
 
 - Zdoo(ranzhi) 5.1
 — php 7.0.33
@@ -37,7 +37,7 @@ SimpleXML  snmp  soap  sockets  sqlite3  sysvmsg  sysvsem  sysvshm  tokenizer  x
 pdo_dblib  pdo_mysql  PDO_ODBC  pdo_sqlite  wddx  xmlreader  xmlrpc  igbinary  imagick  zip  redis  Zend OPcache  
 
 
--********
+** ** ** **
 
 
 You can find a quick start guide and more documentation about all of the components at:
