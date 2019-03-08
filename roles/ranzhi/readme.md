@@ -1,52 +1,45 @@
-# Ranzhi（然之）
+Websoft9 Zdoo(aka Ranzhi-然之) Stack 5.1
 
-## 说明
-此项目是用Ansible编写的Ranzhi自动安装程序
+===========================
 
-## 安装基础环境
+1. OVERVIEW
 
-### 基础环境要求
+The Websoft9 Project was created to help spread the adoption of freely
+available, high quality, open source web applications. Websoft9 aims to make
+it easier than ever to discover, install, Use Open Source software
 
-官方对基础环境的最低要求建议如下：
-~~~
-PHP环境：>=5.4，激活pdo, pdo_mysql，json, pcre模块（然之4.1版本之后，需要激活php_sockets扩展）。
-mysql： 推荐5.5/5.6/mariadb
-webserver： 推荐使用apache或者nginx， 不建议使用iis。
-~~~
+You can learn more about Websoft9 at https://websoft9.com
 
-基于官方的要求，本程序仅适用于Websoft9的基础环境，包括：
-
-* LAMP
-* LNMP（暂未实现）
-
-本程序在php7.2,mysql5.6下测试运行正常
-
-### 适用于的操作系统
-
-* CentOS7.X
-* Ubuntu（暂时不支持）
-
-### 服务器配置要求
-
-* 建议最低配置1核1G
+Websoft9 Zdoo stack is an easy to install and easy to use open source Web 
+Platform. It combines leading open source projects, such as PHP,MYSQL,phpMyAdmin,Apache...
 
 
-## 源码包
+2. COMPONENTS and Version
 
-直接从官方下载中文版或国际版
-下载地址：https://www.ranzhi.org/download/5.1.stable-135.html
+Websoft9 Zdoo stack ships with the following software versions:
 
-### 版本
-本程序当前版本为5.1 
+********
+- Zdoo(ranzhi) 5.1
+— php 7.0.33
+- MySQL 5.6.43
+- Apache 2.4.6
+- phpMyAdmin
+- Zend OPcache
+- Redis 5.0.3
 
-### 其他说明
-Laravel官方安装包下的ranzhi/www为网站目录
+--- PHP Modules ---
+
+Core  date  libxml  openssl  pcre  zlib  filter  hash  Reflection  SPL  session  standard  apache2handler  
+bcmath  bz2  calendar  ctype  curl  dom  mbstring  fileinfo  ftp  gd  gettext  gmp  iconv  
+imap  intl  json  ldap  exif  mcrypt  mysqlnd  odbc  PDO  Phar  posix  recode  shmop  
+SimpleXML  snmp  soap  sockets  sqlite3  sysvmsg  sysvsem  sysvshm  tokenizer  xml  xmlwriter  xsl  mysqli  
+pdo_dblib  pdo_mysql  PDO_ODBC  pdo_sqlite  wddx  xmlreader  xmlrpc  igbinary  imagick  zip  redis  Zend OPcache  
 
 
-## 用户体验改进
-
-### 数据库随机root密码
-1. 数据库root账号的随机密码存放在txt文件中（暂未实现） 
+********
 
 
-## 日志
+You can find a quick start guide and more documentation about all of the components at:
+
+中文文档：http://support.websoft9.com/docs/ranzhi-image-guide/
+English: https://en.websoft9.com/docs/zdoo
