@@ -1,4 +1,4 @@
-Websoft9 Zentao Stack 11.2
+Websoft9 Zentao(禅道) Stack 11.2
 
 ===========================
 
