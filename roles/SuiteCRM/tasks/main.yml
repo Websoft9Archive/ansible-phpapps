@@ -84,3 +84,6 @@
     regexp: '/root/init.sh'
     line: '/root/init.sh'
     mode: 0750
+
+- name: start redis
+  service: name=redis state=started enabled=yes

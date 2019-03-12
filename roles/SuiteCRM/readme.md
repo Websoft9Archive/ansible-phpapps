@@ -74,4 +74,5 @@ You should do this only after the installation is concluded.
 
 
 ## 日志
-### 2019-01-16
+### 2019-03-08
+SuiteCRM 镜像需要安装并启用 Redis
