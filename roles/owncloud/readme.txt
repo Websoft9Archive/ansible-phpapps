@@ -1,4 +1,4 @@
-Websoft9 OwnCloud Stack 10.0.10
+Websoft9 OwnCloud Stack 10.1.0
 
 ===========================
 
@@ -20,7 +20,9 @@ Websoft9 OwnCloud stack ships with the following software versions:
 
 ***
 
-- OwnCloud 10.0.10
+--- Main ---
+
+- OwnCloud 10.1.0
 — php 7.0.33
 - MySQL 5.6.43
 - Apache 2.4.6
