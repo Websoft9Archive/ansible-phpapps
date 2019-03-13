@@ -20,7 +20,7 @@ Although the minimum PHP version required is 5.6.0
 * LAMP
 * LNMP（暂时不支持）
 
-本程序在php7.0,mysql5.6下测试运行正常
+本程序在php7.1,mysql5.6下测试运行正常
 
 ### 适用于的操作系统
 
