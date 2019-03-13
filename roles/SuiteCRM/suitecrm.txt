@@ -1,4 +1,4 @@
-Websoft9 SuiteCRM Stack 7.11.1
+Websoft9 SuiteCRM Stack 7.11.2
 
 ===========================
 
@@ -19,7 +19,10 @@ Platform. It combines leading open source projects, such as PHP,MYSQL,phpMyAdmin
 Websoft9 SuiteCRM stack ships with the following software versions:
 
 ********
-- SuiteCRM 7.11.1
+
+--- Main ---
+
+- SuiteCRM 7.11.2
 — php 7.1.26
 - MySQL 5.6.43
 - Apache 2.4.6
