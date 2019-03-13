@@ -1,4 +1,4 @@
-Websoft9 Zentao(禅道) Stack 11.2
+Websoft9 Zentao(禅道) Stack 11.3
 
 ===========================
 
@@ -20,7 +20,7 @@ Websoft9 Zentao stack ships with the following software versions:
 
 ***
 
-- Zentao 11.2
+- Zentao 11.3
 — php 7.0.33
 - MySQL 5.6.43
 - Apache 2.4.6
