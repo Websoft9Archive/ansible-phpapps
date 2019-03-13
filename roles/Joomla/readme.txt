@@ -1,4 +1,4 @@
-Websoft9 Joomla Stack 3.9.2
+Websoft9 Joomla Stack 3.9.4
 
 ===========================
 
@@ -19,7 +19,9 @@ Platform. It combines leading open source projects, such as PHP,MYSQL,phpMyAdmin
 Websoft9 Joomla stack ships with the following software versions:
 
 ********
-- Wordpress 5.1
+
+--- Main ---
+- Joomla 3.9.4
 — php 7.1.26
 - MySQL 5.6.43
 - Apache 2.4.6
