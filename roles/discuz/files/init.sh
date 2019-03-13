@@ -17,7 +17,7 @@ mysql -uroot -p$new_password -e "GRANT ALL PRIVILEGES ON discuz.* TO 'dz_user'@'
 
 printf "username:dz_user\npassword:${password}\n" >> /root/password.txt
 
-sed -i "s/discuz_password/${new_password}/" /data/wwwroot/discuz/upload/config/config_global_default.php
+sed -i "s/discuz_password/${password}/" /data/wwwroot/discuz/upload/config/config_global_default.php
 
 sed -i "s/\/root\/init.sh//" /etc/rc.local
 rm -rf /root/init.sh
