@@ -39,7 +39,8 @@ Dolibarr:       https://jaist.dl.sourceforge.net/project/dolibarr/Dolibarr%20ERP
 VtigerCRM:      https://nchc.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.1.0/Core%20Product/vtigercrm7.1.0.tar.gz
 
 # SuiteCRM
-SuiteCRM:       http://libs.websoft9.com/apps/SuiteCRM-7.11.2.zip
+#SuiteCRM:       http://libs.websoft9.com/apps/SuiteCRM-7.11.2.zip
+SuiteCRM:       http://159.138.239.135/SuiteCRM-7.11.2.zip
 
 # PrestaShop
 PrestaShop:     http://libs.websoft9.com/apps/prestashop_1.7.5.1.zip
