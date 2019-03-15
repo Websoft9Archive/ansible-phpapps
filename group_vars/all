@@ -39,12 +39,10 @@ Dolibarr:       https://jaist.dl.sourceforge.net/project/dolibarr/Dolibarr%20ERP
 VtigerCRM:      https://nchc.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.1.0/Core%20Product/vtigercrm7.1.0.tar.gz
 
 # SuiteCRM
-#SuiteCRM:       http://libs.websoft9.com/apps/SuiteCRM-7.11.2.zip
-SuiteCRM:       http://159.138.239.135/SuiteCRM-7.11.2.zip
+SuiteCRM:       http://libs.websoft9.com/apps/SuiteCRM-7.11.2.zip
 
 # PrestaShop
-#PrestaShop:     http://libs.websoft9.com/apps/prestashop_1.7.5.1.zip
-PrestaShop:      http://159.138.239.135/prestashop_1.7.5.1.zip
+PrestaShop:     http://libs.websoft9.com/apps/prestashop_1.7.5.1.zip
 
 # MediaWiki
 MediaWiki:      https://releases.wikimedia.org/mediawiki/1.32/mediawiki-1.32.0.tar.gz
@@ -71,8 +69,7 @@ chanzhiEPS:     http://dl.cnezsoft.com/chanzhi/7.4.1/chanzhiEPS.7.4.1.zip
 NextCloud:      http://libs.websoft9.com/apps/PHP/nextcloud.zip
 
 # OwnCloud - 预下载
-#OwnCloud:       http://libs.websoft9.com/apps/owncloud-10.1.0.zip
-OwnCloud:       http://159.138.239.135/owncloud-10.1.0.zip
+OwnCloud:       http://libs.websoft9.com/apps/owncloud-10.1.0.zip
 
 # Mangento需要预下载，语言包也需要预下载
 ## 源码
