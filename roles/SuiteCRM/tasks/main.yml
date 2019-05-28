@@ -47,13 +47,6 @@
     regexp: '{"appname":"SuiteCRM","switch":0,'
     line: '{"appname":"SuiteCRM","switch":1,'
 
-  
-- name: Permission directory
-  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
-  
-- name: Permission file
-  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
-
 - name: System Upgrade
   yum: name=* state=latest
 
@@ -87,3 +80,9 @@
 
 - name: start redis
   service: name=redis state=started enabled=yes
+
+- name: Permission directory
+  shell: find /data/* -type d -exec chmod 750 {} \;
+  
+- name: Permission file
+  shell: find /data/* -not -type d -exec chmod 640 {} \;

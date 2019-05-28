@@ -37,3 +37,4 @@
     - { role: ResourceSpace, tags: "resourcespace" }
     - { role: CmsEasy, tags: "cmseasy" }
     - { role: symfony, tags: "symfony" }
+    - { role: DreamFactory, tags: "dreamfactory" }

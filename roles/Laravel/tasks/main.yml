@@ -53,7 +53,7 @@
 - name: restart nginx
   service: name=nginx state=restarted enabled=yes
   when: nginx_ver.stderr.find('nginx version') != -1
-#==========================+=================================================#
+#============================================================================#
 
 - name: Change 9panel
   lineinfile:

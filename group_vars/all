@@ -73,9 +73,9 @@ OwnCloud:       http://libs.websoft9.com/apps/owncloud-10.1.0.zip
 
 # Mangento需要预下载，语言包也需要预下载
 ## 源码
-Magento:        http://libs.websoft9.com/apps/Magento/magento.tar.gz
+Magento:        http://libs.websoft9.com/apps/Magento/Magento-CE-2.3.1.tar.gz
 ## 包含演示数据的完整包
-# Magento:        http://libs.websoft9.com/apps/Magento/Magento-CE-2.3.0_sample_data-2018-11-27-10-29-50.tar.gz
+# Magento:        http://libs.websoft9.com/apps/Magento/Magento-CE-2.3.1_sample_data-2019-03-18-07-14-27.tar.gz
 ## 中文语言包
 mogento_package_CN:    http://libs.websoft9.com/apps/Magento/language-zh_hans_cn.tar.gz
 
