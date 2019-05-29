@@ -38,3 +38,4 @@
     - { role: CmsEasy, tags: "cmseasy" }
     - { role: symfony, tags: "symfony" }
     - { role: DreamFactory, tags: "dreamfactory" }
+    - { role: Matomo, tags: "matomo" }
