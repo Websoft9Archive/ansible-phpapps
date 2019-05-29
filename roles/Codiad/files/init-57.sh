@@ -11,3 +11,4 @@ echo 'Databases root Password:'$new_password  > /root/password.txt
 
 sed -i "s/\/root\/init.sh//" /etc/rc.local
 rm -rf /root/init.sh
+
