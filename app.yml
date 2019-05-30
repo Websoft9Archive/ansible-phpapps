@@ -40,3 +40,4 @@
     - { role: DreamFactory, tags: "dreamfactory" }
     - { role: Matomo, tags: "matomo" }
     - { role: Codiad, tags: "codiad" }
+    - { role: Testlink, tags: "testlink" }
