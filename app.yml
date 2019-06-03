@@ -41,3 +41,4 @@
     - { role: Matomo, tags: "matomo" }
     - { role: Codiad, tags: "codiad" }
     - { role: Testlink, tags: "testlink" }
+    - { role: Vanilla, tags: "vanilla" }
