@@ -38,11 +38,11 @@
   template: src=vhost.conf dest=/etc/httpd/vhost
   notify: restart Apache
 
-- name: Change 9panel
+- name: Enable 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"VtigerCRM","switch":0,'
-    line: '{"appname":"VtigerCRM","switch":1,'
+    regexp: 'var set_apps=["Example"];'
+    line: 'var set_apps=["VtigerCRM"];'
 
   
 - name: Permission directory

@@ -70,11 +70,11 @@
   template: src=vhost.conf dest=/etc/httpd/vhost
   notify: restart Apache
 
-- name: Change 9panel
+- name: Enable 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"ResourceSpace","switch":0,'
-    line: '{"appname":"ResourceSpace","switch":0,'
+    regexp: 'var set_apps=["Example"];'
+    line: 'var set_apps=["ResourceSpace"];'
 
 - name: Create database 
   mysql_db:

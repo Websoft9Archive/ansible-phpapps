@@ -48,11 +48,11 @@
   yum: name=memcached state=present
   notify: restart memcached
 
-- name: Change 9panel
+- name: Enable 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"ZurmoCRM","switch":0,'
-    line: '{"appname":"ZurmoCRM","switch":1,'
+    regexp: 'var set_apps=["Example"];'
+    line: 'var set_apps=["Zurmo"];'
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;

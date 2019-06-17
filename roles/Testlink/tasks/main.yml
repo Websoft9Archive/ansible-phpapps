@@ -82,6 +82,13 @@
   template: src=php.ini dest=/etc
   notify: restart Apache
 
+- name: Enable 9panel I
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: 'var set_apps=["Example"];'
+    line: 'var set_apps=["Testlink"];'
+
+
 - name: Permission directory & files
   shell: |
     find /data/wwwroot -type d -exec chmod 750 {} \;

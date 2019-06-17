@@ -44,11 +44,11 @@
   template: src=php.ini dest=/etc/php.ini
   notify: restart Apache
 
-- name: Change 9panel for EmpireCMS
+- name: Enable 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"Empirecms\(帝国\)","switch":0,'
-    line: '{"appname":"Empirecms\(帝国\)","switch":1,'
+    regexp: 'var set_apps=["Example"];'
+    line: 'var set_apps=["EmpireCMS"];'
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 770 {} \;

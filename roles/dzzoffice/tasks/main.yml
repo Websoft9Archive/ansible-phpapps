@@ -39,12 +39,11 @@
     name: dzzoffice
     state: present
 
-- name: Change 9panel
+- name: Enable 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"DzzOffice","switch":0,'
-    line: '{"appname":"DzzOffice","switch":1,'
-
+    regexp: 'var set_apps=["Example"];'
+    line: 'var set_apps=["dzzoffice"];'
   
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;

@@ -42,11 +42,11 @@
   template: src=php.ini dest=/etc/php.ini
   notify: restart Apache
 
-- name: Change 9panel for EspoCRM
+- name: Enable 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"EspoCRM","switch":0,'
-    line: '{"appname":"EspoCRM","switch":1,'
+    regexp: 'var set_apps=["Example"];'
+    line: 'var set_apps=["EspoCRM"];'
 
 - name: Permission directory
   shell: |

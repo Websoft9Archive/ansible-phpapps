@@ -52,11 +52,11 @@
   when: nginx_ver.stderr.find('nginx version') != -1
 #==========================+=================================================#
 
-# - name: Change 9panel
-#   lineinfile:
-#     path: /data/apps/9panel/js/websoft9.js
-#     regexp: '{"appname":"Symfony","switch":0,'
-#     line: '{"appname":"Symfony","switch":1,'   
+- name: Enable 9panel I
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: 'var set_apps=["Example"];'
+    line: 'var set_apps=["symfony"];'
   
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;

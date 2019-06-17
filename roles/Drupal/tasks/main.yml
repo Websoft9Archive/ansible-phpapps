@@ -36,11 +36,12 @@
   template: src=vhost.conf dest=/etc/httpd/vhost
   notify: restart Apache
 
-- name: Change 9panel
+
+- name: Enable 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
-    regexp: '{"appname":"Drupal","switch":0,'
-    line: '{"appname":"Drupal","switch":1,'
+    regexp: 'var set_apps=["Example"];'
+    line: 'var set_apps=["Drupal"];'
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
