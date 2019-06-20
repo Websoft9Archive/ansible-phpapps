@@ -7,7 +7,7 @@
   ignore_errors: yes
   
 - name: Get MySQL Password
-  shell: cat /root/password.txt | awk -F ":" '{print $2}'
+  shell: cat /credentials/password.txt | awk -F ":" '{print $2}'
   register: mysql_password
 
 - name: mkdir folder name
