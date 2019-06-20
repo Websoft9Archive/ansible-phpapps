@@ -1,9 +1,9 @@
 ---
 - name: app
-  hosts: all
+  hosts: server
   become: yes
   become_method: sudo
-  become_user: root
+  remote_user: '{{admin_username}}'
   vars:
     web: "apache"
   roles: 
