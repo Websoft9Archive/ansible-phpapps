@@ -36,7 +36,7 @@
   service: name=mysqld state=restarted enabled=yes
 
 - name: Obtain mysql root's password
-  shell: cat /credentials/password.txt | awk -F ":" '{print $2}'
+  shell: cat /credentials/password.txt | awk 'NR==2' |awk -F ":" '{print $2}'
   register: mysql_root_password
 
 - name: Create vanilla databases
