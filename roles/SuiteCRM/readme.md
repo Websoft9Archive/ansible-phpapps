@@ -9,7 +9,10 @@
 
 ### 基础环境要求
 
-官方对基础环境的最低要求建议如下：
+官方对基础环境的最低要求建议：https://docs.suitecrm.com/admin/compatibility-matrix/
+
+具体如下：
+
 ~~~
 he recommended PHP version to install SuiteCRM is 7.1.0 
 Although the minimum PHP version required is 5.6.0
