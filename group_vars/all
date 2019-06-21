@@ -23,13 +23,13 @@ opencart_package_CN:     http://libs.websoft9.com/apps/opencart/opencart3-cnpack
 ## 中文版
 #OpenCart:               http://libs.websoft9.com/apps/opencart/opencart-v30-free-20180919.zip
 
-# Joomla最低要求php7.1
-Joomla:         https://downloads.joomla.org/cms/joomla3/3-9-4/Joomla_3-9-4-Stable-Full_Package.zip
+# Joomla 最低要求php7.1
+Joomla:         https://downloads.joomla.org/cms/joomla3/3-9-8/Joomla_3-9-8-Stable-Full_Package.zip
 
-# Zurmo需要预下载
+# Zurmo 需要预下载
 Zurmo:          http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/zurmo.zip
 
-# Pydio需预下载
+# Pydio 需预下载
 Pydio:          http://libs-websoft9-com.oss-cn-qingdao.aliyuncs.com/apps/PHP/pydio.zip
 
 # Dolibarr
@@ -38,19 +38,19 @@ Dolibarr:       https://jaist.dl.sourceforge.net/project/dolibarr/Dolibarr%20ERP
 # VtigerCRM
 VtigerCRM:      https://nchc.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.1.0/Core%20Product/vtigercrm7.1.0.tar.gz
 
-# SuiteCRM
-SuiteCRM:       http://libs.websoft9.com/apps/SuiteCRM-7.11.2.zip
+# SuiteCRM  最低php5.6,也支持7.3
+SuiteCRM:       https://suitecrm.com/files/162/SuiteCRM-7.11/435/SuiteCRM-7.11.5.zip
 
 # PrestaShop
 PrestaShop:     http://libs.websoft9.com/apps/prestashop_1.7.5.1.zip
 
-# MediaWiki
-MediaWiki:      https://releases.wikimedia.org/mediawiki/1.32/mediawiki-1.32.0.tar.gz
+# MediaWiki 最低php7.0,也支持7.2
+MediaWiki:      https://releases.wikimedia.org/mediawiki/1.32/mediawiki-1.32.2.tar.gz
 
 # Discuz
 Discuz:         https://gitee.com/ComsenzDiscuz/DiscuzX.git     
 
-# OK
+# Wordpress 最低建议php7.0，官方推荐php7.3
 WordPress:      https://wordpress.org/latest.zip
 
 # Moodle
