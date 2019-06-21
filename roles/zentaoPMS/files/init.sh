@@ -6,7 +6,7 @@ new_password=$(</dev/urandom tr -dc '12345!@#$%qwertQWERTasdfgASDFGzxcvbZXCVB' |
 systemctl restart mysqld
 mysqladmin -uroot -p${old_password} -h 127.0.0.1 password $new_password
 mysqladmin -uroot -p${old_password} -h localhost password $new_password
-echo 'Dtabases root Password:'$new_password  > /credentials/password.txt
+echo -e 'MySQL username:root\nMySQL Password:'$new_password  > /credentials/password.txt
 
 userdel -rf websoft9      
 rm -rf /var/db/sudo/lectured/websoft9                                          

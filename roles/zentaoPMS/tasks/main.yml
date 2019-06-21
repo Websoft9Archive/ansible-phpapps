@@ -13,6 +13,9 @@
     owner: apache
     group: apache
 
+- name: Rename
+  shell: mv /data/wwwroot/zen* /data/wwwroot/zentao
+
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com
