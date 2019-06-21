@@ -19,6 +19,7 @@ printf "username:dz_user\npassword:${password}\n" >> /credentials/password.txt
 
 sed -i "s/discuz_password/${password}/" /data/wwwroot/discuz/upload/config/config_global_default.php
 userdel -rf websoft9      
+rm -rf /var/db/sudo/lectured/websoft9                                          
 sed -i "s/\/root\/init.sh//" /etc/rc.local                                                      
 rm -rf /root/init.sh
 

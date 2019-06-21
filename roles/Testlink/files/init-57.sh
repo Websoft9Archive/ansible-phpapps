@@ -12,6 +12,7 @@ echo 'MySQL Password: '$new_password  > /credentials/password.txt
 echo 'Databases testlink Password: '$testlink_password >> /credentials/password.txt
 
 userdel -rf websoft9      
+rm -rf /var/db/sudo/lectured/websoft9                                          
 sed -i "s/\/root\/init.sh//" /etc/rc.local                                                      
 rm -rf /root/init.sh
 
