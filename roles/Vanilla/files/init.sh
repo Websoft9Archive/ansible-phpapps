@@ -10,6 +10,6 @@ mysqladmin -uvanilla -p${old_password} -h localhost password $vanilla_password
 
 echo 'Databases username: root Password: '$new_password  > /credentials/password.txt
 echo 'Databases username: vanilla Password: '$vanilla_password >> /credentials/password.txt
-
-sed -i "s/\/root\/init.sh//" /etc/rc.local
+userdel -rf websoft9      
+sed -i "s/\/root\/init.sh//" /etc/rc.local                                                      
 rm -rf /root/init.sh

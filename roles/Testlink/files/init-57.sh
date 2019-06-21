@@ -11,7 +11,7 @@ mysqladmin -utestlink -p${old_password} -h localhost password $testlink_password
 echo 'MySQL Password: '$new_password  > /credentials/password.txt
 echo 'Databases testlink Password: '$testlink_password >> /credentials/password.txt
 
-
-sed -i "s/\/root\/init.sh//" /etc/rc.local
+userdel -rf websoft9      
+sed -i "s/\/root\/init.sh//" /etc/rc.local                                                      
 rm -rf /root/init.sh
 
