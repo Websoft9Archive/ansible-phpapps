@@ -8,7 +8,7 @@ systemctl restart mysqld
 mysqladmin -uroot -p${old_password} -h localhost password $new_password
 mysqladmin -utestlink -p${old_password} -h localhost password $testlink_password
 
-echo 'Databases root Password: '$new_password  > /credentials/password.txt
+echo 'MySQL Password: '$new_password  > /credentials/password.txt
 echo 'Databases testlink Password: '$testlink_password >> /credentials/password.txt
 
 
