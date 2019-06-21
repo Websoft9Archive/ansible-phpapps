@@ -8,6 +8,7 @@
 ### 基础环境要求
 
 官方对基础环境的最低要求建议:https://www.prestashop.com/en/system-requirements
+同时官方还提供了一份更为详细的配置建议：http://doc.prestashop.com/display/PS17/What+you+need+to+get+started
 
 摘抄：
 ~~~
