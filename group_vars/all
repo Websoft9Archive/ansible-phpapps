@@ -71,7 +71,7 @@ NextCloud:      https://download.nextcloud.com/server/releases/nextcloud-16.0.1.
 # OwnCloud - 官方最低php7.0，推荐php7.2,中国地区建议预下载
 OwnCloud:       https://download.owncloud.org/community/owncloud-10.2.0.zip
 
-# Mangento 中国地区建议预下载，语言包也需要预下载
+# Mangento 官方最低php7.1, php7.2也可以。中国地区建议预下载，语言包也需要预下载
 ## 源码
 Magento:        http://libs.websoft9.com/apps/Magento/Magento-CE-2.3.1.tar.gz
 ## 包含演示数据的完整包
