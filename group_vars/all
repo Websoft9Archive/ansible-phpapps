@@ -59,8 +59,8 @@ Moodle:         https://download.moodle.org/stable36/moodle-latest-36.tgz
 # ranzhi(Zdoo) 官方最低为php5.4,建议php7.0。然之有中文版和国际版两种版本（.int为国际版）
 ranzhi:         http://dl.cnezsoft.com/ranzhi/5.2/ranzhi.5.2.stable.int.zip
 
-# ZenTaoPMS 禅道有中文版和国际版两种版本（.int为国际版）
-ZenTaoPMS:      http://dl.cnezsoft.com/zentao/11.3/ZenTaoPMS.11.3.stable.int.zip
+# ZenTao 官方最低为php5.4,建议php7.0禅道有中文版和国际版两种版本（.int为国际版）
+ZenTaoPMS:      http://dl.cnezsoft.com/zentao/11.5/ZenTaoALM.11.5.stable.int.zip
 
 # chanzhiEPS
 chanzhiEPS:     http://dl.cnezsoft.com/chanzhi/7.4.1/chanzhiEPS.7.4.1.zip
