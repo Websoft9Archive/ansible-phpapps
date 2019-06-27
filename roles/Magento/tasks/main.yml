@@ -17,13 +17,9 @@
     mode: 0755 
 
 - name: Download Magento
-  unarchive:
-    src: "{{ Magento }}"
-    dest: /data/wwwroot/magento
-    owner: apache
-    group: apache
-    remote_src: yes
-  when: magento == "default"    
+  shell: |
+    composer create-project --repository=https://repo.magento.com/ /data/wwwroot/magento
+    chown -R apache. /data/wwwroot/magento
 
 - name: Remove example dir
   file:
