@@ -1,28 +1,54 @@
-# Mediawiki
+# Mediawiki自动化安装与部署
 
-## 说明
-此项目是用Ansible编写的Mediawiki自动安装程序.MediaWiki requires PHP 7.0.0+ and either MySQL 5.5.8+, MariaDB, or one of the other three possible stores. For more information, please read the pages on system requirements and compatibility.
+本项目是用Ansible编写的Mediawiki自动安装程序，实现在服务器上一步安装Mediawiki，无需了解复杂的配置过程。本项目是开源项目，通过源码，您可以查看Mediawiki自动安装的每一个步骤。
 
-官网对安装的配置要求：https://www.mediawiki.org/wiki/Compatibility
+如果您不熟悉Ansible的使用，您可以直接使用我们在公有云上使用我们提供的Mediawiki镜像。
 
 
-## 适用于基础环境
+## 技术要求
 
-本程序仅适用于Websoft9的基础环境，包括：
+### 服务器配置要求
 
-* LAMP
-* LNMP（暂时不支持）
+最低1核CPU，1G内存
 
-在php7.0,mysql5.6下测试运行正常
-
-## 适用于的操作系统
+### 操作系统要求
 
 * CentOS
 * Ubuntu（暂时不支持）
 
-## Mediawiki安装需求
+### 环境要求
 
-* 建议最低配置1核1G
+本程序仅适用于Websoft9的PHP相关基础环境，包括：
+
+* LAMP
+* LNMP（暂时不支持）
+
+其中最低php7.0,mysql5.5，官方建议采用。[点击查看](https://www.mediawiki.org/wiki/Compatibility)官方对环境配置的建议。
+
+## 版本
+
+本自动化安装程序是通过Mediawiki官方源码安装的，故需要实现设置好最新源码的下载地址。
+
+存放下载地址的文件：group_vars/all
+
+
+## 安装指南
+
+本Ansible脚本支持root用户、普通用户（+su权限提升）等两种账号模式，也支持密码和秘钥对登录方式。
+
+建议使用root登录，若通过普通用户登录需要增加变量：
+
+~~~
+//假设普通用户名称为websoft9
+admin_username: websoft9
+~~~
+
+
+
+## 使用指南
+
+文档链接：http://en.websoft9.com/docs/mediawiki
+
 
 ## 用户体验改进
 
@@ -75,4 +101,3 @@ $wgDBpassword = '';
  */
 $wgDBtype = 'mysql';
 ```
-### 数据库随机root密码
