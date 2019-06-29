@@ -44,7 +44,7 @@
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=["Example"];'
-    line: 'var set_apps=["discuz"];'
+    line: 'var set_apps=["Dolibarr"];'
 
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
