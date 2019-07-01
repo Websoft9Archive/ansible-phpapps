@@ -14,7 +14,7 @@
   file: 
     path: /data/wwwroot/magento
     state: directory
-    mode: 0755 
+    mode: 0755
 
 - name: Upload composer  authentication keys
   copy:
