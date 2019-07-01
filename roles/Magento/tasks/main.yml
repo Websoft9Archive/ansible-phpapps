@@ -16,10 +16,23 @@
     state: directory
     mode: 0755 
 
+- name: Upload composer  authentication keys
+  copy:
+    src: .config
+    dest: /root/
+
+
 - name: Download Magento
   shell: |
-    composer create-project --repository=https://repo.magento.com/ /data/wwwroot/magento
+    composer create-project --repository=https://repo.magento.com/ magento/project-community-edition /data/wwwroot/magento
     chown -R apache. /data/wwwroot/magento
+
+
+- name: Delete composer  authentication keys
+  file:
+    path: /root/.config/composer/auth.json
+    state: absent
+
 
 - name: Remove example dir
   file:
