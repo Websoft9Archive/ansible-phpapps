@@ -33,12 +33,12 @@
     - { role: ThinkCMF, tags: "thinkcmf" }
     - { role: OneThink, tags: "onethink" }
     - { role: Laravel, tags: "laravel" }
-    - { role: Magento, tags: "magento" }
+    - { role: Magento, tags: "magento"}
     - { role: dzzoffice, tags: "dzzoffice" }
-    - { role: ResourceSpace, tags: "resourcespace" }
+    - { role: ResourceSpace, tags: "resourcespace"}
     - { role: CmsEasy, tags: "cmseasy" }
     - { role: symfony, tags: "symfony" }
-    - { role: DreamFactory, tags: "dreamfactory" }
+    - { role: DreamFactory, tags: "dreamfactory"}
     - { role: Matomo, tags: "matomo" }
     - { role: Codiad, tags: "codiad" }
     - { role: Testlink, tags: "testlink" }
