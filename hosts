@@ -1,2 +1,2 @@
 [servers]
-40.117.60.246  ansible_ssh_user=websoft9  ansible_ssh_pass=jprUj1bWvD9SbjQR!7HdVhhTfW8Qg
+40.117.60.246  ansible_ssh_user=websoft9  ansible_ssh_pass=jprUj1bWvD9SbjQR!7HdVhhTfW8Qg ansible_sudo_pass=jprUj1bWvD9SbjQR!7HdVhhTfW8Qg
