@@ -20,7 +20,9 @@
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
-  notify: restart Apache
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
 
 - name: Enable 9panel I
   lineinfile:
@@ -44,7 +46,11 @@
   copy:
     src: config.php
     dest: /data/wwwroot/owncloud/config
-  notify: restart redis
+
+
+- name: restart redis
+  service: name=redis state=restarted enabled=yes
+
 
 - name: Owncloud cron
   cron:

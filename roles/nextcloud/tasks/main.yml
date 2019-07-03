@@ -30,7 +30,9 @@
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
-  notify: restart Apache
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
 
 - name: Enable 9panel I
   lineinfile:
@@ -54,7 +56,9 @@
   copy:
     src: config.php
     dest: /data/wwwroot/nextcloud/config
-  notify: restart redis
+
+- name: restart Redis
+  service: name=redis state=restarted enabled=yes
 
 - name: Set NextCloud Job
   command: php -f /data/wwwroot/nextcloud/cron.php
@@ -72,7 +76,9 @@
 
 -  name: Set OPcache for NextCloud
    copy: src=10-opcache.ini dest=/etc/php.d/
-   notify: restart Apache
+ 
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
 
 - name: Databases Random Password
   copy: 

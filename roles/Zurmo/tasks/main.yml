@@ -31,22 +31,30 @@
 
 - name: Cppy MySQL Config file -my.cnf
   copy: src=my.cnf dest=/etc/
-  notify: restart MySQL
+
+- name: restart MySQL
+  service: name=mysqld state=restarted enabled=yes
 
 - name: Copy Apache Config file - httpd.conf
   copy: src=httpd.conf dest=/etc/httpd/conf/
-  notify: restart Apache
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
 
 - name: Copy Apache Config file - vhost.conf
   template: src=vhost.conf dest=/etc/httpd/vhost
-  notify: restart Apache
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
 
 - name: Install Memcached extension
   yum: name=php-memcached state=present
 
 - name: Install Memcached
   yum: name=memcached state=present
-  notify: restart memcached
+
+- name: restart Memcached
+  service: name=memcached state=restarted enabled=yes
 
 - name: Enable 9panel I
   lineinfile:

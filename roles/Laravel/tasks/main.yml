@@ -28,14 +28,19 @@
 
 
 #====================apache and nginx==========================================#
-- name: Copy Nginx Config
-  template: src=default.conf dest=/etc/nginx/conf.d/
-  notify: restart nginx
+- block:
+  - name: Copy Nginx Vhost Configuration
+    template: src=default.conf dest=/etc/nginx/conf.d/
+    
+  - name: restart Nginx
+    service: name=nginx state=restarted enabled=yes
   when: nginx_ver.stderr.find('nginx version') != -1
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost/
-  notify: restart Apache
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
   when: nginx_ver.stderr.find('command not found') != -1
 
 - name: change nginx owner

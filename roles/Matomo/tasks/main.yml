@@ -31,7 +31,9 @@
 
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
-  notify: restart Apache
+
+- name: restart Apache
+  service: name=httpd state=restarted enabled=yes
 
 - name: Enable 9panel I
   lineinfile:
