@@ -67,6 +67,11 @@
 - name: Copy Apache Config
   template: src=vhost.conf dest=/etc/httpd/vhost
 
+- name: Upload htaccess
+  copy:
+    src: .htaccess
+    dest: /data/wwwroot/magento/
+
 - name: restart Apache
   service: name=httpd state=restarted enabled=yes
 
