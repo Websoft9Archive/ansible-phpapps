@@ -4,6 +4,11 @@
   shell: nginx -v
   register: nginx_ver
   ignore_errors: yes
+
+- name: Remove already existing ChanZhiEPS
+  file:
+    path: /data/wwwroot/chanzhieps
+    state: absent
   
 - name: Download ChanZhiEPS
   unarchive:

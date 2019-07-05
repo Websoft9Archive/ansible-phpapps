@@ -4,6 +4,11 @@
   shell: nginx -v
   register: nginx_ver
   ignore_errors: yes
+
+- name: Remove already existing zentao
+  file:
+    path: /data/wwwroot/zentao
+    state: absent
   
 - name: Download ZenTaoPMS
   unarchive:
