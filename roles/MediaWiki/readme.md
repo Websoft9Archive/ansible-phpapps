@@ -23,7 +23,7 @@
 * LAMP
 * LNMP（暂时不支持）
 
-其中最低php7.0,mysql5.5，官方建议采用。[点击查看](https://www.mediawiki.org/wiki/Compatibility)官方对环境配置的建议。
+其中最低php7.0,mysql5.5，官方建议采用php7.2,mysql5.6。[点击查看](https://www.mediawiki.org/wiki/Compatibility)官方对环境配置的建议。
 
 ## 版本
 
