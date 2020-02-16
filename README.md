@@ -1,113 +1,65 @@
-# php-app
-本项目是流行的PHP应用程序自动安装项目，适用于已经安装了Websoft9提供的LAMP或LNMP环境的用户。
 
-## 镜像自动化说明
+# Moodle 自动化安装与部署
 
-下面描述镜像制作过程中的注意事项和特殊要求（区别于官方默认安装）
+本项目是由 [Websoft9](https://www.websoft9.com) 研发的 **PHP应用** 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 phpApps，让原本复杂的安装过程变得没有任何技术门槛。  
 
-### 源码包要求
-1. 大部分源码都是海外地址，建议手工将官方下载包下载到OSS
-2. 下载的源码包不进行任何处理，直接上传即可
+PHP应用指的是本项目支持的一系列开源软件，包括：chanzhi,cmseasy,codiad,dolibarr,dreamfactory,dzzoffice,empirecms,espocrm,kodcloud,laravel,mantisbt,matomo,onethink,pydio,renzhi,resourcespace,suitecrm,symfony,testlink,thinkcmf,thinkphp,vanilla,vtigercrm,zurmo等
 
-### 组件安装
-除应用程序之外的组件，都通过yum或composer在线安装
+本项目是开源项目，采用 LGPL3.0 开源协议。
 
-### php.ini
-### 网站配置文件
+## 配置要求
 
-### OwnCloud
-1. 上传/下载文件大小
-2. 默认内置配置文件 配置好 redis
-### NextCloud
-1. 上传/下载文件大小(后台可设置)
+安装本项目，确保符合如下的条件：
 
-2. opcache 设置
+| 条件       | 详情       | 备注  |
+| ------------ | ------------ | ----- |
+| 操作系统       | CentOS7.x       |   |
+| 公有云| AWS, Azure, 阿里云, 华为云, 腾讯云 | 可选 |
+| 私有云|  KVM, VMware, VirtualBox, OpenStack | 可选 |
+| 服务器配置 | 最低1核1G，安装时所需的带宽不低于10M |  建议采用按量100M带宽 |
+
+## 组件
+
+包含的核心组件为：自选的php应用 + Apache/Nginx + MySQL + PHP
+
+更多请见：[参数表](/docs/zh/stack-components.md)
+
+## 本项目安装的是 Moodle 最新版吗？
+
+本项目通过下载[Moodle源码](https://github.com/moodle/moodle/releases)进行安装，其中版本号存储在：[role/moodle/default/main.yml](/roles/moodle/defaults/main.yml)
+
 ```
-opcache.enable=1
-opcache.enable_cli=1
-opcache.interned_strings_buffer=8
-opcache.max_accelerated_files=10000
-opcache.memory_consumption=128
-opcache.save_comments=1
-opcache.revalidate_freq=1
+#Moodle版本，需定期维护
+moodle_version: v3.8.1
 ```
 
-3. apache vhost 需要设置 头部  Header set Referrer-Policy "no-referrer"
+如果你想修改版本号，请先查看 Moodle 仓库 [tags](https://github.com/moodle/moodle/tags) 标签值，再修改上面的 `moodle_version` 变量值。
 
-4. 默认内置配置文件 配置好 redis 和 默认开启SMTP的SSL/TLS
-### DzzOffice
-1.上传/下载文件大小
+我们会定期检查版本，并测试官方版本的可用性，以保证用户可以顺利安装最新版。
 
-### KodCloud（可道云）
-1.上传/下载文件大小
+## 安装指南
 
-### Pydio
-1.上传/下载文件大小
+以 root 用户登录 Linux，运行下面的**一键自动化安装命令**即可启动自动化部署。若没有 root 用户，请以其他用户登录 Linux 后运行 `sudo su -` 命令提升为 root 权限，然后再运行下面的脚本。
 
-### ResourceSpace
-1.上传/下载文件大小
+```
+wget -N https://raw.githubusercontent.com/Websoft9/linux/master/ansible_script/install.sh ; bash install.sh repository=phpapps
+```
 
-### Dolibarr
-1. 需修改数据库编码为 uft-8
+脚本后启动，就开始了自动化安装，必要时需要用户做出交互式选择，然后耐心等待直至安装成功。
 
-### Drupal
-1. 需将安装包下载到 oss
+**安装中的注意事项：**  
 
-### EspoCRM
+1. 操作不慎或网络发生变化，可能会导致SSH连接被中断，安装就会失败，此时请重新安装
+2. 安装缓慢、停滞不前或无故中断，主要是网络不通（或网速太慢）导致的下载问题，此时请重新安装
 
-### Empirecms（帝国）
-1. 安装路径非根目录
-2. 需修改php.ini
-
-### SuiteCRM
-
-### VtigerCRM
-
-### ZurmoCRM
-
-### Ranzhi（然之协同）
-### Zentao（禅道）
-### chanzhiESP（蝉知）
-
-### MantisBT
-
-### Mediawiki
-需要安装APCU
-需要解决apache上传漏洞问题
-
-### Moodle
-1. 数据库配置：innodb_file_format = Barracuda...
-
-### Opencart
-1. 汉化问题：内置三个汉化包（Install,Admin,Catalog）；默认增设一个中文配置项；默认前后台为英文
-2. 默认安装vQmod
-
-### Prestashop
-
-### Magento
-1.汉化问题：内置中文包
-2.部分组件需要PHP7.2,因此建议在PHP7.2的基础环境下安装
-3.最低内存为756M限制，否则在线安装插件不可以使用
-4.测试在线主题和插件的安装
-5.V2.3技术要求：https://devdocs.magento.com/guides/v2.3/install-gde/system-requirements-tech.html
-
-### ECSHOP
-
-### Discuz
-1.DZ3.4版本以上需PHP7.0支持
-2.修改默认数据库配置文件，确保无障碍安装
-
-### Joomla
+多种原因导致无法顺利安装，请使用我们在公有云上发布的 [php应用镜像](https://apps.websoft9.com) 的部署方式
 
 
-# 企业网盘软件的通用特征
-企业网盘软件镜像核心需求，如下几点需求，是用户最需要的需求
+## 文档
 
-* 上传文件大小限制不能低于500M
-* Office文件的在线预览、编辑
-* 视频文件在线播放
-* 网盘存储挂载OSS
+文档链接：https://support.websoft9.com/docs/lamp/installation/zh/
 
-## NextCloud 目前在国内无法安装插件
+## FAQ
 
-
+- 命令脚本部署与镜像部署有什么区别？请参考：[镜像部署-vs-脚本部署](https://support.websoft9.com/docs/faq/zh/bz-product.html#镜像部署-vs-脚本部署)
+- 本项目支持在 Ansible Tower 上运行吗？支持

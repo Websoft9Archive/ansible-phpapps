@@ -2,9 +2,9 @@
 moodle_version: v3.8.1
 
 #Web服务器：apache | nginx，通过交互式选择获取
-moodle_webs: apache
+phpapps_webs: apache
 
-moodle_vhost_dir: /etc/httpd/vhost
-moodle_vhost_src: vhost.conf
-moodle_service: httpd
-moodle_owner: apache
+phpapps_vhost_dir: /etc/httpd/vhost
+phpapps_vhost_src: vhost.conf
+phpapps_service: httpd
+phpapps_owner: apache
