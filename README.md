@@ -58,7 +58,9 @@ chanzhi,cmseasy,codiad,dolibarr,dreamfactory,dzzoffice,empirecms,espocrm,kodclou
 
 ## 本项目安装 PHP 应用最新版吗？
 
-我们会定期检查版本，并测试官方版本的可用性，以保证用户可以顺利安装最新版。阅读应用的[版本号管理](version.md)文档，了解更多详情。
+我们会定期检查版本，并测试官方版本的可用性，以保证用户可以顺利安装最新版。  
+
+阅读应用的[版本号管理](version.md)文档，了解更多详情。
 
 ## 安装指南
 
