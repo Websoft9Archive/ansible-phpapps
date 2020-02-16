@@ -1,2 +1,0 @@
-[servers]
-40.117.60.246  ansible_ssh_user=websoft9  ansible_ssh_pass=xxxxxx ansible_sudo_pass=xxxxxx
