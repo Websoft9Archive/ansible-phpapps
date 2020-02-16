@@ -1,9 +1,26 @@
 
-# Moodle 自动化安装与部署
+# PHP 应用软件与网站自动化安装与部署
 
 本项目是由 [Websoft9](https://www.websoft9.com) 研发的 **PHP应用** 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 phpApps，让原本复杂的安装过程变得没有任何技术门槛。  
 
-PHP应用指的是本项目支持的一系列开源软件，包括：chanzhi,cmseasy,codiad,dolibarr,dreamfactory,dzzoffice,empirecms,espocrm,kodcloud,laravel,mantisbt,matomo,onethink,pydio,ranzhi,resourcespace,suitecrm,symfony,testlink,thinkcmf,thinkphp,vanilla,vtigercrm,zurmo等
+本项目支持的一系列开源PHP应用，包括：  
+
+chanzhi,cmseasy,codiad,dolibarr,dreamfactory,dzzoffice,empirecms,espocrm,kodcloud,laravel,mantisbt,matomo,onethink,pydio,ranzhi,resourcespace,suitecrm,symfony,testlink,thinkcmf,thinkphp,vanilla,vtigercrm,zurmo等
+
+对于更热门的PHP应用程序，我们为之开发了单独的项目
+
+* [WordPress](https://github.com/Websoft9/ansible-wordpress)
+* [Discuz](https://github.com/Websoft9/ansible-discuz)
+* [Joomla](https://github.com/Websoft9/ansible-joomla)
+* [Drupal](https://github.com/Websoft9/ansible-drupal)
+* [ownCloud](https://github.com/Websoft9/ansible-owncloud)
+* [Nextcloud](https://github.com/Websoft9/ansible-nextcloud)
+* [Prestashop](https://github.com/Websoft9/ansible-prestashop)
+* [Magento](https://github.com/Websoft9/ansible-magento)
+* [Opencart](https://github.com/Websoft9/ansible-opencart)
+* [Moodle](https://github.com/Websoft9/ansible-moodle)
+* [Mediawiki](https://github.com/Websoft9/ansible-mediawiki)
+* [Zentao（禅道）](https://github.com/Websoft9/ansible-zentao)
 
 本项目是开源项目，采用 LGPL3.0 开源协议。
 
