@@ -1,6 +1,34 @@
 ---
+#引入PHP运行环境元数据，并初始化
+- include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
+#Modify var for this playbook
+- set_fact:
+    phpapps_vhost_dir: "{{php_runtime_meta[ansible_distribution][phpapps_webs].vhost_dir}}"
+    phpapps_vhost_src: "{{php_runtime_meta[ansible_distribution][phpapps_webs].vhost_src}}"
+    phpapps_service: "{{php_runtime_meta[ansible_distribution][phpapps_webs].service}}"
+    phpapps_owner: "{{php_runtime_meta[ansible_distribution][phpapps_webs].owner}}"
+
+#输出即将安装的信息，并开始安装
 - debug:
-    msg: {{ phpapps_name }} will installed
+    msg:  "{{phpapps_name}} will be installed on {{phpapps_webs}}, MySQL {{mysql_version}}, PHP {{php_version}}"
 
 - include: "{{phpapps_name}}.yml"
+
+# 系统通用
+- name: Permission directory
+  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
+  
+- name: Permission file
+  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
+
+# 根据不同的基础环境分别处理
+- block:
+  - name: change owner&group for Apache
+    shell: chown -R {{phpapps_owner}}:{{phpapps_owner}} /data/wwwroot
+
+  - name: Copy Apache or Nginx vhost configuration
+    copy: src={{phpapps_vhost_src}} dest={{phpapps_vhost_dir}}
+    
+  - name: restart Apache or Nginx
+    service: name={{phpapps_service}} state=restarted enabled=yes

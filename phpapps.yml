@@ -1,24 +1,30 @@
 ## 部署
-- name: Moodle
+- name: phpApps
   hosts: all
   become: yes
   become_method: sudo  
   vars_prompt:
     - name: 'phpapps_selection'
-      prompt: "\nWhich application do you want to install? [ 1/2/34/5/6... ] \n\n
-      1：chanzhi 2: cmseasy 3: codiad 4: dolibarr 5: dreamfactory 6: dzzoffice\n
-      7: empirecms 8: espocrm 9: kodcloud 10: laravel \n
-      11: mantisbt 12: matomo 13: onethink 14:pydio \n
-      15: renzhi 16: resourcespace 17: suitecrm 18: symfony\n
-      19: testlink 20: thinkcmf 21: thinkphp \n
-      22: vanilla 23: vtigercrm 24: zurmo\n"
+      prompt: "\nWhich application do you want to install? [ 1/2/3/4/5/6... ] \n\n
+      1：chanzhi      2: cmseasy \n
+      3: codiad       4: dolibarr \n
+      5: dreamfactory 6: dzzoffice\n
+      7: empirecms    8: espocrm \n
+      9: kodcloud     10: laravel \n
+      11: mantisbt    12: matomo \n
+      13: onethink    14:pydio \n
+      15: ranzhi      16: resourcespace \n
+      17: suitecrm    18: symfony\n
+      19: testlink    20: thinkcmf \n
+      21: thinkphp    22: vanilla\n
+      23: vtigercrm   24: zurmo\n\n"
       private: no
       default: 1
     
     - name: 'webs_selection'
       prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
       1: Apache\n
-      2: Nginx\n"
+      2: Nginx\n\n"
       private: no
       default: 1
 
@@ -28,6 +34,7 @@
         name: chanzhi
         mysqlver: "5.7"
         phpver: "7.2"
+        
       '2':
         name: cmseasy
         mysqlver: "5.7"
@@ -38,14 +45,12 @@
       '2': 'nginx'
     
     mysql_version: "{{select_phpapps[phpapps_selection].mysqlver}}" 
-    php_version: "{{select_phpapps[phpapps_selection].mysqlver}}" 
+    php_version: "{{select_phpapps[phpapps_selection].phpver}}" 
     phpapps_name: "{{select_phpapps[phpapps_selection].name}}" 
-    phpapps_webs: "{{select_webs[webs_selection]}}" 
-    
+    phpapps_webs: "{{select_webs[webs_selection]}}"    
   
   vars_files:
     - vars/main.yml
 
   roles:
     - {role: phpapps, tags: "phpapps"}
-    - {role: role_php-fpm, tags: "role_php-fpm"}

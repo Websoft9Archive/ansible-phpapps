@@ -3,7 +3,7 @@
 
 本项目是由 [Websoft9](https://www.websoft9.com) 研发的 **PHP应用** 自动化安装程序，开发语言是 Ansible。使用本项目，只需要用户在 Linux 上运行一条命令，即可自动化安装 phpApps，让原本复杂的安装过程变得没有任何技术门槛。  
 
-PHP应用指的是本项目支持的一系列开源软件，包括：chanzhi,cmseasy,codiad,dolibarr,dreamfactory,dzzoffice,empirecms,espocrm,kodcloud,laravel,mantisbt,matomo,onethink,pydio,renzhi,resourcespace,suitecrm,symfony,testlink,thinkcmf,thinkphp,vanilla,vtigercrm,zurmo等
+PHP应用指的是本项目支持的一系列开源软件，包括：chanzhi,cmseasy,codiad,dolibarr,dreamfactory,dzzoffice,empirecms,espocrm,kodcloud,laravel,mantisbt,matomo,onethink,pydio,ranzhi,resourcespace,suitecrm,symfony,testlink,thinkcmf,thinkphp,vanilla,vtigercrm,zurmo等
 
 本项目是开源项目，采用 LGPL3.0 开源协议。
 
@@ -22,20 +22,26 @@ PHP应用指的是本项目支持的一系列开源软件，包括：chanzhi,cms
 
 包含的核心组件为：自选的php应用 + Apache/Nginx + MySQL + PHP
 
+```
+      1：chanzhi      2: cmseasy \n
+      3: codiad       4: dolibarr \n
+      5: dreamfactory 6: dzzoffice\n
+      7: empirecms    8: espocrm \n
+      9: kodcloud     10: laravel \n
+      11: mantisbt    12: matomo \n
+      13: onethink    14:pydio \n
+      15: ranzhi      16: resourcespace \n
+      17: suitecrm    18: symfony\n
+      19: testlink    20: thinkcmf \n
+      21: thinkphp    22: vanilla\n
+      23: vtigercrm   24: zurmo\n\n"
+```
+
 更多请见：[参数表](/docs/zh/stack-components.md)
 
-## 本项目安装的是 Moodle 最新版吗？
+## 本项目安装 PHP 应用最新版吗？
 
-本项目通过下载[Moodle源码](https://github.com/moodle/moodle/releases)进行安装，其中版本号存储在：[role/moodle/default/main.yml](/roles/moodle/defaults/main.yml)
-
-```
-#Moodle版本，需定期维护
-moodle_version: v3.8.1
-```
-
-如果你想修改版本号，请先查看 Moodle 仓库 [tags](https://github.com/moodle/moodle/tags) 标签值，再修改上面的 `moodle_version` 变量值。
-
-我们会定期检查版本，并测试官方版本的可用性，以保证用户可以顺利安装最新版。
+我们会定期检查版本，并测试官方版本的可用性，以保证用户可以顺利安装最新版。阅读应用的[版本号管理](version.md)文档，了解更多详情。
 
 ## 安装指南
 
