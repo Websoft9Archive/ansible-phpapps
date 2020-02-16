@@ -54,7 +54,7 @@ chanzhi,cmseasy,codiad,dolibarr,dreamfactory,dzzoffice,empirecms,espocrm,kodclou
       23: vtigercrm   24: zurmo\n\n"
 ```
 
-更多请见：[参数表](/docs/zh/stack-components.md)
+更多请见：[参数表](https://support.websoft9.com/docs/lamp/zh/stack-components.html)
 
 ## 本项目安装 PHP 应用最新版吗？
 
