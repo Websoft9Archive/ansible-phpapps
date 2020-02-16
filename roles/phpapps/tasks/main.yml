@@ -16,6 +16,12 @@
 - include: "{{phpapps_name}}.yml"
 
 # 系统通用
+
+- name: Remove example dir
+  file:
+    path: /data/wwwroot/www.example.com
+    state: absent
+    
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
   
@@ -26,9 +32,6 @@
 - block:
   - name: change owner&group for Apache
     shell: chown -R {{phpapps_owner}}:{{phpapps_owner}} /data/wwwroot
-
-  - name: Copy Apache or Nginx vhost configuration
-    copy: src={{phpapps_vhost_src}} dest={{phpapps_vhost_dir}}
     
   - name: restart Apache or Nginx
     service: name={{phpapps_service}} state=restarted enabled=yes
