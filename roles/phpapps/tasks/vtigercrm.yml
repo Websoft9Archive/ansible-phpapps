@@ -1,67 +1,47 @@
 ---
+- debug:
+    msg: thinkphp is installing now 
+
 #引入PHP运行环境元数据，并初始化
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
 #Modify var for this playbook
 - set_fact:
-    moodle_vhost_dir: "{{php_runtime_meta[ansible_distribution][moodle_webs].vhost_dir}}"
-    moodle_vhost_src: "{{php_runtime_meta[ansible_distribution][moodle_webs].vhost_src}}"
-    moodle_service: "{{php_runtime_meta[ansible_distribution][moodle_webs].service}}"
-    moodle_owner: "{{php_runtime_meta[ansible_distribution][moodle_webs].owner}}"
+    thinkphp_vhost_dir: "{{php_runtime_meta[ansible_distribution][thinkphp_webs].vhost_dir}}"
+    thinkphp_vhost_src: "{{php_runtime_meta[ansible_distribution][thinkphp_webs].vhost_src}}"
+    thinkphp_service: "{{php_runtime_meta[ansible_distribution][thinkphp_webs].service}}"
+    thinkphp_owner: "{{php_runtime_meta[ansible_distribution][thinkphp_webs].owner}}"
+    thinkphp_document_root: "thinkphp/"
+    thinkphp_download_url: "https://nchc.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.1.0/Core%20Product/vtigercrm7.1.0.tar.gz"
+    thinkphp_version: "v6.0.2"
 
 - debug:
-    msg: runtime {{ moodle_vhost_dir }}, {{moodle_vhost_src}}, {{moodle_service}}, {{moodle_owner}}, {{moodle_webs}}, {{ansible_distribution}}
+    msg: runtime {{ thinkphp_vhost_dir }}, {{thinkphp_vhost_src}}, {{thinkphp_service}}, {{thinkphp_owner}}, {{thinkphp_webs}}, {{ansible_distribution}}
 
 # 9panel
 - name: Enabled 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["Moodle"];'
+    line: 'var set_apps=["ThinkPHP"];'
 
-# Moodle-LMS
-- name: delete www.example.com
-  file:
-    path: /data/wwwroot/www.example.com
-    state: absent
-
-- name: change my.cnf
-  copy:
-    src: my.cnf
-    dest: /etc/my.cnf
-    mode: 0644
-
-- name: restart mysql
-  service:
-    name: mysqld
-    state: restarted
-
+# thinkphp
 - name: Create Directory
   file:
-    path: /data/wwwroot/moodle
+    path: /data/wwwroot/thinkphp
     state: directory
     mode: 0755
   
-- name: Download Moodle-LMS
-  git:
-    repo: https://github.com/moodle/moodle.git
-    dest: /data/wwwroot/moodle
-    version: "{{moodle_version}}"
+- name: Download VtigerCRM
+  unarchive:
+    src: "{{ thinkphp_download_url }}"
+    dest: /data/wwwroot
+    remote_src: yes
 
-# 系统通用
-- name: Permission directory
-  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
-  
-- name: Permission file
-  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
+- name: Copy PHP.ini
+  copy:
+    src: vtigercrm_php.ini
+    dest: /etc/php.ini
 
-# 根据不同的基础环境分别处理
-- block:
-  - name: change owner&group for Apache
-    shell: chown -R {{moodle_owner}}:{{moodle_owner}} /data/wwwroot
-
-  - name: Copy Apache or Nginx vhost configuration
-    copy: src={{moodle_vhost_src}} dest={{moodle_vhost_dir}}
-    
-  - name: restart Apache or Nginx
-    service: name={{moodle_service}} state=restarted enabled=yes
+- name: Copy Apache or Nginx vhost configuration
+  template: src={{thinkphp_vhost_src}} dest={{thinkphp_vhost_dir}}
