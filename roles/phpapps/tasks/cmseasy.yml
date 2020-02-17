@@ -10,7 +10,8 @@
     cmseasy_vhost_src: "{{php_runtime_meta[ansible_distribution][cmseasy_webs].vhost_src}}"
     cmseasy_service: "{{php_runtime_meta[ansible_distribution][cmseasy_webs].service}}"
     cmseasy_owner: "{{php_runtime_meta[ansible_distribution][cmseasy_webs].owner}}"
-    cmseasy_document_root: "cmseasy/"
+    cmseasy_name: "{{phpapps_name}}"
+    cmseasy_title: "{{phpapps_title}}"
     cmseasy_download_url: "http://ftp.cmseasy.cn/CmsEasy7.x/CmsEasy_7.5.3_UTF-8_20200209.zip"
 
 - debug:
@@ -21,19 +22,19 @@
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["CmsEasy"];'
+    line: 'var set_apps=["{{cmseasy_title}}"];'
 
 # cmseasy
-- name: Create Directory
+- name: Create Directory for {{cmseasy_title}}
   file:
-    path: /data/wwwroot/cmseasy
+    path: /data/wwwroot/{{cmseasy_name}}
     state: directory
     mode: 0755
   
-- name: Download and Unarchive CmsEasy
+- name: Download and Unarchive {{cmseasy_title}}
   unarchive:
     src: "{{ cmseasy_download_url }}"
-    dest: /data/wwwroot/cmseasy
+    dest: /data/wwwroot/{{cmseasy_name}}
     remote_src: yes
 
 - name: Copy Apache or Nginx vhost configuration

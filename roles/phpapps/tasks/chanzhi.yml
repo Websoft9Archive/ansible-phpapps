@@ -21,7 +21,8 @@
   file:
     path: /data/wwwroot/{{chanzhi_name}}
     state: absent
-  
+
+#下载解压，注意解压后的文件夹名称  
 - name: Download {{chanzhi_name}}
   unarchive:
     src: "{{ chanzhi_download_url }}"
