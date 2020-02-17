@@ -8,13 +8,13 @@ phpmyadmin_mysql_password: "123456"
 
 # 生成应用数据库和用户
 mysql_databases:
- - name: moodle
+ - name: 
    encoding: utf8
  
 mysql_users:
- - name: moodle
+ - name: "{{phpapps_name}}"
    host: localhost
-   priv: 'moodle.*:ALL'
+   priv: '{{phpapps_name}}.*:ALL'
 
 # 初始化MySQL root密码
 init_db: 
@@ -24,9 +24,9 @@ init_db:
   
 # 应用数据库信息
 init_application:
-  moodle:
+  "{{phpapps_name}}":
     service: php-fpm
-    database: moodle 
-    database_user: moodle
+    database: "{{phpapps_name}}" 
+    database_user: "{{phpapps_name}}"
     database_host: localhost
     database_password: "123456"

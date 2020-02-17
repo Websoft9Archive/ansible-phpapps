@@ -1,5 +1,4 @@
 ---
-
 - debug:
     msg: chanzhi is installing now 
 
@@ -13,11 +12,12 @@
     chanzhi_service: "{{php_runtime_meta[ansible_distribution][phpapps_webs].service}}"
     chanzhi_owner: "{{php_runtime_meta[ansible_distribution][phpapps_webs].owner}}"
     chanzhi_name: "{{phpapps-name}}"
+    chanzhi_document_root: "chanzhi/www"
+    chanzhi_download_url: "http://dl.cnezsoft.com/chanzhi/7.4.1/chanzhiEPS.7.4.1.zip"
 
-#本项目变量
-vars:
-  chanzhi_document_root: "chanzhi/www"
-  chanzhi_download_url: "http://dl.cnezsoft.com/chanzhi/7.4.1/chanzhiEPS.7.4.1.zip"
+- debug:
+    msg: runtime {{ chanzhi_vhost_dir }}, {{chanzhi_vhost_src}}, {{chanzhi_service}}, {{chanzhi_owner}}, {{chanzhi_webs}}, {{ansible_distribution}}
+
 
 #本项目主要任务区
 - name: Remove already existing ChanZhi
