@@ -12,10 +12,11 @@
     chanzhi_vhost_src: "{{php_runtime_meta[ansible_distribution][phpapps_webs].vhost_src}}"
     chanzhi_service: "{{php_runtime_meta[ansible_distribution][phpapps_webs].service}}"
     chanzhi_owner: "{{php_runtime_meta[ansible_distribution][phpapps_webs].owner}}"
+    chanzhi_name: "{{phpapps-name}}"
 
 #本项目变量
 vars:
-  chanzhi_documentRoot: "chanzhi/www"
+  chanzhi_document_root: "chanzhi/www"
   chanzhi_download_url: "http://dl.cnezsoft.com/chanzhi/7.4.1/chanzhiEPS.7.4.1.zip"
 
 #本项目主要任务区
@@ -36,7 +37,7 @@ vars:
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["chanzhi"];'
+    line: 'var set_apps=["{{chanzhi_name}}"];'
 
 - name: Copy Apache or Nginx vhost configuration
   copy: src={{chanzhi_vhost_src}} dest={{chanzhi_vhost_dir}}
