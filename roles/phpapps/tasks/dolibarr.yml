@@ -4,64 +4,36 @@
 
 #Modify var for this playbook
 - set_fact:
-    moodle_vhost_dir: "{{php_runtime_meta[ansible_distribution][moodle_webs].vhost_dir}}"
-    moodle_vhost_src: "{{php_runtime_meta[ansible_distribution][moodle_webs].vhost_src}}"
-    moodle_service: "{{php_runtime_meta[ansible_distribution][moodle_webs].service}}"
-    moodle_owner: "{{php_runtime_meta[ansible_distribution][moodle_webs].owner}}"
+    dolibarr_vhost_dir: "{{php_runtime_meta[ansible_distribution][dolibarr_webs].vhost_dir}}"
+    dolibarr_vhost_src: "{{php_runtime_meta[ansible_distribution][dolibarr_webs].vhost_src}}"
+    dolibarr_service: "{{php_runtime_meta[ansible_distribution][dolibarr_webs].service}}"
+    dolibarr_owner: "{{php_runtime_meta[ansible_distribution][dolibarr_webs].owner}}"
+    dolibarr_document_root: "dolibarr/"
+    dolibarr_download_url: "https://github.com/Dolibarr/dolibarr.git"
+    dolibarr_version: "11.0.1"
 
 - debug:
-    msg: runtime {{ moodle_vhost_dir }}, {{moodle_vhost_src}}, {{moodle_service}}, {{moodle_owner}}, {{moodle_webs}}, {{ansible_distribution}}
+    msg: runtime {{ dolibarr_vhost_dir }}, {{dolibarr_vhost_src}}, {{dolibarr_service}}, {{dolibarr_owner}}, {{dolibarr_webs}}, {{ansible_distribution}}
 
 # 9panel
 - name: Enabled 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["Moodle"];'
+    line: 'var set_apps=["Dolibarr"];'
 
-# Moodle-LMS
-- name: delete www.example.com
-  file:
-    path: /data/wwwroot/www.example.com
-    state: absent
-
-- name: change my.cnf
-  copy:
-    src: my.cnf
-    dest: /etc/my.cnf
-    mode: 0644
-
-- name: restart mysql
-  service:
-    name: mysqld
-    state: restarted
-
+# dolibarr
 - name: Create Directory
   file:
-    path: /data/wwwroot/moodle
+    path: /data/wwwroot/dolibarr
     state: directory
     mode: 0755
   
-- name: Download Moodle-LMS
+- name: Download dolibarr-LMS
   git:
-    repo: https://github.com/moodle/moodle.git
-    dest: /data/wwwroot/moodle
-    version: "{{moodle_version}}"
+    repo: https://github.com/dolibarr/dolibarr.git
+    dest: /data/wwwroot/dolibarr
+    version: "{{dolibarr_version}}"
 
-# 系统通用
-- name: Permission directory
-  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
-  
-- name: Permission file
-  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
-
-# 根据不同的基础环境分别处理
-- block:
-  - name: change owner&group for Apache
-    shell: chown -R {{moodle_owner}}:{{moodle_owner}} /data/wwwroot
-
-  - name: Copy Apache or Nginx vhost configuration
-    copy: src={{moodle_vhost_src}} dest={{moodle_vhost_dir}}
-    
-  - name: restart Apache or Nginx
-    service: name={{moodle_service}} state=restarted enabled=yes
+- name: Copy Apache or Nginx vhost configuration
+  copy: src={{dolibarr_vhost_src}} dest={{dolibarr_vhost_dir}}
