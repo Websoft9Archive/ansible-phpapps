@@ -11,8 +11,8 @@
     chanzhi_vhost_src: "{{php_runtime_meta[ansible_distribution][phpapps_webs].vhost_src}}"
     chanzhi_service: "{{php_runtime_meta[ansible_distribution][phpapps_webs].service}}"
     chanzhi_owner: "{{php_runtime_meta[ansible_distribution][phpapps_webs].owner}}"
-    chanzhi_name: "{{phpapps-name}}"
-    chanzhi_document_root: "chanzhi/www"
+    chanzhi_name: "{{phpapps_name}}"
+    chanzhi_tile: "{{phpapps_title}}"
     chanzhi_download_url: "http://dl.cnezsoft.com/chanzhi/8.0/chanzhiEPS.8.0.php7.1.zip?v=20200115"
 
 - debug:
@@ -20,12 +20,12 @@
 
 
 #本项目主要任务区
-- name: Remove already existing chanzhi
+- name: Remove already existing {{chanzhi_name}}
   file:
-    path: /data/wwwroot/chanzhi
+    path: /data/wwwroot/{{chanzhi_name}}
     state: absent
   
-- name: Download chanzhi
+- name: Download {{chanzhi_name}}
   unarchive:
     src: "{{ chanzhi_download_url }}"
     dest: /data/wwwroot
