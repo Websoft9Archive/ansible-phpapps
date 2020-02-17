@@ -4,64 +4,36 @@
 
 #Modify var for this playbook
 - set_fact:
-    moodle_vhost_dir: "{{php_runtime_meta[ansible_distribution][moodle_webs].vhost_dir}}"
-    moodle_vhost_src: "{{php_runtime_meta[ansible_distribution][moodle_webs].vhost_src}}"
-    moodle_service: "{{php_runtime_meta[ansible_distribution][moodle_webs].service}}"
-    moodle_owner: "{{php_runtime_meta[ansible_distribution][moodle_webs].owner}}"
+    dreamfactory_vhost_dir: "{{php_runtime_meta[ansible_distribution][dreamfactory_webs].vhost_dir}}"
+    dreamfactory_vhost_src: "{{php_runtime_meta[ansible_distribution][dreamfactory_webs].vhost_src}}"
+    dreamfactory_service: "{{php_runtime_meta[ansible_distribution][dreamfactory_webs].service}}"
+    dreamfactory_owner: "{{php_runtime_meta[ansible_distribution][dreamfactory_webs].owner}}"
+    dreamfactory_document_root: "dreamfactory/"
+    dreamfactory_download_url: "https://github.com/dreamfactorysoftware/dreamfactory.git"
+    dreamfactory_version: "4.0.1"
 
 - debug:
-    msg: runtime {{ moodle_vhost_dir }}, {{moodle_vhost_src}}, {{moodle_service}}, {{moodle_owner}}, {{moodle_webs}}, {{ansible_distribution}}
+    msg: runtime {{ dreamfactory_vhost_dir }}, {{dreamfactory_vhost_src}}, {{dreamfactory_service}}, {{dreamfactory_owner}}, {{dreamfactory_webs}}, {{ansible_distribution}}
 
 # 9panel
 - name: Enabled 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["Moodle"];'
+    line: 'var set_apps=["DreamFactory"];'
 
-# Moodle-LMS
-- name: delete www.example.com
-  file:
-    path: /data/wwwroot/www.example.com
-    state: absent
-
-- name: change my.cnf
-  copy:
-    src: my.cnf
-    dest: /etc/my.cnf
-    mode: 0644
-
-- name: restart mysql
-  service:
-    name: mysqld
-    state: restarted
-
+# dreamfactory
 - name: Create Directory
   file:
-    path: /data/wwwroot/moodle
+    path: /data/wwwroot/dreamfactory
     state: directory
     mode: 0755
   
-- name: Download Moodle-LMS
+- name: Download dreamfactory-LMS
   git:
-    repo: https://github.com/moodle/moodle.git
-    dest: /data/wwwroot/moodle
-    version: "{{moodle_version}}"
+    repo: https://github.com/dreamfactory/dreamfactory.git
+    dest: /data/wwwroot/dreamfactory
+    version: "{{dreamfactory_version}}"
 
-# 系统通用
-- name: Permission directory
-  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
-  
-- name: Permission file
-  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
-
-# 根据不同的基础环境分别处理
-- block:
-  - name: change owner&group for Apache
-    shell: chown -R {{moodle_owner}}:{{moodle_owner}} /data/wwwroot
-
-  - name: Copy Apache or Nginx vhost configuration
-    copy: src={{moodle_vhost_src}} dest={{moodle_vhost_dir}}
-    
-  - name: restart Apache or Nginx
-    service: name={{moodle_service}} state=restarted enabled=yes
+- name: Copy Apache or Nginx vhost configuration
+  copy: src={{dreamfactory_vhost_src}} dest={{dreamfactory_vhost_dir}}

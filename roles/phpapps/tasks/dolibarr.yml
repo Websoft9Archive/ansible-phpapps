@@ -29,7 +29,7 @@
     state: directory
     mode: 0755
   
-- name: Download dolibarr-LMS
+- name: Download dolibarr
   git:
     repo: https://github.com/dolibarr/dolibarr.git
     dest: /data/wwwroot/dolibarr
