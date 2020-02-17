@@ -1,7 +1,4 @@
 ---
-- debug:
-    msg: chanzhi is installing now 
-
 #引入PHP运行环境元数据，并初始化
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
@@ -12,7 +9,7 @@
     chanzhi_service: "{{php_runtime_meta[ansible_distribution][phpapps_webs].service}}"
     chanzhi_owner: "{{php_runtime_meta[ansible_distribution][phpapps_webs].owner}}"
     chanzhi_name: "{{phpapps_name}}"
-    chanzhi_tile: "{{phpapps_title}}"
+    chanzhi_title: "{{phpapps_title}}"
     chanzhi_download_url: "http://dl.cnezsoft.com/chanzhi/8.0/chanzhiEPS.8.0.php7.1.zip?v=20200115"
 
 - debug:
