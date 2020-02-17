@@ -32,12 +32,14 @@
     select_phpapps:
       '1':
         name: chanzhi
+        title: ChanZhi
         mysqlver: "5.7"
         phpver: "7.2"
         documentroot: "www"
         
       '2':
         name: cmseasy
+        title: CmsEasy
         mysqlver: "5.7"
         phpver: "7.2"
 
@@ -47,9 +49,10 @@
     
     mysql_version: "{{select_phpapps[phpapps_selection].mysqlver}}" 
     php_version: "{{select_phpapps[phpapps_selection].phpver}}" 
-    phpapps_name: "{{select_phpapps[phpapps_selection].name}}" 
+    phpapps_name: "{{select_phpapps[phpapps_selection].name}}"
+    phpapps_title: "{{select_phpapps[phpapps_selection].title}}"      
     phpapps_documentroot: "{{select_phpapps[phpapps_selection].documentroot}}"
-    phpapps_webs: "{{select_webs[webs_selection]}}"    
+    phpapps_webs: "{{select_webs[webs_selection]}}"
   
   vars_files:
     - vars/main.yml
