@@ -30,7 +30,7 @@
     state: directory
     mode: 0755
   
-- name: Download codiad-LMS
+- name: Download codiad
   git:
     repo: "{{codiad_download_url}}"
     dest: /data/wwwroot/codiad

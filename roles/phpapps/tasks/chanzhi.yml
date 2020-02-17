@@ -10,6 +10,7 @@
     chanzhi_owner: "{{php_runtime_meta[ansible_distribution][phpapps_webs].owner}}"
     chanzhi_name: "{{phpapps_name}}"
     chanzhi_title: "{{phpapps_title}}"
+    chanzhi_document_root: "chanzhi/www"
     chanzhi_download_url: "http://dl.cnezsoft.com/chanzhi/8.0/chanzhiEPS.8.0.php7.1.zip?v=20200115"
 
 - debug:
@@ -29,11 +30,14 @@
     dest: /data/wwwroot
     remote_src: yes
 
+- name: Rename directory name
+  shell: mv /data/wwwroot/chanzhi* /data/wwwroot/chanzhi
+
 - name: Set 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{chanzhi_name}}"];'
+    line: 'var set_apps=["{{chanzhi_title}}"];'
 
 - name: Copy Apache or Nginx vhost configuration
   Template: src={{chanzhi_vhost_src}} dest={{chanzhi_vhost_dir}}
