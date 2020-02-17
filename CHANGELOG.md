@@ -7,6 +7,7 @@
 1. 可视化管理工具
 2. AmazonLinux支持
 3. 配置文件覆盖问题(httpd.conf, php.ini. vhost.conf)
+4. 部分应用无需创建数据库，该项目的变量文件中如何定义？
 
 ## Logs
 
