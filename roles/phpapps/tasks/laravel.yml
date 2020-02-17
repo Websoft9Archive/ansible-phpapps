@@ -4,64 +4,37 @@
 
 #Modify var for this playbook
 - set_fact:
-    moodle_vhost_dir: "{{php_runtime_meta[ansible_distribution][moodle_webs].vhost_dir}}"
-    moodle_vhost_src: "{{php_runtime_meta[ansible_distribution][moodle_webs].vhost_src}}"
-    moodle_service: "{{php_runtime_meta[ansible_distribution][moodle_webs].service}}"
-    moodle_owner: "{{php_runtime_meta[ansible_distribution][moodle_webs].owner}}"
+    laravel_vhost_dir: "{{php_runtime_meta[ansible_distribution][laravel_webs].vhost_dir}}"
+    laravel_vhost_src: "{{php_runtime_meta[ansible_distribution][laravel_webs].vhost_src}}"
+    laravel_service: "{{php_runtime_meta[ansible_distribution][laravel_webs].service}}"
+    laravel_owner: "{{php_runtime_meta[ansible_distribution][laravel_webs].owner}}"
+    laravel_document_root: "laravel/"
+    laravel_download_url: "https://github.com/laravel/laravel.git"
 
 - debug:
-    msg: runtime {{ moodle_vhost_dir }}, {{moodle_vhost_src}}, {{moodle_service}}, {{moodle_owner}}, {{moodle_webs}}, {{ansible_distribution}}
+    msg: runtime {{ laravel_vhost_dir }}, {{laravel_vhost_src}}, {{laravel_service}}, {{laravel_owner}}, {{laravel_webs}}, {{ansible_distribution}}
 
 # 9panel
 - name: Enabled 9panel I
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["Moodle"];'
+    line: 'var set_apps=["Laravel"];'
 
-# Moodle-LMS
-- name: delete www.example.com
-  file:
-    path: /data/wwwroot/www.example.com
-    state: absent
+# laravel
+- name: Install composer
+  yum: 
+    name: composer
+    state: latest
 
-- name: change my.cnf
-  copy:
-    src: my.cnf
-    dest: /etc/my.cnf
-    mode: 0644
+- name: Replace Composer repo.packagist to internal repo.packagist
+  shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com
 
-- name: restart mysql
-  service:
-    name: mysqld
-    state: restarted
+- name: Install Laravel
+  composer:
+      command: create-project
+      arguments: laravel/laravel
+      working_dir: /data/wwwroot/
 
-- name: Create Directory
-  file:
-    path: /data/wwwroot/moodle
-    state: directory
-    mode: 0755
-  
-- name: Download Moodle-LMS
-  git:
-    repo: https://github.com/moodle/moodle.git
-    dest: /data/wwwroot/moodle
-    version: "{{moodle_version}}"
-
-# 系统通用
-- name: Permission directory
-  shell: find /data/wwwroot -type d -exec chmod 750 {} \;
-  
-- name: Permission file
-  shell: find /data/wwwroot -not -type d -exec chmod 640 {} \;
-
-# 根据不同的基础环境分别处理
-- block:
-  - name: change owner&group for Apache
-    shell: chown -R {{moodle_owner}}:{{moodle_owner}} /data/wwwroot
-
-  - name: Copy Apache or Nginx vhost configuration
-    copy: src={{moodle_vhost_src}} dest={{moodle_vhost_dir}}
-    
-  - name: restart Apache or Nginx
-    service: name={{moodle_service}} state=restarted enabled=yes
+- name: Copy Apache or Nginx vhost configuration
+  copy: src={{laravel_vhost_src}} dest={{laravel_vhost_dir}}
