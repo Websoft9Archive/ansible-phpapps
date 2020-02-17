@@ -42,4 +42,4 @@
   shell: echo "* * * * * cd /data/wwwroot/espocrm; /usr/bin/php -f cron.php > /dev/null 2>&1" >> /etc/crontab
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{espocrm_vhost_src}} dest={{espocrm_vhost_dir}}
+  template: src={{espocrm_vhost_src}} dest={{espocrm_vhost_dir}}

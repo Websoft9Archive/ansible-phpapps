@@ -36,4 +36,4 @@
     version: "{{dzzoffice_version}}"
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{dzzoffice_vhost_src}} dest={{dzzoffice_vhost_dir}}
+  template: src={{dzzoffice_vhost_src}} dest={{dzzoffice_vhost_dir}}

@@ -36,4 +36,4 @@
     version: "{{codiad_version}}"
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{codiad_vhost_src}} dest={{codiad_vhost_dir}}
+  template: src={{codiad_vhost_src}} dest={{codiad_vhost_dir}}

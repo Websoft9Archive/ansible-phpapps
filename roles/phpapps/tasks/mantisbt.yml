@@ -36,4 +36,4 @@
     version: "{{mantisbt_version}}"
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{mantisbt_vhost_src}} dest={{mantisbt_vhost_dir}}
+  template: src={{mantisbt_vhost_src}} dest={{mantisbt_vhost_dir}}

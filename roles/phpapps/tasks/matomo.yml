@@ -36,4 +36,4 @@
     version: "{{matomo_version}}"
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{matomo_vhost_src}} dest={{matomo_vhost_dir}}
+  template: src={{matomo_vhost_src}} dest={{matomo_vhost_dir}}

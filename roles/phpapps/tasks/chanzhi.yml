@@ -40,4 +40,4 @@
     line: 'var set_apps=["{{chanzhi_name}}"];'
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{chanzhi_vhost_src}} dest={{chanzhi_vhost_dir}}
+  Template: src={{chanzhi_vhost_src}} dest={{chanzhi_vhost_dir}}

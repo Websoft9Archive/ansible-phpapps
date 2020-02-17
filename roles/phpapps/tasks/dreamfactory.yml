@@ -36,4 +36,4 @@
     version: "{{dreamfactory_version}}"
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{dreamfactory_vhost_src}} dest={{dreamfactory_vhost_dir}}
+  template: src={{dreamfactory_vhost_src}} dest={{dreamfactory_vhost_dir}}

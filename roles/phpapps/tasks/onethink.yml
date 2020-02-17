@@ -36,4 +36,4 @@
     version: "{{onethink_version}}"
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{onethink_vhost_src}} dest={{onethink_vhost_dir}}
+  template: src={{onethink_vhost_src}} dest={{onethink_vhost_dir}}

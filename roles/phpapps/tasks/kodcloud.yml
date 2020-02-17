@@ -36,4 +36,4 @@
     remote_src: yes
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{kodcloud_vhost_src}} dest={{kodcloud_vhost_dir}}
+  template: src={{kodcloud_vhost_src}} dest={{kodcloud_vhost_dir}}

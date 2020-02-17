@@ -37,4 +37,4 @@
       working_dir: /data/wwwroot/
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{laravel_vhost_src}} dest={{laravel_vhost_dir}}
+  template: src={{laravel_vhost_src}} dest={{laravel_vhost_dir}}

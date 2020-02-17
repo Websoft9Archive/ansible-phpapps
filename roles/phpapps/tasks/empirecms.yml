@@ -38,4 +38,4 @@
   copy: src=empirecms_php.ini dest=/etc/php.ini
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{empirecms_vhost_src}} dest={{empirecms_vhost_dir}}
+  template: src={{empirecms_vhost_src}} dest={{empirecms_vhost_dir}}

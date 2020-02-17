@@ -36,4 +36,4 @@
     version: "{{dolibarr_version}}"
 
 - name: Copy Apache or Nginx vhost configuration
-  copy: src={{dolibarr_vhost_src}} dest={{dolibarr_vhost_dir}}
+  template: src={{dolibarr_vhost_src}} dest={{dolibarr_vhost_dir}}
