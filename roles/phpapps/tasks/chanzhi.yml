@@ -29,6 +29,9 @@
     dest: /data/wwwroot
     remote_src: yes
 
+- name: Rename directory name
+  shell: mv /data/wwwroot/chanzhi* /data/wwwroot/chanzhi
+
 - name: Set 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js

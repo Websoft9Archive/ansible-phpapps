@@ -10,6 +10,7 @@
     cmseasy_vhost_src: "{{php_runtime_meta[ansible_distribution][cmseasy_webs].vhost_src}}"
     cmseasy_service: "{{php_runtime_meta[ansible_distribution][cmseasy_webs].service}}"
     cmseasy_owner: "{{php_runtime_meta[ansible_distribution][cmseasy_webs].owner}}"
+    cmseasy_title: "{{phpapps_title}}"
     cmseasy_document_root: "cmseasy/"
     cmseasy_download_url: "http://ftp.cmseasy.cn/CmsEasy7.x/CmsEasy_7.5.3_UTF-8_20200209.zip"
 
