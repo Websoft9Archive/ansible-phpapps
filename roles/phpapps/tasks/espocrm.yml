@@ -14,7 +14,7 @@
     espocrm_name: "{{phpapps_name}}"
     espocrm_title: "{{phpapps_title}}"
     espocrm_download_url: "https://github.com/espocrm/espocrm.git"
-    espocrm_version: "2.02"
+    espocrm_version: "5.8.2"
 
 - debug:
     msg: runtime {{ espocrm_vhost_dir }}, {{espocrm_vhost_src}}, {{espocrm_service}}, {{espocrm_owner}}, {{espocrm_webs}}, {{ansible_distribution}}

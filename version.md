@@ -15,6 +15,61 @@
 ### php.ini
 ### 网站配置文件
 
+### ChanZhi
+1. 下载页面的地址：https://www.chanzhi.org/download/chanzhi8.0-372.html;
+2. 安装要求：https://www.chanzhi.org/book/chanzhieps/5.html;
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [chazhi.yml](/roles/phpapps/tasks/chanzhi.yml) 中 ```chanzhi_download_url``` 变量对应的下载链接。
+   
+### CmsEasy
+1. 下载页面地址：https://www.cmseasy.cn/download/
+2. 安装要求：https://www.cmseasy.cn/download/
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [cmseasy.yml](/roles/phpapps/tasks/cmseasy.yml) 中 ```cmseasy_download_url``` 变量对应的下载链接。
+
+### Codiad
+1. 下载页面地址：https://github.com/Codiad/Codiad/releases
+2. 安装要求：http://codiad.com/
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [codiad.yml](/roles/phpapps/tasks/codiad.yml) 中 ```codiad_version``` 变量对应的版本号。
+
+### Dolibarr
+1. 下载页面地址：https://www.dolibarr.org/downloads
+2. 安装要求：https://wiki.dolibarr.org/index.php/%E5%89%8D%E6%8F%90
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [dolibarr.yml](/roles/phpapps/tasks/dolibarr.yml) 中 ```dolibarr_version``` 变量对应的版本号。
+
+### DreamFactory
+1. 下载页面地址：https://github.com/dreamfactorysoftware/dreamfactory/releases
+2. 安装要求：http://wiki.dreamfactory.com/DreamFactory/Installation
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [dreamfactory.yml](/roles/phpapps/tasks/dreamfactory.yml) 中 ```dreamfactory_version``` 变量对应的版本号。
+
+### DzzOffice
+1. 下载页面地址：https://github.com/zyx0814/dzzoffice/releases
+2. 安装要求：http://www.dzzoffice.com/corpus/org?orgid=1
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [dzzoffice.yml](/roles/phpapps/tasks/dzzoffice.yml) 中 ```dzzoffice_version``` 变量对应的版本号。
+
+### EmpireCMS
+1. 下载页面地址：http://www.phome.net/download/
+2. 安装要求：http://www.phome.net/download/
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [empirecms.yml](/roles/phpapps/tasks/empirecms.yml) 中 ```empirecms_version``` 变量对应的版本号。
+
+### EspoCRM
+1. 下载页面地址：https://www.espocrm.com/download/
+2. 安装要求：https://www.espocrm.com/download/
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [espocrm.yml](/roles/phpapps/tasks/espocrm.yml) 中 ```espocrm_version``` 变量对应的版本号。
+
+### KodCloud
+1. 下载页面地址：https://kodcloud.com/download/
+2. 安装要求：https://kodcloud.com/help/
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [kodcloud.yml](/roles/phpapps/tasks/kodcloud.yml) 中 ```kodcloud_version``` 变量对应的版本号。
+
+### Laravel
+1. 下载页面地址：https://www.espocrm.com/download/
+2. 安装要求：https://www.espocrm.com/download/
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [espocrm.yml](/roles/phpapps/tasks/espocrm.yml) 中 ```espocrm_version``` 变量对应的版本号。
+
+### EspoCRM
+1. 下载页面地址：https://www.espocrm.com/download/
+2. 安装要求：https://www.espocrm.com/download/
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [espocrm.yml](/roles/phpapps/tasks/espocrm.yml) 中 ```espocrm_version``` 变量对应的版本号。
+
 ### OwnCloud
 1. 上传/下载文件大小
 2. 默认内置配置文件 配置好 redis
