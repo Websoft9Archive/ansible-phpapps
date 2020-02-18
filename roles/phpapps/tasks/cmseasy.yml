@@ -18,7 +18,7 @@
     msg: runtime {{ cmseasy_vhost_dir }}, {{cmseasy_vhost_src}}, {{cmseasy_service}}, {{cmseasy_owner}}, {{cmseasy_webs}}, {{ansible_distribution}}
 
 # 9panel
-- name: Enabled 9panel I
+- name: Enabled 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'

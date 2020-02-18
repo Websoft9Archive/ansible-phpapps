@@ -1,4 +1,7 @@
 ---
+- debug:
+    msg: codiad is installing now
+
 #引入PHP运行环境元数据，并初始化
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 

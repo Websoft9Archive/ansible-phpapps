@@ -8,9 +8,9 @@
     kodcloud_vhost_src: "{{php_runtime_meta[ansible_distribution][kodcloud_webs].vhost_src}}"
     kodcloud_service: "{{php_runtime_meta[ansible_distribution][kodcloud_webs].service}}"
     kodcloud_owner: "{{php_runtime_meta[ansible_distribution][kodcloud_webs].owner}}"
-    kodcloud_document_root: "kodexplorer/"
+    kodcloud_name: "{{phpapps_name}}"
+    kodcloud_title: "{{phpapps_title}}"
     kodcloud_download_url: "http://static.kodcloud.com/update/download/kodexplorer4.40.zip"
-    kodcloud_version: "2.02"
 
 - debug:
     msg: runtime {{ kodcloud_vhost_dir }}, {{kodcloud_vhost_src}}, {{kodcloud_service}}, {{kodcloud_owner}}, {{kodcloud_webs}}, {{ansible_distribution}}
@@ -20,7 +20,7 @@
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["KodCloud"];'
+    line: 'var set_apps=["{{kodcloud_title}}"];'
 
 # kodcloud
 - name: Create Directory
@@ -31,7 +31,7 @@
 
 - name: Download KODExplorer
   unarchive:
-    src: "{{ KODExplorer }}"
+    src: "{{ kodcloud_download_url }}"
     dest: /data/wwwroot/kodexplorer
     remote_src: yes
 

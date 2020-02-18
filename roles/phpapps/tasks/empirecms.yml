@@ -1,4 +1,7 @@
 ---
+- debug:
+    msg: empirecms installing now
+
 #引入PHP运行环境元数据，并初始化
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
@@ -8,18 +11,19 @@
     empirecms_vhost_src: "{{php_runtime_meta[ansible_distribution][empirecms_webs].vhost_src}}"
     empirecms_service: "{{php_runtime_meta[ansible_distribution][empirecms_webs].service}}"
     empirecms_owner: "{{php_runtime_meta[ansible_distribution][empirecms_webs].owner}}"
-    empirecms_document_root: "empirecms/"
+    empirecms_name: "{{phpapps_name}}"
+    empirecms_title: "{{phpapps_title}}"
     empirecms_download_url: "http://ecms.phome.net/downcenter/empirecms/ecms75/download/EmpireCMS_7.5_SC_UTF8.zip"
 
 - debug:
     msg: runtime {{ empirecms_vhost_dir }}, {{empirecms_vhost_src}}, {{empirecms_service}}, {{empirecms_owner}}, {{empirecms_webs}}, {{ansible_distribution}}
 
 # 9panel
-- name: Enabled 9panel I
+- name: Enabled 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["Empirecms"];'
+    line: 'var set_apps=["{{empirecms_title}}"];'
 
 # empirecms
 - name: Create Directory

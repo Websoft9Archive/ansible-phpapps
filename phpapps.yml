@@ -43,6 +43,27 @@
         mysqlver: "5.7"
         phpver: "7.2"
 
+      '5':
+        name: dreamfactory
+        title: DreamFactory
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "public"
+
+      '7':
+        name: empirecms
+        title: EmpireCMS
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "upload"
+
+      '10':
+        name: laravel
+        title: Laravel
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "public"
+
     select_webs:
       '1': 'apache'
       '2': 'nginx'

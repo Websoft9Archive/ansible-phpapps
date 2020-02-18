@@ -1,4 +1,7 @@
 ---
+- debug:
+    msg: espocrm is installing now
+
 #引入PHP运行环境元数据，并初始化
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
@@ -8,7 +11,8 @@
     espocrm_vhost_src: "{{php_runtime_meta[ansible_distribution][espocrm_webs].vhost_src}}"
     espocrm_service: "{{php_runtime_meta[ansible_distribution][espocrm_webs].service}}"
     espocrm_owner: "{{php_runtime_meta[ansible_distribution][espocrm_webs].owner}}"
-    espocrm_document_root: "espocrm/"
+    espocrm_name: "{{phpapps_name}}"
+    espocrm_title: "{{phpapps_title}}"
     espocrm_download_url: "https://github.com/espocrm/espocrm.git"
     espocrm_version: "2.02"
 
@@ -16,11 +20,11 @@
     msg: runtime {{ espocrm_vhost_dir }}, {{espocrm_vhost_src}}, {{espocrm_service}}, {{espocrm_owner}}, {{espocrm_webs}}, {{ansible_distribution}}
 
 # 9panel
-- name: Enabled 9panel I
+- name: Enabled 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["Espocrm"];'
+    line: 'var set_apps=["{{espocrm_title}}"];'
 
 # espocrm
 - name: Create Directory
@@ -31,7 +35,7 @@
   
 - name: Download espocrm
   git:
-    repo: https://github.com/zyx0814/espocrm.git
+    repo: "{{espocrm_download_url}}"
     dest: /data/wwwroot/espocrm
     version: "{{espocrm_version}}"
 

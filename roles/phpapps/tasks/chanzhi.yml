@@ -1,4 +1,7 @@
 ---
+- debug:
+    msg: chanzhi is installing now
+
 #引入PHP运行环境元数据，并初始化
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
@@ -10,12 +13,17 @@
     chanzhi_owner: "{{php_runtime_meta[ansible_distribution][phpapps_webs].owner}}"
     chanzhi_name: "{{phpapps_name}}"
     chanzhi_title: "{{phpapps_title}}"
-    chanzhi_document_root: "chanzhi/www"
     chanzhi_download_url: "http://dl.cnezsoft.com/chanzhi/8.0/chanzhiEPS.8.0.php7.1.zip?v=20200115"
 
 - debug:
     msg: runtime {{ chanzhi_vhost_dir }}, {{chanzhi_vhost_src}}, {{chanzhi_service}}, {{chanzhi_owner}}, {{chanzhi_webs}}, {{ansible_distribution}}
 
+# 9panel
+- name: Set 9panel
+  lineinfile:
+    path: /data/apps/9panel/js/websoft9.js
+    regexp: 'var set_apps=\["Example"\];'
+    line: 'var set_apps=["{{chanzhi_title}}"];'
 
 #本项目主要任务区
 - name: Remove already existing {{chanzhi_name}}
@@ -32,12 +40,6 @@
 
 - name: Rename directory name
   shell: mv /data/wwwroot/chanzhi* /data/wwwroot/chanzhi
-
-- name: Set 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{chanzhi_title}}"];'
 
 - name: Copy Apache or Nginx vhost configuration
   Template: src={{chanzhi_vhost_src}} dest={{chanzhi_vhost_dir}}

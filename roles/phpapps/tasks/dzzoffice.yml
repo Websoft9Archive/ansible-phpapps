@@ -1,4 +1,7 @@
 ---
+- debug:
+    msg: dzzoffice is installing now
+
 #引入PHP运行环境元数据，并初始化
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
@@ -8,7 +11,8 @@
     dzzoffice_vhost_src: "{{php_runtime_meta[ansible_distribution][dzzoffice_webs].vhost_src}}"
     dzzoffice_service: "{{php_runtime_meta[ansible_distribution][dzzoffice_webs].service}}"
     dzzoffice_owner: "{{php_runtime_meta[ansible_distribution][dzzoffice_webs].owner}}"
-    dzzoffice_document_root: "dzzoffice/"
+    dzzoffice_name: "{{phpapps_name}}"
+    dzzoffice_title: "{{phpapps_title}}"
     dzzoffice_download_url: "https://github.com/dzzoffice/dzzoffice.git"
     dzzoffice_version: "2.02"
 
@@ -16,11 +20,11 @@
     msg: runtime {{ dzzoffice_vhost_dir }}, {{dzzoffice_vhost_src}}, {{dzzoffice_service}}, {{dzzoffice_owner}}, {{dzzoffice_webs}}, {{ansible_distribution}}
 
 # 9panel
-- name: Enabled 9panel I
+- name: Enabled 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["DzzOffice"];'
+    line: 'var set_apps=["{{dzzoffice_title}}"];'
 
 # dzzoffice
 - name: Create Directory
@@ -31,7 +35,7 @@
   
 - name: Download dzzoffice
   git:
-    repo: https://github.com/zyx0814/dzzoffice.git
+    repo: "{{dzzoffice_download_url}}"
     dest: /data/wwwroot/dzzoffice
     version: "{{dzzoffice_version}}"
 

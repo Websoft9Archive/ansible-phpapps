@@ -1,4 +1,7 @@
 ---
+- debug:
+    msg: dreamfactory is installing now
+
 #引入PHP运行环境元数据，并初始化
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
@@ -8,7 +11,8 @@
     dreamfactory_vhost_src: "{{php_runtime_meta[ansible_distribution][dreamfactory_webs].vhost_src}}"
     dreamfactory_service: "{{php_runtime_meta[ansible_distribution][dreamfactory_webs].service}}"
     dreamfactory_owner: "{{php_runtime_meta[ansible_distribution][dreamfactory_webs].owner}}"
-    dreamfactory_document_root: "dreamfactory/"
+    dreamfactory_name: "{{phpapps_name}}"
+    dreamfactory_title: "{{phpapps_title}}"
     dreamfactory_download_url: "https://github.com/dreamfactorysoftware/dreamfactory.git"
     dreamfactory_version: "4.0.1"
 
@@ -16,7 +20,7 @@
     msg: runtime {{ dreamfactory_vhost_dir }}, {{dreamfactory_vhost_src}}, {{dreamfactory_service}}, {{dreamfactory_owner}}, {{dreamfactory_webs}}, {{ansible_distribution}}
 
 # 9panel
-- name: Enabled 9panel I
+- name: Enabled 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
@@ -29,11 +33,46 @@
     state: directory
     mode: 0755
   
-- name: Download dreamfactory-LMS
+- name: Download dreamfactory
   git:
     repo: https://github.com/dreamfactory/dreamfactory.git
     dest: /data/wwwroot/dreamfactory
     version: "{{dreamfactory_version}}"
+
+- name: Replace Composer repo.packagist to internal repo.packagist
+  shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com
+
+- name: install DreamFactory -1 composer
+  composer:
+    command: install
+    ignore-platform-reqs: yes
+    working_dir: /data/wwwroot/dreamfactory
+
+- name: install DreamFactory -2 php artisan df:env
+  expect:
+    command: php artisan df:env
+    chdir: /data/wwwroot/dreamfactory
+    responses:
+      'tables': "1"
+      'Host': "localhost"
+      'Port': "3306"
+      'name': "dreamfactory"
+      'username': "root"
+      'password': "{{mysql_root_password}}"
+      'Re-enter': "{{mysql_root_password}}"
+    echo: yes
+
+- name: install DreamFactory -3 php artisan df:setup
+  expect:
+    command: php artisan df:setup
+    chdir: /data/wwwroot/dreamfactory
+    responses:
+      'first name': "dream"
+      'last name': "factory"
+      'email address': "admin@admin.com"
+      'Choose': "admin123"
+      'Re-enter': "admin123"
+    echo: yes
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{dreamfactory_vhost_src}} dest={{dreamfactory_vhost_dir}}
