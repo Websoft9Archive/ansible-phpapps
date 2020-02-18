@@ -43,12 +43,30 @@
         mysqlver: "5.7"
         phpver: "7.2"
 
+      '3':
+        name: codiad
+        title: Codiad
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '4':
+        name: dolibarr
+        title: Dolibarr
+        mysqlver: "5.7"
+        phpver: "7.2"
+
       '5':
         name: dreamfactory
         title: DreamFactory
         mysqlver: "5.7"
         phpver: "7.2"
         documentroot: "public"
+
+      '6':
+        name: dzzoffice
+        title: DzzOffice
+        mysqlver: "5.7"
+        phpver: "7.2"
 
       '7':
         name: empirecms
@@ -57,6 +75,18 @@
         phpver: "7.2"
         documentroot: "upload"
 
+      '8':
+        name: espocrm
+        title: Espocrm
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '9':
+        name: kodcloud
+        title: KodCloud
+        mysqlver: "5.7"
+        phpver: "7.2"
+
       '10':
         name: laravel
         title: Laravel
@@ -64,12 +94,49 @@
         phpver: "7.2"
         documentroot: "public"
 
-      '14':
+      '11':
+        name: mantisbt
+        title: Mantisbt
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '12':
+        name: matomo
+        title: Matomo
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '13':
         name: onethink
         title: OneThink
         mysqlver: "5.7"
         phpver: "7.2"
         documentroot: "public"
+
+      '14':
+        name: pydio
+        title: Pydio
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '15':
+        name: ranzhi
+        title: Ranzhi
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "www"
+
+      '16':
+        name: resourcespace
+        title: ResourceSpace
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '17':
+        name: suitecrm
+        title: SuiteCRM
+        mysqlver: "5.7"
+        phpver: "7.2"
 
       '18':
         name: symfony
@@ -77,6 +144,12 @@
         mysqlver: "5.7"
         phpver: "7.2"
         documentroot: "public"
+
+      '19':
+        name: testlink
+        title: TestLink
+        mysqlver: "5.7"
+        phpver: "7.2"
 
       '20':
         name: thinkcmf
@@ -91,6 +164,24 @@
         mysqlver: "5.7"
         phpver: "7.2"
         documentroot: "public"
+
+      '22':
+        name: vanilla
+        title: Vanilla
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '23':
+        name: vtigercrm
+        title: VtigerCRM
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '24':
+        name: zurmo
+        title: Zurmo
+        mysqlver: "5.7"
+        phpver: "7.2"
 
     select_webs:
       '1': 'apache'
