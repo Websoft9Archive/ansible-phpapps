@@ -38,11 +38,11 @@
     dest: /data/wwwroot
     remote_src: yes
 
-- name: Copy Apache Config file - httpd.conf
+- name: Copy Apache Config file
   copy: src=zurmo_httpd.conf dest=/etc/httpd/conf/httpd.conf
   when: zurmo_webs == "apache"
 
-- name: Cppy MySQL Config file -my.cnf
+- name: Cppy MySQL Config file
   copy: src=zurmo_my.cnf dest=/etc/my.cnf
 
 - name: restart MySQL
