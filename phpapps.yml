@@ -34,7 +34,7 @@
         name: chanzhi
         title: ChanZhi
         mysqlver: "5.6"
-        phpver: "7.2"
+        phpver: "5.6"
         documentroot: "www"
         
       '2':
@@ -52,8 +52,8 @@
       '4':
         name: dolibarr
         title: Dolibarr
-        mysqlver: "5.7"
-        phpver: "7.2"
+        mysqlver: "5.6"
+        phpver: "5.6"
 
       '5':
         name: dreamfactory
@@ -71,8 +71,8 @@
       '7':
         name: empirecms
         title: EmpireCMS
-        mysqlver: "5.7"
-        phpver: "7.2"
+        mysqlver: "5.6"
+        phpver: "5.6"
         documentroot: "upload"
 
       '8':
@@ -85,7 +85,7 @@
         name: kodcloud
         title: KodCloud
         mysqlver: "5.7"
-        phpver: "7.2"
+        phpver: "7.0"
 
       '10':
         name: laravel
@@ -97,39 +97,39 @@
       '11':
         name: mantisbt
         title: Mantisbt
-        mysqlver: "5.7"
-        phpver: "7.2"
+        mysqlver: "5.6"
+        phpver: "5.6"
 
       '12':
         name: matomo
         title: Matomo
-        mysqlver: "5.7"
-        phpver: "7.2"
+        mysqlver: "5.6"
+        phpver: "5.6"
 
       '13':
         name: onethink
         title: OneThink
-        mysqlver: "5.7"
-        phpver: "7.2"
+        mysqlver: "5.6"
+        phpver: "5.6"
         documentroot: "public"
 
       '14':
         name: pydio
         title: Pydio
-        mysqlver: "5.7"
-        phpver: "7.2"
+        mysqlver: "5.6"
+        phpver: "5.6"
 
       '15':
         name: ranzhi
         title: Ranzhi
-        mysqlver: "5.7"
-        phpver: "7.2"
+        mysqlver: "5.6"
+        phpver: "5.6"
         documentroot: "www"
 
       '16':
         name: resourcespace
         title: ResourceSpace
-        mysqlver: "5.7"
+        mysqlver: "5.6"
         phpver: "7.2"
 
       '17':
@@ -169,19 +169,19 @@
         name: vanilla
         title: Vanilla
         mysqlver: "5.7"
-        phpver: "7.2"
+        phpver: "7.3"
 
       '23':
         name: vtigercrm
         title: VtigerCRM
-        mysqlver: "5.7"
-        phpver: "7.2"
+        mysqlver: "5.6"
+        phpver: "7.0"
 
       '24':
         name: zurmo
         title: Zurmo
-        mysqlver: "5.7"
-        phpver: "7.2"
+        mysqlver: "5.6"
+        phpver: "5.6"
 
     select_webs:
       '1': 'apache'

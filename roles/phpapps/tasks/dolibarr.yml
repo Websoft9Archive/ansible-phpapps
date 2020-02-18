@@ -44,6 +44,11 @@
     dest: /data/wwwroot/dolibarr
     version: "{{dolibarr_version}}"
 
+- name: Rename directory name
+  shell: mv * {{dolibarr_name}}
+  args: 
+    chdir: /data/wwwroot
+
 - name: Copy Apache or Nginx vhost configuration
   template: src={{dolibarr_vhost_src}} dest={{dolibarr_vhost_dir}}
 

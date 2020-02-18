@@ -43,6 +43,11 @@
     dest: /data/wwwroot/resourcespace
     remote_src: yes
 
+- name: Rename directory name
+  shell: mv * {{resourcespace_name}}
+  args: 
+    chdir: /data/wwwroot
+
 # Install extra dependence soft on RedHat
 - block:
   - name: Install other nesscessary software

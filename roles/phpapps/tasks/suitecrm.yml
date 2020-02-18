@@ -44,6 +44,11 @@
     dest: /data/wwwroot/suitecrm
     version: "{{suitecrm_version}}"
 
+- name: Rename directory name
+  shell: mv * {{suitecrm_name}}
+  args: 
+    chdir: /data/wwwroot
+
 - name: Copy php.ini
   copy: src=suitecrm_php.ini  dest=/etc/php.ini
 

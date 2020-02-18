@@ -44,6 +44,11 @@
     dest: /data/wwwroot/vanilla
     version: "{{vanilla_version}}"
 
+- name: Rename directory name
+  shell: mv * {{vanilla_name}}
+  args: 
+    chdir: /data/wwwroot
+
 - name: replace my.cnf
   copy:
     src: vanilla_my.cnf

@@ -13,15 +13,15 @@
 - debug:
     msg:  "{{phpapps_name}} will be installed on {{phpapps_webs}}, MySQL {{mysql_version}}, PHP {{php_version}}"
 
-- include: "{{phpapps_name}}.yml"
-
-# 系统通用
-
+# 删除example目录
 - name: Remove example dir
   file:
     path: /data/wwwroot/www.example.com
     state: absent
-    
+
+- include: "{{phpapps_name}}.yml"
+
+# 系统通用
 - name: Permission directory
   shell: find /data/wwwroot -type d -exec chmod 750 {} \;
   

@@ -44,6 +44,11 @@
     dest: /data/wwwroot/espocrm
     version: "{{espocrm_version}}"
 
+- name: Rename directory name
+  shell: mv * {{espocrm_name}}
+  args: 
+    chdir: /data/wwwroot
+
 - name: Change PHP Config file
   copy: src=espocms_php.ini dest=/etc/php.ini
 

@@ -44,5 +44,10 @@
     dest: /data/wwwroot/onethink
     version: "{{onethink_version}}"
 
+- name: Rename directory name
+  shell: mv * {{onethink_name}}
+  args: 
+    chdir: /data/wwwroot
+
 - name: Copy Apache or Nginx vhost configuration
   template: src={{onethink_vhost_src}} dest={{onethink_vhost_dir}}

@@ -39,6 +39,11 @@
     dest: /data/wwwroot
     remote_src: yes
 
+- name: Rename directory name
+  shell: mv * {{vtigercrm_name}}
+  args: 
+    chdir: /data/wwwroot
+
 - name: Copy PHP.ini
   copy:
     src: vtigercrm_php.ini

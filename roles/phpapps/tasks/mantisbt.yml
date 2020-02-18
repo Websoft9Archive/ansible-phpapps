@@ -44,5 +44,10 @@
     dest: /data/wwwroot/mantisbt
     version: "{{mantisbt_version}}"
 
+- name: Rename directory name
+  shell: mv * {{mantisbt_name}}
+  args: 
+    chdir: /data/wwwroot
+
 - name: Copy Apache or Nginx vhost configuration
   template: src={{mantisbt_vhost_src}} dest={{mantisbt_vhost_dir}}

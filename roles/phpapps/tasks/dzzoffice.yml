@@ -44,5 +44,10 @@
     dest: /data/wwwroot/dzzoffice
     version: "{{dzzoffice_version}}"
 
+- name: Rename directory name
+  shell: mv * {{dzzoffice_name}}
+  args: 
+    chdir: /data/wwwroot
+
 - name: Copy Apache or Nginx vhost configuration
   template: src={{dzzoffice_vhost_src}} dest={{dzzoffice_vhost_dir}}
