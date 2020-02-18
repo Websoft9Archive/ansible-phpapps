@@ -40,7 +40,7 @@
 - name: restart Apache
   service: name=httpd state=restarted enabled=yes
 
-- name: Enable 9panel I
+- name: Enable 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'

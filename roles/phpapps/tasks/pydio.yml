@@ -11,7 +11,8 @@
     pydio_vhost_src: "{{php_runtime_meta[ansible_distribution][pydio_webs].vhost_src}}"
     pydio_service: "{{php_runtime_meta[ansible_distribution][pydio_webs].service}}"
     pydio_owner: "{{php_runtime_meta[ansible_distribution][pydio_webs].owner}}"
-    pydio_document_root: "pydio/"
+    pydio_name: "{{phpapps_name}}"
+    pydio_title: "{{phpapps_title}}"
     pydio_download_url: "https://github.com/pydio/pydio-core.git"
     pydio_version: "pydio-core-8.2.4"
 
@@ -19,13 +20,18 @@
     msg: runtime {{ pydio_vhost_dir }}, {{pydio_vhost_src}}, {{pydio_service}}, {{pydio_owner}}, {{pydio_webs}}, {{ansible_distribution}}
 
 # 9panel
-- name: Enabled 9panel I
+- name: Enabled 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["Pydio"];'
+    line: 'var set_apps=["{{pydio_title}}"];'
 
 # pydio
+- name: Remove already existing {{pydio_name}}
+  file:
+    path: /data/wwwroot/{{pydio_name}}
+    state: absent
+
 - name: Create Directory
   file:
     path: /data/wwwroot/pydio
@@ -34,7 +40,7 @@
   
 - name: Download pydio
   git:
-    repo: https://github.com/zyx0814/pydio.git
+    repo: "{{pydio_download_url}}"
     dest: /data/wwwroot/pydio
     version: "{{pydio_version}}"
 

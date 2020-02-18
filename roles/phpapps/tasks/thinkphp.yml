@@ -11,7 +11,8 @@
     thinkphp_vhost_src: "{{php_runtime_meta[ansible_distribution][thinkphp_webs].vhost_src}}"
     thinkphp_service: "{{php_runtime_meta[ansible_distribution][thinkphp_webs].service}}"
     thinkphp_owner: "{{php_runtime_meta[ansible_distribution][thinkphp_webs].owner}}"
-    thinkphp_document_root: "thinkphp/"
+    thinkphp_name: "{{phpapps_name}}"
+    thinkphp_title: "{{phpapps_title}}"
     thinkphp_download_url: "https://github.com/top-think/think.git"
     thinkphp_version: "v6.0.2"
 
@@ -19,11 +20,11 @@
     msg: runtime {{ thinkphp_vhost_dir }}, {{thinkphp_vhost_src}}, {{thinkphp_service}}, {{thinkphp_owner}}, {{thinkphp_webs}}, {{ansible_distribution}}
 
 # 9panel
-- name: Enabled 9panel I
+- name: Enabled 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["ThinkPHP"];'
+    line: 'var set_apps=["{{thinkphp.title}}"];'
 
 # thinkphp
 - name: Create Directory
@@ -37,14 +38,6 @@
     repo: "{{ thinkphp_download_url }}"
     dest: /data/wwwroot/thinkphp
     version: "{{thinkphp_version}}"
-
-- name: Install composer on RedHat
-  yum: name=composer  state=latest
-  when: ansible_os_family == "RedHat"
-
-- name: Install composer on Ubuntu
-  apt: name=composer  state=latest
-  when: ansible_os_family == "Debian"
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{thinkphp_vhost_src}} dest={{thinkphp_vhost_dir}}

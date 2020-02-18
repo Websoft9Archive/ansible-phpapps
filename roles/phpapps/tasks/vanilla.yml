@@ -11,7 +11,8 @@
     vanilla_vhost_src: "{{php_runtime_meta[ansible_distribution][vanilla_webs].vhost_src}}"
     vanilla_service: "{{php_runtime_meta[ansible_distribution][vanilla_webs].service}}"
     vanilla_owner: "{{php_runtime_meta[ansible_distribution][vanilla_webs].owner}}"
-    vanilla_document_root: "vanilla/"
+    vanilla_name: "{{phpapps_name}}"
+    vanilla_title: "{{phpapps_title}}"
     vanilla_download_url: "https://github.com/vanilla/vanilla.git"
     vanilla_version: "v3.0.1"
 
@@ -19,13 +20,18 @@
     msg: runtime {{ vanilla_vhost_dir }}, {{vanilla_vhost_src}}, {{vanilla_service}}, {{vanilla_owner}}, {{vanilla_webs}}, {{ansible_distribution}}
 
 # 9panel
-- name: Enabled 9panel I
+- name: Enabled 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["Vanilla"];'
+    line: 'var set_apps=["{{vanilla.title}}"];'
 
 # vanilla
+- name: Remove already existing {{vanilla_name}}
+  file:
+    path: /data/wwwroot/{{vanilla_name}}
+    state: absent
+
 - name: Create Directory
   file:
     path: /data/wwwroot/vanilla

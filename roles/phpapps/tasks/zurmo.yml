@@ -11,18 +11,19 @@
     zurmo_vhost_src: "{{php_runtime_meta[ansible_distribution][zurmo_webs].vhost_src}}"
     zurmo_service: "{{php_runtime_meta[ansible_distribution][zurmo_webs].service}}"
     zurmo_owner: "{{php_runtime_meta[ansible_distribution][zurmo_webs].owner}}"
-    zurmo_document_root: "zurmo/"
+    zurmo_name: "{{phpapps_name}}"
+    zurmo_title: "{{phpapps_title}}"
     zurmo_download_url: "http://build.zurmo.com/downloads/zurmo-stable-3.2.7.c53e0c6df135.tar.gz"
 
 - debug:
     msg: runtime {{ zurmo_vhost_dir }}, {{zurmo_vhost_src}}, {{zurmo_service}}, {{zurmo_owner}}, {{zurmo_webs}}, {{ansible_distribution}}
 
 # 9panel
-- name: Enabled 9panel I
+- name: Enabled 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["Zurmo"];'
+    line: 'var set_apps=["{{zurmo_title}}"];'
 
 # zurmo
 - name: Create Directory

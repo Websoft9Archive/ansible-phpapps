@@ -8,6 +8,8 @@
     testlink_vhost_src: "{{php_runtime_meta[ansible_distribution][testlink_webs].vhost_src}}"
     testlink_service: "{{php_runtime_meta[ansible_distribution][testlink_webs].service}}"
     testlink_owner: "{{php_runtime_meta[ansible_distribution][testlink_webs].owner}}"
+    testlink_name: "{{phpapps_name}}"
+    testlink_title: "{{phpapps_title}}"
     testlink_download_url: "https://github.com/TestLinkOpenSourceTRMS/testlink-code.git"
     testlink_version: "1.9.20"
 
@@ -15,13 +17,18 @@
     msg: runtime {{ testlink_vhost_dir }}, {{testlink_vhost_src}}, {{testlink_service}}, {{testlink_owner}}, {{testlink_webs}}, {{ansible_distribution}}
 
 # 9panel
-- name: Enabled 9panel I
+- name: Enabled 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["TestLink"];'
+    line: 'var set_apps=["{{testlink_title}}"];'
 
 # testlink
+- name: Remove already existing {{testlink_title}}
+  file:
+    path: /data/wwwroot/{{testlink_title}}
+    state: absent
+
 - name: Create directory -1
   file:
     path: /data/wwwroot/testlink

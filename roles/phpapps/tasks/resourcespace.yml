@@ -12,7 +12,7 @@
     resourcespace_service: "{{php_runtime_meta[ansible_distribution][phpapps_webs].service}}"
     resourcespace_owner: "{{php_runtime_meta[ansible_distribution][phpapps_webs].owner}}"
     resourcespace_name: "{{phpapps-name}}"
-    resourcespace_document_root: "resourcespace/www"
+    resourcespace_title: "{{phpapps_title}}"
     resourcespace_download_url: "http://dl.cnezsoft.com/resourcespace/5.2/resourcespace.5.2.stable.zip"
 
 - debug:
@@ -23,9 +23,14 @@
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["ResourceSpace"];'
+    line: 'var set_apps=["{{resourcespace_title}}"];'
 
 # 主任务区
+- name: Remove already existing {{resourcespace_name}}
+  file:
+    path: /data/wwwroot/{{resourcespace_name}}
+    state: absent
+
 - name: Create Folder
   file:
     path: /data/wwwroot/resourcespace
@@ -38,32 +43,34 @@
     dest: /data/wwwroot/resourcespace
     remote_src: yes
 
-- name: Install other nesscessary software
-  yum:
-    name: [subversion, ghostscript, ImageMagick, poppler, ]
-    state: latest
+# Install extra dependence soft on RedHat
+- block:
+  - name: Install other nesscessary software
+    yum:
+      name: [subversion, ghostscript, ImageMagick, poppler, ]
+      state: latest
 
-- name: Install CERT-Forensics-Tool -1 
-  get_url:
-      url: https://forensics.cert.org/cert-forensics-tools-release-el7.rpm
-      dest: /opt/cert-forensics-tools.rpm
-      mode: 0644
+  - name: Install CERT-Forensics-Tool -1 
+    get_url:
+        url: https://forensics.cert.org/cert-forensics-tools-release-el7.rpm
+        dest: /opt/cert-forensics-tools.rpm
+        mode: 0644
 
-- name: Install CERT-Forensics-Tool -2
-  shell: rpm -i cert-forensics-tools.rpm
-  args:
-    chdir: /opt
+  - name: Install CERT-Forensics-Tool -2
+    shell: rpm -i cert-forensics-tools.rpm
+    args:
+      chdir: /opt
 
-- name: Remove cert-forensics-tools.rpm
-  file:
-    path: /opt/cert-forensics-tools.rpm
-    state: absent
+  - name: Remove cert-forensics-tools.rpm
+    file:
+      path: /opt/cert-forensics-tools.rpm
+      state: absent
 
-- name: Install CERT-Forensics-Tool -3
-  yum:
-    name: CERT-Forensics-Tools
-    state: latest
-    skip_broken: yes
+  - name: Install CERT-Forensics-Tool -3
+    yum:
+      name: CERT-Forensics-Tools
+      state: latest
+      skip_broken: yes
   when: ansible_os_family == "RedHat"
 
 - name: change php.ini

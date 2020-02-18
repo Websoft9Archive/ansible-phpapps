@@ -64,6 +64,34 @@
         phpver: "7.2"
         documentroot: "public"
 
+      '14':
+        name: onethink
+        title: OneThink
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "public"
+
+      '18':
+        name: symfony
+        title: Symfony
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "public"
+
+      '20':
+        name: thinkcmf
+        title: ThinkCMF
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "public"
+
+      '21':
+        name: thinkphp
+        title: ThinkPHP
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "public"
+
     select_webs:
       '1': 'apache'
       '2': 'nginx'

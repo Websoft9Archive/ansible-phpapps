@@ -25,6 +25,11 @@
     line: 'var set_apps=["{{cmseasy_title}}"];'
 
 # cmseasy
+- name: Remove already existing {{cmseasy_name}}
+  file:
+    path: /data/wwwroot/{{cmseasy_name}}
+    state: absent
+
 - name: Create Directory for {{cmseasy_title}}
   file:
     path: /data/wwwroot/{{cmseasy_name}}

@@ -1,4 +1,7 @@
 ---
+- debug:
+    msg: matomo is installing now
+
 #引入PHP运行环境元数据，并初始化
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
@@ -8,7 +11,8 @@
     matomo_vhost_src: "{{php_runtime_meta[ansible_distribution][matomo_webs].vhost_src}}"
     matomo_service: "{{php_runtime_meta[ansible_distribution][matomo_webs].service}}"
     matomo_owner: "{{php_runtime_meta[ansible_distribution][matomo_webs].owner}}"
-    matomo_document_root: "matomo/"
+    matomo_name: "{{phpapps_name}}"
+    matomo_title: "{{phpapps_title}}"
     matomo_download_url: "https://github.com/matomo-org/matomo.git"
     matomo_version: "3.13.2"
 
@@ -16,13 +20,18 @@
     msg: runtime {{ matomo_vhost_dir }}, {{matomo_vhost_src}}, {{matomo_service}}, {{matomo_owner}}, {{matomo_webs}}, {{ansible_distribution}}
 
 # 9panel
-- name: Enabled 9panel I
+- name: Enabled 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["Matomo"];'
+    line: 'var set_apps=["{{matomo_title}}"];'
 
 # matomo
+- name: Remove already existing {{matomo_name}}
+  file:
+    path: /data/wwwroot/{{matomo_name}}
+    state: absent
+
 - name: Create Directory
   file:
     path: /data/wwwroot/matomo
@@ -31,7 +40,7 @@
   
 - name: Download matomo
   git:
-    repo: https://github.com/zyx0814/matomo.git
+    repo: "{{matomo_download_url}}"
     dest: /data/wwwroot/matomo
     version: "{{matomo_version}}"
 

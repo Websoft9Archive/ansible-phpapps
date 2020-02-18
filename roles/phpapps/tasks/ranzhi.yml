@@ -11,8 +11,8 @@
     ranzhi_vhost_src: "{{php_runtime_meta[ansible_distribution][phpapps_webs].vhost_src}}"
     ranzhi_service: "{{php_runtime_meta[ansible_distribution][phpapps_webs].service}}"
     ranzhi_owner: "{{php_runtime_meta[ansible_distribution][phpapps_webs].owner}}"
-    ranzhi_name: "{{phpapps-name}}"
-    ranzhi_document_root: "ranzhi/www"
+    ranzhi_name: "{{phpapps_name}}"
+    ranzhi_title: "{{phpapps_title}}"
     ranzhi_download_url: "http://dl.cnezsoft.com/ranzhi/5.2/ranzhi.5.2.stable.zip"
 
 - debug:
@@ -20,24 +20,22 @@
 
 
 #本项目主要任务区
-- name: Remove already existing ranzhi
+- name: Remove already existing {{ranzhi_name}}
   file:
-    path: /data/wwwroot/ranzhi
+    path: /data/wwwroot/{{ranzhi_name}}
     state: absent
   
 - name: Download ranzhi
   unarchive:
     src: "{{ ranzhi_download_url }}"
     dest: /data/wwwroot
-    owner: "{{ranzhi_owner}}"
-    group: "{{ranzhi_owner}}"
     remote_src: yes
 
 - name: Set 9panel
   lineinfile:
     path: /data/apps/9panel/js/websoft9.js
     regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{ranzhi_name}}"];'
+    line: 'var set_apps=["{{ranzhi_title}}"];'
 
 - name: Copy Apache or Nginx vhost configuration
   Template: src={{ranzhi_vhost_src}} dest={{ranzhi_vhost_dir}}
