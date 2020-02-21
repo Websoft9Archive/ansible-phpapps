@@ -38,5 +38,8 @@
   args:
     chdir: /data/wwwroot
 
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{symfony_name}}" ]; then mv *{{symfony_name}}* {{symfony_name}}; fi
+
 - name: Copy Apache or Nginx vhost configuration
   template: src={{symfony_vhost_src}} dest={{symfony_vhost_dir}}

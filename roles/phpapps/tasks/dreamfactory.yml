@@ -44,10 +44,9 @@
     dest: /data/wwwroot/dreamfactory
     version: "{{dreamfactory_version}}"
 
-- name: Rename directory name
-  shell: mv * {{dreamfactory_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{dreamfactory_name}}" ]; then mv *{{dreamfactory_name}}* {{dreamfactory_name}}; fi
+
 
 - name: Replace Composer repo.packagist to internal repo.packagist
   shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com

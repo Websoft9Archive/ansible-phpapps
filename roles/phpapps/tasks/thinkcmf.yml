@@ -42,10 +42,8 @@
     repo: "{{testcmf_download_url}}"
     dest: /data/wwwroot/testcmf
 
-- name: Rename directory name
-  shell: mv * {{testcmf_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{thinkcmf_name}}" ]; then mv *{{thinkcmf_name}}* {{thinkcmf_name}}; fi
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{testcmf_vhost_src}} dest={{testcmf_vhost_dir}}

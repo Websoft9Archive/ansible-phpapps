@@ -43,10 +43,8 @@
     dest: /data/wwwroot/empirecms
     remote_src: yes
 
-- name: Rename directory name
-  shell: mv * {{empirecms_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{empirecms_name}}" ]; then mv *{{empirecms_name}}* {{empirecms_name}}; fi
 
 - name: Change PHP Config file
   copy: src=empirecms_php.ini dest=/etc/php.ini

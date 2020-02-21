@@ -43,10 +43,8 @@
     dest: /data/wwwroot/resourcespace
     remote_src: yes
 
-- name: Rename directory name
-  shell: mv * {{resourcespace_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{resourcespace_name}}" ]; then mv *{{resourcespace_name}}* {{resourcespace_name}}; fi
 
 # Install extra dependence soft on RedHat
 - block:

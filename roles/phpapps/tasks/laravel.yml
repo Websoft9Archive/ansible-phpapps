@@ -40,5 +40,8 @@
       arguments: laravel/laravel
       working_dir: /data/wwwroot/
 
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{laravel_name}}" ]; then mv *{{laravel_name}}* {{laravel_name}}; fi
+
 - name: Copy Apache or Nginx vhost configuration
   template: src={{laravel_vhost_src}} dest={{laravel_vhost_dir}}

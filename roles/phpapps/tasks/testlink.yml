@@ -52,10 +52,8 @@
     dest: /data/wwwroot/testlink
     version: "{{ testlink_version }}"
 
-- name: Rename directory name
-  shell: mv * {{testlink_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{testlink_name}}" ]; then mv *{{testlink_name}}* {{testlink_name}}; fi
 
 - name: replace my.cnf
   copy:

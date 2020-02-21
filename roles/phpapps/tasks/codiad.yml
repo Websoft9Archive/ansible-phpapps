@@ -44,10 +44,9 @@
     dest: /data/wwwroot/codiad
     version: "{{codiad_version}}"
 
-- name: Rename directory name
-  shell: mv * {{codiad_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{codiad_name}}" ]; then mv *{{codiad_name}}* {{codiad_name}}; fi
+
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{codiad_vhost_src}} dest={{codiad_vhost_dir}}

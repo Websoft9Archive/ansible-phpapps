@@ -44,10 +44,8 @@
     dest: /data/wwwroot/matomo
     version: "{{matomo_version}}"
 
-- name: Rename directory name
-  shell: mv * {{matomo_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{matomo_name}}" ]; then mv *{{matomo_name}}* {{matomo_name}}; fi
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{matomo_vhost_src}} dest={{matomo_vhost_dir}}

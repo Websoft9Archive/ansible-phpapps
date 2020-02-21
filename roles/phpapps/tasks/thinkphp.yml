@@ -39,10 +39,8 @@
     dest: /data/wwwroot/thinkphp
     version: "{{thinkphp_version}}"
 
-- name: Rename directory name
-  shell: mv * {{thinkphp_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{thinkphp_name}}" ]; then mv *{{thinkphp_name}}* {{thinkphp_name}}; fi
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{thinkphp_vhost_src}} dest={{thinkphp_vhost_dir}}

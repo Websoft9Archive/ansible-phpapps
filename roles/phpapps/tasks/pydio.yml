@@ -44,10 +44,8 @@
     dest: /data/wwwroot/pydio
     version: "{{pydio_version}}"
 
-- name: Rename directory name
-  shell: mv * {{pydio_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{pydio_name}}" ]; then mv *{{pydio_name}}* {{pydio_name}}; fi
 
 - name: Copy php.ini
   copy: src=pydio_php.ini  dest=/etc/php.ini

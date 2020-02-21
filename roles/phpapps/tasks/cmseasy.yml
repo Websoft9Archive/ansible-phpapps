@@ -42,10 +42,9 @@
     dest: /data/wwwroot/{{cmseasy_name}}
     remote_src: yes
 
-- name: Rename directory name
-  shell: mv * {{cmseasy_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{cmseasy_name}}" ]; then mv *{{cmseasy_name}}* {{cmseasy_name}}; fi
+
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{cmseasy_vhost_src}} dest={{cmseasy_vhost_dir}}

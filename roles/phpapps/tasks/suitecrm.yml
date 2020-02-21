@@ -44,10 +44,8 @@
     dest: /data/wwwroot/suitecrm
     version: "{{suitecrm_version}}"
 
-- name: Rename directory name
-  shell: mv * {{suitecrm_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{suitecrm_name}}" ]; then mv *{{suitecrm_name}}* {{suitecrm_name}}; fi
 
 - name: Copy php.ini
   copy: src=suitecrm_php.ini  dest=/etc/php.ini

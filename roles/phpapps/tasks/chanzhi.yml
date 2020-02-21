@@ -38,10 +38,8 @@
     dest: /data/wwwroot
     remote_src: yes
 
-- name: Rename directory name
-  shell: mv * {{chanzhi_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{chanzhi_name}}" ]; then mv *{{chanzhi_name}}* {{chanzhi_name}}; fi
 
 - name: Rename directory name
   shell: mv /data/wwwroot/chanzhi* /data/wwwroot/chanzhi

@@ -38,10 +38,8 @@
     dest: /data/wwwroot
     remote_src: yes
 
-- name: Rename directory name
-  shell: mv * {{zurmo_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{zurmo_name}}" ]; then mv *{{zurmo_name}}* {{zurmo_name}}; fi
 
 - name: Copy Apache Config file
   copy: src=zurmo_httpd.conf dest=/etc/httpd/conf/httpd.conf

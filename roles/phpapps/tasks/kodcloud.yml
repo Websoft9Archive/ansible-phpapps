@@ -40,10 +40,8 @@
     dest: /data/wwwroot/kodexplorer
     remote_src: yes
 
-- name: Rename directory name
-  shell: mv * {{kodcloud_name}}
-  args: 
-    chdir: /data/wwwroot
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{kodcloud_name}}" ]; then mv *{{kodcloud_name}}* {{kodcloud_name}}; fi
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{kodcloud_vhost_src}} dest={{kodcloud_vhost_dir}}
