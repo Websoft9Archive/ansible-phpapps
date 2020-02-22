@@ -193,6 +193,8 @@
     phpapps_title: "{{select_phpapps[phpapps_selection].title}}"      
     phpapps_documentroot: "{{select_phpapps[phpapps_selection].documentroot}}"
     phpapps_webs: "{{select_webs[webs_selection]}}"
+    phpmyadmin_webs: "{{webs_select[webs_selection]}}" 
+    w9panel_webs: "{{webs_select[webs_selection]}}" 
   
   vars_files:
     - vars/main.yml
