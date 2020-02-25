@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    resourcespace_vhost_dir: "{{php_runtime_meta[ansible_distribution][phpapps_webs].vhost_dir}}"
-    resourcespace_vhost_src: "{{php_runtime_meta[ansible_distribution][phpapps_webs].vhost_src}}"
-    resourcespace_service: "{{php_runtime_meta[ansible_distribution][phpapps_webs].service}}"
-    resourcespace_owner: "{{php_runtime_meta[ansible_distribution][phpapps_webs].owner}}"
+    resourcespace_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    resourcespace_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    resourcespace_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    resourcespace_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     resourcespace_name: "{{phpapps-name}}"
     resourcespace_title: "{{phpapps_title}}"
     resourcespace_download_url: "http://dl.cnezsoft.com/resourcespace/5.2/resourcespace.5.2.stable.zip"

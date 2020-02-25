@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    symfony_vhost_dir: "{{php_runtime_meta[ansible_distribution][symfony_webs].vhost_dir}}"
-    symfony_vhost_src: "{{php_runtime_meta[ansible_distribution][symfony_webs].vhost_src}}"
-    symfony_service: "{{php_runtime_meta[ansible_distribution][symfony_webs].service}}"
-    symfony_owner: "{{php_runtime_meta[ansible_distribution][symfony_webs].owner}}"
+    symfony_vhost_dir: "{{php_runtime_meta[ansible_os_family][symfony_webs].vhost_dir}}"
+    symfony_vhost_src: "{{php_runtime_meta[ansible_os_family][symfony_webs].vhost_src}}"
+    symfony_service: "{{php_runtime_meta[ansible_os_family][symfony_webs].service}}"
+    symfony_owner: "{{php_runtime_meta[ansible_os_family][symfony_webs].owner}}"
     symfony_name: "{{phpapps_name}}"
     symfony_title: "{{phpapps_title}}"
 

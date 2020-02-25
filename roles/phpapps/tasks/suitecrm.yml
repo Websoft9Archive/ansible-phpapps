@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    suitecrm_vhost_dir: "{{php_runtime_meta[ansible_distribution][suitecrm_webs].vhost_dir}}"
-    suitecrm_vhost_src: "{{php_runtime_meta[ansible_distribution][suitecrm_webs].vhost_src}}"
-    suitecrm_service: "{{php_runtime_meta[ansible_distribution][suitecrm_webs].service}}"
-    suitecrm_owner: "{{php_runtime_meta[ansible_distribution][suitecrm_webs].owner}}"
+    suitecrm_vhost_dir: "{{php_runtime_meta[ansible_os_family][suitecrm_webs].vhost_dir}}"
+    suitecrm_vhost_src: "{{php_runtime_meta[ansible_os_family][suitecrm_webs].vhost_src}}"
+    suitecrm_service: "{{php_runtime_meta[ansible_os_family][suitecrm_webs].service}}"
+    suitecrm_owner: "{{php_runtime_meta[ansible_os_family][suitecrm_webs].owner}}"
     suitecrm_name: "{{phpapps_name}}"
     suitecrm_title: "{{phpapps_title}}"
     suitecrm_download_url: "https://github.com/salesagility/SuiteCRM.git"

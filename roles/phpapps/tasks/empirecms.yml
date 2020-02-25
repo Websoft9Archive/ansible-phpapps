@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    empirecms_vhost_dir: "{{php_runtime_meta[ansible_distribution][empirecms_webs].vhost_dir}}"
-    empirecms_vhost_src: "{{php_runtime_meta[ansible_distribution][empirecms_webs].vhost_src}}"
-    empirecms_service: "{{php_runtime_meta[ansible_distribution][empirecms_webs].service}}"
-    empirecms_owner: "{{php_runtime_meta[ansible_distribution][empirecms_webs].owner}}"
+    empirecms_vhost_dir: "{{php_runtime_meta[ansible_os_family][empirecms_webs].vhost_dir}}"
+    empirecms_vhost_src: "{{php_runtime_meta[ansible_os_family][empirecms_webs].vhost_src}}"
+    empirecms_service: "{{php_runtime_meta[ansible_os_family][empirecms_webs].service}}"
+    empirecms_owner: "{{php_runtime_meta[ansible_os_family][empirecms_webs].owner}}"
     empirecms_name: "{{phpapps_name}}"
     empirecms_title: "{{phpapps_title}}"
     empirecms_download_url: "http://ecms.phome.net/downcenter/empirecms/ecms75/download/EmpireCMS_7.5_SC_UTF8.zip"

@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    espocrm_vhost_dir: "{{php_runtime_meta[ansible_distribution][espocrm_webs].vhost_dir}}"
-    espocrm_vhost_src: "{{php_runtime_meta[ansible_distribution][espocrm_webs].vhost_src}}"
-    espocrm_service: "{{php_runtime_meta[ansible_distribution][espocrm_webs].service}}"
-    espocrm_owner: "{{php_runtime_meta[ansible_distribution][espocrm_webs].owner}}"
+    espocrm_vhost_dir: "{{php_runtime_meta[ansible_os_family][espocrm_webs].vhost_dir}}"
+    espocrm_vhost_src: "{{php_runtime_meta[ansible_os_family][espocrm_webs].vhost_src}}"
+    espocrm_service: "{{php_runtime_meta[ansible_os_family][espocrm_webs].service}}"
+    espocrm_owner: "{{php_runtime_meta[ansible_os_family][espocrm_webs].owner}}"
     espocrm_name: "{{phpapps_name}}"
     espocrm_title: "{{phpapps_title}}"
     espocrm_download_url: "https://github.com/espocrm/espocrm.git"

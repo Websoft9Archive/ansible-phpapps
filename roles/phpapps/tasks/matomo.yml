@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    matomo_vhost_dir: "{{php_runtime_meta[ansible_distribution][matomo_webs].vhost_dir}}"
-    matomo_vhost_src: "{{php_runtime_meta[ansible_distribution][matomo_webs].vhost_src}}"
-    matomo_service: "{{php_runtime_meta[ansible_distribution][matomo_webs].service}}"
-    matomo_owner: "{{php_runtime_meta[ansible_distribution][matomo_webs].owner}}"
+    matomo_vhost_dir: "{{php_runtime_meta[ansible_os_family][matomo_webs].vhost_dir}}"
+    matomo_vhost_src: "{{php_runtime_meta[ansible_os_family][matomo_webs].vhost_src}}"
+    matomo_service: "{{php_runtime_meta[ansible_os_family][matomo_webs].service}}"
+    matomo_owner: "{{php_runtime_meta[ansible_os_family][matomo_webs].owner}}"
     matomo_name: "{{phpapps_name}}"
     matomo_title: "{{phpapps_title}}"
     matomo_download_url: "https://github.com/matomo-org/matomo.git"

@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    codiad_vhost_dir: "{{php_runtime_meta[ansible_distribution][codiad_webs].vhost_dir}}"
-    codiad_vhost_src: "{{php_runtime_meta[ansible_distribution][codiad_webs].vhost_src}}"
-    codiad_service: "{{php_runtime_meta[ansible_distribution][codiad_webs].service}}"
-    codiad_owner: "{{php_runtime_meta[ansible_distribution][codiad_webs].owner}}"
+    codiad_vhost_dir: "{{php_runtime_meta[ansible_os_family][codiad_webs].vhost_dir}}"
+    codiad_vhost_src: "{{php_runtime_meta[ansible_os_family][codiad_webs].vhost_src}}"
+    codiad_service: "{{php_runtime_meta[ansible_os_family][codiad_webs].service}}"
+    codiad_owner: "{{php_runtime_meta[ansible_os_family][codiad_webs].owner}}"
     codiad_name: "{{phpapps_name}}"
     codiad_title: "{{phpapps_title}}"
     codiad_download_url: "https://github.com/Codiad/Codiad.git"
