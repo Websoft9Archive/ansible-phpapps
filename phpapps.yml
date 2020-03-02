@@ -202,13 +202,13 @@
   roles:
     - {role: role_common, tags: "role_common"}
     - {role: role_cloud, tags: "role_cloud"}
-    - {role: role_apache, tags: "role_apache", when: moodle_webs == 'apache'}
-    - {role: role_nginx, tags: "role_nginx", when: moodle_webs == 'nginx'}
+    - {role: role_apache, tags: "role_apache", when: phpapps_webs == 'apache'}
+    - {role: role_nginx, tags: "role_nginx", when: phpapps_webs == 'nginx'}
     - {role: role_mysql, tags: "role_mysql"}
     - {role: role_php-fpm, tags: "role_php-fpm"}
     - {role: role_inotify_watch, tags: "role_inotify_watch"}
-    - {role: role_lamp, tags: "role_lamp", when: moodle_webs == 'apache'}
-    - {role: role_lnmp, tags: "role_lnmp", when: moodle_webs == 'nginx'}
+    - {role: role_lamp, tags: "role_lamp", when: phpapps_webs == 'apache'}
+    - {role: role_lnmp, tags: "role_lnmp", when: phpapps_webs == 'nginx'}
     - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
     - {role: role_9panel, tags: "role_9panel"}
     - {role: role_redis, tags: "role_redis"}
