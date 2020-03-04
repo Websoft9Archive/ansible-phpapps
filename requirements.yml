@@ -34,6 +34,9 @@
 
 - src: http://github.com/websoft9dev/role_lamp
   version: master
+  
+- src: http://github.com/websoft9dev/role_lmp
+  version: master
 
 - src: http://github.com/websoft9dev/role_inotify_watch
   version: master
