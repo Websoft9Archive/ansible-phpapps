@@ -22,16 +22,10 @@
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{thinkcmf_name}}*
 
-- name: Create Directory
-  file:
-    path: /data/wwwroot/{{thinkcmf_name}}
-    state: directory
-    mode: 0755
-  
 - name: Download thinkcmf from {{thinkcmf_download_url}}
   unarchive:
     src: "{{thinkcmf_download_url}}"
-    dest: /data/wwwroot/{{thinkcmf_name}}
+    dest: /data/wwwroot
     remote_src: yes
 
 - name: Rename dir name
