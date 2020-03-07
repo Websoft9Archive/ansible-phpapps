@@ -13,8 +13,7 @@
     onethink_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     onethink_name: "{{phpapps_name}}"
     onethink_title: "{{phpapps_title}}"
-    onethink_download_url: "https://github.com/liu21st/onethink.git"
-    onethink_version: "1.0.131115"
+    onethink_download_url: "https://github.com/liu21st/onethink/archive/1.0.131115.zip"
 
 - debug:
     msg: runtime {{ onethink_vhost_dir }}, {{onethink_vhost_src}}, {{onethink_service}}, {{onethink_owner}}, {{ansible_distribution}}
@@ -22,18 +21,12 @@
 # onethink
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{onethink_name}}*
-
-- name: Create Directory
-  file:
-    path: /data/wwwroot/onethink
-    state: directory
-    mode: 0755
   
-- name: Download onethink
-  git:
-    repo: "{{ onethink_download_url }}"
-    dest: /data/wwwroot/onethink
-    version: "{{onethink_version}}"
+- name: Download thinkcmf from {{onethink_download_url}}
+  unarchive:
+    src: "{{onethink_download_url}}"
+    dest: /data/wwwroot
+    remote_src: yes
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{onethink_name}}" ]; then mv *{{onethink_name}}* {{onethink_name}}; fi
