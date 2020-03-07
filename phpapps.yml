@@ -37,18 +37,15 @@
         msg: Selected application is  {{phpapps_meta[phpapps_selection].name}}
 
   vars:
-    
-    select_webs:
+    webs_select:
       '1': 'apache'
       '2': 'nginx'
-    
-    
 
     php_version: "{{phpapps_meta[phpapps_selection].phpver}}" 
     phpapps_name: "{{phpapps_meta[phpapps_selection].name}}"
     phpapps_title: "{{phpapps_meta[phpapps_selection].title}}"      
     phpapps_documentroot: "{{phpapps_meta[phpapps_selection].documentroot}}"
-    phpapps_webs: "{{select_webs[webs_selection]}}"
+    phpapps_webs: "{{webs_select[webs_selection]}}"
 
     phpmyadmin_webs: "{{webs_select[webs_selection]}}" 
     w9panel_webs: "{{webs_select[webs_selection]}}" 
