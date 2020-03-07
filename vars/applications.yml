@@ -145,6 +145,12 @@ phpapps_meta:
     title: VtigerCRM
     mysqlver: "5.6"
     phpver: "7.0"
+    
+  'weengine':
+    name: weengine
+    title: WeEngine
+    mysqlver: "5.6"
+    phpver: "7.0"
 
   'zurmo':
     name: zurmo
