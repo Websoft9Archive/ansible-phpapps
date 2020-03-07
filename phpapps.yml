@@ -21,7 +21,7 @@
       suitecrm    symfony\n
       testlink    thinkcmf \n
       thinkphp    vanilla\n
-      vtigercrm   zurmo\n\n"
+      vtigercrm   weengine  zurmo\n\n"
       private: no
       default: chanzhi
     
