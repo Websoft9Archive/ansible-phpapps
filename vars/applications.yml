@@ -88,11 +88,11 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "5.6"
 
-  'ranzhi':
-    name: ranzhi
-    title: Ranzhi
+  'zdoo':
+    name: zdoo
+    title: Zdoo
     mysqlver: "5.6"
-    phpver: "5.6"
+    phpver: "7.0"
     documentroot: "www"
 
   'resourcespace':

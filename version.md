@@ -85,11 +85,6 @@
 2. 安装要求：https://github.com/pydio/pydio-core
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [pydio.yml](/roles/phpapps/tasks/pydio.yml) 中 ```pydio_version``` 变量对应的版本号。
 
-### Ranzhi
-1. 下载页面地址：https://www.ranzhi.org/dynamic/5.2.stable-142.html
-2. 安装要求：https://www.ranzhi.org/book/ranzhi/ranzhiinstall-5.html
-3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [ranzhi.yml](/roles/phpapps/tasks/ranzhi.yml) 中 ```ranzhi_download_url``` 变量对应的下载链接。
-
 ### ResourceSpace
 1. 下载页面地址：https://www.resourcespace.com/download
 2. 安装要求：https://www.resourcespace.com/knowledge-base/systemadmin/general_requirements
@@ -135,6 +130,11 @@
 1. 下载页面地址：http://zurmo.org/download
 2. 安装要求：hhttp://zurmo.org/wiki/installation-requirements
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [zurmo.yml](/roles/phpapps/tasks/zurmo.yml) 中 ```zurmo_download_url``` 变量对应的版本号。
+
+### Zdoo
+1. 下载页面地址：https://www.zdoo.com/dynamic/zdoo6.0-152.html
+2. 安装要求：https://www.zdoo.com/dynamic/zdoo6.0-152.html
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [zdoo.yml](/roles/phpapps/tasks/zdoo.yml) 中 ```zdoo_download_url``` 变量对应的下载链接。
 
 ### OwnCloud
 1. 上传/下载文件大小
