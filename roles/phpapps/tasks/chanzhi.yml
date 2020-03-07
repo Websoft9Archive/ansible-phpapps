@@ -20,10 +20,8 @@
 
 #本项目主要任务区
 
-- name: Remove already existing {{chanzhi_name}}
-  file:
-    path: /data/wwwroot/{{chanzhi_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{chanzhi_name}}*
 
 #下载解压，注意解压后的文件夹名称  
 - name: Download {{chanzhi_name}}
