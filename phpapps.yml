@@ -72,7 +72,7 @@
       
     # 应用数据库信息
     init_application:
-      {{phpapps_name}}:
+      "{{phpapps_name}}":
         service: php-fpm
         database: "{{phpapps_name}}" 
         database_user: "{{phpapps_name}}"
