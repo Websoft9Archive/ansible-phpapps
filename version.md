@@ -106,9 +106,10 @@
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [testlink.yml](/roles/phpapps/tasks/testlink.yml) 中 ```testlink_version``` 变量对应的版本号。
 
 ### ThinkCMF
-1. 下载页面地址：https://github.com/thinkcmf/portal.git
+1. 下载页面地址：https://github.com/thinkcmf/thinkcmf/archive/v5.1.5.zip
 2. 安装要求：https://github.com/thinkcmf/portal
-3. 如何更换安装版本：Github 目前只有一个版本。
+3. 如何更换安装版本：修改下载地址
+4. Nginx伪静态规则：https://www.kancloud.cn/thinkcmf/faq/493493
 
 ### ThinkPHP
 1. 通过 composer 安装，无需下载源码，源码下载页面地址：https://github.com/top-think/think/releases
