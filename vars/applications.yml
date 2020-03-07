@@ -3,7 +3,7 @@ phpapps_meta:
     name: chanzhi
     title: ChanZhi
     mysqlver: "5.6"
-    phpver: "5.6"
+    phpver: "7.0"
     documentroot: "www"
     
   'cmseasy':
