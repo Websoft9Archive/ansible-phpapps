@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    dzzoffice_vhost_dir: "{{php_runtime_meta[ansible_os_family][dzzoffice_webs].vhost_dir}}"
-    dzzoffice_vhost_src: "{{php_runtime_meta[ansible_os_family][dzzoffice_webs].vhost_src}}"
-    dzzoffice_service: "{{php_runtime_meta[ansible_os_family][dzzoffice_webs].service}}"
-    dzzoffice_owner: "{{php_runtime_meta[ansible_os_family][dzzoffice_webs].owner}}"
+    dzzoffice_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    dzzoffice_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    dzzoffice_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    dzzoffice_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     dzzoffice_name: "{{phpapps_name}}"
     dzzoffice_title: "{{phpapps_title}}"
     dzzoffice_download_url: "https://github.com/zyx0814/dzzoffice.git"

@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    pydio_vhost_dir: "{{php_runtime_meta[ansible_os_family][pydio_webs].vhost_dir}}"
-    pydio_vhost_src: "{{php_runtime_meta[ansible_os_family][pydio_webs].vhost_src}}"
-    pydio_service: "{{php_runtime_meta[ansible_os_family][pydio_webs].service}}"
-    pydio_owner: "{{php_runtime_meta[ansible_os_family][pydio_webs].owner}}"
+    pydio_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    pydio_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    pydio_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    pydio_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     pydio_name: "{{phpapps_name}}"
     pydio_title: "{{phpapps_title}}"
     pydio_download_url: "https://github.com/pydio/pydio-core.git"

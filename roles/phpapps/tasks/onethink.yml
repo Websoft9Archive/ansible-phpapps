@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    onethink_vhost_dir: "{{php_runtime_meta[ansible_os_family][onethink_webs].vhost_dir}}"
-    onethink_vhost_src: "{{php_runtime_meta[ansible_os_family][onethink_webs].vhost_src}}"
-    onethink_service: "{{php_runtime_meta[ansible_os_family][onethink_webs].service}}"
-    onethink_owner: "{{php_runtime_meta[ansible_os_family][onethink_webs].owner}}"
+    onethink_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    onethink_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    onethink_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    onethink_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     onethink_name: "{{phpapps_name}}"
     onethink_title: "{{phpapps_title}}"
     onethink_download_url: "https://github.com/liu21st/onethink.git"

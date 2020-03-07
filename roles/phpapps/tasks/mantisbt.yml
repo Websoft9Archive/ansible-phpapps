@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    mantisbt_vhost_dir: "{{php_runtime_meta[ansible_os_family][mantisbt_webs].vhost_dir}}"
-    mantisbt_vhost_src: "{{php_runtime_meta[ansible_os_family][mantisbt_webs].vhost_src}}"
-    mantisbt_service: "{{php_runtime_meta[ansible_os_family][mantisbt_webs].service}}"
-    mantisbt_owner: "{{php_runtime_meta[ansible_os_family][mantisbt_webs].owner}}"
+    mantisbt_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    mantisbt_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    mantisbt_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    mantisbt_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     mantisbt_name: "{{phpapps_name}}"
     mantisbt_title: "{{phpapps_title}}"
     mantisbt_download_url: "https://github.com/mantisbt/mantisbt.git"

@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    vtigercrm_vhost_dir: "{{php_runtime_meta[ansible_os_family][vtigercrm_webs].vhost_dir}}"
-    vtigercrm_vhost_src: "{{php_runtime_meta[ansible_os_family][vtigercrm_webs].vhost_src}}"
-    vtigercrm_service: "{{php_runtime_meta[ansible_os_family][vtigercrm_webs].service}}"
-    vtigercrm_owner: "{{php_runtime_meta[ansible_os_family][vtigercrm_webs].owner}}"
+    vtigercrm_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    vtigercrm_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    vtigercrm_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    vtigercrm_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     vtigercrm_name: "{{phpapps_name}}"
     vtigercrm_title: "{{phpapps_title}}"
     vtigercrm_download_url: "https://nchc.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.1.0/Core%20Product/vtigercrm7.1.0.tar.gz"

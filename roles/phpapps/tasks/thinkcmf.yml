@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    thinkcmf_vhost_dir: "{{php_runtime_meta[ansible_os_family][thinkcmf_webs].vhost_dir}}"
-    thinkcmf_vhost_src: "{{php_runtime_meta[ansible_os_family][thinkcmf_webs].vhost_src}}"
-    thinkcmf_service: "{{php_runtime_meta[ansible_os_family][thinkcmf_webs].service}}"
-    thinkcmf_owner: "{{php_runtime_meta[ansible_os_family][thinkcmf_webs].owner}}"
+    thinkcmf_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    thinkcmf_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    thinkcmf_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    thinkcmf_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     thinkcmf_name: "{{phpapps_name}}"
     thinkcmf_title: "{{phpapps_title}}"
     thinkcmf_download_url: "https://github.com/thinkcmf/portal.git"

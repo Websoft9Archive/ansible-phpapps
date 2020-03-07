@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    laravel_vhost_dir: "{{php_runtime_meta[ansible_os_family][laravel_webs].vhost_dir}}"
-    laravel_vhost_src: "{{php_runtime_meta[ansible_os_family][laravel_webs].vhost_src}}"
-    laravel_service: "{{php_runtime_meta[ansible_os_family][laravel_webs].service}}"
-    laravel_owner: "{{php_runtime_meta[ansible_os_family][laravel_webs].owner}}"
+    laravel_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    laravel_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    laravel_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    laravel_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     laravel_name: "{{phpapps_name}}"
     laravel_title: "{{phpapps_title}}"
     laravel_download_url: "https://github.com/laravel/laravel.git"

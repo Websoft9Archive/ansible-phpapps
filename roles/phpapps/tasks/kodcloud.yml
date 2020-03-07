@@ -4,10 +4,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    kodcloud_vhost_dir: "{{php_runtime_meta[ansible_os_family][kodcloud_webs].vhost_dir}}"
-    kodcloud_vhost_src: "{{php_runtime_meta[ansible_os_family][kodcloud_webs].vhost_src}}"
-    kodcloud_service: "{{php_runtime_meta[ansible_os_family][kodcloud_webs].service}}"
-    kodcloud_owner: "{{php_runtime_meta[ansible_os_family][kodcloud_webs].owner}}"
+    kodcloud_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    kodcloud_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    kodcloud_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    kodcloud_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     kodcloud_name: "{{phpapps_name}}"
     kodcloud_title: "{{phpapps_title}}"
     kodcloud_download_url: "http://static.kodcloud.com/update/download/kodexplorer4.40.zip"

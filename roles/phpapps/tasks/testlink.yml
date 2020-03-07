@@ -4,10 +4,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    testlink_vhost_dir: "{{php_runtime_meta[ansible_os_family][testlink_webs].vhost_dir}}"
-    testlink_vhost_src: "{{php_runtime_meta[ansible_os_family][testlink_webs].vhost_src}}"
-    testlink_service: "{{php_runtime_meta[ansible_os_family][testlink_webs].service}}"
-    testlink_owner: "{{php_runtime_meta[ansible_os_family][testlink_webs].owner}}"
+    testlink_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    testlink_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    testlink_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    testlink_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     testlink_name: "{{phpapps_name}}"
     testlink_title: "{{phpapps_title}}"
     testlink_download_url: "https://github.com/TestLinkOpenSourceTRMS/testlink-code.git"

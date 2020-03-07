@@ -6,10 +6,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    cmseasy_vhost_dir: "{{php_runtime_meta[ansible_os_family][cmseasy_webs].vhost_dir}}"
-    cmseasy_vhost_src: "{{php_runtime_meta[ansible_os_family][cmseasy_webs].vhost_src}}"
-    cmseasy_service: "{{php_runtime_meta[ansible_os_family][cmseasy_webs].service}}"
-    cmseasy_owner: "{{php_runtime_meta[ansible_os_family][cmseasy_webs].owner}}"
+    cmseasy_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    cmseasy_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    cmseasy_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    cmseasy_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     cmseasy_name: "{{phpapps_name}}"
     cmseasy_title: "{{phpapps_title}}"
     cmseasy_download_url: "http://ftp.cmseasy.cn/CmsEasy7.x/CmsEasy_7.5.3_UTF-8_20200209.zip"
