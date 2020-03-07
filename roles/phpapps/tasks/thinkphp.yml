@@ -7,10 +7,10 @@
 
 #Modify var for this playbook
 - set_fact:
-    thinkphp_vhost_dir: "{{php_runtime_meta[ansible_os_family][thinkphp_webs].vhost_dir}}"
-    thinkphp_vhost_src: "{{php_runtime_meta[ansible_os_family][thinkphp_webs].vhost_src}}"
-    thinkphp_service: "{{php_runtime_meta[ansible_os_family][thinkphp_webs].service}}"
-    thinkphp_owner: "{{php_runtime_meta[ansible_os_family][thinkphp_webs].owner}}"
+    thinkphp_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    thinkphp_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    thinkphp_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    thinkphp_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     thinkphp_name: "{{phpapps_name}}"
     thinkphp_title: "{{phpapps_title}}"
 
