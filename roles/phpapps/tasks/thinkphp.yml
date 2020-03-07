@@ -23,7 +23,7 @@
   shell: rm -rf /data/wwwroot/*{{thinkphp_name}}*
 
 - name: Install thinkphp by composer
-  shell: composer create-project topthink/think {{thinkphp_name}}
+  shell: cd /data/wwwroot; composer create-project topthink/think {{thinkphp_name}}
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{thinkphp_name}}" ]; then mv *{{thinkphp_name}}* {{thinkphp_name}}; fi
