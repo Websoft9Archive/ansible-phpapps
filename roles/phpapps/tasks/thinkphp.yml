@@ -13,8 +13,6 @@
     thinkphp_owner: "{{php_runtime_meta[ansible_os_family][thinkphp_webs].owner}}"
     thinkphp_name: "{{phpapps_name}}"
     thinkphp_title: "{{phpapps_title}}"
-    thinkphp_download_url: "https://github.com/top-think/think.git"
-    thinkphp_version: "v6.0.2"
 
 - debug:
     msg: runtime {{ thinkphp_vhost_dir }}, {{thinkphp_vhost_src}}, {{thinkphp_service}}, {{thinkphp_owner}}, {{ansible_distribution}}
@@ -24,17 +22,8 @@
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{thinkphp_name}}*
 
-- name: Create Directory
-  file:
-    path: /data/wwwroot/thinkphp
-    state: directory
-    mode: 0755
-  
-- name: Download thinkphp
-  git:
-    repo: "{{ thinkphp_download_url }}"
-    dest: /data/wwwroot/thinkphp
-    version: "{{thinkphp_version}}"
+- name: Install thinkphp by composer
+  shell: composer create-project topthink/think {{thinkphp_name}}
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{thinkphp_name}}" ]; then mv *{{thinkphp_name}}* {{thinkphp_name}}; fi
