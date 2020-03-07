@@ -18,14 +18,8 @@
 - debug:
     msg: runtime {{ chanzhi_vhost_dir }}, {{chanzhi_vhost_src}}, {{chanzhi_service}}, {{chanzhi_owner}}, {{chanzhi_webs}}, {{ansible_distribution}}
 
-# 9panel
-- name: Set 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{chanzhi_title}}"];'
-
 #本项目主要任务区
+
 - name: Remove already existing {{chanzhi_name}}
   file:
     path: /data/wwwroot/{{chanzhi_name}}

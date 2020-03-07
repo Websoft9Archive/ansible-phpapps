@@ -38,7 +38,13 @@
   with_items:
     - wwwroot
     - cert
-  when: ansible_distribution == 'CentOS'
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Amazon'
+
+- name: Set Reverse proxy
+  template:
+    src: reverse_proxy.jinja2
+    dest: /etc/nginx/conf.d/default.conf
+  when: reverse_proxy_port
 
 - name: Start Nginx
   service:

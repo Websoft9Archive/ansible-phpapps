@@ -1,0 +1,153 @@
+phpapps_meta:
+  'chanzhi':
+    name: chanzhi
+    title: ChanZhi
+    mysqlver: "5.6"
+    phpver: "5.6"
+    documentroot: "www"
+    
+  'cmseasy':
+    name: cmseasy
+    title: CmsEasy
+    mysqlver: "5.7"
+    phpver: "7.2"
+
+  'codiad':
+    name: codiad
+    title: Codiad
+    mysqlver: "5.7"
+    phpver: "5.6"
+
+  'dolibarr':
+    name: dolibarr
+    title: Dolibarr
+    mysqlver: "5.6"
+    phpver: "5.6"
+
+  'dreamfactory':
+    name: dreamfactory
+    title: DreamFactory
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "public"
+
+  'dzzoffice':
+    name: dzzoffice
+    title: DzzOffice
+    mysqlver: "5.7"
+    phpver: "7.2"
+
+  'empirecms':
+    name: empirecms
+    title: EmpireCMS
+    mysqlver: "5.6"
+    phpver: "5.6"
+    documentroot: "upload"
+
+  'espocrm':
+    name: espocrm
+    title: Espocrm
+    mysqlver: "5.7"
+    phpver: "7.2"
+
+  'kodcloud':
+    name: kodcloud
+    title: KodCloud
+    mysqlver: "5.7"
+    phpver: "7.0"
+
+  'laravel':
+    name: laravel
+    title: Laravel
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "public"
+
+  'mantisbt':
+    name: mantisbt
+    title: Mantisbt
+    mysqlver: "5.6"
+    phpver: "5.6"
+
+  'matomo':
+    name: matomo
+    title: Matomo
+    mysqlver: "5.6"
+    phpver: "5.6"
+
+  'onethink':
+    name: onethink
+    title: OneThink
+    mysqlver: "5.6"
+    phpver: "5.6"
+    documentroot: "public"
+
+  'pydio':
+    name: pydio
+    title: Pydio
+    mysqlver: "5.6"
+    phpver: "5.6"
+
+  'ranzhi':
+    name: ranzhi
+    title: Ranzhi
+    mysqlver: "5.6"
+    phpver: "5.6"
+    documentroot: "www"
+
+  'resourcespace':
+    name: resourcespace
+    title: ResourceSpace
+    mysqlver: "5.6"
+    phpver: "7.2"
+
+  'suitecrm':
+    name: suitecrm
+    title: SuiteCRM
+    mysqlver: "5.7"
+    phpver: "7.2"
+
+  'symfony':
+    name: symfony
+    title: Symfony
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "public"
+
+  'testlink':
+    name: testlink
+    title: TestLink
+    mysqlver: "5.7"
+    phpver: "7.2"
+
+  'thinkcmf':
+    name: thinkcmf
+    title: ThinkCMF
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "public"
+
+  'thinkphp':
+    name: thinkphp
+    title: ThinkPHP
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "public"
+
+  'vanilla':
+    name: vanilla
+    title: Vanilla
+    mysqlver: "5.7"
+    phpver: "7.3"
+
+  'vtigercrm':
+    name: vtigercrm
+    title: VtigerCRM
+    mysqlver: "5.6"
+    phpver: "7.0"
+
+  'zurmo':
+    name: zurmo
+    title: Zurmo
+    mysqlver: "5.6"
+    phpver: "5.6"

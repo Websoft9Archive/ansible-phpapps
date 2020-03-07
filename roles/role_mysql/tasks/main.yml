@@ -37,4 +37,8 @@
   register: mysql_ver
   notify: MySQL Version
 
+#Enable remote connection
+- import_tasks: remote.yml
+  when: mysql_remote
+
 

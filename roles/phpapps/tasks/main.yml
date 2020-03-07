@@ -13,12 +13,6 @@
 - debug:
     msg:  "{{phpapps_name}} will be installed on {{phpapps_webs}}, MySQL {{mysql_version}}, PHP {{php_version}}"
 
-# 删除example目录
-- name: Remove example dir
-  file:
-    path: /data/wwwroot/www.example.com
-    state: absent
-
 - include: "{{phpapps_name}}.yml"
 
 # 系统通用

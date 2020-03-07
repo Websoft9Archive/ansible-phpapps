@@ -1,0 +1,218 @@
+## 部署
+- name: phpApps
+  hosts: all
+  become: yes
+  become_method: sudo  
+  vars_prompt:
+    - name: 'phpapps_selection'
+      prompt: "\nWhich application do you want to install? [ 1/2/3/4/5/6... ] \n\n
+      1：chanzhi      2: cmseasy \n
+      3: codiad       4: dolibarr \n
+      5: dreamfactory 6: dzzoffice\n
+      7: empirecms    8: espocrm \n
+      9: kodexplore   10: laravel \n
+      11: mantisbt    12: matomo \n
+      13: onethink    14: pydio \n
+      15: ranzhi      16: resourcespace \n
+      17: suitecrm    18: symfony\n
+      19: testlink    20: thinkcmf \n
+      21: thinkphp    22: vanilla\n
+      23: vtigercrm   24: zurmo\n\n"
+      private: no
+      default: 1
+    
+    - name: 'webs_selection'
+      prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
+      1: Apache\n
+      2: Nginx\n\n"
+      private: no
+      default: 1
+
+  vars:
+    select_phpapps:
+      '1':
+        name: chanzhi
+        title: ChanZhi
+        mysqlver: "5.6"
+        phpver: "5.6"
+        documentroot: "www"
+        
+      '2':
+        name: cmseasy
+        title: CmsEasy
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '3':
+        name: codiad
+        title: Codiad
+        mysqlver: "5.7"
+        phpver: "5.6"
+
+      '4':
+        name: dolibarr
+        title: Dolibarr
+        mysqlver: "5.6"
+        phpver: "5.6"
+
+      '5':
+        name: dreamfactory
+        title: DreamFactory
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "public"
+
+      '6':
+        name: dzzoffice
+        title: DzzOffice
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '7':
+        name: empirecms
+        title: EmpireCMS
+        mysqlver: "5.6"
+        phpver: "5.6"
+        documentroot: "upload"
+
+      '8':
+        name: espocrm
+        title: Espocrm
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '9':
+        name: kodcloud
+        title: KodCloud
+        mysqlver: "5.7"
+        phpver: "7.0"
+
+      '10':
+        name: laravel
+        title: Laravel
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "public"
+
+      '11':
+        name: mantisbt
+        title: Mantisbt
+        mysqlver: "5.6"
+        phpver: "5.6"
+
+      '12':
+        name: matomo
+        title: Matomo
+        mysqlver: "5.6"
+        phpver: "5.6"
+
+      '13':
+        name: onethink
+        title: OneThink
+        mysqlver: "5.6"
+        phpver: "5.6"
+        documentroot: "public"
+
+      '14':
+        name: pydio
+        title: Pydio
+        mysqlver: "5.6"
+        phpver: "5.6"
+
+      '15':
+        name: ranzhi
+        title: Ranzhi
+        mysqlver: "5.6"
+        phpver: "5.6"
+        documentroot: "www"
+
+      '16':
+        name: resourcespace
+        title: ResourceSpace
+        mysqlver: "5.6"
+        phpver: "7.2"
+
+      '17':
+        name: suitecrm
+        title: SuiteCRM
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '18':
+        name: symfony
+        title: Symfony
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "public"
+
+      '19':
+        name: testlink
+        title: TestLink
+        mysqlver: "5.7"
+        phpver: "7.2"
+
+      '20':
+        name: thinkcmf
+        title: ThinkCMF
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "public"
+
+      '21':
+        name: thinkphp
+        title: ThinkPHP
+        mysqlver: "5.7"
+        phpver: "7.2"
+        documentroot: "public"
+
+      '22':
+        name: vanilla
+        title: Vanilla
+        mysqlver: "5.7"
+        phpver: "7.3"
+
+      '23':
+        name: vtigercrm
+        title: VtigerCRM
+        mysqlver: "5.6"
+        phpver: "7.0"
+
+      '24':
+        name: zurmo
+        title: Zurmo
+        mysqlver: "5.6"
+        phpver: "5.6"
+
+    select_webs:
+      '1': 'apache'
+      '2': 'nginx'
+    
+    mysql_version: "{{select_phpapps[phpapps_selection].mysqlver}}" 
+    php_version: "{{select_phpapps[phpapps_selection].phpver}}" 
+    phpapps_name: "{{select_phpapps[phpapps_selection].name}}"
+    phpapps_title: "{{select_phpapps[phpapps_selection].title}}"      
+    phpapps_documentroot: "{{select_phpapps[phpapps_selection].documentroot}}"
+    phpapps_webs: "{{select_webs[webs_selection]}}"
+    phpmyadmin_webs: "{{webs_select[webs_selection]}}" 
+    w9panel_webs: "{{webs_select[webs_selection]}}" 
+  
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - {role: role_common, tags: "role_common"}
+    - {role: role_cloud, tags: "role_cloud"}
+    - {role: role_apache, tags: "role_apache", when: phpapps_webs == 'apache'}
+    - {role: role_nginx, tags: "role_nginx", when: phpapps_webs == 'nginx'}
+    - {role: role_mysql, tags: "role_mysql"}
+    - {role: role_php-fpm, tags: "role_php-fpm"}
+    - {role: role_inotify_watch, tags: "role_inotify_watch"}
+    - {role: role_lamp, tags: "role_lamp", when: phpapps_webs == 'apache'}
+    - {role: role_lnmp, tags: "role_lnmp", when: phpapps_webs == 'nginx'}
+    - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
+    - {role: role_9panel, tags: "role_9panel"}
+    - {role: role_redis, tags: "role_redis"}
+    - {role: phpapps, tags: "phpapps"}
+    - {role: role_init_password, tags: "role_init_password"}
+    - {role: role_preend, tags: "role_preend"}
+    - {role: role_end, tags: "role_end"}
