@@ -1,0 +1,35 @@
+---
+- debug:
+    msg: weengine is installing now 
+
+#引入PHP运行环境元数据，并初始化
+- include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
+
+#Modify var for this playbook
+- set_fact:
+    weengine_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    weengine_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    weengine_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    weengine_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
+    weengine_name: "{{phpapps_name}}"
+    weengine_title: "{{phpapps_title}}"
+    weengine_download_url: "https://cdn.w7.cc/download/WeEngine-Laster-Online.zip"
+
+- debug:
+    msg: runtime {{ weengine_vhost_dir }}, {{weengine_vhost_src}}, {{weengine_service}}, {{weengine_owner}}, {{ansible_distribution}}
+
+# weengine
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{weengine_name}}*
+
+- name: Download weengine from {{weengine_download_url}}
+  unarchive:
+    src: "{{weengine_download_url}}"
+    dest: /data/wwwroot
+    remote_src: yes
+
+- name: Rename dir name
+  shell: cd /data/wwwroot; if [ ! -d "{{weengine_name}}" ]; then mv *{{weengine_name}}* {{weengine_name}}; fi
+
+- name: Copy Apache or Nginx vhost configuration
+  template: src={{weengine_vhost_src}} dest={{weengine_vhost_dir}}
