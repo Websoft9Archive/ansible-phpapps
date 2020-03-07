@@ -39,4 +39,4 @@
   shell: mv /data/wwwroot/chanzhi* /data/wwwroot/chanzhi
 
 - name: Copy Apache or Nginx vhost configuration
-  Template: src={{chanzhi_vhost_src}} dest={{chanzhi_vhost_dir}}
+  template: src={{chanzhi_vhost_src}} dest={{chanzhi_vhost_dir}}
