@@ -50,7 +50,6 @@
     phpmyadmin_webs: "{{webs_select[webs_selection]}}" 
     w9panel_webs: "{{webs_select[webs_selection]}}" 
     w9panel_set_apps: 
-      - OpenCart
       - "{{phpapps_meta[phpapps_selection].title}}"
 
     # 生成应用数据库和用户
