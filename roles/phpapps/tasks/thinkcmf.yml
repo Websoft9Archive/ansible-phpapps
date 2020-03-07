@@ -13,8 +13,7 @@
     thinkcmf_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     thinkcmf_name: "{{phpapps_name}}"
     thinkcmf_title: "{{phpapps_title}}"
-    thinkcmf_download_url: "https://github.com/thinkcmf/thinkcmf.git"
-    thinkcmf_version: "v5.1.5"
+    thinkcmf_download_url: "https://github.com/thinkcmf/thinkcmf/archive/v5.1.5.zip"
 
 - debug:
     msg: runtime {{ thinkcmf_vhost_dir }}, {{thinkcmf_vhost_src}}, {{thinkcmf_service}}, {{thinkcmf_owner}}, {{ansible_distribution}}
@@ -25,15 +24,15 @@
 
 - name: Create Directory
   file:
-    path: /data/wwwroot/thinkcmf
+    path: /data/wwwroot/{{thinkcmf_name}}
     state: directory
     mode: 0755
   
 - name: Download thinkcmf from {{thinkcmf_download_url}}
-  git:
-    repo: "{{thinkcmf_download_url}}"
-    dest: /data/wwwroot/thinkcmf
-    version: "{{thinkcmf_version}}"
+  unarchive:
+    src: "{{thinkcmf_download_url}}"
+    dest: /data/wwwroot/{{thinkcmf_name}}
+    remote_src: yes
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{thinkcmf_name}}" ]; then mv *{{thinkcmf_name}}* {{thinkcmf_name}}; fi
