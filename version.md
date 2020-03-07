@@ -127,6 +127,11 @@
 2. 安装要求：https://community.vtiger.com/help/vtigercrm/administrators/installation.html
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [vtigercrm.yml](/roles/phpapps/tasks/vtigercrm.yml) 中 ```vtigercrm_download_url``` 变量对应的下载链接。
 
+### Weengine（微擎）
+1. 下载地址：https://s.w7.cc/store-static-install.html
+2. 安装要求：https://www.kancloud.cn/we7pengpeng/weengine/1369874
+3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [weengine.yml](/roles/phpapps/tasks/weengine.yml) 中 ```weengine_download_url``` 变量对应的下载链接。
+
 ### Zurmo
 1. 下载页面地址：http://zurmo.org/download
 2. 安装要求：hhttp://zurmo.org/wiki/installation-requirements
