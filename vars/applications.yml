@@ -78,8 +78,8 @@ phpapps_meta:
   'onethink':
     name: onethink
     title: OneThink
-    mysqlver: "5.7"
-    phpver: "7.2"
+    mysqlver: "5.6"
+    phpver: "5.6"
     documentroot: "public"
 
   'pydio':
