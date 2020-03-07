@@ -16,14 +16,12 @@
     ranzhi_download_url: "http://dl.cnezsoft.com/ranzhi/5.2/ranzhi.5.2.stable.zip"
 
 - debug:
-    msg: runtime {{ ranzhi_vhost_dir }}, {{ranzhi_vhost_src}}, {{ranzhi_service}}, {{ranzhi_owner}}, {{ranzhi_webs}}, {{ansible_distribution}}
+    msg: runtime {{ ranzhi_vhost_dir }}, {{ranzhi_vhost_src}}, {{ranzhi_service}}, {{ranzhi_owner}}, {{ansible_distribution}}
 
 
 #本项目主要任务区
-- name: Remove already existing {{ranzhi_name}}
-  file:
-    path: /data/wwwroot/{{ranzhi_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{ranzhi_name}}*
   
 - name: Download ranzhi
   unarchive:
@@ -33,12 +31,6 @@
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{ranzhi_name}}" ]; then mv *{{ranzhi_name}}* {{ranzhi_name}}; fi
-
-- name: Set 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{ranzhi_title}}"];'
 
 - name: Copy Apache or Nginx vhost configuration
   Template: src={{ranzhi_vhost_src}} dest={{ranzhi_vhost_dir}}

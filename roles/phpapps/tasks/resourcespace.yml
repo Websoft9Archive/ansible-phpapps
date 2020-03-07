@@ -16,20 +16,11 @@
     resourcespace_download_url: "http://dl.cnezsoft.com/resourcespace/5.2/resourcespace.5.2.stable.zip"
 
 - debug:
-    msg: runtime {{ resourcespace_vhost_dir }}, {{resourcespace_vhost_src}}, {{resourcespace_service}}, {{resourcespace_owner}}, {{resourcespace_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enable 9panel I
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{resourcespace_title}}"];'
+    msg: runtime {{ resourcespace_vhost_dir }}, {{resourcespace_vhost_src}}, {{resourcespace_service}}, {{resourcespace_owner}}, {{ansible_distribution}}
 
 # 主任务区
-- name: Remove already existing {{resourcespace_name}}
-  file:
-    path: /data/wwwroot/{{resourcespace_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{resourcespace_name}}*
 
 - name: Create Folder
   file:

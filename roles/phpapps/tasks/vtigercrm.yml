@@ -17,21 +17,11 @@
     vtigercrm_version: "v6.0.2"
 
 - debug:
-    msg: runtime {{ vtigercrm_vhost_dir }}, {{vtigercrm_vhost_src}}, {{vtigercrm_service}}, {{vtigercrm_owner}}, {{vtigercrm_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["vtigercrm"];'
+    msg: runtime {{ vtigercrm_vhost_dir }}, {{vtigercrm_vhost_src}}, {{vtigercrm_service}}, {{vtigercrm_owner}}, }, {{ansible_distribution}}
 
 # vtigercrm
-- name: Create Directory
-  file:
-    path: /data/wwwroot/vtigercrm
-    state: directory
-    mode: 0755
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{vtigercrm_name}}*
   
 - name: Download VtigerCRM
   unarchive:

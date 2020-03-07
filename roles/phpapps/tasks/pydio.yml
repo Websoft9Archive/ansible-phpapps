@@ -17,20 +17,11 @@
     pydio_version: "pydio-core-8.2.4"
 
 - debug:
-    msg: runtime {{ pydio_vhost_dir }}, {{pydio_vhost_src}}, {{pydio_service}}, {{pydio_owner}}, {{pydio_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{pydio_title}}"];'
+    msg: runtime {{ pydio_vhost_dir }}, {{pydio_vhost_src}}, {{pydio_service}}, {{pydio_owner}}, {{ansible_distribution}}
 
 # pydio
-- name: Remove already existing {{pydio_name}}
-  file:
-    path: /data/wwwroot/{{pydio_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{pydio_name}}*
 
 - name: Create Directory
   file:

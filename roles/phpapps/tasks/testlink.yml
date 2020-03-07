@@ -14,20 +14,11 @@
     testlink_version: "1.9.20"
 
 - debug:
-    msg: runtime {{ testlink_vhost_dir }}, {{testlink_vhost_src}}, {{testlink_service}}, {{testlink_owner}}, {{testlink_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{testlink_title}}"];'
+    msg: runtime {{ testlink_vhost_dir }}, {{testlink_vhost_src}}, {{testlink_service}}, {{testlink_owner}}, {{ansible_distribution}}
 
 # testlink
-- name: Remove already existing {{testlink_title}}
-  file:
-    path: /data/wwwroot/{{testlink_title}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{testlink_name}}*
 
 - name: Create directory -1
   file:

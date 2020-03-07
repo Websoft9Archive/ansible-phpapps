@@ -1,49 +1,40 @@
 ---
 - debug:
-    msg: TestCMF is installing now 
+    msg: thinkcmf is installing now 
 
 #引入PHP运行环境元数据，并初始化
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
 #Modify var for this playbook
 - set_fact:
-    testcmf_vhost_dir: "{{php_runtime_meta[ansible_os_family][testcmf_webs].vhost_dir}}"
-    testcmf_vhost_src: "{{php_runtime_meta[ansible_os_family][testcmf_webs].vhost_src}}"
-    testcmf_service: "{{php_runtime_meta[ansible_os_family][testcmf_webs].service}}"
-    testcmf_owner: "{{php_runtime_meta[ansible_os_family][testcmf_webs].owner}}"
-    testcmf_name: "{{phpapps_name}}"
-    testcmf_title: "{{phpapps_title}}"
-    testcmf_download_url: "https://github.com/thinkcmf/portal.git"
+    thinkcmf_vhost_dir: "{{php_runtime_meta[ansible_os_family][thinkcmf_webs].vhost_dir}}"
+    thinkcmf_vhost_src: "{{php_runtime_meta[ansible_os_family][thinkcmf_webs].vhost_src}}"
+    thinkcmf_service: "{{php_runtime_meta[ansible_os_family][thinkcmf_webs].service}}"
+    thinkcmf_owner: "{{php_runtime_meta[ansible_os_family][thinkcmf_webs].owner}}"
+    thinkcmf_name: "{{phpapps_name}}"
+    thinkcmf_title: "{{phpapps_title}}"
+    thinkcmf_download_url: "https://github.com/thinkcmf/portal.git"
 
 - debug:
-    msg: runtime {{ testcmf_vhost_dir }}, {{testcmf_vhost_src}}, {{testcmf_service}}, {{testcmf_owner}}, {{testcmf_webs}}, {{ansible_distribution}}
+    msg: runtime {{ thinkcmf_vhost_dir }}, {{thinkcmf_vhost_src}}, {{thinkcmf_service}}, {{thinkcmf_owner}}, {{ansible_distribution}}
 
-# 9panel
-- name: Enabled 9panel I
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{testcmf.title}}"];'
-
-# testcmf
-- name: Remove already existing {{testcmf_name}}
-  file:
-    path: /data/wwwroot/{{testcmf_name}}
-    state: absent
+# thinkcmf
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{testlink_name}}*
 
 - name: Create Directory
   file:
-    path: /data/wwwroot/testcmf
+    path: /data/wwwroot/thinkcmf
     state: directory
     mode: 0755
   
-- name: Download testcmf
+- name: Download thinkcmf
   git:
-    repo: "{{testcmf_download_url}}"
-    dest: /data/wwwroot/testcmf
+    repo: "{{thinkcmf_download_url}}"
+    dest: /data/wwwroot/thinkcmf
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{thinkcmf_name}}" ]; then mv *{{thinkcmf_name}}* {{thinkcmf_name}}; fi
 
 - name: Copy Apache or Nginx vhost configuration
-  template: src={{testcmf_vhost_src}} dest={{testcmf_vhost_dir}}
+  template: src={{thinkcmf_vhost_src}} dest={{thinkcmf_vhost_dir}}

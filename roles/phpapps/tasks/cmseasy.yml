@@ -15,20 +15,11 @@
     cmseasy_download_url: "http://ftp.cmseasy.cn/CmsEasy7.x/CmsEasy_7.5.3_UTF-8_20200209.zip"
 
 - debug:
-    msg: runtime {{ cmseasy_vhost_dir }}, {{cmseasy_vhost_src}}, {{cmseasy_service}}, {{cmseasy_owner}}, {{cmseasy_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{cmseasy_title}}"];'
+    msg: runtime {{ cmseasy_vhost_dir }}, {{cmseasy_vhost_src}}, {{cmseasy_service}}, {{cmseasy_owner}}, {{ansible_distribution}}
 
 # cmseasy
-- name: Remove already existing {{cmseasy_name}}
-  file:
-    path: /data/wwwroot/{{cmseasy_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{cmseasy_name}}*
 
 - name: Create Directory for {{cmseasy_title}}
   file:
@@ -36,7 +27,7 @@
     state: directory
     mode: 0755
   
-- name: Download and Unarchive {{cmseasy_title}}
+- name: Download and Unarchive for {{ cmseasy_download_url }}
   unarchive:
     src: "{{ cmseasy_download_url }}"
     dest: /data/wwwroot/{{cmseasy_name}}
@@ -44,7 +35,6 @@
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{cmseasy_name}}" ]; then mv *{{cmseasy_name}}* {{cmseasy_name}}; fi
-
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{cmseasy_vhost_src}} dest={{cmseasy_vhost_dir}}

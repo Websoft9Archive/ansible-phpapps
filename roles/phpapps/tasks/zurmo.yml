@@ -16,23 +16,13 @@
     zurmo_download_url: "http://build.zurmo.com/downloads/zurmo-stable-3.2.7.c53e0c6df135.tar.gz"
 
 - debug:
-    msg: runtime {{ zurmo_vhost_dir }}, {{zurmo_vhost_src}}, {{zurmo_service}}, {{zurmo_owner}}, {{zurmo_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{zurmo_title}}"];'
+    msg: runtime {{ zurmo_vhost_dir }}, {{zurmo_vhost_src}}, {{zurmo_service}}, {{zurmo_owner}}, {{ansible_distribution}}
 
 # zurmo
-- name: Create Directory
-  file:
-    path: /data/wwwroot/zurmo
-    state: directory
-    mode: 0755
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{zurmo_name}}*
   
-- name: Download Zurmo
+- name: Download Zurmo for {{ zurmo_download_url }}
   unarchive:
     src: "{{ zurmo_download_url }}"
     dest: /data/wwwroot
@@ -40,16 +30,6 @@
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{zurmo_name}}" ]; then mv *{{zurmo_name}}* {{zurmo_name}}; fi
-
-- name: Copy Apache Config file
-  copy: src=zurmo_httpd.conf dest=/etc/httpd/conf/httpd.conf
-  when: zurmo_webs == "apache"
-
-- name: Cppy MySQL Config file
-  copy: src=zurmo_my.cnf dest=/etc/my.cnf
-
-- name: restart MySQL
-  service: name=mysqld state=restarted enabled=yes
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{zurmo_vhost_src}} dest={{zurmo_vhost_dir}}

@@ -15,20 +15,11 @@
     symfony_title: "{{phpapps_title}}"
 
 - debug:
-    msg: runtime {{ symfony_vhost_dir }}, {{symfony_vhost_src}}, {{symfony_service}}, {{symfony_owner}}, {{symfony_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{symfony_title}}"];'
+    msg: runtime {{ symfony_vhost_dir }}, {{symfony_vhost_src}}, {{symfony_service}}, {{symfony_owner}}, {{ansible_distribution}}
 
 # symfony
-- name: Remove already existing {{symfony_name}}
-  file:
-    path: /data/wwwroot/{{symfony_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{symfony_name}}*
 
 - name: Replace Composer repo.packagist to internal repo.packagist
   shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com

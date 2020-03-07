@@ -17,20 +17,11 @@
     vanilla_version: "v3.0.1"
 
 - debug:
-    msg: runtime {{ vanilla_vhost_dir }}, {{vanilla_vhost_src}}, {{vanilla_service}}, {{vanilla_owner}}, {{vanilla_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{vanilla.title}}"];'
+    msg: runtime {{ vanilla_vhost_dir }}, {{vanilla_vhost_src}}, {{vanilla_service}}, {{vanilla_owner}}, {{ansible_distribution}}
 
 # vanilla
-- name: Remove already existing {{vanilla_name}}
-  file:
-    path: /data/wwwroot/{{vanilla_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{vanilla_name}}*
 
 - name: Create Directory
   file:

@@ -17,20 +17,11 @@
     mantisbt_version: "release-2.23.0"
 
 - debug:
-    msg: runtime {{ mantisbt_vhost_dir }}, {{mantisbt_vhost_src}}, {{mantisbt_service}}, {{mantisbt_owner}}, {{mantisbt_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{mantisbt_title}}"];'
+    msg: runtime {{ mantisbt_vhost_dir }}, {{mantisbt_vhost_src}}, {{mantisbt_service}}, {{mantisbt_owner}}, {{ansible_distribution}}
 
 # mantisbt
-- name: Remove already existing {{mantisbt_name}}
-  file:
-    path: /data/wwwroot/{{mantisbt_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{mantisbt_name}}*
 
 - name: Create Directory
   file:

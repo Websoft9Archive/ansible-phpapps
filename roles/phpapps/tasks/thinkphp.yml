@@ -17,16 +17,13 @@
     thinkphp_version: "v6.0.2"
 
 - debug:
-    msg: runtime {{ thinkphp_vhost_dir }}, {{thinkphp_vhost_src}}, {{thinkphp_service}}, {{thinkphp_owner}}, {{thinkphp_webs}}, {{ansible_distribution}}
+    msg: runtime {{ thinkphp_vhost_dir }}, {{thinkphp_vhost_src}}, {{thinkphp_service}}, {{thinkphp_owner}}, {{ansible_distribution}}
 
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{thinkphp.title}}"];'
 
 # thinkphp
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{thinkphp_name}}*
+
 - name: Create Directory
   file:
     path: /data/wwwroot/thinkphp

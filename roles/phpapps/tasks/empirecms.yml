@@ -16,20 +16,11 @@
     empirecms_download_url: "http://ecms.phome.net/downcenter/empirecms/ecms75/download/EmpireCMS_7.5_SC_UTF8.zip"
 
 - debug:
-    msg: runtime {{ empirecms_vhost_dir }}, {{empirecms_vhost_src}}, {{empirecms_service}}, {{empirecms_owner}}, {{empirecms_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{empirecms_title}}"];'
+    msg: runtime {{ empirecms_vhost_dir }}, {{empirecms_vhost_src}}, {{empirecms_service}}, {{empirecms_owner}}, {{ansible_distribution}}
 
 # empirecms
-- name: Remove already existing {{empirecms_name}}
-  file:
-    path: /data/wwwroot/{{empirecms_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{empirecms_name}}*
 
 - name: Create Directory
   file:

@@ -17,20 +17,11 @@
     onethink_version: "1.0.131115"
 
 - debug:
-    msg: runtime {{ onethink_vhost_dir }}, {{onethink_vhost_src}}, {{onethink_service}}, {{onethink_owner}}, {{onethink_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel I
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{onethink.title}}"];'
+    msg: runtime {{ onethink_vhost_dir }}, {{onethink_vhost_src}}, {{onethink_service}}, {{onethink_owner}}, {{ansible_distribution}}
 
 # onethink
-- name: Remove already existing {{onethink_name}}
-  file:
-    path: /data/wwwroot/{{onethink_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{onethink_name}}*
 
 - name: Create Directory
   file:

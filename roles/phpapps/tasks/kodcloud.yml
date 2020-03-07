@@ -13,20 +13,12 @@
     kodcloud_download_url: "http://static.kodcloud.com/update/download/kodexplorer4.40.zip"
 
 - debug:
-    msg: runtime {{ kodcloud_vhost_dir }}, {{kodcloud_vhost_src}}, {{kodcloud_service}}, {{kodcloud_owner}}, {{kodcloud_webs}}, {{ansible_distribution}}
+    msg: runtime {{ kodcloud_vhost_dir }}, {{kodcloud_vhost_src}}, {{kodcloud_service}}, {{kodcloud_owner}}, {{ansible_distribution}}
 
-# 9panel
-- name: Enabled 9panel I
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{kodcloud_title}}"];'
 
 # kodcloud
-- name: Remove already existing {{kodcloud_name}}
-  file:
-    path: /data/wwwroot/{{kodcloud_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{kodcloud_name}}*
 
 - name: Create Directory
   file:

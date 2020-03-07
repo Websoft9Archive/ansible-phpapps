@@ -17,20 +17,11 @@
     espocrm_version: "5.8.2"
 
 - debug:
-    msg: runtime {{ espocrm_vhost_dir }}, {{espocrm_vhost_src}}, {{espocrm_service}}, {{espocrm_owner}}, {{espocrm_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{espocrm_title}}"];'
+    msg: runtime {{ espocrm_vhost_dir }}, {{espocrm_vhost_src}}, {{espocrm_service}}, {{espocrm_owner}}, {{ansible_distribution}}
 
 # espocrm
-- name: Remove already existing {{espocrm_name}}
-  file:
-    path: /data/wwwroot/{{espocrm_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{espocrm_name}}*
 
 - name: Create Directory
   file:

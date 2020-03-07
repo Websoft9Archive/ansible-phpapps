@@ -17,20 +17,11 @@
     dzzoffice_version: "2.02"
 
 - debug:
-    msg: runtime {{ dzzoffice_vhost_dir }}, {{dzzoffice_vhost_src}}, {{dzzoffice_service}}, {{dzzoffice_owner}}, {{dzzoffice_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{dzzoffice_title}}"];'
+    msg: runtime {{ dzzoffice_vhost_dir }}, {{dzzoffice_vhost_src}}, {{dzzoffice_service}}, {{dzzoffice_owner}}, {{ansible_distribution}}
 
 # dzzoffice
-- name: Remove already existing {{dzzoffice_name}}
-  file:
-    path: /data/wwwroot/{{dzzoffice_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{dzzoffice_name}}*
 
 - name: Create Directory
   file:

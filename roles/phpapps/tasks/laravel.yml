@@ -16,20 +16,11 @@
     laravel_download_url: "https://github.com/laravel/laravel.git"
 
 - debug:
-    msg: runtime {{ laravel_vhost_dir }}, {{laravel_vhost_src}}, {{laravel_service}}, {{laravel_owner}}, {{laravel_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{laravel_title}}"];'
+    msg: runtime {{ laravel_vhost_dir }}, {{laravel_vhost_src}}, {{laravel_service}}, {{laravel_owner}}, {{ansible_distribution}}
 
 # laravel
-- name: Remove already existing {{laravel_name}}
-  file:
-    path: /data/wwwroot/{{laravel_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{laravel_name}}*
 
 - name: Replace Composer repo.packagist to internal repo.packagist
   shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com

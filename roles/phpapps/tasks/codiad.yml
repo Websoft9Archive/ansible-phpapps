@@ -17,26 +17,17 @@
     codiad_version: "v.2.8.4"
 
 - debug:
-    msg: runtime {{ codiad_vhost_dir }}, {{codiad_vhost_src}}, {{codiad_service}}, {{codiad_owner}}, {{codiad_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{codiad_title}}"];'
+    msg: runtime {{ codiad_vhost_dir }}, {{codiad_vhost_src}}, {{codiad_service}}, {{codiad_owner}}, {{ansible_distribution}}
 
 # codiad
-- name: Remove already existing {{codiad_name}}
-  file:
-    path: /data/wwwroot/{{codiad_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{codiad_name}}*
 
 - name: Create Directory
   file:
     path: /data/wwwroot/codiad
     state: directory
-    mode: 0755
+    mode: 0750
   
 - name: Download codiad
   git:

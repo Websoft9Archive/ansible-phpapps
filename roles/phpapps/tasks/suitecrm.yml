@@ -17,20 +17,11 @@
     suitecrm_version: "v7.11.12"
 
 - debug:
-    msg: runtime {{ suitecrm_vhost_dir }}, {{suitecrm_vhost_src}}, {{suitecrm_service}}, {{suitecrm_owner}}, {{suitecrm_webs}}, {{ansible_distribution}}
-
-# 9panel
-- name: Enabled 9panel I
-  lineinfile:
-    path: /data/apps/9panel/js/websoft9.js
-    regexp: 'var set_apps=\["Example"\];'
-    line: 'var set_apps=["{{suitecrm_title}}"];'
+    msg: runtime {{ suitecrm_vhost_dir }}, {{suitecrm_vhost_src}}, {{suitecrm_service}}, {{suitecrm_owner}}, {{ansible_distribution}}
 
 # suitecrm
-- name: Remove already existing {{suitecrm_name}}
-  file:
-    path: /data/wwwroot/{{suitecrm_name}}
-    state: absent
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{suitecrm_name}}*
 
 - name: Create Directory
   file:
