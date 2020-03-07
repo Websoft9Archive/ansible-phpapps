@@ -40,6 +40,10 @@
     webs_select:
       '1': 'apache'
       '2': 'nginx'
+      
+    infrastructure_select:
+      '1': 'LAMP'
+      '2': 'LNMP'
 
     php_version: "{{phpapps_meta[phpapps_selection].phpver}}" 
     phpapps_name: "{{phpapps_meta[phpapps_selection].name}}"
@@ -49,6 +53,8 @@
 
     phpmyadmin_webs: "{{webs_select[webs_selection]}}" 
     w9panel_webs: "{{webs_select[webs_selection]}}" 
+    
+    w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
     w9panel_set_apps: 
       - "{{phpapps_meta[phpapps_selection].title}}"
 
