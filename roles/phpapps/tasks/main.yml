@@ -13,7 +13,7 @@
 - debug:
     msg:  "{{phpapps_name}} will be installed on {{phpapps_webs}}, MySQL {{mysql_version}}, PHP {{php_version}}"
 
-- include: "{{phpapps_name}}".yml
+- include: "{{phpapps_name}}.yml"
 
 # 系统通用
 - name: Permission directory
