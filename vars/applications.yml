@@ -80,7 +80,7 @@ phpapps_meta:
     title: OneThink
     mysqlver: "5.6"
     phpver: "5.6"
-    documentroot: "public"
+    documentroot: "wwwroot"
 
   'pydio':
     name: pydio
