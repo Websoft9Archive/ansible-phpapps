@@ -24,17 +24,14 @@
   shell: rm -rf /data/wwwroot/*{{chanzhi_name}}*
 
 #下载解压，注意解压后的文件夹名称  
-- name: Download {{chanzhi_name}}
+- name: Download {{chanzhi_name}} from {{ chanzhi_download_url }}
   unarchive:
     src: "{{ chanzhi_download_url }}"
     dest: /data/wwwroot
     remote_src: yes
 
-- name: Rename dir name
-  shell: cd /data/wwwroot; if [ ! -d "{{chanzhi_name}}" ]; then mv *{{chanzhi_name}}* {{chanzhi_name}}; fi
-
 - name: Rename directory name
-  shell: mv /data/wwwroot/chanzhi* /data/wwwroot/chanzhi
+  shell: cd /data/wwwroot; if [ ! -d "{{chanzhi_name}}" ]; then mv *{{chanzhi_name}}* {{chanzhi_name}}; fi
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{chanzhi_vhost_src}} dest={{chanzhi_vhost_dir}}
