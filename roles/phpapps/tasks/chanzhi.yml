@@ -1,37 +1,37 @@
 ---
 - debug:
-    msg: Zdoo is installing now
+    msg: chanzhi is installing now
 
 #引入PHP运行环境元数据，并初始化
 - include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
 
 #Modify var for this playbook
 - set_fact:
-    zdoo_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
-    zdoo_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
-    zdoo_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
-    zdoo_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
-    zdoo_name: "{{phpapps_name}}"
-    zdoo_title: "{{phpapps_title}}"
-    zdoo_download_url: "http://dl.cnezsoft.com/zdoo/6.0/zdoo.6.0.php7.0.zip"
+    chanzhi_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    chanzhi_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    chanzhi_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    chanzhi_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
+    chanzhi_name: "{{phpapps_name}}"
+    chanzhi_title: "{{phpapps_title}}"
+    chanzhi_download_url: "http://dl.cnezsoft.com/chanzhi/8.0/chanzhiEPS.8.0.php7.1.zip?v=20200227"
 
 - debug:
-    msg: runtime {{ zdoo_vhost_dir }}, {{zdoo_vhost_src}}, {{zdoo_service}}, {{zdoo_owner}}, {{ansible_distribution}}
+    msg: runtime {{ chanzhi_vhost_dir }}, {{chanzhi_vhost_src}}, {{chanzhi_service}}, {{chanzhi_owner}}, {{ansible_distribution}}
 
 #本项目主要任务区
 
 - name: Remove extra dir
-  shell: rm -rf /data/wwwroot/*{{zdoo_name}}*
+  shell: rm -rf /data/wwwroot/*{{chanzhi_name}}*
 
 #下载解压，注意解压后的文件夹名称  
-- name: Download {{zdoo_name}} from {{ zdoo_download_url }}
+- name: Download {{chanzhi_name}} from {{ chanzhi_download_url }}
   unarchive:
-    src: "{{ zdoo_download_url }}"
+    src: "{{ chanzhi_download_url }}"
     dest: /data/wwwroot
     remote_src: yes
 
 - name: Rename directory name
-  shell: cd /data/wwwroot; if [ ! -d "{{zdoo_name}}" ]; then mv *{{zdoo_name}}* {{zdoo_name}}; fi
+  shell: cd /data/wwwroot; if [ ! -d "{{chanzhi_name}}" ]; then mv *{{chanzhi_name}}* {{chanzhi_name}}; fi
 
 - name: Copy Apache or Nginx vhost configuration
-  template: src={{zdoo_vhost_src}} dest={{zdoo_vhost_dir}}
+  template: src={{chanzhi_vhost_src}} dest={{chanzhi_vhost_dir}}

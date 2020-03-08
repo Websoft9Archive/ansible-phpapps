@@ -111,14 +111,6 @@ phpapps_meta:
     documentroot: ""
     config_path: ""
 
-  'zdoo':
-    name: zdoo
-    title: Zdoo
-    mysqlver: "5.6"
-    phpver: "7.0"
-    documentroot: "www"
-    config_path: ""
-
   'resourcespace':
     name: resourcespace
     title: ResourceSpace
@@ -189,6 +181,14 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "7.0"
     documentroot: ""
+    config_path: ""
+
+  'zdoo':
+    name: zdoo
+    title: Zdoo
+    mysqlver: "5.6"
+    phpver: "7.2"
+    documentroot: "www"
     config_path: ""
 
   'zurmo':

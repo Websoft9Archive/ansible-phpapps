@@ -14,7 +14,6 @@
     vtigercrm_name: "{{phpapps_name}}"
     vtigercrm_title: "{{phpapps_title}}"
     vtigercrm_download_url: "https://nchc.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.1.0/Core%20Product/vtigercrm7.1.0.tar.gz"
-    vtigercrm_version: "v6.0.2"
 
 - debug:
     msg: runtime {{ vtigercrm_vhost_dir }}, {{vtigercrm_vhost_src}}, {{vtigercrm_service}}, {{vtigercrm_owner}}, }, {{ansible_distribution}}
@@ -31,11 +30,6 @@
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{vtigercrm_name}}" ]; then mv *{{vtigercrm_name}}* {{vtigercrm_name}}; fi
-
-- name: Copy PHP.ini
-  copy:
-    src: vtigercrm_php.ini
-    dest: /etc/php.ini
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{vtigercrm_vhost_src}} dest={{vtigercrm_vhost_dir}}

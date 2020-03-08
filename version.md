@@ -107,55 +107,72 @@ You should do this only after the installation is concluded.
 ```
 
 ### Symfony
-1. 通过 composer 安装，无需下载源码，下载页面地址：https://github.com/symfony/symfony/releases
+
+1. 通过 composer 安装，无需下载源码，无需维护。版本查看地址：https://github.com/symfony/symfony/releases
 2. 安装要求：https://symfony.com/doc/current/reference/requirements.html
-3. 如何更换安装版本：运行 ```composer update``` 命令
+4. 伪静态设置：https://symfony.com/doc/current/setup/web_server_configuration.html
 
 ### TestLink
+
 1. 下载页面地址：https://github.com/TestLinkOpenSourceTRMS/testlink-code/releases
 2. 安装要求：https://github.com/TestLinkOpenSourceTRMS/testlink-code#3-system-requirements---server
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [testlink.yml](/roles/phpapps/tasks/testlink.yml) 中 ```testlink_version``` 变量对应的版本号。
 
 ### ThinkCMF
+
 1. 下载页面地址：https://github.com/thinkcmf/thinkcmf/archive/v5.1.5.zip
 2. 安装要求：https://github.com/thinkcmf/portal
 3. 如何更换安装版本：修改下载地址
 4. Nginx伪静态规则：https://www.kancloud.cn/thinkcmf/faq/493493
 
 ### ThinkPHP
+
 1. 通过 composer 安装，无需下载源码，源码下载页面地址：https://github.com/top-think/think/releases
 2. 安装要求：https://www.kancloud.cn/manual/thinkphp6_0/1037481
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [thinkphp.yml](/roles/phpapps/tasks/thinkphp.yml) 中 ```thinkphp_version``` 变量对应的版本号。
 4. **6.0版本**开始，必须通过Composer方式安装和更新，所以你无法通过Git下载安装。
 
 ### Vanilla
+
 1. 下载页面地址：https://github.com/vanilla/vanilla/releases
 2. 安装要求：https://docs.vanillaforums.com/developer/installation/self-hosting/#requirements
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [vanilla.yml](/roles/phpapps/tasks/vanilla.yml) 中 ```vanilla_version``` 变量对应的版本号。
 
 ### VtigerCRM
+
 1. 下载页面地址：https://www.vtiger.com/open-source-crm/download-open-source/
 2. 安装要求：https://community.vtiger.com/help/vtigercrm/administrators/installation.html
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [vtigercrm.yml](/roles/phpapps/tasks/vtigercrm.yml) 中 ```vtigercrm_download_url``` 变量对应的下载链接。
+4. 特殊要求
+```
+display_errors	On	Off
+error_reporting	E_WARNING & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT	NOT RECOMMENDED
+log_errors	Off	On
+```
 
 ### Weengine（微擎）
+
 1. 下载地址：https://s.w7.cc/store-static-install.html
 2. 安装要求：https://www.kancloud.cn/we7pengpeng/weengine/1369874
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [weengine.yml](/roles/phpapps/tasks/weengine.yml) 中 ```weengine_download_url``` 变量对应的下载链接。
 
 ### Zurmo
+
 1. 下载页面地址：http://zurmo.org/download
 2. 安装要求：hhttp://zurmo.org/wiki/installation-requirements
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [zurmo.yml](/roles/phpapps/tasks/zurmo.yml) 中 ```zurmo_download_url``` 变量对应的版本号。
 
 ### Zdoo
+
 1. 下载页面地址：https://www.zdoo.com/dynamic/zdoo6.0-152.html
 2. 安装要求：https://www.zdoo.com/dynamic/zdoo6.0-152.html
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [zdoo.yml](/roles/phpapps/tasks/zdoo.yml) 中 ```zdoo_download_url``` 变量对应的下载链接。
 
 ### OwnCloud
+
 1. 上传/下载文件大小
 2. 默认内置配置文件 配置好 redis
+
 ### NextCloud
 1. 上传/下载文件大小(后台可设置)
 
@@ -173,45 +190,13 @@ opcache.revalidate_freq=1
 3. apache vhost 需要设置 头部  Header set Referrer-Policy "no-referrer"
 
 4. 默认内置配置文件 配置好 redis 和 默认开启SMTP的SSL/TLS
-### DzzOffice
-1.上传/下载文件大小
-
-### KodCloud（可道云）
-1.上传/下载文件大小
-
-### Pydio
-1.上传/下载文件大小
-
-### ResourceSpace
-1.上传/下载文件大小
 
 ### Dolibarr
 1. 需修改数据库编码为 uft-8
 
-### Drupal
-1. 需将安装包下载到 oss
-
-### EspoCRM
-
 ### Empirecms（帝国）
 1. 安装路径非根目录
 2. 需修改php.ini
-
-### SuiteCRM
-
-### VtigerCRM
-
-### ZurmoCRM
-
-### Ranzhi（然之协同）
-### Zentao（禅道）
-### chanzhiESP（蝉知）
-
-### MantisBT
-
-### Mediawiki
-需要安装APCU
-需要解决apache上传漏洞问题
 
 ### Moodle
 1. 数据库配置：innodb_file_format = Barracuda...
@@ -220,32 +205,27 @@ opcache.revalidate_freq=1
 1. 汉化问题：内置三个汉化包（Install,Admin,Catalog）；默认增设一个中文配置项；默认前后台为英文
 2. 默认安装vQmod
 
-### Prestashop
-
 ### Magento
-1.汉化问题：内置中文包
-2.部分组件需要PHP7.2,因此建议在PHP7.2的基础环境下安装
-3.最低内存为756M限制，否则在线安装插件不可以使用
-4.测试在线主题和插件的安装
-5.V2.3技术要求：https://devdocs.magento.com/guides/v2.3/install-gde/system-requirements-tech.html
 
-### ECSHOP
+1. 汉化问题：内置中文包
+2. 部分组件需要PHP7.2,因此建议在PHP7.2的基础环境下安装
+3. 最低内存为756M限制，否则在线安装插件不可以使用
+4. 测试在线主题和插件的安装
+5. V2.3技术要求：https://devdocs.magento.com/guides/v2.3/install-gde/system-requirements-tech.html
 
 ### Discuz
+
 1.DZ3.4版本以上需PHP7.0支持
 2.修改默认数据库配置文件，确保无障碍安装
 
-### Joomla
 
+### 企业网盘软件的通用特征
 
-# 企业网盘软件的通用特征
 企业网盘软件镜像核心需求，如下几点需求，是用户最需要的需求
 
 * 上传文件大小限制不能低于500M
 * Office文件的在线预览、编辑
 * 视频文件在线播放
 * 网盘存储挂载OSS
-
-## NextCloud 目前在国内无法安装插件
 
 

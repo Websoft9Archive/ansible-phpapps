@@ -10,18 +10,19 @@
   vars_prompt:
     - name: 'phpapps_selection'
       prompt: "\nWhich application do you want to install? [ input application name... ] \n\n
-      chanzhi(ok)      cmseasy(ok) \n
+      chanzhi(need ioncube)      cmseasy(ok) \n
       codiad(unavailable)      dolibarr(unavailable) \n
       dreamfactory(ok)      dzzoffice(ok)\n
       empirecms(unavailable)      espocrm(ok) \n
       kodcloud(ok)      laravel(ok) \n
       mantisbt(500 error)      matomo(unavailable) \n
       onethink(error)      pydio(unavailable) \n
-      zdoo(unavailable)      resourcespace(unavailable) \n
-      suitecrm(ok)      symfony(unavailable)\n
-      testlink(unavailable)      thinkcmf(ok) \n
-      thinkphp(ok)      vanilla(unavailable)\n
-      vtigercrm(unavailable)      weengine(ok)      zurmo(unavailable)\n\n"
+      resourcespace(unavailable)      suitecrm(ok) \n
+      symfony(ok, rewrite rules)      testlink(unavailable)   \n
+      thinkphp(ok)        thinkcmf(ok) \n
+      vtigercrm(need modify php.ini)         vanilla(unavailable)\n
+      weengine(ok)          zdoo(need ioncube) \n   
+      zurmo(unavailable)\n\n"
       private: no
       default: chanzhi
     

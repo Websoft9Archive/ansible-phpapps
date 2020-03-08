@@ -13,8 +13,7 @@
     pydio_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     pydio_name: "{{phpapps_name}}"
     pydio_title: "{{phpapps_title}}"
-    pydio_download_url: "https://github.com/pydio/pydio-core.git"
-    pydio_version: "pydio-core-8.2.4"
+    pydio_download_url: "https://github.com/pydio/pydio-core/archive/pydio-core-8.2.4.zip"
 
 - debug:
     msg: runtime {{ pydio_vhost_dir }}, {{pydio_vhost_src}}, {{pydio_service}}, {{pydio_owner}}, {{ansible_distribution}}
@@ -22,24 +21,15 @@
 # pydio
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{pydio_name}}*
-
-- name: Create Directory
-  file:
-    path: /data/wwwroot/pydio
-    state: directory
-    mode: 0755
   
-- name: Download pydio
-  git:
-    repo: "{{pydio_download_url}}"
-    dest: /data/wwwroot/pydio
-    version: "{{pydio_version}}"
+- name: Download from {{ pydio_download_url }}
+  unarchive:
+    src: "{{ pydio_download_url }}"
+    dest: /data/wwwroot
+    remote_src: yes
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{pydio_name}}" ]; then mv *{{pydio_name}}* {{pydio_name}}; fi
-
-- name: Copy php.ini
-  copy: src=pydio_php.ini  dest=/etc/php.ini
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{pydio_vhost_src}} dest={{pydio_vhost_dir}}

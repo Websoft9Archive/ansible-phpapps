@@ -29,6 +29,12 @@
   args:
     chdir: /data/wwwroot
 
+- block:
+  - name: Install symfony rewrite for Apache
+    shell: cd /data/wwwroot/{{symfony_name}}; composer require symfony/apache-pack
+
+  when: phpapps_webs == 'apache'
+
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{symfony_name}}" ]; then mv *{{symfony_name}}* {{symfony_name}}; fi
 

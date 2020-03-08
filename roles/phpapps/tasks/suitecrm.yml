@@ -31,8 +31,8 @@
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{suitecrm_name}}" ]; then mv *SuiteCRM* {{suitecrm_name}}; fi
 
-- name: Copy php.ini
-  copy: src=suitecrm_php.ini  dest=/etc/php.ini
+- name: create crontab task
+  shell: echo "* * * * * cd /data/wwwroot/{{suitecrm_name}}; /usr/bin/php -f cron.php > /dev/null 2>&1" >> /etc/crontab
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{suitecrm_vhost_src}} dest={{suitecrm_vhost_dir}}
