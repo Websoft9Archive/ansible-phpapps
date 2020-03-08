@@ -21,7 +21,13 @@
 # weengine
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{weengine_name}}*
-
+  
+- name: Create Directory
+  file:
+    path: /data/wwwroot/{{weengine_name}}
+    state: directory
+    mode: 0755
+    
 - name: Download weengine from {{weengine_download_url}}
   unarchive:
     src: "{{weengine_download_url}}"
