@@ -39,6 +39,7 @@
 1. 下载页面地址：https://github.com/dreamfactorysoftware/dreamfactory/releases
 2. 安装要求：http://wiki.dreamfactory.com/DreamFactory/Installation
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [dreamfactory.yml](/roles/phpapps/tasks/dreamfactory.yml) 中 ```dreamfactory_version``` 变量对应的版本号。
+4. 安装完成后，需要到网站目录下运行两个交互式程序：php artisan df:env; php artisan df:setup
 
 ### DzzOffice
 1. 下载页面地址：https://github.com/zyx0814/dzzoffice/releasess
