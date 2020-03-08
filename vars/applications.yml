@@ -37,7 +37,7 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: "public"
-    config_path: "/data/wwwroot/dreamfactory/.env"
+    config_path: ""
 
   'dzzoffice':
     name: dzzoffice
