@@ -31,9 +31,6 @@
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{espocrm_name}}" ]; then mv *EspoCRM* {{espocrm_name}}; fi
 
-#- name: Change PHP Config file
-#  copy: src=espocms_php.ini dest=/etc/php.ini
-
 - name: create crontab task
   shell: echo "* * * * * cd /data/wwwroot/espocrm; /usr/bin/php -f cron.php > /dev/null 2>&1" >> /etc/crontab
 
