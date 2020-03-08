@@ -13,8 +13,7 @@
     dzzoffice_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     dzzoffice_name: "{{phpapps_name}}"
     dzzoffice_title: "{{phpapps_title}}"
-    dzzoffice_download_url: "https://github.com/zyx0814/dzzoffice.git"
-    dzzoffice_version: "2.02"
+    dzzoffice_download_url: "https://github.com/zyx0814/dzzoffice/archive/2.02.zip"
 
 - debug:
     msg: runtime {{ dzzoffice_vhost_dir }}, {{dzzoffice_vhost_src}}, {{dzzoffice_service}}, {{dzzoffice_owner}}, {{ansible_distribution}}
@@ -23,18 +22,12 @@
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{dzzoffice_name}}*
 
-- name: Create Directory
-  file:
-    path: /data/wwwroot/dzzoffice
-    state: directory
-    mode: 0755
+- name: Download {{dzzoffice_name}} from {{ dzzoffice_download_url }}
+  unarchive:
+    src: "{{ dzzoffice_download_url }}"
+    dest: /data/wwwroot
+    remote_src: yes
   
-- name: Download dzzoffice
-  git:
-    repo: "{{dzzoffice_download_url}}"
-    dest: /data/wwwroot/dzzoffice
-    version: "{{dzzoffice_version}}"
-
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{dzzoffice_name}}" ]; then mv *{{dzzoffice_name}}* {{dzzoffice_name}}; fi
 
