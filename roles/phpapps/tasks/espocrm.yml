@@ -13,8 +13,7 @@
     espocrm_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     espocrm_name: "{{phpapps_name}}"
     espocrm_title: "{{phpapps_title}}"
-    espocrm_download_url: "https://github.com/espocrm/espocrm.git"
-    espocrm_version: "5.8.2"
+    espocrm_download_url: "https://www.espocrm.com/downloads/EspoCRM-5.8.2.zip"
 
 - debug:
     msg: runtime {{ espocrm_vhost_dir }}, {{espocrm_vhost_src}}, {{espocrm_service}}, {{espocrm_owner}}, {{ansible_distribution}}
@@ -23,23 +22,17 @@
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{espocrm_name}}*
 
-- name: Create Directory
-  file:
-    path: /data/wwwroot/espocrm
-    state: directory
-    mode: 0755
-  
-- name: Download espocrm
-  git:
-    repo: "{{espocrm_download_url}}"
-    dest: /data/wwwroot/espocrm
-    version: "{{espocrm_version}}"
+- name: Download from {{ espocrm_download_url }}
+  unarchive:
+    src: "{{ espocrm_download_url }}"
+    dest: /data/wwwroot
+    remote_src: yes
 
 - name: Rename dir name
-  shell: cd /data/wwwroot; if [ ! -d "{{espocrm_name}}" ]; then mv *{{espocrm_name}}* {{espocrm_name}}; fi
+  shell: cd /data/wwwroot; if [ ! -d "{{espocrm_name}}" ]; then mv *EspoCRM* {{espocrm_name}}; fi
 
-- name: Change PHP Config file
-  copy: src=espocms_php.ini dest=/etc/php.ini
+#- name: Change PHP Config file
+#  copy: src=espocms_php.ini dest=/etc/php.ini
 
 - name: create crontab task
   shell: echo "* * * * * cd /data/wwwroot/espocrm; /usr/bin/php -f cron.php > /dev/null 2>&1" >> /etc/crontab
