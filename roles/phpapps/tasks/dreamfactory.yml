@@ -13,8 +13,7 @@
     dreamfactory_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     dreamfactory_name: "{{phpapps_name}}"
     dreamfactory_title: "{{phpapps_title}}"
-    dreamfactory_download_url: "https://github.com/dreamfactorysoftware/dreamfactory.git"
-    dreamfactory_version: "4.0.1"
+    dreamfactory_download_url: "https://github.com/dreamfactorysoftware/dreamfactory/archive/4.0.1.zip"
 
 - debug:
     msg: runtime {{ dreamfactory_vhost_dir }}, {{dreamfactory_vhost_src}}, {{dreamfactory_service}}, {{dreamfactory_owner}}, {{ansible_distribution}}
@@ -23,17 +22,11 @@
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{dreamfactory_name}}*
 
-- name: Create Directory
-  file:
-    path: /data/wwwroot/dreamfactory
-    state: directory
-    mode: 0755
-  
 - name: Download dreamfactory
-  git:
-    repo: "{{dreamfactory_download_url}}"
-    dest: /data/wwwroot/dreamfactory
-    version: "{{dreamfactory_version}}"
+  unarchive:
+    src: "{{ dreamfactory_download_url }}"
+    dest: /data/wwwroot
+    remote_src: yes
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{dreamfactory_name}}" ]; then mv *{{dreamfactory_name}}* {{dreamfactory_name}}; fi
