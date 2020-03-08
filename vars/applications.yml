@@ -11,18 +11,21 @@ phpapps_meta:
     title: CmsEasy
     mysqlver: "5.7"
     phpver: "7.2"
+    documentroot: ""
 
   'codiad':
     name: codiad
     title: Codiad
     mysqlver: "5.7"
     phpver: "5.6"
+    documentroot: ""
 
   'dolibarr':
     name: dolibarr
     title: Dolibarr
     mysqlver: "5.6"
     phpver: "5.6"
+    documentroot: ""
 
   'dreamfactory':
     name: dreamfactory
@@ -36,6 +39,7 @@ phpapps_meta:
     title: DzzOffice
     mysqlver: "5.7"
     phpver: "7.2"
+    documentroot: ""
 
   'empirecms':
     name: empirecms
@@ -49,12 +53,14 @@ phpapps_meta:
     title: Espocrm
     mysqlver: "5.7"
     phpver: "7.2"
+    documentroot: ""
 
   'kodcloud':
     name: kodcloud
     title: KodCloud
     mysqlver: "5.7"
     phpver: "7.0"
+    documentroot: ""
 
   'laravel':
     name: laravel
@@ -68,12 +74,14 @@ phpapps_meta:
     title: Mantisbt
     mysqlver: "5.6"
     phpver: "5.6"
+    documentroot: ""
 
   'matomo':
     name: matomo
     title: Matomo
     mysqlver: "5.6"
     phpver: "5.6"
+    documentroot: ""
 
   'onethink':
     name: onethink
@@ -87,6 +95,7 @@ phpapps_meta:
     title: Pydio
     mysqlver: "5.6"
     phpver: "5.6"
+    documentroot: ""
 
   'zdoo':
     name: zdoo
@@ -100,12 +109,14 @@ phpapps_meta:
     title: ResourceSpace
     mysqlver: "5.6"
     phpver: "7.2"
+    documentroot: ""
 
   'suitecrm':
     name: suitecrm
     title: SuiteCRM
     mysqlver: "5.7"
     phpver: "7.2"
+    documentroot: ""
 
   'symfony':
     name: symfony
@@ -119,6 +130,7 @@ phpapps_meta:
     title: TestLink
     mysqlver: "5.7"
     phpver: "7.2"
+    documentroot: ""
 
   'thinkcmf':
     name: thinkcmf
@@ -139,21 +151,25 @@ phpapps_meta:
     title: Vanilla
     mysqlver: "5.7"
     phpver: "7.3"
+    documentroot: ""
 
   'vtigercrm':
     name: vtigercrm
     title: VtigerCRM
     mysqlver: "5.6"
     phpver: "7.0"
+    documentroot: ""
     
   'weengine':
     name: weengine
     title: WeEngine
     mysqlver: "5.6"
     phpver: "7.0"
+    documentroot: ""
 
   'zurmo':
     name: zurmo
     title: Zurmo
     mysqlver: "5.6"
     phpver: "5.6"
+    documentroot: ""
