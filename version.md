@@ -48,7 +48,7 @@
 
 ### EmpireCMS
 1. 下载页面地址：http://www.phome.net/download/
-2. 安装要求：http://www.phome.net/download/
+2. 安装要求：http://www.phome.net/doc/manual/install/
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [empirecms.yml](/roles/phpapps/tasks/empirecms.yml) 中 ```empirecms_version``` 变量对应的版本号。
 
 ### EspoCRM
