@@ -67,7 +67,7 @@ phpapps_meta:
     name: kodcloud
     title: KodCloud
     mysqlver: "5.7"
-    phpver: "7.0"
+    phpver: "7.2"
     documentroot: ""
     config_path: ""
 
