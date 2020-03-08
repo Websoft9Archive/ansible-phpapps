@@ -95,6 +95,16 @@
 1. 下载页面地址：http://suitecrm.com/download
 2. 安装要求：https://docs.suitecrm.com/admin/installation-guide/downloading-installing/
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [suitecrm.yml](/roles/phpapps/tasks/suitecrm.yml) 中 ```suitecrm_version``` 变量对应的版本号。
+4. 特殊要求
+```
+To Setup Crontab
+In order to run SuiteCRM Schedulers, edit your web server user's crontab file with this command:
+sudo crontab -e -u apache
+... and add the following line to the crontab file:
+*    *    *    *    *     cd /data/wwwroot/suitecrm; php -f cron.php > /dev/null 2>&1
+You should do this only after the installation is concluded.
+
+```
 
 ### Symfony
 1. 通过 composer 安装，无需下载源码，下载页面地址：https://github.com/symfony/symfony/releases
