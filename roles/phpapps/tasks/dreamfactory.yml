@@ -38,26 +38,26 @@
   composer:
     command: install
     ignore-platform-reqs: yes
-    working_dir: /data/wwwroot/dreamfactory
+    working_dir: /data/wwwroot/{{dreamfactory_name}}
 
-- name: install DreamFactory -2 php artisan df:env
+- name: configure database connection by expect
   expect:
     command: php artisan df:env
-    chdir: /data/wwwroot/dreamfactory
+    chdir: /data/wwwroot/{{dreamfactory_name}}
     responses:
       'tables': "1"
       'Host': "localhost"
       'Port': "3306"
       'name': "dreamfactory"
-      'username': "root"
+      'username': "dreamfactory"
       'password': "{{mysql_root_password}}"
       'Re-enter': "{{mysql_root_password}}"
     echo: yes
 
-- name: install DreamFactory -3 php artisan df:setup
+- name: set administrator account by expect
   expect:
     command: php artisan df:setup
-    chdir: /data/wwwroot/dreamfactory
+    chdir: /data/wwwroot/{{dreamfactory_name}}
     responses:
       'first name': "dream"
       'last name': "factory"

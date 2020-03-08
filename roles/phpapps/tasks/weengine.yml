@@ -31,7 +31,7 @@
 - name: Download weengine from {{weengine_download_url}}
   unarchive:
     src: "{{weengine_download_url}}"
-    dest: /data/wwwroot
+    dest: /data/wwwroot/{{weengine_name}}
     remote_src: yes
 
 - name: Rename dir name
