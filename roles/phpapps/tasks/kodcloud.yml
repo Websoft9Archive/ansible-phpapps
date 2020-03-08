@@ -22,18 +22,18 @@
 
 - name: Create Directory
   file:
-    path: /data/wwwroot/kodexplorer
+    path: /data/wwwroot/{{kodcloud_name}}
     state: directory
     mode: 0755
 
-- name: Download KODExplorer
+- name: Download from {{ kodcloud_download_url }}
   unarchive:
     src: "{{ kodcloud_download_url }}"
-    dest: /data/wwwroot/kodexplorer
+    dest: /data/wwwroot/{{kodcloud_name}}
     remote_src: yes
 
 - name: Rename dir name
-  shell: cd /data/wwwroot; if [ ! -d "{{kodcloud_name}}" ]; then mv *{{kodcloud_name}}* {{kodcloud_name}}; fi
+  shell: cd /data/wwwroot; if [ ! -d "{{kodcloud_name}}" ]; then mv *kodexplorer* {{kodcloud_name}}; fi
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{kodcloud_vhost_src}} dest={{kodcloud_vhost_dir}}
