@@ -40,31 +40,7 @@
     ignore-platform-reqs: yes
     working_dir: /data/wwwroot/{{dreamfactory_name}}
 
-- name: configure database connection by expect
-  expect:
-    command: php artisan df:env
-    chdir: /data/wwwroot/{{dreamfactory_name}}
-    responses:
-      'tables': "1"
-      'Host': "localhost"
-      'Port': "3306"
-      'name': "dreamfactory"
-      'username': "dreamfactory"
-      'password': "{{mysql_root_password}}"
-      'Re-enter': "{{mysql_root_password}}"
-    echo: yes
-
-- name: set administrator account by expect
-  expect:
-    command: php artisan df:setup
-    chdir: /data/wwwroot/{{dreamfactory_name}}
-    responses:
-      'first name': "dream"
-      'last name': "factory"
-      'email address': "admin@admin.com"
-      'Choose': "admin123"
-      'Re-enter': "admin123"
-    echo: yes
+# 安装完成后，需要到网站目录下运行两个交互式程序：php artisan df:env; php artisan df:setup
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{dreamfactory_vhost_src}} dest={{dreamfactory_vhost_dir}}
