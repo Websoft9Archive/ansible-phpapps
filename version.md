@@ -36,7 +36,7 @@
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [dolibarr.yml](/roles/phpapps/tasks/dolibarr.yml) 中 ```dolibarr_version``` 变量对应的版本号。
 
 ### DreamFactory
-1. 下载页面地址：https://github.com/dreamfactorysoftware/dreamfactory/releasess
+1. 下载页面地址：https://github.com/dreamfactorysoftware/dreamfactory/releases
 2. 安装要求：http://wiki.dreamfactory.com/DreamFactory/Installation
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [dreamfactory.yml](/roles/phpapps/tasks/dreamfactory.yml) 中 ```dreamfactory_version``` 变量对应的版本号。
 
