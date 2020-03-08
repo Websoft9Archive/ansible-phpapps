@@ -84,6 +84,8 @@
         database_user: "{{phpapps_name}}"
         database_host: localhost
         database_password: "123456"
+        config_path: 
+          - "{{phpapps_meta[phpapps_selection].config_path}}" 
 
   roles:
     - {role: role_common, tags: "role_common"}
