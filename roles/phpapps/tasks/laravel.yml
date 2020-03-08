@@ -13,7 +13,6 @@
     laravel_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     laravel_name: "{{phpapps_name}}"
     laravel_title: "{{phpapps_title}}"
-    laravel_download_url: "https://github.com/laravel/laravel.git"
 
 - debug:
     msg: runtime {{ laravel_vhost_dir }}, {{laravel_vhost_src}}, {{laravel_service}}, {{laravel_owner}}, {{ansible_distribution}}
