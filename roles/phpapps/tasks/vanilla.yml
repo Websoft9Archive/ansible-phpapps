@@ -13,8 +13,7 @@
     vanilla_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     vanilla_name: "{{phpapps_name}}"
     vanilla_title: "{{phpapps_title}}"
-    vanilla_download_url: "https://github.com/vanilla/vanilla.git"
-    vanilla_version: "v3.0.1"
+    vanilla_download_url: "https://github.com/vanilla/vanilla/archive/Vanilla_3.3.zip"
 
 - debug:
     msg: runtime {{ vanilla_vhost_dir }}, {{vanilla_vhost_src}}, {{vanilla_service}}, {{vanilla_owner}}, {{ansible_distribution}}
@@ -22,27 +21,20 @@
 # vanilla
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{vanilla_name}}*
-
-- name: Create Directory
-  file:
-    path: /data/wwwroot/vanilla
-    state: directory
-    mode: 0755
   
-- name: Download vanilla
-  git:
-    repo: "{{ vanilla_download_url }}"
-    dest: /data/wwwroot/vanilla
-    version: "{{vanilla_version}}"
+- name: Download from {{ vanilla_download_url }}
+  unarchive:
+    src: "{{ vanilla_download_url }}"
+    dest: /data/wwwroot
+    remote_src: yes
+
+- name: Install packages by composer
+  shell: composer install
+  args:
+    chdir: /data/wwwroot/{{vanilla_name}}
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{vanilla_name}}" ]; then mv *{{vanilla_name}}* {{vanilla_name}}; fi
-
-- name: replace my.cnf
-  copy:
-    src: vanilla_my.cnf
-    dest: /etc/my.cnf
-    mode: 0755
 
 - name: restart mysql
   service: name=mysqld state=restarted enabled=yes
