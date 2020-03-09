@@ -31,5 +31,32 @@
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{vtigercrm_name}}" ]; then mv *{{vtigercrm_name}}* {{vtigercrm_name}}; fi
 
+
+block:
+  - name: modify MySQL configuration
+    blockinfile:
+      path: /etc/my.cnf
+      insertafter: "server_id=1"
+      block: |
+        sql_mode = ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+
+  - name: modify php configuration error_reporting
+    lineinfile:
+      path: /etc/php.ini
+      regexp: 'error_reporting = *'
+      line: 'error_reporting = E_WARNING & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT'
+
+  - name: modify php configuration log_errors
+    lineinfile:
+      path: /etc/php.ini
+      regexp: 'log_errors = On'
+      line: 'log_errors = Off'
+
+  - name: modify php configuration short_open_tag 
+    lineinfile:
+      path: /etc/php.ini
+      regexp: 'short_open_tag = On'
+      line: 'short_open_tag = Off'
+
 - name: Copy Apache or Nginx vhost configuration
   template: src={{vtigercrm_vhost_src}} dest={{vtigercrm_vhost_dir}}

@@ -30,5 +30,8 @@
   - name: restart Apache or Nginx
     service: name={{phpapps_service}} state=restarted enabled=yes
 
-  - name: restart php-fpm
-    service: name=php-fpm state=restarted
+  - name: Restart MySQL
+    shell: systemctl restart mysqld
+
+  - name: Restart php-fpm
+    shell: systemctl restart php-fpm

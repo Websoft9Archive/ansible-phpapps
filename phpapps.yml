@@ -20,7 +20,7 @@
       resourcespace(unavailable)      suitecrm(ok) \n
       symfony(ok)      testlink(unavailable)   \n
       thinkphp(ok)        thinkcmf(ok) \n
-      vtigercrm(need modify php.ini)         vanilla(unavailable)\n
+      vtigercrm(ok)         vanilla(unavailable)\n
       weengine(ok)          zdoo(need ioncube) \n   
       zurmo(unavailable)\n\n"
       private: no
