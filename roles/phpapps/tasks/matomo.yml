@@ -13,8 +13,7 @@
     matomo_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     matomo_name: "{{phpapps_name}}"
     matomo_title: "{{phpapps_title}}"
-    matomo_download_url: "https://github.com/matomo-org/matomo.git"
-    matomo_version: "3.13.2"
+    matomo_download_url: "https://builds.matomo.org/matomo-latest.zip"
 
 - debug:
     msg: runtime {{ matomo_vhost_dir }}, {{matomo_vhost_src}}, {{matomo_service}}, {{matomo_owner}}, {{ansible_distribution}}
@@ -23,17 +22,11 @@
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{matomo_name}}*
 
-- name: Create Directory
-  file:
-    path: /data/wwwroot/matomo
-    state: directory
-    mode: 0755
-  
-- name: Download matomo
-  git:
-    repo: "{{matomo_download_url}}"
-    dest: /data/wwwroot/matomo
-    version: "{{matomo_version}}"
+- name: Download {{matomo_name}} from {{ matomo_download_url }}
+  unarchive:
+    src: "{{ matomo_download_url }}"
+    dest: /data/wwwroot
+    remote_src: yes
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{matomo_name}}" ]; then mv *{{matomo_name}}* {{matomo_name}}; fi

@@ -26,9 +26,9 @@ phpapps_meta:
   'dolibarr':
     name: dolibarr
     title: Dolibarr
-    mysqlver: "5.6"
-    phpver: "5.6"
-    documentroot: ""
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "htdocs"
     config_path: ""
 
   'dreamfactory':
@@ -50,8 +50,8 @@ phpapps_meta:
   'empirecms':
     name: empirecms
     title: EmpireCMS
-    mysqlver: "5.6"
-    phpver: "5.6"
+    mysqlver: "5.7"
+    phpver: "7.2"
     documentroot: "upload"
     config_path: ""
 
@@ -90,8 +90,8 @@ phpapps_meta:
   'matomo':
     name: matomo
     title: Matomo
-    mysqlver: "5.6"
-    phpver: "5.6"
+    mysqlver: "5.7"
+    phpver: "7.2"
     documentroot: ""
     config_path: ""
 

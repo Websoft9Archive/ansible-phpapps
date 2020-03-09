@@ -72,9 +72,9 @@
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [mantisbt.yml](/roles/phpapps/tasks/mantisbt.yml) 中 ```mantisbt_version``` 变量对应的版本号。
 
 ### Matomo
-1. 下载页面地址：https://github.com/matomo-org/matomo/releases
+1. 下载页面地址：https://matomo.org/download/，下载链接总是可以保证下载最新版本，通过 [Github](https://github.com/matomo-org/matomo/releases) 地址查看版本号
 2. 安装要求：https://github.com/matomo-org/matomo
-3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [matomo.yml](/roles/phpapps/tasks/matomo.yml) 中 ```matomo_version``` 变量对应的版本号。
+3. 如何更换下载链接：在下载页面找到源码下载地址，更换 [matomo.yml](/roles/phpapps/tasks/matomo.yml) 中 ```matomo_version``` 变量对应的版本号。
 
 ### OneThink
 1. 下载页面地址：https://github.com/liu21st/onethink/releases
@@ -85,6 +85,7 @@
 1. 下载页面地址：https://github.com/pydio/pydio-core/releases
 2. 安装要求：https://github.com/pydio/pydio-core
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [pydio.yml](/roles/phpapps/tasks/pydio.yml) 中 ```pydio_version``` 变量对应的版本号。
+4. 建议采用官方提供的cells安装方案
 
 ### ResourceSpace
 1. 下载页面地址：https://www.resourcespace.com/download

@@ -22,7 +22,7 @@
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{pydio_name}}*
   
-- name: Download from {{ pydio_download_url }}
+- name: Download {{pydio_name}} from {{ pydio_download_url }}
   unarchive:
     src: "{{ pydio_download_url }}"
     dest: /data/wwwroot

@@ -11,14 +11,14 @@
     - name: 'phpapps_selection'
       prompt: "\nWhich application do you want to install? [ input application name... ] \n\n
       chanzhi(need ioncube)      cmseasy(ok) \n
-      codiad(unavailable)      dolibarr(unavailable) \n
+      codiad(unavailable)      dolibarr(ok) \n
       dreamfactory(ok)      dzzoffice(ok)\n
-      empirecms(unavailable)      espocrm(ok) \n
+      empirecms(ok)      espocrm(ok) \n
       kodcloud(ok)      laravel(ok) \n
-      mantisbt(500 error)      matomo(unavailable) \n
+      mantisbt(500 error)      matomo(ok) \n
       onethink(error)      pydio(unavailable) \n
       resourcespace(unavailable)      suitecrm(ok) \n
-      symfony(ok, rewrite rules)      testlink(unavailable)   \n
+      symfony(ok)      testlink(unavailable)   \n
       thinkphp(ok)        thinkcmf(ok) \n
       vtigercrm(need modify php.ini)         vanilla(unavailable)\n
       weengine(ok)          zdoo(need ioncube) \n   

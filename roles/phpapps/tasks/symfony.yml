@@ -31,7 +31,12 @@
 
 - block:
   - name: Install symfony rewrite for Apache
-    shell: cd /data/wwwroot/{{symfony_name}}; composer require symfony/apache-pack
+    expect:
+      command: composer require symfony/apache-pack
+      chdir: /data/wwwroot/{{symfony_name}}
+      responses:
+        "execute": "y"
+      echo: yes
 
   when: phpapps_webs == 'apache'
 
