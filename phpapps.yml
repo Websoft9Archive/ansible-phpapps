@@ -33,9 +33,6 @@
       private: no
       default: 1
 
-  pre_tasks:
-    - debug: 
-        msg: Selected application is  {{phpapps_meta[phpapps_selection].name}}
 
   vars:
     webs_select:
@@ -78,15 +75,22 @@
           password: "123456"  
       
     # 应用数据库信息
-    init_application:
-      "{{phpapps_name}}":
+    init_application_template:
+      phpapps_name:
         service: php-fpm
         database: "{{phpapps_name}}" 
         database_user: "{{phpapps_name}}"
         database_host: localhost
         database_password: "123456"
-        config_path: 
-          - "{{phpapps_meta[phpapps_selection].config_path}}" 
+    
+    init_application: "{{ init_application_template | regex_replace('phpapps_name',phpapps_name) }}"
+
+  pre_tasks:
+    - debug: 
+        msg: Selected application is  {{phpapps_meta[phpapps_selection].name}}
+
+    - name: print init_application
+      debug: msg="{{ init_application }}"
 
   roles:
     - {role: role_common, tags: "role_common"}
