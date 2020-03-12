@@ -37,5 +37,11 @@
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{empirecms_name}}" ]; then mv *{{empirecms_name}}* {{empirecms_name}}; fi
 
+- name: modify php configuration log_errors
+  lineinfile:
+    path: /etc/php.ini
+    regexp: 'short_open_tag = Off'
+    line: 'short_open_tag = On'
+
 - name: Copy Apache or Nginx vhost configuration
   template: src={{empirecms_vhost_src}} dest={{empirecms_vhost_dir}}
