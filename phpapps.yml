@@ -86,6 +86,10 @@
     init_application: "{{ init_application_template | regex_replace('phpapps_name',phpapps_name) }}"
 
   pre_tasks:
+  
+    - include_vars: vars/special.yml
+      when: phpapps_name == 'chanzhi' or phpapps_name == 'zdoo'
+      
     - debug: 
         msg: Selected application is  {{phpapps_meta[phpapps_selection].name}}
 
