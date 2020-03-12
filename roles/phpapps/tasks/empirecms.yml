@@ -37,8 +37,5 @@
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{empirecms_name}}" ]; then mv *{{empirecms_name}}* {{empirecms_name}}; fi
 
-- name: Change PHP Config file
-  copy: src=empirecms_php.ini dest=/etc/php.ini
-
 - name: Copy Apache or Nginx vhost configuration
   template: src={{empirecms_vhost_src}} dest={{empirecms_vhost_dir}}
