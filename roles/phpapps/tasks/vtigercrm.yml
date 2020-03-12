@@ -32,7 +32,7 @@
   shell: cd /data/wwwroot; if [ ! -d "{{vtigercrm_name}}" ]; then mv *{{vtigercrm_name}}* {{vtigercrm_name}}; fi
 
 
-block:
+- block:
   - name: modify MySQL configuration
     blockinfile:
       path: /etc/my.cnf
