@@ -116,7 +116,7 @@ phpapps_meta:
     title: PHPWind
     mysqlver: "5.6"
     phpver: "5.6"
-    documentroot: ""
+    documentroot: "upload"
     config_path: ""
 
   'resourcespace':
