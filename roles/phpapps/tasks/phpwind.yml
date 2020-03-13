@@ -1,0 +1,40 @@
+---
+- debug:
+    msg: phpwind is installing now
+
+#引入PHP运行环境元数据，并初始化
+- include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
+
+#Modify var for this playbook
+- set_fact:
+    phpwind_vhost_dir: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_dir}}"
+    phpwind_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
+    phpwind_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
+    phpwind_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
+    phpwind_name: "{{phpapps_name}}"
+    phpwind_title: "{{phpapps_title}}"
+    
+    phpwind_download_url: "https://libs.websoft9.com/apps/phpwind_v9.0.2_utf8_20170401.zip"
+    #全球加速地址 
+    #phpwind_download_url: "https://libs-websoft9-com.oss-accelerate.aliyuncs.com/apps/phpwind_v9.0.2_utf8_20170401.zip"
+
+- debug:
+    msg: runtime {{ phpwind_vhost_dir }}, {{phpwind_vhost_src}}, {{phpwind_service}}, {{phpwind_owner}}, {{ansible_distribution}}
+
+#本项目主要任务区
+
+- name: Remove extra dir
+  shell: rm -rf /data/wwwroot/*{{phpwind_name}}*
+
+#下载解压，注意解压后的文件夹名称  
+- name: Download {{phpwind_name}} from {{ phpwind_download_url }}
+  unarchive:
+    src: "{{ phpwind_download_url }}"
+    dest: /data/wwwroot
+    remote_src: yes
+
+- name: Rename directory name
+  shell: cd /data/wwwroot; if [ ! -d "{{phpwind_name}}" ]; then mv *{{phpwind_name}}* {{phpwind_name}}; fi
+
+- name: Copy Apache or Nginx vhost configuration
+  template: src={{phpwind_vhost_src}} dest={{phpwind_vhost_dir}}

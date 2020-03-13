@@ -111,6 +111,14 @@ phpapps_meta:
     documentroot: ""
     config_path: ""
 
+  'phpwind':
+    name: phpwind
+    title: PHPWind
+    mysqlver: "5.6"
+    phpver: "5.6"
+    documentroot: ""
+    config_path: ""
+
   'resourcespace':
     name: resourcespace
     title: ResourceSpace

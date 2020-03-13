@@ -16,7 +16,7 @@
       empirecms(ok)      espocrm(ok) \n
       kodcloud(ok)      laravel(ok) \n
       mantisbt(500 error)      matomo(ok) \n
-      onethink(error)      pydio(unavailable) \n
+      onethink(error)      pydio(unavailable)    phpwind\n
       resourcespace(unavailable)      suitecrm(ok) \n
       symfony(ok)      testlink(unavailable)   \n
       thinkphp(ok)        thinkcmf(ok) \n
