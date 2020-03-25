@@ -1,6 +1,6 @@
 #全局
 region: "0"
 
+preend_certbot: True
 # MySQL默认密码
-
 mysql_root_password: "123456"
