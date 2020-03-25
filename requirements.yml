@@ -34,9 +34,6 @@
 
 - src: http://github.com/websoft9dev/role_runtime
   version: master
-  
-- src: http://github.com/websoft9dev/role_runtime
-  version: master
 
 - src: http://github.com/websoft9dev/role_inotify_watch
   version: master
