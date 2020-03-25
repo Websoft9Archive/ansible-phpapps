@@ -48,10 +48,9 @@
     phpapps_title: "{{phpapps_meta[phpapps_selection].title}}"      
     phpapps_documentroot: "{{phpapps_meta[phpapps_selection].documentroot}}"
     phpapps_webs: "{{webs_select[webs_selection]}}"
-
+    runtime_name: "{{infrastructure_select[webs_selection]}}" 
     phpmyadmin_webs: "{{webs_select[webs_selection]}}" 
     w9panel_webs: "{{webs_select[webs_selection]}}" 
-    
     w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
     w9panel_set_apps: 
       - "{{phpapps_meta[phpapps_selection].title}}"
