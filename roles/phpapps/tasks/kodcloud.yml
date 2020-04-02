@@ -10,7 +10,7 @@
     kodcloud_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     kodcloud_name: "{{phpapps_name}}"
     kodcloud_title: "{{phpapps_title}}"
-    kodcloud_download_url: "http://static.kodcloud.com/update/download/kodexplorer4.40.zip"
+    kodcloud_download_url: "http://libs-websoft9-com.oss-accelerate.aliyuncs.com/apps/kodexplorer4.40.zip"
 
 - debug:
     msg: runtime {{ kodcloud_vhost_dir }}, {{kodcloud_vhost_src}}, {{kodcloud_service}}, {{kodcloud_owner}}, {{ansible_distribution}}
