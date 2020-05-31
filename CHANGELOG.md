@@ -20,5 +20,6 @@
 
 ### Features
 
+* 2020-02-17  new init password solution, need test
 * 2020-02-17  改写phpapps项目
 * 2020-02-16  修正为支持多Web服务器，多操作系统的语法格式
