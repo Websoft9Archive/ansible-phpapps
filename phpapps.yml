@@ -74,8 +74,6 @@
         admin: root
         users: "{{phpapps_name}}"
         password: "123456"  
-    
-    init_db: "{{ init_db_template | regex_replace('phpapps_name',phpapps_name) }}"
 
   pre_tasks:
   
