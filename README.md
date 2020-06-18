@@ -5,7 +5,7 @@
 
 本项目支持的一系列开源PHP应用，包括：  
 
-chanzhi,cmseasy,codiad,dolibarr,dreamfactory,dzzoffice,empirecms,espocrm,kodcloud,laravel,mantisbt,matomo,onethink,pydio,ranzhi,resourcespace,suitecrm,symfony,testlink,thinkcmf,thinkphp,vanilla,vtigercrm,zurmo,zdoo等
+[chanzhi,cmseasy,codiad,dolibarr,dreamfactory,dzzoffice,empirecms,espocrm,kodcloud,laravel,mantisbt,matomo,onethink,pydio,ranzhi,resourcespace,suitecrm,symfony,testlink,thinkcmf,thinkphp,vanilla,vtigercrm,zurmo,zdoo](/roles/phpapps/tasks)等
 
 对于更热门的PHP应用程序，我们为之开发了单独的项目
 
