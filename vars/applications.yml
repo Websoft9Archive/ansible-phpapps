@@ -204,7 +204,9 @@ phpapps_meta:
     phpver: "7.0"
     documentroot: ""
     config_paths: ""
-    commands: ""
+    commands:
+      - rm -rf /data/wwwroot/vtigercrm/test/templates_c/v7
+      - rm -rf /data/wwwroot/vtigercrm/cache/*
     
   'weengine':
     name: weengine
