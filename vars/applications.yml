@@ -5,7 +5,8 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "7.1"
     documentroot: "www"
-    config_path: ""
+    config_paths: ""
+    commands: ""
     
   'cmseasy':
     name: cmseasy
@@ -13,7 +14,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'codiad':
     name: codiad
@@ -21,7 +23,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "5.6"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'dolibarr':
     name: dolibarr
@@ -29,7 +32,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: "htdocs"
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'dreamfactory':
     name: dreamfactory
@@ -37,7 +41,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: "public"
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'dzzoffice':
     name: dzzoffice
@@ -45,7 +50,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'empirecms':
     name: empirecms
@@ -53,7 +59,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: "upload"
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'espocrm':
     name: espocrm
@@ -61,7 +68,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'kodcloud':
     name: kodcloud
@@ -69,7 +77,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'laravel':
     name: laravel
@@ -77,7 +86,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: "public"
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'mantisbt':
     name: mantisbt
@@ -85,7 +95,8 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "5.6"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'matomo':
     name: matomo
@@ -93,7 +104,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'onethink':
     name: onethink
@@ -101,7 +113,8 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "5.6"
     documentroot: "wwwroot"
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'pydio':
     name: pydio
@@ -109,7 +122,8 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "5.6"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'phpwind':
     name: phpwind
@@ -117,7 +131,8 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "5.6"
     documentroot: "upload"
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'resourcespace':
     name: resourcespace
@@ -125,7 +140,8 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "7.2"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'suitecrm':
     name: suitecrm
@@ -133,7 +149,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'symfony':
     name: symfony
@@ -141,7 +158,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: "public"
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'testlink':
     name: testlink
@@ -149,7 +167,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'thinkcmf':
     name: thinkcmf
@@ -157,7 +176,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: "public"
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'thinkphp':
     name: thinkphp
@@ -165,7 +185,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.2"
     documentroot: "public"
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'vanilla':
     name: vanilla
@@ -173,7 +194,8 @@ phpapps_meta:
     mysqlver: "5.7"
     phpver: "7.3"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'vtigercrm':
     name: vtigercrm
@@ -181,7 +203,8 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "7.0"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
     
   'weengine':
     name: weengine
@@ -189,7 +212,8 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "7.0"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'zdoo':
     name: zdoo
@@ -197,7 +221,8 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "7.2"
     documentroot: "www"
-    config_path: ""
+    config_paths: ""
+    commands: ""
 
   'zurmo':
     name: zurmo
@@ -205,4 +230,5 @@ phpapps_meta:
     mysqlver: "5.6"
     phpver: "5.6"
     documentroot: ""
-    config_path: ""
+    config_paths: ""
+    commands: ""
