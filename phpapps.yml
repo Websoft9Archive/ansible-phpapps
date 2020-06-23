@@ -47,7 +47,10 @@
     phpapps_name: "{{phpapps_meta[phpapps_selection].name}}"
     phpapps_title: "{{phpapps_meta[phpapps_selection].title}}"      
     phpapps_documentroot: "{{phpapps_meta[phpapps_selection].documentroot}}"
+    phpapps_config_paths: "{{phpapps_meta[phpapps_selection].config_paths}}"
+    phpapps_commands: "{{phpapps_meta[phpapps_selection].commands}}"
     phpapps_webs: "{{webs_select[webs_selection]}}"
+    
     # use filter to convert LAMP/LNMP to lamp/lnmp
     runtime_name: "{{infrastructure_select[webs_selection] | lower}}" 
     phpmyadmin_webs: "{{webs_select[webs_selection]}}" 
@@ -75,6 +78,7 @@
         users: ["{{phpapps_name}}"]
         password: "123456"
         config_paths: 
+        commands: 
 
   pre_tasks:
   
