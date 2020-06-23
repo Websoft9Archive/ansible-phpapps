@@ -63,13 +63,13 @@
     mysql_version: "{{phpapps_meta[phpapps_selection].mysqlver}}" 
     
     mysql_databases:
-    - name: "{{phpapps_name}}"
-      encoding: utf8
+      - name: "{{phpapps_name}}"
+        encoding: utf8
     
     mysql_users:
-    - name: "{{phpapps_name}}"
-      host: localhost
-      priv: '{{phpapps_name}}.*:ALL'
+      - name: "{{phpapps_name}}"
+        host: localhost
+        priv: '{{phpapps_name}}.*:ALL'
 
     # 初始化MySQL root密码
     init_db:
