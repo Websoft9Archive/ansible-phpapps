@@ -77,8 +77,8 @@
         admin: root
         users: ["{{phpapps_name}}"]
         password: "123456"
-        config_paths: 
-        commands: 
+        config_paths: "{{phpapps_config_paths}}"
+        commands: "{{phpapps_config_commands}}"
 
   pre_tasks:
   
