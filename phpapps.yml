@@ -79,7 +79,7 @@
         password: "123456"
         service_before: "php-fpm.service"
         config_paths: "{{phpapps_config_paths}}"
-        commands: "{{phpapps_config_commands}}"
+        commands: "{{phpapps_commands}}"
 
   pre_tasks:
   
