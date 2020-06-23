@@ -73,7 +73,8 @@
       mysql:
         admin: root
         users: ["{{phpapps_name}}"]
-        password: "123456"  
+        password: "123456"
+        config_paths: 
 
   pre_tasks:
   
