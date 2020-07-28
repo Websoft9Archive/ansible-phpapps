@@ -1,6 +1,8 @@
-#全局
+# Global
 region: "0"
+common_os_support: ["CentOS", "Amazon"]
 
-preend_certbot: True
-# MySQL默认密码
+apache_certbot: True
+nginx_certbot: True
+
 mysql_root_password: "123456"
