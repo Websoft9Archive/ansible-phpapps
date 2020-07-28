@@ -64,7 +64,6 @@
     
     mysql_databases:
       - name: "{{phpapps_name}}"
-        encoding: utf8
     
     mysql_users:
       - name: "{{phpapps_name}}"
