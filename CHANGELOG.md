@@ -17,5 +17,6 @@
 
 ### Features
 
+* 2020-08-15  Change to phpMyAdmin on Docker
 * 2020-02-20  new init password solution
 * 2020-02-17  created, support multi-os, multi-webserver
