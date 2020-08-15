@@ -33,5 +33,5 @@
   - name: Restart MySQL
     shell: systemctl restart mysqld
 
-  - name: Restart php
-    shell: systemctl restart php
+  - name: Restart php-fpm
+    shell: systemctl restart php-fpm
