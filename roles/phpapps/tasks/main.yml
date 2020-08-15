@@ -1,6 +1,6 @@
 ---
 #引入PHP运行环境元数据，并初始化
-- include_vars: roles/role_php-fpm/vars/php_runtime_meta.yml
+- include_vars: roles/role_php/vars/php_runtime_meta.yml
 
 #Modify var for this playbook
 - set_fact:
@@ -33,5 +33,5 @@
   - name: Restart MySQL
     shell: systemctl restart mysqld
 
-  - name: Restart php-fpm
-    shell: systemctl restart php-fpm
+  - name: Restart php
+    shell: systemctl restart php
