@@ -5,4 +5,5 @@ common_os_support: ["CentOS", "Amazon"]
 apache_certbot: True
 nginx_certbot: True
 
+mysql_remote: True
 mysql_root_password: "123456"
