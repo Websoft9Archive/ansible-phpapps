@@ -36,6 +36,6 @@
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{weengine_name}}" ]; then mv *{{weengine_name}}* {{weengine_name}}; fi
-
+ 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{weengine_vhost_src}} dest={{weengine_vhost_dir}}
