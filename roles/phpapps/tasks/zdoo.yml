@@ -13,7 +13,7 @@
     zdoo_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     zdoo_name: "{{phpapps_name}}"
     zdoo_title: "{{phpapps_title}}"
-    zdoo_download_url: "http://dl.cnezsoft.com/zdoo/6.0/zdoo.6.0.php7.1.zip"
+    zdoo_download_url: "https://www.zdoo.com/dl/zdoo.6.2.php7.1.zip"
 
 - debug:
     msg: runtime {{ zdoo_vhost_dir }}, {{zdoo_vhost_src}}, {{zdoo_service}}, {{zdoo_owner}}, {{ansible_distribution}}
