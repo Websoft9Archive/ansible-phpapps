@@ -13,7 +13,8 @@
     chanzhi_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     chanzhi_name: "{{phpapps_name}}"
     chanzhi_title: "{{phpapps_title}}"
-    chanzhi_download_url: "http://dl.cnezsoft.com/chanzhi/8.0/chanzhiEPS.8.0.php7.1.zip?v=20200227"
+    chanzhi_download_url: "https://www.zsite.com/dl/zsite.8.6.php7.1.zip"
+    #chanzhi_download_url: "http://dl.cnezsoft.com/chanzhi/8.0/chanzhiEPS.8.0.php7.1.zip?v=20200227"
 
 - debug:
     msg: runtime {{ chanzhi_vhost_dir }}, {{chanzhi_vhost_src}}, {{chanzhi_service}}, {{chanzhi_owner}}, {{ansible_distribution}}
