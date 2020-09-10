@@ -20,15 +20,25 @@
 # laravel
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{laravel_name}}*
+  
+- name: add user
+  shell: useradd laravel
+
+- name: Change mod
+  shell: chmod -R 777 /usr/bin/composer
 
 - name: Replace Composer repo.packagist to internal repo.packagist
   shell: composer config -g repo.packagist composer https://packagist.phpcomposer.com
+  become_user: laravel
+  become_method: su  
 
 - name: Install Laravel
   composer:
       command: create-project
       arguments: laravel/laravel
       working_dir: /data/wwwroot/
+  become_user: laravel
+  become_method: su
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{laravel_name}}" ]; then mv *{{laravel_name}}* {{laravel_name}}; fi
