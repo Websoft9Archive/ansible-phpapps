@@ -205,8 +205,8 @@ phpapps_meta:
     documentroot: ""
     config_paths: ""
     commands:
-      - rm -rf /data/wwwroot/vtigercrm/test/templates_c/v7
-      - rm -rf /data/wwwroot/vtigercrm/cache/*
+      - sudo rm -rf /data/wwwroot/vtigercrm/test/templates_c/v7
+      - sudo rm -rf /data/wwwroot/vtigercrm/cache/*
     
   'weengine':
     name: weengine
