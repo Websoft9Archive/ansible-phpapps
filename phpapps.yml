@@ -5,7 +5,7 @@
   become: yes
   become_method: sudo  
   vars_files:
-    - vars/applications.yml
+    - vars/main.yml
 
   vars_prompt:
     - name: 'phpapps_selection'
