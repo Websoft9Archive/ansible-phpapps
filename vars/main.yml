@@ -10,3 +10,240 @@ mysql_root_password: "123456"
 
 docker_applications:
   - phpmyadmin
+  
+phpapps_meta:
+  'chanzhi':
+    name: chanzhi
+    title: ChanZhi
+    mysqlver: "5.6"
+    phpver: "7.1"
+    documentroot: "www"
+    config_paths: ""
+    commands: ""
+    
+  'cmseasy':
+    name: cmseasy
+    title: CmsEasy
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'codiad':
+    name: codiad
+    title: Codiad
+    mysqlver: "5.7"
+    phpver: "5.6"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'dolibarr':
+    name: dolibarr
+    title: Dolibarr
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "htdocs"
+    config_paths: ""
+    commands: ""
+
+  'dreamfactory':
+    name: dreamfactory
+    title: DreamFactory
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "public"
+    config_paths: ""
+    commands: ""
+
+  'dzzoffice':
+    name: dzzoffice
+    title: DzzOffice
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'empirecms':
+    name: empirecms
+    title: EmpireCMS
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "upload"
+    config_paths: ""
+    commands: ""
+
+  'espocrm':
+    name: espocrm
+    title: Espocrm
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'kodcloud':
+    name: kodcloud
+    title: KodCloud
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'laravel':
+    name: laravel
+    title: Laravel
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "public"
+    config_paths: ""
+    commands: ""
+
+  'mantisbt':
+    name: mantisbt
+    title: Mantisbt
+    mysqlver: "5.6"
+    phpver: "5.6"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'matomo':
+    name: matomo
+    title: Matomo
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'onethink':
+    name: onethink
+    title: OneThink
+    mysqlver: "5.6"
+    phpver: "5.6"
+    documentroot: "wwwroot"
+    config_paths: ""
+    commands: ""
+
+  'pydio':
+    name: pydio
+    title: Pydio
+    mysqlver: "5.6"
+    phpver: "5.6"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'phpwind':
+    name: phpwind
+    title: PHPWind
+    mysqlver: "5.6"
+    phpver: "5.6"
+    documentroot: "upload"
+    config_paths: ""
+    commands: ""
+
+  'resourcespace':
+    name: resourcespace
+    title: ResourceSpace
+    mysqlver: "5.6"
+    phpver: "7.2"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'suitecrm':
+    name: suitecrm
+    title: SuiteCRM
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'symfony':
+    name: symfony
+    title: Symfony
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "public"
+    config_paths: ""
+    commands: ""
+
+  'testlink':
+    name: testlink
+    title: TestLink
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'thinkcmf':
+    name: thinkcmf
+    title: ThinkCMF
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "public"
+    config_paths: ""
+    commands: ""
+
+  'thinkphp':
+    name: thinkphp
+    title: ThinkPHP
+    mysqlver: "5.7"
+    phpver: "7.2"
+    documentroot: "public"
+    config_paths: ""
+    commands: ""
+
+  'vanilla':
+    name: vanilla
+    title: Vanilla
+    mysqlver: "5.7"
+    phpver: "7.3"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'vtigercrm':
+    name: vtigercrm
+    title: VtigerCRM
+    mysqlver: "5.6"
+    phpver: "7.0"
+    documentroot: ""
+    config_paths: ""
+    commands:
+      - sudo rm -rf /data/wwwroot/vtigercrm/test/templates_c/v7
+      - sudo rm -rf /data/wwwroot/vtigercrm/cache/*
+    
+  'weengine':
+    name: weengine
+    title: WeEngine
+    mysqlver: "5.6"
+    phpver: "7.0"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
+
+  'zdoo':
+    name: zdoo
+    title: Zdoo
+    mysqlver: "5.6"
+    phpver: "7.2"
+    documentroot: "www"
+    config_paths: ""
+    commands: ""
+
+  'zurmo':
+    name: zurmo
+    title: Zurmo
+    mysqlver: "5.6"
+    phpver: "5.6"
+    documentroot: ""
+    config_paths: ""
+    commands: ""
