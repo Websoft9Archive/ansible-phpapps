@@ -51,8 +51,6 @@
     phpapps_commands: "{{phpapps_meta[phpapps_selection].commands}}"
     phpapps_webs: "{{webs_select[webs_selection]}}"
     
-    # use filter to convert LAMP/LNMP to lamp/lnmp
-    runtime_name: "{{infrastructure_select[webs_selection] | lower}}" 
     w9panel_webs: "{{webs_select[webs_selection]}}" 
     w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
     w9panel_set_apps: 
@@ -66,7 +64,6 @@
     
     mysql_users:
       - name: "{{phpapps_name}}"
-        host: localhost
         priv: '{{phpapps_name}}.*:ALL'
 
     # 初始化MySQL root密码
