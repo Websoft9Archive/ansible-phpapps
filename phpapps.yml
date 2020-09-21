@@ -51,6 +51,8 @@
     phpapps_commands: "{{phpapps_meta[phpapps_selection].commands}}"
     phpapps_webs: "{{webs_select[webs_selection]}}"
     
+    php_ioncube: "{{ (phpapps_name == 'chanzhi' or phpapps_name == 'zdoo') | ternary(True,False) }}"
+    
     w9panel_webs: "{{webs_select[webs_selection]}}" 
     w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
     w9panel_set_apps: 
@@ -77,15 +79,9 @@
         commands: "{{phpapps_commands}}"
 
   pre_tasks:
-  
-    - include_vars: vars/special.yml
-      when: phpapps_name == 'chanzhi' or phpapps_name == 'zdoo'
       
     - debug: 
-        msg: Selected application is  {{phpapps_meta[phpapps_selection].name}}
-
-    - name: print init_application
-      debug: msg="{{ init_application }}"
+        msg: Selected application is  {{phpapps_name}}
 
   roles:
     - {role: role_common, tags: "role_common"}
