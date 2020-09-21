@@ -12,8 +12,8 @@
 
 ### Bug Fixes
 
+* 2020-09-21  php_ioncube: "{{ (phpapps_name == 'chanzhi' or phpapps_name == 'zdoo') | ternary(True,False) }}" replace include var
 * 2020-06-23  VtigerCRM制作镜像后初始化页面报错的问题
-* 2020-02-16  
 
 ### Features
 
