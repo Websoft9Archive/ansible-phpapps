@@ -9,7 +9,7 @@ mysql_remote: True
 mysql_root_password: "123456"
 
 docker_applications:
-  - phpmyadmin
+  - "{docker_applications_select}"
   
 phpapps_meta:
   'chanzhi':
