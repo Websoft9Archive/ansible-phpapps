@@ -52,7 +52,7 @@
     phpapps_webs: "{{webs_select[webs_selection]}}"
     
     php_ioncube: "{{ (phpapps_name == 'chanzhi' or phpapps_name == 'zdoo') | ternary(True,False) }}"
-    docker_applications: "{{ (phpapps_name == 'dzzoffice') | ternary('[phpmyadmin, onlyofficedocumentserver]','[phpmyadmin]') }}"
+    docker_applications_select: "{{ (phpapps_name == 'dzzoffice') | ternary('[phpmyadmin, onlyofficedocumentserver]','[phpmyadmin]') }}"
     
     w9panel_webs: "{{webs_select[webs_selection]}}" 
     w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
@@ -83,7 +83,7 @@
       
     - debug: 
         msg: Selected application is  {{phpapps_name}}
-        msg: Selected docker applications is  {{ [docker_applications] }}
+        msg:  Selected docker application is {{ [docker_applications] }}
         
   roles:
     - {role: role_common, tags: "role_common"}
