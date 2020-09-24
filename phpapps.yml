@@ -83,7 +83,7 @@
       
     - debug: 
         msg: Selected application is  {{phpapps_name}}
-        msg: Selected docker applications is  {{docker_applications}}
+        msg: Selected docker applications is  {{ [docker_applications] }}
         
   roles:
     - {role: role_common, tags: "role_common"}
