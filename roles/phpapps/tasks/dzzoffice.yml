@@ -13,7 +13,7 @@
     dzzoffice_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     dzzoffice_name: "{{phpapps_name}}"
     dzzoffice_title: "{{phpapps_title}}"
-    dzzoffice_download_url: "https://github.com/zyx0814/dzzoffice/archive/2.02.1.zip"
+    dzzoffice_download_url: "https://github.com/zyx0814/dzzoffice/archive/2.02.zip"
 
 - debug:
     msg: runtime {{ dzzoffice_vhost_dir }}, {{dzzoffice_vhost_src}}, {{dzzoffice_service}}, {{dzzoffice_owner}}, {{ansible_distribution}}
