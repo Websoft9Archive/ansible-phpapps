@@ -96,7 +96,7 @@ phpapps_meta:
     name: laravel
     title: Laravel
     mysqlver: "5.7"
-    phpver: "7.2"
+    phpver: "7.4"
     documentroot: "public"
     config_paths: ""
     commands: ""
