@@ -30,7 +30,7 @@
 - name: Copy Apache or Nginx vhost configuration
   template: src={{laravel_vhost_src}} dest={{laravel_vhost_dir}}
   
-- name: Write command to check version
+- name: Register command to check version
   shell: echo 'curl localhost |grep "Laravel v"'
   register: phpapps_version_cmd
   
