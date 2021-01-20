@@ -31,4 +31,6 @@
   template: src={{laravel_vhost_src}} dest={{laravel_vhost_dir}}
   
 - name: Write command to check version
-  shell: phpapp_version_cmd=${curl localhost |grep "Laravel v"}
+  shell: echo 'curl localhost |grep "Laravel v"'
+  register: phpapps_version_cmd
+  
