@@ -13,7 +13,6 @@
     laravel_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     laravel_name: "{{phpapps_name}}"
     laravel_title: "{{phpapps_title}}"
-    phpapps_version_cmd: 'curl localhost |grep "Laravel v"'
 
 - debug:
     msg: runtime {{ laravel_vhost_dir }}, {{laravel_vhost_src}}, {{laravel_service}}, {{laravel_owner}}, {{ansible_distribution}}
@@ -31,7 +30,7 @@
 - name: Copy Apache or Nginx vhost configuration
   template: src={{laravel_vhost_src}} dest={{laravel_vhost_dir}}
   
-# - name: Register command to check version
-#   shell: echo 'curl localhost |grep "Laravel v"'
-#   register: phpapps_version_cmd
+- name: Register command to check version
+  shell: echo 'curl localhost |grep "Laravel v"'
+  register: phpapps_version_cmd
   
