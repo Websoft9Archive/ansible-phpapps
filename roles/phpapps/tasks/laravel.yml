@@ -29,6 +29,3 @@
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{laravel_vhost_src}} dest={{laravel_vhost_dir}}
-  
-- name: Check Laravel version
-  shell: sudo echo $(curl localhost |grep "Laravel v") |sudo tee -a /data/logs/install_version.txt
