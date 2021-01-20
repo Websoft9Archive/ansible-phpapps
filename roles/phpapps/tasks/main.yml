@@ -8,6 +8,7 @@
     phpapps_vhost_src: "{{php_runtime_meta[ansible_os_family][phpapps_webs].vhost_src}}"
     phpapps_service: "{{php_runtime_meta[ansible_os_family][phpapps_webs].service}}"
     phpapps_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
+    phpapps_version_cmd: ""
 
 #输出即将安装的信息，并开始安装
 - debug:
