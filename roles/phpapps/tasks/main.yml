@@ -36,6 +36,6 @@
   - name: Restart php-fpm
     shell: systemctl restart php-fpm
 
-  - name: check {{phpapps_name}} version
-    shell: sudo echo "{{phpapps_name}}:" $(eval '{{phpapps_version_cmd.stdout}}')  |sudo tee -a /data/logs/install_version.txt
-    when: phpapps_version_cmd is defined and phpapps_version_cmd.stdout is not none
+- name: check {{phpapps_name}} version
+  shell: sudo echo "{{phpapps_name}}:" $(eval '{{phpapps_version_cmd.stdout}}')  |sudo tee -a /data/logs/install_version.txt
+  when: phpapps_version_cmd is defined and phpapps_version_cmd.stdout is not none
