@@ -93,7 +93,8 @@
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [resourcespace.yml](/roles/phpapps/tasks/resourcespace.yml) 中 ```resourcespace_version``` 变量对应的版本号。
 
 ### SuiteCRM
-1. 下载页面地址：http://suitecrm.com/download
+1. 下载页面地址：http://suitecrm.com/download。
+不要使用Github发布的地址，原因是这个Github上的源码还需要通过composer下拉外部依赖包，如果PHP环境没有安装 composer 或 composer 版本不符合要求，就会导致 SuiteCRM 无法安装
 2. 安装要求：https://docs.suitecrm.com/admin/installation-guide/downloading-installing/
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [suitecrm.yml](/roles/phpapps/tasks/suitecrm.yml) 中 ```suitecrm_version``` 变量对应的版本号。
 4. 特殊要求
