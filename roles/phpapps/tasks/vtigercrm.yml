@@ -60,3 +60,7 @@
 
 - name: Copy Apache or Nginx vhost configuration
   template: src={{vtigercrm_vhost_src}} dest={{vtigercrm_vhost_dir}}
+
+- name: Check vtigercrm version
+  shell: >
+    sudo echo $(cat /data/wwwroot/vtigercrm/vtigerversion.php  |grep vtiger_current_version |sed -n 1p) |sudo tee -a /data/logs/install_version.txt  
