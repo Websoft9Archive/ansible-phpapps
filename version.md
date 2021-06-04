@@ -62,8 +62,8 @@
 3. 如何更换安装版本：在下载页面找到源码下载地址，更换 [kodcloud.yml](/roles/phpapps/tasks/kodcloud.yml) 中 ```kodcloud_version``` 变量对应的版本号。
 
 ### Laravel
-1. 通过 composer 安装，无需下载源码，源码可在 GitHub 下载：https://github.com/laravel/laravel/releases
-2. 安装要求：https://laravel.com/docs/6.x
+1. 通过 composer 安装，无需下载源码，源码可在 GitHub 下载：https://github.com/Websoft9/ansible-phpapps/tags
+2. 安装要求：https://laravel.com/docs/8.x
 3. 如何更换安装版本：运行 ```composer update``` 命令
 
 ### MantisBT
