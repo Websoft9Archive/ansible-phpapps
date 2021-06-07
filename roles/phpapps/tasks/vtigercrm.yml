@@ -40,6 +40,9 @@
       block: |
         sql_mode = ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
 
+  - name: modify MySQL collation utf8_general_ci
+    shell: mysql -uroot -p123456 -e "ALTER DATABASE vtigercrm CHARACTER SET utf8 COLLATE utf8_general_ci;"
+
   - name: modify php configuration error_reporting
     lineinfile:
       path: /etc/php.ini
