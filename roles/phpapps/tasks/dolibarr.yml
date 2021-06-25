@@ -37,3 +37,10 @@
 # 原role中包含此步骤，待验证
 # - name: Change database Unicode
 #   shell: mysql -uroot -p123456 -e "ALTER DATABASE \`dolibarr\` CHARACTER SET utf8; "
+
+- name: Get dolibarr version
+  shell: echo {{dolibarr_download_url}} |awk -F / '{print $9}' 
+  register: dolibarr_ver
+
+- name: Check dolibarr version
+  shell: sudo echo "dolibarr version:" {{dolibarr_ver.stdout}} |tee -a /data/logs/install_version.txt
