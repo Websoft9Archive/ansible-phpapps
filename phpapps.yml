@@ -1,4 +1,3 @@
-## 部署
 ---
 - name: phpApps
   hosts: all
@@ -8,24 +7,6 @@
     - vars/main.yml
 
   vars_prompt:
-    - name: 'phpapps_selection'
-      prompt: "\nWhich application do you want to install? [ input application name... ] \n\n
-      chanzhi(need ioncube)      cmseasy(ok) \n
-      codiad(unavailable)      dolibarr(ok) \n
-      dreamfactory(ok)      dzzoffice(ok)\n
-      empirecms(ok)      espocrm(ok) \n
-      kodcloud(ok)      laravel(ok) \n
-      mantisbt(500 error)      matomo(ok) \n
-      onethink(error)      pydio(unavailable)    phpwind\n
-      resourcespace(unavailable)      suitecrm(ok) \n
-      symfony(ok)      testlink(unavailable)   \n
-      thinkphp(ok)        thinkcmf(ok) \n
-      vtigercrm(ok)         vanilla(unavailable)\n
-      weengine(ok)          zdoo(need ioncube) \n   
-      zurmo(unavailable)\n\n"
-      private: no
-      default: chanzhi
-    
     - name: 'webs_selection'
       prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
       1: Apache\n
@@ -33,7 +14,12 @@
       private: no
       default: 1
 
-
+    - name: 'phpapps_selection'
+      prompt: "\nWhich application do you want to install? [ input application name... ] \n\n
+      {{phpapps_meta[*].name}}\n\n"
+      private: no
+      default: chanzhi
+    
   vars:
     webs_select:
       '1': 'apache'
