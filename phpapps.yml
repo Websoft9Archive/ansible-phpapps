@@ -66,10 +66,10 @@
 
   pre_tasks:
     - set_fact: 
-     # Public variables
-      phpapps_webs: "{{webs_select[webs_selection]}}"          
-      w9panel_webs: "{{webs_select[webs_selection]}}" 
-      w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
+      # Public variables
+        phpapps_webs: "{{webs_select[webs_selection]}}"          
+        w9panel_webs: "{{webs_select[webs_selection]}}" 
+        w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
       
     - block: 
       - set_fact:
