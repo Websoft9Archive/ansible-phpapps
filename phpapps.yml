@@ -94,7 +94,7 @@
               priv: '{{phpapps_name}}.*:ALL'
 
           php_ioncube: "{{ (phpapps_name == 'chanzhi' or phpapps_name == 'zdoo') | ternary(True,False) }}"
-          docker_applications_select: "{{ (phpapps_name == 'dzzoffice') | ternary(['phpmyadmin','onlyofficedocumentserver'],['phpmyadmin']) }}"
+          docker_applications_select: "{{ (phpapps_name == 'dzzoffice') | ternary(['phpmyadmin','onlyofficedocs'],['phpmyadmin']) }}"
 
           init_db:
             mysql:
