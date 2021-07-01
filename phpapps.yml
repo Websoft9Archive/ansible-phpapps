@@ -65,34 +65,38 @@
       '6': "7.4"
 
   pre_tasks:
+    - set_fact: 
+     # Public variables
+      phpapps_webs: "{{webs_select[webs_selection]}}"          
+      w9panel_webs: "{{webs_select[webs_selection]}}" 
+      w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
+      
     - block: 
       - set_fact:
+      # apps variables
           php_version: "{{phpapps_meta[phpapps_selection].phpver}}" 
           phpapps_name: "{{phpapps_meta[phpapps_selection].name}}"
           phpapps_title: "{{phpapps_meta[phpapps_selection].title}}"      
           phpapps_documentroot: "{{phpapps_meta[phpapps_selection].documentroot}}"
           phpapps_config_paths: "{{phpapps_meta[phpapps_selection].config_paths}}"
           phpapps_commands: "{{phpapps_meta[phpapps_selection].commands}}"
-          phpapps_webs: "{{webs_select[webs_selection]}}"          
-          w9panel_webs: "{{webs_select[webs_selection]}}" 
-          w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
           w9panel_set_apps: 
             - "{{phpapps_meta[phpapps_selection].title}}"
 
-          # 生成应用数据库和用户
           mysql_version: "{{phpapps_meta[phpapps_selection].mysqlver}}" 
-          
+
           mysql_databases:
             - name: "{{phpapps_name}}"
-          
+
           mysql_users:
             - name: "{{phpapps_name}}"
               priv: '{{phpapps_name}}.*:ALL'
 
+      # apps second variables 
       - set_fact:
           php_ioncube: "{{ (phpapps_name == 'chanzhi' or phpapps_name == 'zdoo') | ternary(True,False) }}"
           docker_applications_select: "{{ (phpapps_name == 'dzzoffice') | ternary(['phpmyadmin','onlyofficedocumentserver'],['phpmyadmin']) }}"
-          # Initial MySQL root password
+
           init_db:
             mysql:
               admin: root
@@ -108,7 +112,8 @@
       when: phpapps_selection != ""
 
     - block: 
-      - set_fact: 
+      - set_fact:
+      # lamp or lnmp  variables
           mysql_version: "{{select_mysql_ver[mysql_choose]}}"
           php_version: "{{select_php_ver[php_choose]}}"
           docker_applications_select: 
