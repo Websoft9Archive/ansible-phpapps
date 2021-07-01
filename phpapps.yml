@@ -65,9 +65,9 @@
       '6': "7.4"
 
      # Public variables
-     phpapps_webs: "{{webs_select[webs_selection]}}"          
-     w9panel_webs: "{{webs_select[webs_selection]}}" 
-     w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
+    phpapps_webs: "{{webs_select[webs_selection]}}"          
+    w9panel_webs: "{{webs_select[webs_selection]}}" 
+    w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
 
   pre_tasks:
     - block: 
