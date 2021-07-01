@@ -1,5 +1,5 @@
 #需要安装的应用名称
-phpapps_name: "ranzhi"
+phpapps_name: ""
 
 #Web服务器：apache | nginx，通过交互式选择获取
 phpapps_webs: "apache"

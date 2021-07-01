@@ -16,9 +16,28 @@
 
     - name: 'phpapps_selection'
       prompt: "\nWhich application do you want to install? [ input application name... ] \n\n
-      {{phpapps_meta[*].name}}\n\n"
+      {{phpapps_meta.keys()|list |to_nice_json}}\n\n"
       private: no
-      default: chanzhi
+
+    - name: 'php_choose'
+      prompt: "Choose serial number to install PHP \n
+      1: PHP 5.6\n
+      2: PHP 7.0\n
+      3: PHP 7.1\n
+      4: PHP 7.2\n
+      5: PHP 7.3\n
+      6: PHP 7.4\n"
+      private: no
+      default: 4
+
+    - name: 'mysql_choose'
+      prompt: "Choose serial number to install MySQL \n
+      1: MySQL 5.5(only for CentOS7.x, AmazonLinux)\n
+      2: MySQL 5.6\n
+      3: MySQL 5.7\n
+      4: MySQL 8.0\n"
+      private: no
+      default: 3
     
   vars:
     webs_select:
@@ -29,46 +48,76 @@
       '1': 'LAMP'
       '2': 'LNMP'
 
-    php_version: "{{phpapps_meta[phpapps_selection].phpver}}" 
-    phpapps_name: "{{phpapps_meta[phpapps_selection].name}}"
-    phpapps_title: "{{phpapps_meta[phpapps_selection].title}}"      
-    phpapps_documentroot: "{{phpapps_meta[phpapps_selection].documentroot}}"
-    phpapps_config_paths: "{{phpapps_meta[phpapps_selection].config_paths}}"
-    phpapps_commands: "{{phpapps_meta[phpapps_selection].commands}}"
-    phpapps_webs: "{{webs_select[webs_selection]}}"
-    
-    php_ioncube: "{{ (phpapps_name == 'chanzhi' or phpapps_name == 'zdoo') | ternary(True,False) }}"
-    docker_applications_select: "{{ (phpapps_name == 'dzzoffice') | ternary(['phpmyadmin','onlyofficedocumentserver'],['phpmyadmin']) }}"
-    
-    w9panel_webs: "{{webs_select[webs_selection]}}" 
-    w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
-    w9panel_set_apps: 
-      - "{{phpapps_meta[phpapps_selection].title}}"
+    select_mysql_ver:
+      '1': "5.5"
+      '2': "5.6"
+      '3': "5.7"
+      '4': "8.0"
 
-    # 生成应用数据库和用户
-    mysql_version: "{{phpapps_meta[phpapps_selection].mysqlver}}" 
-    
-    mysql_databases:
-      - name: "{{phpapps_name}}"
-    
-    mysql_users:
-      - name: "{{phpapps_name}}"
-        priv: '{{phpapps_name}}.*:ALL'
-
-    # 初始化MySQL root密码
-    init_db:
-      mysql:
-        admin: root
-        users: ["{{phpapps_name}}"]
-        password: "123456"
-        service_before: "php-fpm.service"
-        config_paths: "{{phpapps_config_paths}}"
-        commands: "{{phpapps_commands}}"
+    select_php_ver:
+      '1': "5.6"
+      '2': "7.0"
+      '3': "7.1"
+      '4': "7.2"
+      '5': "7.3"
+      '6': "7.4"
 
   pre_tasks:
+    - block: 
+      - set_fact:
+          php_version: "{{phpapps_meta[phpapps_selection].phpver}}" 
+          phpapps_name: "{{phpapps_meta[phpapps_selection].name}}"
+          phpapps_title: "{{phpapps_meta[phpapps_selection].title}}"      
+          phpapps_documentroot: "{{phpapps_meta[phpapps_selection].documentroot}}"
+          phpapps_config_paths: "{{phpapps_meta[phpapps_selection].config_paths}}"
+          phpapps_commands: "{{phpapps_meta[phpapps_selection].commands}}"
+          phpapps_webs: "{{webs_select[webs_selection]}}"
+          
+          php_ioncube: "{{ (phpapps_name == 'chanzhi' or phpapps_name == 'zdoo') | ternary(True,False) }}"
+          docker_applications_select: "{{ (phpapps_name == 'dzzoffice') | ternary(['phpmyadmin','onlyofficedocumentserver'],['phpmyadmin']) }}"
+          
+          w9panel_webs: "{{webs_select[webs_selection]}}" 
+          w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
+          w9panel_set_apps: 
+            - "{{phpapps_meta[phpapps_selection].title}}"
+
+          # 生成应用数据库和用户
+          mysql_version: "{{phpapps_meta[phpapps_selection].mysqlver}}" 
+          
+          mysql_databases:
+            - name: "{{phpapps_name}}"
+          
+          mysql_users:
+            - name: "{{phpapps_name}}"
+              priv: '{{phpapps_name}}.*:ALL'
+
+          # 初始化MySQL root密码
+          init_db:
+            mysql:
+              admin: root
+              users: ["{{phpapps_name}}"]
+              password: "123456"
+              service_before: "php-fpm.service"
+              config_paths: "{{phpapps_config_paths}}"
+              commands: "{{phpapps_commands}}"
+
+      - debug: 
+          msg: Selected application is {{phpapps_name}}
       
-    - debug: 
-        msg: Selected application is  {{phpapps_name}}
+      when: phpapps_selection != ""
+
+    - block: 
+      - set_fact: 
+          mysql_version: "{{select_mysql_ver[mysql_choose]}}"
+          php_version: "{{select_php_ver[php_choose]}}"
+          docker_applications: 
+            - phpmyadmin
+
+      when: phpapps_selection == ""
+
+    - debug:
+        msg: "{{w9panel_set_infrastructure}} will be installed, PHP version is {{php_version}}, Mysql version is {{mysql_version}}"
+
     - debug:
         msg: '{{item}}'
       with_items: '{{docker_applications}}'
@@ -84,7 +133,7 @@
     - {role: role_docker, tags: "role_docker"}
     - {role: role_9panel, tags: "role_9panel"}
     - {role: role_redis, tags: "role_redis"}
-    - {role: phpapps, tags: "phpapps"}
+    - {role: phpapps, tags: "phpapps", when: phpapps_selection != ""}
     - {role: role_init, tags: "role_init"}
     - {role: role_preend, tags: "role_preend"}
     - {role: role_end, tags: "role_end"}
