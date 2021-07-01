@@ -37,7 +37,7 @@
     - name: 'phpapps_selection'
       prompt: "\nWhich application do you want to install?\n\n
       {{phpapps_meta.keys()|list |to_nice_json}}\n\n
-      [ Install application] or [not Install ]\n\n
+      [ Install application ] or [ not Install ]\n\n
       [ Input application name ] or [ Press enter key ]"
       private: no
 
