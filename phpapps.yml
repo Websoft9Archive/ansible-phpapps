@@ -14,11 +14,6 @@
       private: no
       default: 1
 
-    - name: 'phpapps_selection'
-      prompt: "\nWhich application do you want to install? [ input application name... ] \n\n
-      {{phpapps_meta.keys()|list |to_nice_json}}\n\n"
-      private: no
-
     - name: 'php_choose'
       prompt: "Choose serial number to install PHP \n
       1: PHP 5.6\n
@@ -38,7 +33,13 @@
       4: MySQL 8.0\n"
       private: no
       default: 3
-    
+
+    - name: 'phpapps_selection'
+      prompt: "\nWhich application do you want to install?\n\n
+      {{phpapps_meta.keys()|list |to_nice_json}}\n\n
+      [ input application name install application] or [enter ] "
+      private: no
+
   vars:
     webs_select:
       '1': 'apache'
@@ -71,11 +72,7 @@
           phpapps_documentroot: "{{phpapps_meta[phpapps_selection].documentroot}}"
           phpapps_config_paths: "{{phpapps_meta[phpapps_selection].config_paths}}"
           phpapps_commands: "{{phpapps_meta[phpapps_selection].commands}}"
-          phpapps_webs: "{{webs_select[webs_selection]}}"
-          
-          php_ioncube: "{{ (phpapps_name == 'chanzhi' or phpapps_name == 'zdoo') | ternary(True,False) }}"
-          docker_applications_select: "{{ (phpapps_name == 'dzzoffice') | ternary(['phpmyadmin','onlyofficedocumentserver'],['phpmyadmin']) }}"
-          
+          phpapps_webs: "{{webs_select[webs_selection]}}"          
           w9panel_webs: "{{webs_select[webs_selection]}}" 
           w9panel_set_infrastructure: "{{infrastructure_select[webs_selection]}}" 
           w9panel_set_apps: 
@@ -91,7 +88,10 @@
             - name: "{{phpapps_name}}"
               priv: '{{phpapps_name}}.*:ALL'
 
-          # 初始化MySQL root密码
+      - set_fact:
+          php_ioncube: "{{ (phpapps_name == 'chanzhi' or phpapps_name == 'zdoo') | ternary(True,False) }}"
+          docker_applications_select: "{{ (phpapps_name == 'dzzoffice') | ternary(['phpmyadmin','onlyofficedocumentserver'],['phpmyadmin']) }}"
+          # Initial MySQL root password
           init_db:
             mysql:
               admin: root
@@ -102,24 +102,24 @@
               commands: "{{phpapps_commands}}"
 
       - debug: 
-          msg: Selected application is {{phpapps_name}}
-      
+          msg: Selected application is {{phpapps_name}}, Web app is {{w9panel_webs}}, PHP version is {{php_version}}, Mysql version is {{mysql_version}}
+        
       when: phpapps_selection != ""
 
     - block: 
       - set_fact: 
           mysql_version: "{{select_mysql_ver[mysql_choose]}}"
           php_version: "{{select_php_ver[php_choose]}}"
-          docker_applications: 
+          docker_applications_select: 
             - phpmyadmin
+
+      - debug:
+          msg: "{{w9panel_set_infrastructure}} will be installed, PHP version is {{php_version}}, Mysql version is {{mysql_version}}"
 
       when: phpapps_selection == ""
 
     - debug:
-        msg: "{{w9panel_set_infrastructure}} will be installed, PHP version is {{php_version}}, Mysql version is {{mysql_version}}"
-
-    - debug:
-        msg: '{{item}}'
+        msg: 'docker applications is {{item}}'
       with_items: '{{docker_applications}}'
         
   roles:
