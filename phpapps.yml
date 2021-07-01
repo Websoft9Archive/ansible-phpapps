@@ -83,7 +83,9 @@
             - "{{phpapps_meta[phpapps_selection].title}}"
 
           mysql_version: "{{phpapps_meta[phpapps_selection].mysqlver}}" 
-
+          
+      # apps second variables 
+      - set_fact:
           mysql_databases:
             - name: "{{phpapps_name}}"
 
@@ -91,8 +93,6 @@
             - name: "{{phpapps_name}}"
               priv: '{{phpapps_name}}.*:ALL'
 
-      # apps second variables 
-      - set_fact:
           php_ioncube: "{{ (phpapps_name == 'chanzhi' or phpapps_name == 'zdoo') | ternary(True,False) }}"
           docker_applications_select: "{{ (phpapps_name == 'dzzoffice') | ternary(['phpmyadmin','onlyofficedocumentserver'],['phpmyadmin']) }}"
 
