@@ -8,37 +8,36 @@
 
   vars_prompt:
     - name: 'webs_selection'
-      prompt: "\nWhich Web-Server do you want to use? [ 1/2 ] \n\n
+      prompt: "\nChoose serial number to install Web-Server? [ 1/2 ] \n\n
       1: Apache\n
       2: Nginx\n\n"
       private: no
       default: 1
 
     - name: 'php_choose'
-      prompt: "Choose serial number to install PHP \n
+      prompt: "\nChoose serial number to install PHP [ 1/2/../6 ]\n\n
       1: PHP 5.6\n
       2: PHP 7.0\n
       3: PHP 7.1\n
       4: PHP 7.2\n
       5: PHP 7.3\n
-      6: PHP 7.4\n"
+      6: PHP 7.4\n\n"
       private: no
       default: 4
 
     - name: 'mysql_choose'
-      prompt: "Choose serial number to install MySQL \n
+      prompt: "\nChoose serial number to install MySQL [ 1/2/../4 ] \n\n
       1: MySQL 5.5(only for CentOS7.x, AmazonLinux)\n
       2: MySQL 5.6\n
       3: MySQL 5.7\n
-      4: MySQL 8.0\n"
+      4: MySQL 8.0\n\n"
       private: no
       default: 3
 
     - name: 'phpapps_selection'
-      prompt: "\nWhich application do you want to install?\n\n
-      {{phpapps_meta.keys()|list |to_nice_json}}\n\n
-      [ Install application ] or [ not Install ]\n\n
-      [ Input application name ] or [ Press enter key ]"
+      prompt: "\nYou can install or not install one of below applicatons\n\n
+      {{phpapps_meta.keys()|list |to_nice_yaml}}\n\n
+      Input application name or press Enter directly for no application"
       private: no
 
   vars:
