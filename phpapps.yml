@@ -118,6 +118,11 @@
           docker_applications_select: 
             - phpmyadmin
 
+          init_db: 
+            mysql:
+              admin: root
+              password: "123456"
+
       - debug:
           msg: "{{w9panel_set_infrastructure}} will be installed, PHP version is {{php_version}}, Mysql version is {{mysql_version}}"
 
