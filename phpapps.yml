@@ -36,7 +36,7 @@
 
     - name: 'phpapps_selection'
       prompt: "\nYou can install or not install one of below applicatons\n
-      \r{{phpapps_meta.keys()|list |to_nice_yaml}}\n\n
+      \r{{phpapps_meta.keys()|list |to_nice_yaml}}\n
       Input application name or press Enter directly for no application"
       private: no
 
