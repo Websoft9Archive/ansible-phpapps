@@ -39,7 +39,7 @@
 #   shell: mysql -uroot -p123456 -e "ALTER DATABASE \`dolibarr\` CHARACTER SET utf8; "
 
 - name: Get dolibarr version
-  shell: echo {{dolibarr_download_url}} |awk -F / '{print $9}' | sed -i 's/....$//'
+  shell: echo {{dolibarr_download_url}} |awk -F / '{print $9}' | sed 's/....$//'
   register: dolibarr_ver
 
 - name: Check dolibarr version
