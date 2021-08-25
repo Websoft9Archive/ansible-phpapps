@@ -13,8 +13,8 @@
     vtigercrm_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     vtigercrm_name: "{{phpapps_name}}"
     vtigercrm_title: "{{phpapps_title}}"
-    vtigercrm_download_url: "https://master.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.3.0/Core%20Product/vtigercrm7.3.0.tar.gz"
-
+    vtigercrm_download_url: "https://udomain.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.4.0/Core%20Product/vtigercrm7.4.0.tar.gz"
+    
 - debug:
     msg: runtime {{ vtigercrm_vhost_dir }}, {{vtigercrm_vhost_src}}, {{vtigercrm_service}}, {{vtigercrm_owner}}, }, {{ansible_distribution}}
 
