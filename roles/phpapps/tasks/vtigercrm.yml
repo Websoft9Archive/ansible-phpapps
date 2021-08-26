@@ -13,18 +13,21 @@
     vtigercrm_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     vtigercrm_name: "{{phpapps_name}}"
     vtigercrm_title: "{{phpapps_title}}"
-    vtigercrm_download_url: "https://sourceforge.net/projects/vtigercrm/files/vtiger%20CRM%207.4.0/Core%20Product/vtigercrm7.4.0.tar.gz"
-    
+    vtigercrm_download_url: "https://udomain.dl.sourceforge.net/project/vtigercrm/vtiger%20CRM%207.4.0/Core%20Product/vtigercrm7.4.0.tar.gz"
+
 - debug:
     msg: runtime {{ vtigercrm_vhost_dir }}, {{vtigercrm_vhost_src}}, {{vtigercrm_service}}, {{vtigercrm_owner}}, }, {{ansible_distribution}}
 
 # vtigercrm
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{vtigercrm_name}}*
-  
+
+- name: wget rul
+  shell: wget -O /data/wwwroot/Vtigercrm.tar.gz "{{vtigercrm_download_url}}"
+
 - name: Download VtigerCRM
   unarchive:
-    src: "{{ vtigercrm_download_url }}"
+    src: /data/wwwroot/Vtigercrm.tar.gz
     dest: /data/wwwroot
     remote_src: yes
 
