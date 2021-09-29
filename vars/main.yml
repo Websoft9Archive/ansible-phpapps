@@ -195,7 +195,7 @@ phpapps_meta:
     name: thinkphp
     title: ThinkPHP
     mysqlver: "5.7"
-    phpver: "7.2"
+    phpver: "7.4"
     documentroot: "public"
     config_paths: ""
     commands: ""
