@@ -13,7 +13,7 @@
     dolibarr_owner: "{{php_runtime_meta[ansible_os_family][phpapps_webs].owner}}"
     dolibarr_name: "{{phpapps_name}}"
     dolibarr_title: "{{phpapps_title}}"
-    dolibarr_download_url: "https://github.com/Dolibarr/dolibarr/archive/refs/tags/13.0.3.zip"
+    dolibarr_download_url: "https://github.com/Dolibarr/dolibarr/archive/refs/tags/14.0.3.zip"
 
 - debug:
     msg: runtime {{ dolibarr_vhost_dir }}, {{dolibarr_vhost_src}}, {{dolibarr_service}}, {{dolibarr_owner}}, {{ansible_distribution}}
