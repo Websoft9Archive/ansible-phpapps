@@ -15,8 +15,8 @@
     suitecrm_title: "{{phpapps_title}}"
     # 不要使用Github发布的地址，原因是这个Github上的源码还需要通过composer下拉外部依赖包，如果PHP环境没有安装 composer 或 composer 版本不符合要求，就会导致 SuiteCRM 无法安装
     #suitecrm_download_url: "https://suitecrm.com/files/162/SuiteCRM-7.11/525/SuiteCRM-7.11.18.zip"
-    suitecrm_download_url: "https://udomain.dl.sourceforge.net/project/suitecrm/SuiteCRM-7.11.19.zip"
-                            
+    suitecrm_download_url: "https://udomain.dl.sourceforge.net/project/suitecrm/SuiteCRM-8.0.0.zip"
+
 - debug:
     msg: runtime {{ suitecrm_vhost_dir }}, {{suitecrm_vhost_src}}, {{suitecrm_service}}, {{suitecrm_owner}}, {{ansible_distribution}}
 
