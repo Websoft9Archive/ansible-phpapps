@@ -160,7 +160,7 @@ phpapps_meta:
     title: SuiteCRM
     mysqlver: "5.7"
     phpver: "7.2"
-    documentroot: ""
+    documentroot: "public"
     config_paths: ""
     commands: ""
 
