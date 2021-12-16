@@ -30,7 +30,7 @@
 - name: Download {{suitecrm_name}} from {{ suitecrm_download_url }}
   unarchive:
     src: "{{ suitecrm_download_url }}"
-    dest: /data/wwwroot
+    dest: /data/wwwroot/{{suitecrm_name}}
     remote_src: yes
 
 - name: Rename dir name
