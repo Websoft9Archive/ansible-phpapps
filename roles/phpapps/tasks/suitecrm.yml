@@ -23,6 +23,9 @@
 # suitecrm
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{suitecrm_name}}*
+  
+- name: create app dir
+  shell: mkdir /data/wwwroot/{{suitecrm_name}}
  
 - name: Download {{suitecrm_name}} from {{ suitecrm_download_url }}
   unarchive:
