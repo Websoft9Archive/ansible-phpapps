@@ -23,12 +23,18 @@
 # suitecrm
 - name: Remove extra dir
   shell: rm -rf /data/wwwroot/*{{suitecrm_name}}*
+
+- name: Create app directory 
+  file:
+    path: /data/wwwroot/{{suitecrm_name}}
+    state: directory
  
 - name: Download {{suitecrm_name}} from {{ suitecrm_download_url }}
   unarchive:
     src: "{{ suitecrm_download_url }}"
     dest: /data/wwwroot
     remote_src: yes
+    validate_certs: no
 
 - name: Rename dir name
   shell: cd /data/wwwroot; if [ ! -d "{{suitecrm_name}}" ]; then mv *SuiteCRM* {{suitecrm_name}}; fi
