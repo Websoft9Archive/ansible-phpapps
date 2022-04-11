@@ -24,7 +24,7 @@ phpapps_meta:
     name: cmseasy
     title: CmsEasy
     mysqlver: "5.7"
-    phpver: "7.2"
+    phpver: "7.4"
     documentroot: ""
     config_paths: ""
     commands: ""
